@@ -1,0 +1,22 @@
+E:\UBIT\DBPR\DBproject\DBproject\bin\Debug\DBproject.exe.config
+E:\UBIT\DBPR\DBproject\DBproject\bin\Debug\DBproject.exe
+E:\UBIT\DBPR\DBproject\DBproject\bin\Debug\DBproject.pdb
+E:\UBIT\DBPR\DBproject\DBproject\bin\Debug\FlatButton.dll
+E:\UBIT\DBPR\DBproject\DBproject\bin\Debug\JDragControl.dll
+E:\UBIT\DBPR\DBproject\DBproject\bin\Debug\JGradient Panel.dll
+E:\UBIT\DBPR\DBproject\DBproject\bin\Debug\JImageButton.dll
+E:\UBIT\DBPR\DBproject\DBproject\bin\Debug\JMaterialTextbox.dll
+E:\UBIT\DBPR\DBproject\DBproject\bin\Debug\JMetroTextBox.dll
+E:\UBIT\DBPR\DBproject\DBproject\bin\Debug\JTextBox.dll
+E:\UBIT\DBPR\DBproject\DBproject\bin\Debug\JTextBox2.dll
+E:\UBIT\DBPR\DBproject\DBproject\bin\Debug\JThinButton.dll
+E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.csprojAssemblyReference.cache
+E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.Properties.Resources.resources
+E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.Views.SignUp.resources
+E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.csproj.GenerateResource.cache
+E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.csproj.CoreCompileInputs.cache
+E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.csproj.CopyComplete
+E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.exe
+E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.pdb
+E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.Form1.resources
+E:\UBIT\DBPR\DBproject\DBproject\bin\Debug\XanderUI.dll
