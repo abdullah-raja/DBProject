@@ -20,3 +20,15 @@ E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.exe
 E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.pdb
 E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.Form1.resources
 E:\UBIT\DBPR\DBproject\DBproject\bin\Debug\XanderUI.dll
+C:\Users\Sarim\Desktop\DbProject\DBProject\bin\Debug\DBproject.exe.config
+C:\Users\Sarim\Desktop\DbProject\DBProject\bin\Debug\DBproject.exe
+C:\Users\Sarim\Desktop\DbProject\DBProject\bin\Debug\DBproject.pdb
+C:\Users\Sarim\Desktop\DbProject\DBProject\obj\Debug\DBproject.csprojAssemblyReference.cache
+C:\Users\Sarim\Desktop\DbProject\DBProject\obj\Debug\DBproject.Form1.resources
+C:\Users\Sarim\Desktop\DbProject\DBProject\obj\Debug\DBproject.Properties.Resources.resources
+C:\Users\Sarim\Desktop\DbProject\DBProject\obj\Debug\DBproject.Views.SignUp.resources
+C:\Users\Sarim\Desktop\DbProject\DBProject\obj\Debug\DBproject.csproj.GenerateResource.cache
+C:\Users\Sarim\Desktop\DbProject\DBProject\obj\Debug\DBproject.csproj.CoreCompileInputs.cache
+C:\Users\Sarim\Desktop\DbProject\DBProject\obj\Debug\DBproject.csproj.CopyComplete
+C:\Users\Sarim\Desktop\DbProject\DBProject\obj\Debug\DBproject.exe
+C:\Users\Sarim\Desktop\DbProject\DBProject\obj\Debug\DBproject.pdb
