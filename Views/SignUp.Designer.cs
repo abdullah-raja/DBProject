@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignUp));
             this.xuiGradientPanel1 = new XanderUI.XUIGradientPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.signUpPanel = new System.Windows.Forms.Panel();
             this.signUpTitle = new System.Windows.Forms.Label();
             this.gotoLoginButton = new System.Windows.Forms.Label();
             this.AlreadyLabel = new System.Windows.Forms.Label();
@@ -49,7 +49,18 @@
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.NameLabel = new System.Windows.Forms.Label();
             this.exitButton = new XanderUI.XUIButton();
-            this.panel1.SuspendLayout();
+            this.loginPanel = new System.Windows.Forms.Panel();
+            this.userNameTextLogin = new System.Windows.Forms.TextBox();
+            this.userNameLabel = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.passwordLabelLogin = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.keepSignedIn = new System.Windows.Forms.CheckBox();
+            this.loginButton = new XanderUI.XUIButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.gotoSignUpButton = new System.Windows.Forms.Label();
+            this.signUpPanel.SuspendLayout();
+            this.loginPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // xuiGradientPanel1
@@ -67,31 +78,32 @@
             this.xuiGradientPanel1.TopRight = System.Drawing.Color.Brown;
             this.xuiGradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.xuiGradientPanel1_Paint);
             // 
-            // panel1
+            // signUpPanel
             // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.signUpTitle);
-            this.panel1.Controls.Add(this.gotoLoginButton);
-            this.panel1.Controls.Add(this.AlreadyLabel);
-            this.panel1.Controls.Add(this.signUpButton);
-            this.panel1.Controls.Add(this.AsLabel);
-            this.panel1.Controls.Add(this.memebrRadio);
-            this.panel1.Controls.Add(this.adminRadio);
-            this.panel1.Controls.Add(this.confirmPasswordTextBox);
-            this.panel1.Controls.Add(this.confirmPasswordLabel);
-            this.panel1.Controls.Add(this.passwordTextBox);
-            this.panel1.Controls.Add(this.passwordLabel);
-            this.panel1.Controls.Add(this.mobileTextBox);
-            this.panel1.Controls.Add(this.mobileLabel);
-            this.panel1.Controls.Add(this.emailTextBox);
-            this.panel1.Controls.Add(this.emailLabel);
-            this.panel1.Controls.Add(this.nameTextBox);
-            this.panel1.Controls.Add(this.NameLabel);
-            this.panel1.Location = new System.Drawing.Point(390, 67);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(675, 528);
-            this.panel1.TabIndex = 1;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.signUpPanel.BackColor = System.Drawing.Color.Transparent;
+            this.signUpPanel.Controls.Add(this.signUpTitle);
+            this.signUpPanel.Controls.Add(this.gotoLoginButton);
+            this.signUpPanel.Controls.Add(this.AlreadyLabel);
+            this.signUpPanel.Controls.Add(this.signUpButton);
+            this.signUpPanel.Controls.Add(this.AsLabel);
+            this.signUpPanel.Controls.Add(this.memebrRadio);
+            this.signUpPanel.Controls.Add(this.adminRadio);
+            this.signUpPanel.Controls.Add(this.confirmPasswordTextBox);
+            this.signUpPanel.Controls.Add(this.confirmPasswordLabel);
+            this.signUpPanel.Controls.Add(this.passwordTextBox);
+            this.signUpPanel.Controls.Add(this.passwordLabel);
+            this.signUpPanel.Controls.Add(this.mobileTextBox);
+            this.signUpPanel.Controls.Add(this.mobileLabel);
+            this.signUpPanel.Controls.Add(this.emailTextBox);
+            this.signUpPanel.Controls.Add(this.emailLabel);
+            this.signUpPanel.Controls.Add(this.nameTextBox);
+            this.signUpPanel.Controls.Add(this.NameLabel);
+            this.signUpPanel.Location = new System.Drawing.Point(390, 67);
+            this.signUpPanel.Name = "signUpPanel";
+            this.signUpPanel.Size = new System.Drawing.Size(675, 528);
+            this.signUpPanel.TabIndex = 1;
+            this.signUpPanel.Visible = false;
+            this.signUpPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // signUpTitle
             // 
@@ -110,11 +122,12 @@
             this.gotoLoginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gotoLoginButton.ForeColor = System.Drawing.Color.DarkRed;
-            this.gotoLoginButton.Location = new System.Drawing.Point(215, 447);
+            this.gotoLoginButton.Location = new System.Drawing.Point(237, 447);
             this.gotoLoginButton.Name = "gotoLoginButton";
             this.gotoLoginButton.Size = new System.Drawing.Size(53, 20);
             this.gotoLoginButton.TabIndex = 20;
             this.gotoLoginButton.Text = "Login";
+            this.gotoLoginButton.Click += new System.EventHandler(this.gotoLoginButton_Click);
             // 
             // AlreadyLabel
             // 
@@ -314,13 +327,140 @@
             this.exitButton.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
+            // loginPanel
+            // 
+            this.loginPanel.Controls.Add(this.gotoSignUpButton);
+            this.loginPanel.Controls.Add(this.label2);
+            this.loginPanel.Controls.Add(this.loginButton);
+            this.loginPanel.Controls.Add(this.keepSignedIn);
+            this.loginPanel.Controls.Add(this.label1);
+            this.loginPanel.Controls.Add(this.textBox1);
+            this.loginPanel.Controls.Add(this.passwordLabelLogin);
+            this.loginPanel.Controls.Add(this.userNameTextLogin);
+            this.loginPanel.Controls.Add(this.userNameLabel);
+            this.loginPanel.Location = new System.Drawing.Point(393, 59);
+            this.loginPanel.Name = "loginPanel";
+            this.loginPanel.Size = new System.Drawing.Size(687, 452);
+            this.loginPanel.TabIndex = 3;
+            // 
+            // userNameTextLogin
+            // 
+            this.userNameTextLogin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.userNameTextLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userNameTextLogin.ForeColor = System.Drawing.Color.Black;
+            this.userNameTextLogin.Location = new System.Drawing.Point(31, 124);
+            this.userNameTextLogin.Name = "userNameTextLogin";
+            this.userNameTextLogin.Size = new System.Drawing.Size(300, 29);
+            this.userNameTextLogin.TabIndex = 8;
+            // 
+            // userNameLabel
+            // 
+            this.userNameLabel.AutoSize = true;
+            this.userNameLabel.BackColor = System.Drawing.Color.Transparent;
+            this.userNameLabel.ForeColor = System.Drawing.Color.DarkRed;
+            this.userNameLabel.Location = new System.Drawing.Point(31, 91);
+            this.userNameLabel.Name = "userNameLabel";
+            this.userNameLabel.Size = new System.Drawing.Size(100, 19);
+            this.userNameLabel.TabIndex = 7;
+            this.userNameLabel.Text = "User Name:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.Color.Black;
+            this.textBox1.Location = new System.Drawing.Point(350, 124);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.PasswordChar = '*';
+            this.textBox1.Size = new System.Drawing.Size(300, 29);
+            this.textBox1.TabIndex = 10;
+            // 
+            // passwordLabelLogin
+            // 
+            this.passwordLabelLogin.AutoSize = true;
+            this.passwordLabelLogin.BackColor = System.Drawing.Color.Transparent;
+            this.passwordLabelLogin.ForeColor = System.Drawing.Color.DarkRed;
+            this.passwordLabelLogin.Location = new System.Drawing.Point(350, 91);
+            this.passwordLabelLogin.Name = "passwordLabelLogin";
+            this.passwordLabelLogin.Size = new System.Drawing.Size(90, 19);
+            this.passwordLabelLogin.TabIndex = 9;
+            this.passwordLabelLogin.Text = "Password:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DarkRed;
+            this.label1.Location = new System.Drawing.Point(29, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(85, 31);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "Login";
+            // 
+            // keepSignedIn
+            // 
+            this.keepSignedIn.AutoSize = true;
+            this.keepSignedIn.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.keepSignedIn.ForeColor = System.Drawing.Color.Gray;
+            this.keepSignedIn.Location = new System.Drawing.Point(31, 169);
+            this.keepSignedIn.Name = "keepSignedIn";
+            this.keepSignedIn.Size = new System.Drawing.Size(156, 23);
+            this.keepSignedIn.TabIndex = 23;
+            this.keepSignedIn.Text = "Keep Me Signed In";
+            this.keepSignedIn.UseVisualStyleBackColor = true;
+            // 
+            // loginButton
+            // 
+            this.loginButton.BackgroundColor = System.Drawing.Color.DarkRed;
+            this.loginButton.ButtonImage = null;
+            this.loginButton.ButtonStyle = XanderUI.XUIButton.Style.Material;
+            this.loginButton.ButtonText = "Login";
+            this.loginButton.ClickBackColor = System.Drawing.Color.White;
+            this.loginButton.ClickTextColor = System.Drawing.Color.DarkRed;
+            this.loginButton.CornerRadius = 5;
+            this.loginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginButton.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
+            this.loginButton.HoverBackgroundColor = System.Drawing.Color.Brown;
+            this.loginButton.HoverTextColor = System.Drawing.Color.White;
+            this.loginButton.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.loginButton.Location = new System.Drawing.Point(31, 213);
+            this.loginButton.Name = "loginButton";
+            this.loginButton.Size = new System.Drawing.Size(145, 50);
+            this.loginButton.TabIndex = 24;
+            this.loginButton.TextColor = System.Drawing.Color.White;
+            this.loginButton.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.DarkRed;
+            this.label2.Location = new System.Drawing.Point(31, 287);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(190, 19);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Don\'t have an account?";
+            // 
+            // gotoSignUpButton
+            // 
+            this.gotoSignUpButton.AutoSize = true;
+            this.gotoSignUpButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
+                | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gotoSignUpButton.ForeColor = System.Drawing.Color.DarkRed;
+            this.gotoSignUpButton.Location = new System.Drawing.Point(227, 287);
+            this.gotoSignUpButton.Name = "gotoSignUpButton";
+            this.gotoSignUpButton.Size = new System.Drawing.Size(73, 20);
+            this.gotoSignUpButton.TabIndex = 26;
+            this.gotoSignUpButton.Text = "Sign Up";
+            this.gotoSignUpButton.Click += new System.EventHandler(this.gotoSignUpButton_Click);
+            // 
             // SignUp
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1200, 720);
+            this.Controls.Add(this.loginPanel);
             this.Controls.Add(this.exitButton);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.signUpPanel);
             this.Controls.Add(this.xuiGradientPanel1);
             this.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.ActiveCaption;
@@ -328,8 +468,10 @@
             this.Name = "SignUp";
             this.Text = "SignUp";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.signUpPanel.ResumeLayout(false);
+            this.signUpPanel.PerformLayout();
+            this.loginPanel.ResumeLayout(false);
+            this.loginPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -337,7 +479,7 @@
         #endregion
 
         private XanderUI.XUIGradientPanel xuiGradientPanel1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel signUpPanel;
         private System.Windows.Forms.TextBox emailTextBox;
         private System.Windows.Forms.Label emailLabel;
         private System.Windows.Forms.TextBox nameTextBox;
@@ -356,5 +498,15 @@
         private System.Windows.Forms.Label AlreadyLabel;
         private XanderUI.XUIButton signUpButton;
         private XanderUI.XUIButton exitButton;
+        private System.Windows.Forms.Panel loginPanel;
+        private System.Windows.Forms.Label gotoSignUpButton;
+        private System.Windows.Forms.Label label2;
+        private XanderUI.XUIButton loginButton;
+        private System.Windows.Forms.CheckBox keepSignedIn;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label passwordLabelLogin;
+        private System.Windows.Forms.TextBox userNameTextLogin;
+        private System.Windows.Forms.Label userNameLabel;
     }
 }

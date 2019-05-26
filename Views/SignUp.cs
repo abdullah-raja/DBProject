@@ -36,5 +36,17 @@ namespace DBproject.Views
         {
             this.Dispose();
         }
+
+        private void gotoSignUpButton_Click(object sender, EventArgs e)
+        {
+            signUpPanel.Visible = true;
+            loginPanel.Visible = false;
+        }
+
+        private void gotoLoginButton_Click(object sender, EventArgs e)
+        {
+            signUpPanel.Visible = false;
+            loginPanel.Visible = true;
+        }
     }
 }
