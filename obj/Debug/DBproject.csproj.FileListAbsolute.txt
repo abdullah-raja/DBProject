@@ -32,3 +32,4 @@ C:\Users\Sarim\Desktop\DbProject\DBProject\obj\Debug\DBproject.csproj.CoreCompil
 C:\Users\Sarim\Desktop\DbProject\DBProject\obj\Debug\DBproject.csproj.CopyComplete
 C:\Users\Sarim\Desktop\DbProject\DBProject\obj\Debug\DBproject.exe
 C:\Users\Sarim\Desktop\DbProject\DBProject\obj\Debug\DBproject.pdb
+E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.Views.MainScreen.resources
