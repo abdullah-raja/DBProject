@@ -122,10 +122,11 @@ namespace DBproject.Views
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            // abke ye signy up k anudar krna ha
-            //kyun be login k bad hi jaega naw admin ya member.. sign up pe daal.. aik banda aik hi baar choose kr skta ha na flat number.. aise to wo hr baar login krne k baad kisi aur flat se ajayga.. aur ye aik panel dusre k andar chale jata ha is waja se tera admin panel memebr k  andar chala gaya tha to memeber ghayeb krne pr wo b ghayeb hogya
+            this.Hide();
+            MainScreen ms = new MainScreen();
+            ms.ShowDialog();
+            this.Dispose();
 
-            
         }
 
         private void textBox2_TextChanged_1(object sender, EventArgs e)

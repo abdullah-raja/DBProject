@@ -85,11 +85,35 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\MainScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MainScreen.Designer.cs">
+      <DependentUpon>MainScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\SignUp.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\SignUp.Designer.cs">
       <DependentUpon>SignUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\FlatCardSquare.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\FlatCardSquare.Designer.cs">
+      <DependentUpon>FlatCardSquare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\FloorCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\FloorCard.Designer.cs">
+      <DependentUpon>FloorCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Income.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\Income.Designer.cs">
+      <DependentUpon>Income.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -103,8 +127,20 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\MainScreen.resx">
+      <DependentUpon>MainScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\FlatCardSquare.resx">
+      <DependentUpon>FlatCardSquare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\FloorCard.resx">
+      <DependentUpon>FloorCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\Income.resx">
+      <DependentUpon>Income.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
