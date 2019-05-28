@@ -748,10 +748,9 @@
             this.Controls.Add(this.xuiGradientPanel1);
             this.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "SignUp";
             this.Text = "SignUp";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.loginPanel.ResumeLayout(false);
             this.loginPanel.PerformLayout();
             this.AsaMemberpanel.ResumeLayout(false);

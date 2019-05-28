@@ -30,24 +30,25 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainScreen));
             this.PicNamePanel = new System.Windows.Forms.Panel();
+            this.flatNumberLabel = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
             this.profiePicture = new System.Windows.Forms.PictureBox();
             this.sidePanel = new System.Windows.Forms.Panel();
-            this.flatNumberLabel = new System.Windows.Forms.Label();
-            this.incomeButton = new System.Windows.Forms.Button();
-            this.expensesButton = new System.Windows.Forms.Button();
-            this.analyticsButton = new System.Windows.Forms.Button();
-            this.settingsButton = new System.Windows.Forms.Button();
             this.quitButton = new XanderUI.XUIButton();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.currentBalance = new System.Windows.Forms.Label();
-            this.currentBalLabel = new System.Windows.Forms.Label();
-            this.logoutButton = new System.Windows.Forms.Button();
+            this.settingsButton = new System.Windows.Forms.Button();
+            this.analyticsButton = new System.Windows.Forms.Button();
+            this.expensesButton = new System.Windows.Forms.Button();
+            this.incomeButton = new System.Windows.Forms.Button();
+            this.topPanel = new System.Windows.Forms.Panel();
             this.generateMonthlyReport = new System.Windows.Forms.Button();
+            this.logoutButton = new System.Windows.Forms.Button();
+            this.currentBalLabel = new System.Windows.Forms.Label();
+            this.currentBalance = new System.Windows.Forms.Label();
+            this.main = new System.Windows.Forms.Panel();
             this.PicNamePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profiePicture)).BeginInit();
             this.sidePanel.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.topPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // PicNamePanel
@@ -60,6 +61,18 @@
             this.PicNamePanel.Name = "PicNamePanel";
             this.PicNamePanel.Size = new System.Drawing.Size(225, 227);
             this.PicNamePanel.TabIndex = 0;
+            // 
+            // flatNumberLabel
+            // 
+            this.flatNumberLabel.BackColor = System.Drawing.Color.Transparent;
+            this.flatNumberLabel.Font = new System.Drawing.Font("Lato", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.flatNumberLabel.ForeColor = System.Drawing.Color.White;
+            this.flatNumberLabel.Location = new System.Drawing.Point(50, 169);
+            this.flatNumberLabel.Name = "flatNumberLabel";
+            this.flatNumberLabel.Size = new System.Drawing.Size(125, 19);
+            this.flatNumberLabel.TabIndex = 2;
+            this.flatNumberLabel.Text = "302";
+            this.flatNumberLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // nameLabel
             // 
@@ -101,85 +114,6 @@
             this.sidePanel.Size = new System.Drawing.Size(225, 720);
             this.sidePanel.TabIndex = 0;
             // 
-            // flatNumberLabel
-            // 
-            this.flatNumberLabel.BackColor = System.Drawing.Color.Transparent;
-            this.flatNumberLabel.Font = new System.Drawing.Font("Lato", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.flatNumberLabel.ForeColor = System.Drawing.Color.White;
-            this.flatNumberLabel.Location = new System.Drawing.Point(50, 169);
-            this.flatNumberLabel.Name = "flatNumberLabel";
-            this.flatNumberLabel.Size = new System.Drawing.Size(125, 19);
-            this.flatNumberLabel.TabIndex = 2;
-            this.flatNumberLabel.Text = "302";
-            this.flatNumberLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // incomeButton
-            // 
-            this.incomeButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.incomeButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.incomeButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.incomeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.incomeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.incomeButton.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.incomeButton.ForeColor = System.Drawing.Color.White;
-            this.incomeButton.Location = new System.Drawing.Point(0, 227);
-            this.incomeButton.Name = "incomeButton";
-            this.incomeButton.Size = new System.Drawing.Size(225, 57);
-            this.incomeButton.TabIndex = 1;
-            this.incomeButton.Text = "INCOME";
-            this.incomeButton.UseVisualStyleBackColor = true;
-            // 
-            // expensesButton
-            // 
-            this.expensesButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.expensesButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.expensesButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.expensesButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
-            this.expensesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.expensesButton.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.expensesButton.ForeColor = System.Drawing.Color.White;
-            this.expensesButton.Location = new System.Drawing.Point(0, 284);
-            this.expensesButton.Margin = new System.Windows.Forms.Padding(10);
-            this.expensesButton.Name = "expensesButton";
-            this.expensesButton.Size = new System.Drawing.Size(225, 57);
-            this.expensesButton.TabIndex = 2;
-            this.expensesButton.Text = "EXPENSES";
-            this.expensesButton.UseVisualStyleBackColor = true;
-            // 
-            // analyticsButton
-            // 
-            this.analyticsButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.analyticsButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.analyticsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.analyticsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
-            this.analyticsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.analyticsButton.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.analyticsButton.ForeColor = System.Drawing.Color.White;
-            this.analyticsButton.Location = new System.Drawing.Point(0, 341);
-            this.analyticsButton.Margin = new System.Windows.Forms.Padding(10);
-            this.analyticsButton.Name = "analyticsButton";
-            this.analyticsButton.Size = new System.Drawing.Size(225, 57);
-            this.analyticsButton.TabIndex = 3;
-            this.analyticsButton.Text = "ANALYTICS";
-            this.analyticsButton.UseVisualStyleBackColor = true;
-            // 
-            // settingsButton
-            // 
-            this.settingsButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.settingsButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.settingsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.settingsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
-            this.settingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.settingsButton.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.settingsButton.ForeColor = System.Drawing.Color.White;
-            this.settingsButton.Location = new System.Drawing.Point(0, 398);
-            this.settingsButton.Margin = new System.Windows.Forms.Padding(10);
-            this.settingsButton.Name = "settingsButton";
-            this.settingsButton.Size = new System.Drawing.Size(225, 57);
-            this.settingsButton.TabIndex = 4;
-            this.settingsButton.Text = "SETTINGS";
-            this.settingsButton.UseVisualStyleBackColor = true;
-            // 
             // quitButton
             // 
             this.quitButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -203,45 +137,108 @@
             this.quitButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(200)))), ((int)(((byte)(185)))));
             this.quitButton.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             // 
-            // panel1
+            // settingsButton
             // 
-            this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.Controls.Add(this.generateMonthlyReport);
-            this.panel1.Controls.Add(this.logoutButton);
-            this.panel1.Controls.Add(this.currentBalLabel);
-            this.panel1.Controls.Add(this.currentBalance);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(225, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(975, 82);
-            this.panel1.TabIndex = 1;
+            this.settingsButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.settingsButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.settingsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.settingsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
+            this.settingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.settingsButton.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.settingsButton.ForeColor = System.Drawing.Color.White;
+            this.settingsButton.Location = new System.Drawing.Point(0, 398);
+            this.settingsButton.Margin = new System.Windows.Forms.Padding(10);
+            this.settingsButton.Name = "settingsButton";
+            this.settingsButton.Size = new System.Drawing.Size(225, 57);
+            this.settingsButton.TabIndex = 4;
+            this.settingsButton.Text = "SETTINGS";
+            this.settingsButton.UseVisualStyleBackColor = true;
             // 
-            // currentBalance
+            // analyticsButton
             // 
-            this.currentBalance.AutoSize = true;
-            this.currentBalance.BackColor = System.Drawing.Color.Transparent;
-            this.currentBalance.Font = new System.Drawing.Font("Lato Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.currentBalance.ForeColor = System.Drawing.Color.ForestGreen;
-            this.currentBalance.Location = new System.Drawing.Point(549, 30);
-            this.currentBalance.Name = "currentBalance";
-            this.currentBalance.Size = new System.Drawing.Size(118, 30);
-            this.currentBalance.TabIndex = 0;
-            this.currentBalance.Text = "Rs 20,000";
+            this.analyticsButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.analyticsButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.analyticsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.analyticsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
+            this.analyticsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.analyticsButton.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.analyticsButton.ForeColor = System.Drawing.Color.White;
+            this.analyticsButton.Location = new System.Drawing.Point(0, 341);
+            this.analyticsButton.Margin = new System.Windows.Forms.Padding(10);
+            this.analyticsButton.Name = "analyticsButton";
+            this.analyticsButton.Size = new System.Drawing.Size(225, 57);
+            this.analyticsButton.TabIndex = 3;
+            this.analyticsButton.Text = "ANALYTICS";
+            this.analyticsButton.UseVisualStyleBackColor = true;
             // 
-            // currentBalLabel
+            // expensesButton
             // 
-            this.currentBalLabel.AutoSize = true;
-            this.currentBalLabel.BackColor = System.Drawing.Color.Transparent;
-            this.currentBalLabel.ForeColor = System.Drawing.Color.White;
-            this.currentBalLabel.Location = new System.Drawing.Point(474, 37);
-            this.currentBalLabel.Name = "currentBalLabel";
-            this.currentBalLabel.Size = new System.Drawing.Size(69, 19);
-            this.currentBalLabel.TabIndex = 1;
-            this.currentBalLabel.Text = "Balance:";
+            this.expensesButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.expensesButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.expensesButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.expensesButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
+            this.expensesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.expensesButton.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.expensesButton.ForeColor = System.Drawing.Color.White;
+            this.expensesButton.Location = new System.Drawing.Point(0, 284);
+            this.expensesButton.Margin = new System.Windows.Forms.Padding(10);
+            this.expensesButton.Name = "expensesButton";
+            this.expensesButton.Size = new System.Drawing.Size(225, 57);
+            this.expensesButton.TabIndex = 2;
+            this.expensesButton.Text = "EXPENSES";
+            this.expensesButton.UseVisualStyleBackColor = true;
+            // 
+            // incomeButton
+            // 
+            this.incomeButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.incomeButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.incomeButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.incomeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.incomeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.incomeButton.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.incomeButton.ForeColor = System.Drawing.Color.White;
+            this.incomeButton.Location = new System.Drawing.Point(0, 227);
+            this.incomeButton.Name = "incomeButton";
+            this.incomeButton.Size = new System.Drawing.Size(225, 57);
+            this.incomeButton.TabIndex = 1;
+            this.incomeButton.Text = "INCOME";
+            this.incomeButton.UseVisualStyleBackColor = true;
+            this.incomeButton.Click += new System.EventHandler(this.incomeButton_Click);
+            // 
+            // topPanel
+            // 
+            this.topPanel.BackColor = System.Drawing.Color.Black;
+            this.topPanel.Controls.Add(this.generateMonthlyReport);
+            this.topPanel.Controls.Add(this.logoutButton);
+            this.topPanel.Controls.Add(this.currentBalLabel);
+            this.topPanel.Controls.Add(this.currentBalance);
+            this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.topPanel.Location = new System.Drawing.Point(225, 0);
+            this.topPanel.Name = "topPanel";
+            this.topPanel.Size = new System.Drawing.Size(975, 82);
+            this.topPanel.TabIndex = 1;
+            // 
+            // generateMonthlyReport
+            // 
+            this.generateMonthlyReport.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.generateMonthlyReport.BackColor = System.Drawing.Color.Transparent;
+            this.generateMonthlyReport.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("generateMonthlyReport.BackgroundImage")));
+            this.generateMonthlyReport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.generateMonthlyReport.FlatAppearance.BorderSize = 0;
+            this.generateMonthlyReport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.generateMonthlyReport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.generateMonthlyReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.generateMonthlyReport.ForeColor = System.Drawing.Color.Transparent;
+            this.generateMonthlyReport.Image = ((System.Drawing.Image)(resources.GetObject("generateMonthlyReport.Image")));
+            this.generateMonthlyReport.Location = new System.Drawing.Point(755, 31);
+            this.generateMonthlyReport.Name = "generateMonthlyReport";
+            this.generateMonthlyReport.Size = new System.Drawing.Size(40, 33);
+            this.generateMonthlyReport.TabIndex = 3;
+            this.generateMonthlyReport.UseVisualStyleBackColor = false;
             // 
             // logoutButton
             // 
-            this.logoutButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.logoutButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.logoutButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.logoutButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
@@ -254,40 +251,58 @@
             this.logoutButton.Text = "Logout";
             this.logoutButton.UseVisualStyleBackColor = true;
             // 
-            // generateMonthlyReport
+            // currentBalLabel
             // 
-            this.generateMonthlyReport.BackColor = System.Drawing.Color.Transparent;
-            this.generateMonthlyReport.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("generateMonthlyReport.BackgroundImage")));
-            this.generateMonthlyReport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.generateMonthlyReport.FlatAppearance.BorderSize = 0;
-            this.generateMonthlyReport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.generateMonthlyReport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
-            this.generateMonthlyReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.generateMonthlyReport.ForeColor = System.Drawing.Color.Transparent;
-            this.generateMonthlyReport.Image = ((System.Drawing.Image)(resources.GetObject("generateMonthlyReport.Image")));
-            this.generateMonthlyReport.Location = new System.Drawing.Point(671, 28);
-            this.generateMonthlyReport.Name = "generateMonthlyReport";
-            this.generateMonthlyReport.Size = new System.Drawing.Size(40, 33);
-            this.generateMonthlyReport.TabIndex = 3;
-            this.generateMonthlyReport.UseVisualStyleBackColor = false;
+            this.currentBalLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.currentBalLabel.AutoSize = true;
+            this.currentBalLabel.BackColor = System.Drawing.Color.Transparent;
+            this.currentBalLabel.ForeColor = System.Drawing.Color.White;
+            this.currentBalLabel.Location = new System.Drawing.Point(558, 40);
+            this.currentBalLabel.Name = "currentBalLabel";
+            this.currentBalLabel.Size = new System.Drawing.Size(69, 19);
+            this.currentBalLabel.TabIndex = 1;
+            this.currentBalLabel.Text = "Balance:";
+            // 
+            // currentBalance
+            // 
+            this.currentBalance.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.currentBalance.AutoSize = true;
+            this.currentBalance.BackColor = System.Drawing.Color.Transparent;
+            this.currentBalance.Font = new System.Drawing.Font("Lato Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currentBalance.ForeColor = System.Drawing.Color.ForestGreen;
+            this.currentBalance.Location = new System.Drawing.Point(633, 33);
+            this.currentBalance.Name = "currentBalance";
+            this.currentBalance.Size = new System.Drawing.Size(118, 30);
+            this.currentBalance.TabIndex = 0;
+            this.currentBalance.Text = "Rs 20,000";
+            // 
+            // main
+            // 
+            this.main.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.main.Location = new System.Drawing.Point(225, 82);
+            this.main.Name = "main";
+            this.main.Size = new System.Drawing.Size(975, 638);
+            this.main.TabIndex = 2;
             // 
             // MainScreen
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1200, 720);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.main);
+            this.Controls.Add(this.topPanel);
             this.Controls.Add(this.sidePanel);
             this.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainScreen";
             this.Text = "MainScreen";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.PicNamePanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.profiePicture)).EndInit();
             this.sidePanel.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.topPanel.ResumeLayout(false);
+            this.topPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -304,10 +319,11 @@
         private System.Windows.Forms.Button analyticsButton;
         private System.Windows.Forms.Button expensesButton;
         private System.Windows.Forms.Button incomeButton;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel topPanel;
         private System.Windows.Forms.Button logoutButton;
         private System.Windows.Forms.Label currentBalLabel;
         private System.Windows.Forms.Label currentBalance;
         private System.Windows.Forms.Button generateMonthlyReport;
+        private System.Windows.Forms.Panel main;
     }
 }
