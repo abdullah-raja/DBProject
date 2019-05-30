@@ -187,6 +187,7 @@
             this.expensesButton.TabIndex = 2;
             this.expensesButton.Text = "EXPENSES";
             this.expensesButton.UseVisualStyleBackColor = true;
+            this.expensesButton.Click += new System.EventHandler(this.expensesButton_Click);
             // 
             // incomeButton
             // 
