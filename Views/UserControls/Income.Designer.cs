@@ -37,6 +37,8 @@
             this.monthComboBox = new System.Windows.Forms.ComboBox();
             this.FloorsPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.xuiBackgroundSleeper1 = new XanderUI.XUIBackgroundSleeper();
             this.mainPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -102,6 +104,7 @@
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.flowLayoutPanel1.Controls.Add(this.MonthLabel);
             this.flowLayoutPanel1.Controls.Add(this.monthComboBox);
+            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel2);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 10);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(250, 31);
@@ -163,13 +166,20 @@
             this.panel3.Size = new System.Drawing.Size(326, 582);
             this.panel3.TabIndex = 7;
             // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 36);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(200, 100);
+            this.flowLayoutPanel2.TabIndex = 2;
+            // 
             // Income
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.mainPanel);
             this.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Income";
             this.Size = new System.Drawing.Size(975, 638);
             this.mainPanel.ResumeLayout(false);
@@ -193,5 +203,7 @@
         private System.Windows.Forms.ComboBox monthComboBox;
         private System.Windows.Forms.FlowLayoutPanel FloorsPanel;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private XanderUI.XUIBackgroundSleeper xuiBackgroundSleeper1;
     }
 }

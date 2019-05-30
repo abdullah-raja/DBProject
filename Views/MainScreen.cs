@@ -35,12 +35,37 @@ namespace DBproject.Views
 
         private void incomeButton_Click(object sender, EventArgs e)
         {
+            incomeButton.ForeColor = Color.Silver;
+            expensesButton.ForeColor = Color.White;
+            settingsButton.ForeColor = Color.White;
+            analyticsButton.ForeColor = Color.White;
+
             Income inc = new Income(6,6);
             inc.Dock = DockStyle.Fill;
+            main.Controls.Clear();
             main.Controls.Add(inc);
         }
 
         private void mainPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void expensesButton_Click(object sender, EventArgs e)
+        {
+            incomeButton.ForeColor = Color.White;
+            expensesButton.ForeColor = Color.Silver;
+            settingsButton.ForeColor = Color.White;
+            analyticsButton.ForeColor = Color.White;
+
+            Expense exp = new Expense(3);
+            exp.Dock = DockStyle.Fill;
+            main.Controls.Clear();
+            main.Controls.Add(exp);
+                
+        }
+
+        private void expense1_Load(object sender, EventArgs e)
         {
 
         }

@@ -36,3 +36,6 @@ E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.Views.MainScreen.resources
 E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.Views.UserControls.Income.resources
 E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.Views.UserControls.FloorCard.resources
 E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.Views.UserControls.FlatCardSquare.resources
+E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.Views.UserControls.Expense.resources
+E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.Views.UserControls.ExpenseCard.resources
+E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.Views.UserControls.SearchBar.resources
