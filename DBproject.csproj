@@ -97,6 +97,12 @@
     <Compile Include="Views\SignUp.Designer.cs">
       <DependentUpon>SignUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControls\details.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\details.Designer.cs">
+      <DependentUpon>details.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\FlatCardSquare.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -114,6 +120,12 @@
     </Compile>
     <Compile Include="Views\UserControls\Income.Designer.cs">
       <DependentUpon>Income.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Receipt.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\Receipt.Designer.cs">
+      <DependentUpon>Receipt.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -133,6 +145,9 @@
     <EmbeddedResource Include="Views\SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\details.resx">
+      <DependentUpon>details.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\FlatCardSquare.resx">
       <DependentUpon>FlatCardSquare.cs</DependentUpon>
     </EmbeddedResource>
@@ -141,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\Income.resx">
       <DependentUpon>Income.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\Receipt.resx">
+      <DependentUpon>Receipt.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

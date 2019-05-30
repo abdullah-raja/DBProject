@@ -22,5 +22,10 @@ namespace DBproject.Views.UserControls
             
             button1.Text = str;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

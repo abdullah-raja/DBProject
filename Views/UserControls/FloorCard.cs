@@ -18,7 +18,7 @@ namespace DBproject.Views.UserControls
             InitializeComponent();
             this.flats = flats;
         }
-
+    
         public void setText(string str)
         {
             button1.Text = str;

@@ -36,3 +36,9 @@ E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.Views.MainScreen.resources
 E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.Views.UserControls.Income.resources
 E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.Views.UserControls.FloorCard.resources
 E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.Views.UserControls.FlatCardSquare.resources
+C:\Users\Sarim\Desktop\DbProject\DBProject\obj\Debug\DBproject.Views.MainScreen.resources
+C:\Users\Sarim\Desktop\DbProject\DBProject\obj\Debug\DBproject.Views.UserControls.FlatCardSquare.resources
+C:\Users\Sarim\Desktop\DbProject\DBProject\obj\Debug\DBproject.Views.UserControls.FloorCard.resources
+C:\Users\Sarim\Desktop\DbProject\DBProject\obj\Debug\DBproject.Views.UserControls.Income.resources
+C:\Users\Sarim\Desktop\DbProject\DBProject\obj\Debug\DBproject.Views.UserControls.details.resources
+C:\Users\Sarim\Desktop\DbProject\DBProject\obj\Debug\DBproject.Views.UserControls.Receipt.resources
