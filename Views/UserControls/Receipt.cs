@@ -76,15 +76,13 @@ namespace DBproject.Views.UserControls
 
         private void confirmButton1_Click_1(object sender, EventArgs e)
         {
-           Income income=new Income();
-            this.Controls.Add(income);
-            income.BringToFront();
+            this.Dispose();
            // receiptpanel1.Visible = false;
         }
 
         private void CancelButton1_Click_1(object sender, EventArgs e)
         {
-            receiptpanel1.Visible = false;
+            this.Dispose();
         }
 
         private void maskedTextBox1_MaskInputRejected_1(object sender, MaskInputRejectedEventArgs e)

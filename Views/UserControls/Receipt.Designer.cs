@@ -58,7 +58,7 @@
             this.receiptLabel.ForeColor = System.Drawing.Color.White;
             this.receiptLabel.Location = new System.Drawing.Point(321, 20);
             this.receiptLabel.Name = "receiptLabel";
-            this.receiptLabel.Size = new System.Drawing.Size(115, 29);
+            this.receiptLabel.Size = new System.Drawing.Size(110, 29);
             this.receiptLabel.TabIndex = 8;
             this.receiptLabel.Text = "RECEIPT";
             // 
@@ -70,7 +70,7 @@
             this.datelabel.ForeColor = System.Drawing.Color.DarkRed;
             this.datelabel.Location = new System.Drawing.Point(41, 66);
             this.datelabel.Name = "datelabel";
-            this.datelabel.Size = new System.Drawing.Size(53, 19);
+            this.datelabel.Size = new System.Drawing.Size(50, 19);
             this.datelabel.TabIndex = 9;
             this.datelabel.Text = "DATE";
             // 
@@ -91,7 +91,7 @@
             this.recievelabel.ForeColor = System.Drawing.Color.DarkRed;
             this.recievelabel.Location = new System.Drawing.Point(482, 142);
             this.recievelabel.Name = "recievelabel";
-            this.recievelabel.Size = new System.Drawing.Size(153, 19);
+            this.recievelabel.Size = new System.Drawing.Size(139, 19);
             this.recievelabel.TabIndex = 11;
             this.recievelabel.Text = "RECIEVED FROM:";
             // 
@@ -103,7 +103,7 @@
             this.IDlabel.ForeColor = System.Drawing.Color.DarkRed;
             this.IDlabel.Location = new System.Drawing.Point(479, 66);
             this.IDlabel.Name = "IDlabel";
-            this.IDlabel.Size = new System.Drawing.Size(159, 19);
+            this.IDlabel.Size = new System.Drawing.Size(147, 19);
             this.IDlabel.TabIndex = 12;
             this.IDlabel.Text = "TRANSACTION ID:";
             // 
@@ -136,7 +136,7 @@
             this.amountlabel1.ForeColor = System.Drawing.Color.DarkRed;
             this.amountlabel1.Location = new System.Drawing.Point(41, 208);
             this.amountlabel1.Name = "amountlabel1";
-            this.amountlabel1.Size = new System.Drawing.Size(180, 19);
+            this.amountlabel1.Size = new System.Drawing.Size(165, 19);
             this.amountlabel1.TabIndex = 15;
             this.amountlabel1.Text = "AMOUNT RECIEVED:";
             // 
@@ -148,7 +148,7 @@
             this.monthlabel2.ForeColor = System.Drawing.Color.DarkRed;
             this.monthlabel2.Location = new System.Drawing.Point(479, 208);
             this.monthlabel2.Name = "monthlabel2";
-            this.monthlabel2.Size = new System.Drawing.Size(80, 19);
+            this.monthlabel2.Size = new System.Drawing.Size(75, 19);
             this.monthlabel2.TabIndex = 16;
             this.monthlabel2.Text = "MONTH:";
             // 
@@ -200,7 +200,7 @@
             this.agreedcheckBox1.ForeColor = System.Drawing.Color.White;
             this.agreedcheckBox1.Location = new System.Drawing.Point(45, 270);
             this.agreedcheckBox1.Name = "agreedcheckBox1";
-            this.agreedcheckBox1.Size = new System.Drawing.Size(72, 17);
+            this.agreedcheckBox1.Size = new System.Drawing.Size(68, 17);
             this.agreedcheckBox1.TabIndex = 28;
             this.agreedcheckBox1.Text = "Agreed?";
             this.agreedcheckBox1.UseVisualStyleBackColor = false;
@@ -213,7 +213,7 @@
             this.label1.ForeColor = System.Drawing.Color.DarkRed;
             this.label1.Location = new System.Drawing.Point(41, 142);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 19);
+            this.label1.Size = new System.Drawing.Size(60, 19);
             this.label1.TabIndex = 29;
             this.label1.Text = "NAME:";
             // 
@@ -252,7 +252,7 @@
             // 
             // receiptpanel1
             // 
-            this.receiptpanel1.BackColor = System.Drawing.Color.White;
+            this.receiptpanel1.BackColor = System.Drawing.Color.LightGray;
             this.receiptpanel1.Controls.Add(this.CancelButton1);
             this.receiptpanel1.Controls.Add(this.recnameTextBox1);
             this.receiptpanel1.Controls.Add(this.label1);

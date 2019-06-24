@@ -98,7 +98,12 @@
     <Compile Include="Views\SignUp.Designer.cs">
       <DependentUpon>SignUp.cs</DependentUpon>
     </Compile>
-
+    <Compile Include="Views\UserControls\Anaytics.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\Anaytics.Designer.cs">
+      <DependentUpon>Anaytics.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\Expense.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -111,13 +116,11 @@
     <Compile Include="Views\UserControls\ExpenseCard.Designer.cs">
       <DependentUpon>ExpenseCard.cs</DependentUpon>
     </Compile>
-
     <Compile Include="Views\UserControls\details.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\UserControls\details.Designer.cs">
       <DependentUpon>details.cs</DependentUpon>
-
     </Compile>
     <Compile Include="Views\UserControls\FlatCardSquare.cs">
       <SubType>UserControl</SubType>
@@ -137,20 +140,17 @@
     <Compile Include="Views\UserControls\Income.Designer.cs">
       <DependentUpon>Income.cs</DependentUpon>
     </Compile>
-
     <Compile Include="Views\UserControls\SearchBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\UserControls\SearchBar.Designer.cs">
       <DependentUpon>SearchBar.cs</DependentUpon>
     </Compile>
-
     <Compile Include="Views\UserControls\Receipt.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\UserControls\Receipt.Designer.cs">
       <DependentUpon>Receipt.cs</DependentUpon>
-
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -170,17 +170,17 @@
     <EmbeddedResource Include="Views\SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>
     </EmbeddedResource>
-
+    <EmbeddedResource Include="Views\UserControls\Anaytics.resx">
+      <DependentUpon>Anaytics.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\Expense.resx">
       <DependentUpon>Expense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\ExpenseCard.resx">
       <DependentUpon>ExpenseCard.cs</DependentUpon>
     </EmbeddedResource>
-    
     <EmbeddedResource Include="Views\UserControls\details.resx">
       <DependentUpon>details.cs</DependentUpon>
-
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\FlatCardSquare.resx">
       <DependentUpon>FlatCardSquare.cs</DependentUpon>
@@ -191,14 +191,11 @@
     <EmbeddedResource Include="Views\UserControls\Income.resx">
       <DependentUpon>Income.cs</DependentUpon>
     </EmbeddedResource>
-
     <EmbeddedResource Include="Views\UserControls\SearchBar.resx">
       <DependentUpon>SearchBar.cs</DependentUpon>
     </EmbeddedResource>
-      
     <EmbeddedResource Include="Views\UserControls\Receipt.resx">
       <DependentUpon>Receipt.cs</DependentUpon>
-
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
