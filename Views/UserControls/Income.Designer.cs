@@ -37,19 +37,19 @@
             this.monthComboBox = new System.Windows.Forms.ComboBox();
             this.FloorsPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.detailspanel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.flatnolabel = new System.Windows.Forms.Label();
-            this.feeslabel = new System.Windows.Forms.Label();
-            this.dueslabel = new System.Windows.Forms.Label();
-            this.NAMEtextBox1 = new System.Windows.Forms.TextBox();
-            this.flatnoTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.duesTextBox2 = new System.Windows.Forms.MaskedTextBox();
-            this.feesTextBox3 = new System.Windows.Forms.MaskedTextBox();
-            this.CollectButton = new XanderUI.XUIButton();
-            this.SettingButton = new XanderUI.XUIButton();
-            this.switchButton = new XanderUI.XUIButton();
-            this.switchlabel = new System.Windows.Forms.Label();
             this.receiptLabel = new System.Windows.Forms.Label();
+            this.switchlabel = new System.Windows.Forms.Label();
+            this.switchButton = new XanderUI.XUIButton();
+            this.SettingButton = new XanderUI.XUIButton();
+            this.CollectButton = new XanderUI.XUIButton();
+            this.feesTextBox3 = new System.Windows.Forms.MaskedTextBox();
+            this.duesTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.flatnoTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.NAMEtextBox1 = new System.Windows.Forms.TextBox();
+            this.dueslabel = new System.Windows.Forms.Label();
+            this.feeslabel = new System.Windows.Forms.Label();
+            this.flatnolabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.mainPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -128,7 +128,7 @@
             this.MonthLabel.BackColor = System.Drawing.Color.Transparent;
             this.MonthLabel.Location = new System.Drawing.Point(3, 4);
             this.MonthLabel.Name = "MonthLabel";
-            this.MonthLabel.Size = new System.Drawing.Size(67, 19);
+            this.MonthLabel.Size = new System.Drawing.Size(61, 19);
             this.MonthLabel.TabIndex = 0;
             this.MonthLabel.Text = "Month:";
             this.MonthLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -152,7 +152,7 @@
             "October",
             "November",
             "December"});
-            this.monthComboBox.Location = new System.Drawing.Point(76, 3);
+            this.monthComboBox.Location = new System.Drawing.Point(70, 3);
             this.monthComboBox.Name = "monthComboBox";
             this.monthComboBox.Size = new System.Drawing.Size(173, 27);
             this.monthComboBox.TabIndex = 1;
@@ -189,144 +189,31 @@
             this.detailspanel.Size = new System.Drawing.Size(323, 579);
             this.detailspanel.TabIndex = 16;
             // 
-            // label1
+            // receiptLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DarkRed;
-            this.label1.Location = new System.Drawing.Point(14, 63);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 19);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Name:";
+            this.receiptLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.receiptLabel.AutoSize = true;
+            this.receiptLabel.BackColor = System.Drawing.Color.DarkRed;
+            this.receiptLabel.Font = new System.Drawing.Font("Lato", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.receiptLabel.ForeColor = System.Drawing.Color.White;
+            this.receiptLabel.Location = new System.Drawing.Point(111, 12);
+            this.receiptLabel.Name = "receiptLabel";
+            this.receiptLabel.Size = new System.Drawing.Size(107, 29);
+            this.receiptLabel.TabIndex = 29;
+            this.receiptLabel.Text = "DETAILS";
             // 
-            // flatnolabel
+            // switchlabel
             // 
-            this.flatnolabel.AutoSize = true;
-            this.flatnolabel.BackColor = System.Drawing.Color.Transparent;
-            this.flatnolabel.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.flatnolabel.ForeColor = System.Drawing.Color.DarkRed;
-            this.flatnolabel.Location = new System.Drawing.Point(15, 102);
-            this.flatnolabel.Name = "flatnolabel";
-            this.flatnolabel.Size = new System.Drawing.Size(72, 19);
-            this.flatnolabel.TabIndex = 10;
-            this.flatnolabel.Text = "Flat No:";
-            // 
-            // feeslabel
-            // 
-            this.feeslabel.AutoSize = true;
-            this.feeslabel.BackColor = System.Drawing.Color.Transparent;
-            this.feeslabel.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.feeslabel.ForeColor = System.Drawing.Color.DarkRed;
-            this.feeslabel.Location = new System.Drawing.Point(16, 139);
-            this.feeslabel.Name = "feeslabel";
-            this.feeslabel.Size = new System.Drawing.Size(231, 19);
-            this.feeslabel.TabIndex = 11;
-            this.feeslabel.Text = "Monthly Maintainance Fees:";
-            // 
-            // dueslabel
-            // 
-            this.dueslabel.AutoSize = true;
-            this.dueslabel.BackColor = System.Drawing.Color.Transparent;
-            this.dueslabel.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dueslabel.ForeColor = System.Drawing.Color.DarkRed;
-            this.dueslabel.Location = new System.Drawing.Point(16, 198);
-            this.dueslabel.Name = "dueslabel";
-            this.dueslabel.Size = new System.Drawing.Size(149, 19);
-            this.dueslabel.TabIndex = 12;
-            this.dueslabel.Text = "PREVIOUS DUES:";
-            this.dueslabel.Click += new System.EventHandler(this.dueslabel_Click);
-            // 
-            // NAMEtextBox1
-            // 
-            this.NAMEtextBox1.BackColor = System.Drawing.Color.Gainsboro;
-            this.NAMEtextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.NAMEtextBox1.Location = new System.Drawing.Point(79, 63);
-            this.NAMEtextBox1.Name = "NAMEtextBox1";
-            this.NAMEtextBox1.ReadOnly = true;
-            this.NAMEtextBox1.Size = new System.Drawing.Size(214, 20);
-            this.NAMEtextBox1.TabIndex = 13;
-            this.NAMEtextBox1.Text = "SARIM";
-            // 
-            // flatnoTextBox1
-            // 
-            this.flatnoTextBox1.BackColor = System.Drawing.Color.Gainsboro;
-            this.flatnoTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.flatnoTextBox1.Location = new System.Drawing.Point(88, 101);
-            this.flatnoTextBox1.Name = "flatnoTextBox1";
-            this.flatnoTextBox1.ReadOnly = true;
-            this.flatnoTextBox1.Size = new System.Drawing.Size(205, 20);
-            this.flatnoTextBox1.TabIndex = 14;
-            this.flatnoTextBox1.Text = "112";
-            // 
-            // duesTextBox2
-            // 
-            this.duesTextBox2.BackColor = System.Drawing.Color.Gainsboro;
-            this.duesTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.duesTextBox2.Location = new System.Drawing.Point(20, 220);
-            this.duesTextBox2.Name = "duesTextBox2";
-            this.duesTextBox2.ReadOnly = true;
-            this.duesTextBox2.Size = new System.Drawing.Size(187, 20);
-            this.duesTextBox2.TabIndex = 15;
-            this.duesTextBox2.Text = "0000";
-            this.duesTextBox2.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.duesTextBox2_MaskInputRejected);
-            // 
-            // feesTextBox3
-            // 
-            this.feesTextBox3.BackColor = System.Drawing.Color.Gainsboro;
-            this.feesTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.feesTextBox3.Location = new System.Drawing.Point(20, 161);
-            this.feesTextBox3.Name = "feesTextBox3";
-            this.feesTextBox3.ReadOnly = true;
-            this.feesTextBox3.Size = new System.Drawing.Size(107, 20);
-            this.feesTextBox3.TabIndex = 16;
-            this.feesTextBox3.Text = "1000";
-            this.feesTextBox3.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.feesTextBox3_MaskInputRejected);
-            // 
-            // CollectButton
-            // 
-            this.CollectButton.BackgroundColor = System.Drawing.Color.DarkRed;
-            this.CollectButton.ButtonImage = null;
-            this.CollectButton.ButtonStyle = XanderUI.XUIButton.Style.Material;
-            this.CollectButton.ButtonText = "COLLECT";
-            this.CollectButton.ClickBackColor = System.Drawing.Color.White;
-            this.CollectButton.ClickTextColor = System.Drawing.Color.DarkRed;
-            this.CollectButton.CornerRadius = 5;
-            this.CollectButton.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CollectButton.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.CollectButton.HoverBackgroundColor = System.Drawing.Color.Brown;
-            this.CollectButton.HoverTextColor = System.Drawing.Color.White;
-            this.CollectButton.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.CollectButton.Location = new System.Drawing.Point(17, 316);
-            this.CollectButton.Name = "CollectButton";
-            this.CollectButton.Size = new System.Drawing.Size(90, 30);
-            this.CollectButton.TabIndex = 25;
-            this.CollectButton.TextColor = System.Drawing.Color.White;
-            this.CollectButton.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            this.CollectButton.Click += new System.EventHandler(this.CollectButton_Click);
-            // 
-            // SettingButton
-            // 
-            this.SettingButton.BackgroundColor = System.Drawing.Color.DarkRed;
-            this.SettingButton.ButtonImage = null;
-            this.SettingButton.ButtonStyle = XanderUI.XUIButton.Style.Material;
-            this.SettingButton.ButtonText = "SETTING";
-            this.SettingButton.ClickBackColor = System.Drawing.Color.White;
-            this.SettingButton.ClickTextColor = System.Drawing.Color.DarkRed;
-            this.SettingButton.CornerRadius = 5;
-            this.SettingButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SettingButton.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.SettingButton.HoverBackgroundColor = System.Drawing.Color.Brown;
-            this.SettingButton.HoverTextColor = System.Drawing.Color.White;
-            this.SettingButton.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.SettingButton.Location = new System.Drawing.Point(142, 316);
-            this.SettingButton.Name = "SettingButton";
-            this.SettingButton.Size = new System.Drawing.Size(90, 30);
-            this.SettingButton.TabIndex = 26;
-            this.SettingButton.TextColor = System.Drawing.Color.White;
-            this.SettingButton.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            this.SettingButton.Click += new System.EventHandler(this.SettingButton_Click);
+            this.switchlabel.AutoSize = true;
+            this.switchlabel.BackColor = System.Drawing.Color.Transparent;
+            this.switchlabel.Font = new System.Drawing.Font("Lato", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.switchlabel.ForeColor = System.Drawing.Color.DarkRed;
+            this.switchlabel.Location = new System.Drawing.Point(16, 260);
+            this.switchlabel.Name = "switchlabel";
+            this.switchlabel.Size = new System.Drawing.Size(106, 13);
+            this.switchlabel.TabIndex = 28;
+            this.switchlabel.Text = "Switch To Manager?";
+            this.switchlabel.Visible = false;
             // 
             // switchButton
             // 
@@ -352,35 +239,148 @@
             this.switchButton.Click += new System.EventHandler(this.switchButton_Click);
             this.switchButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.switchButton_MouseClick);
             // 
-            // switchlabel
+            // SettingButton
             // 
-            this.switchlabel.AutoSize = true;
-            this.switchlabel.BackColor = System.Drawing.Color.Transparent;
-            this.switchlabel.Font = new System.Drawing.Font("Lato", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.switchlabel.ForeColor = System.Drawing.Color.DarkRed;
-            this.switchlabel.Location = new System.Drawing.Point(16, 260);
-            this.switchlabel.Name = "switchlabel";
-            this.switchlabel.Size = new System.Drawing.Size(120, 13);
-            this.switchlabel.TabIndex = 28;
-            this.switchlabel.Text = "Switch To Manager?";
-            this.switchlabel.Visible = false;
+            this.SettingButton.BackgroundColor = System.Drawing.Color.DarkRed;
+            this.SettingButton.ButtonImage = null;
+            this.SettingButton.ButtonStyle = XanderUI.XUIButton.Style.Material;
+            this.SettingButton.ButtonText = "SETTING";
+            this.SettingButton.ClickBackColor = System.Drawing.Color.White;
+            this.SettingButton.ClickTextColor = System.Drawing.Color.DarkRed;
+            this.SettingButton.CornerRadius = 5;
+            this.SettingButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SettingButton.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
+            this.SettingButton.HoverBackgroundColor = System.Drawing.Color.Brown;
+            this.SettingButton.HoverTextColor = System.Drawing.Color.White;
+            this.SettingButton.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.SettingButton.Location = new System.Drawing.Point(142, 316);
+            this.SettingButton.Name = "SettingButton";
+            this.SettingButton.Size = new System.Drawing.Size(90, 30);
+            this.SettingButton.TabIndex = 26;
+            this.SettingButton.TextColor = System.Drawing.Color.White;
+            this.SettingButton.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.SettingButton.Click += new System.EventHandler(this.SettingButton_Click);
             // 
-            // receiptLabel
+            // CollectButton
             // 
-            this.receiptLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.receiptLabel.AutoSize = true;
-            this.receiptLabel.BackColor = System.Drawing.Color.DarkRed;
-            this.receiptLabel.Font = new System.Drawing.Font("Lato", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.receiptLabel.ForeColor = System.Drawing.Color.White;
-            this.receiptLabel.Location = new System.Drawing.Point(111, 12);
-            this.receiptLabel.Name = "receiptLabel";
-            this.receiptLabel.Size = new System.Drawing.Size(112, 29);
-            this.receiptLabel.TabIndex = 29;
-            this.receiptLabel.Text = "DETAILS";
+            this.CollectButton.BackgroundColor = System.Drawing.Color.DarkRed;
+            this.CollectButton.ButtonImage = null;
+            this.CollectButton.ButtonStyle = XanderUI.XUIButton.Style.Material;
+            this.CollectButton.ButtonText = "COLLECT";
+            this.CollectButton.ClickBackColor = System.Drawing.Color.White;
+            this.CollectButton.ClickTextColor = System.Drawing.Color.DarkRed;
+            this.CollectButton.CornerRadius = 5;
+            this.CollectButton.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CollectButton.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
+            this.CollectButton.HoverBackgroundColor = System.Drawing.Color.Brown;
+            this.CollectButton.HoverTextColor = System.Drawing.Color.White;
+            this.CollectButton.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.CollectButton.Location = new System.Drawing.Point(17, 316);
+            this.CollectButton.Name = "CollectButton";
+            this.CollectButton.Size = new System.Drawing.Size(90, 30);
+            this.CollectButton.TabIndex = 25;
+            this.CollectButton.TextColor = System.Drawing.Color.White;
+            this.CollectButton.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.CollectButton.Click += new System.EventHandler(this.CollectButton_Click);
+            // 
+            // feesTextBox3
+            // 
+            this.feesTextBox3.BackColor = System.Drawing.Color.Gainsboro;
+            this.feesTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.feesTextBox3.Location = new System.Drawing.Point(20, 161);
+            this.feesTextBox3.Name = "feesTextBox3";
+            this.feesTextBox3.ReadOnly = true;
+            this.feesTextBox3.Size = new System.Drawing.Size(107, 20);
+            this.feesTextBox3.TabIndex = 16;
+            this.feesTextBox3.Text = "1000";
+            this.feesTextBox3.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.feesTextBox3_MaskInputRejected);
+            // 
+            // duesTextBox2
+            // 
+            this.duesTextBox2.BackColor = System.Drawing.Color.Gainsboro;
+            this.duesTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.duesTextBox2.Location = new System.Drawing.Point(20, 220);
+            this.duesTextBox2.Name = "duesTextBox2";
+            this.duesTextBox2.ReadOnly = true;
+            this.duesTextBox2.Size = new System.Drawing.Size(187, 20);
+            this.duesTextBox2.TabIndex = 15;
+            this.duesTextBox2.Text = "0000";
+            this.duesTextBox2.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.duesTextBox2_MaskInputRejected);
+            // 
+            // flatnoTextBox1
+            // 
+            this.flatnoTextBox1.BackColor = System.Drawing.Color.Gainsboro;
+            this.flatnoTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.flatnoTextBox1.Location = new System.Drawing.Point(88, 101);
+            this.flatnoTextBox1.Name = "flatnoTextBox1";
+            this.flatnoTextBox1.ReadOnly = true;
+            this.flatnoTextBox1.Size = new System.Drawing.Size(205, 20);
+            this.flatnoTextBox1.TabIndex = 14;
+            this.flatnoTextBox1.Text = "112";
+            // 
+            // NAMEtextBox1
+            // 
+            this.NAMEtextBox1.BackColor = System.Drawing.Color.Gainsboro;
+            this.NAMEtextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.NAMEtextBox1.Location = new System.Drawing.Point(79, 63);
+            this.NAMEtextBox1.Name = "NAMEtextBox1";
+            this.NAMEtextBox1.ReadOnly = true;
+            this.NAMEtextBox1.Size = new System.Drawing.Size(214, 20);
+            this.NAMEtextBox1.TabIndex = 13;
+            this.NAMEtextBox1.Text = "SARIM";
+            // 
+            // dueslabel
+            // 
+            this.dueslabel.AutoSize = true;
+            this.dueslabel.BackColor = System.Drawing.Color.Transparent;
+            this.dueslabel.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dueslabel.ForeColor = System.Drawing.Color.DarkRed;
+            this.dueslabel.Location = new System.Drawing.Point(16, 198);
+            this.dueslabel.Name = "dueslabel";
+            this.dueslabel.Size = new System.Drawing.Size(137, 19);
+            this.dueslabel.TabIndex = 12;
+            this.dueslabel.Text = "PREVIOUS DUES:";
+            this.dueslabel.Click += new System.EventHandler(this.dueslabel_Click);
+            // 
+            // feeslabel
+            // 
+            this.feeslabel.AutoSize = true;
+            this.feeslabel.BackColor = System.Drawing.Color.Transparent;
+            this.feeslabel.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.feeslabel.ForeColor = System.Drawing.Color.DarkRed;
+            this.feeslabel.Location = new System.Drawing.Point(16, 139);
+            this.feeslabel.Name = "feeslabel";
+            this.feeslabel.Size = new System.Drawing.Size(210, 19);
+            this.feeslabel.TabIndex = 11;
+            this.feeslabel.Text = "Monthly Maintainance Fees:";
+            // 
+            // flatnolabel
+            // 
+            this.flatnolabel.AutoSize = true;
+            this.flatnolabel.BackColor = System.Drawing.Color.Transparent;
+            this.flatnolabel.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.flatnolabel.ForeColor = System.Drawing.Color.DarkRed;
+            this.flatnolabel.Location = new System.Drawing.Point(15, 102);
+            this.flatnolabel.Name = "flatnolabel";
+            this.flatnolabel.Size = new System.Drawing.Size(64, 19);
+            this.flatnolabel.TabIndex = 10;
+            this.flatnolabel.Text = "Flat No:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DarkRed;
+            this.label1.Location = new System.Drawing.Point(14, 63);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 19);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Name:";
             // 
             // Income
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.mainPanel);
             this.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
