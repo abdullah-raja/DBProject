@@ -261,7 +261,7 @@
             this.currentBalLabel.ForeColor = System.Drawing.Color.White;
             this.currentBalLabel.Location = new System.Drawing.Point(558, 40);
             this.currentBalLabel.Name = "currentBalLabel";
-            this.currentBalLabel.Size = new System.Drawing.Size(69, 19);
+            this.currentBalLabel.Size = new System.Drawing.Size(75, 19);
             this.currentBalLabel.TabIndex = 1;
             this.currentBalLabel.Text = "Balance:";
             // 
@@ -271,11 +271,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.currentBalance.AutoSize = true;
             this.currentBalance.BackColor = System.Drawing.Color.Transparent;
-            this.currentBalance.Font = new System.Drawing.Font("Lato Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currentBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.currentBalance.ForeColor = System.Drawing.Color.ForestGreen;
             this.currentBalance.Location = new System.Drawing.Point(633, 33);
             this.currentBalance.Name = "currentBalance";
-            this.currentBalance.Size = new System.Drawing.Size(118, 30);
+            this.currentBalance.Size = new System.Drawing.Size(119, 29);
             this.currentBalance.TabIndex = 0;
             this.currentBalance.Text = "Rs 20,000";
             // 

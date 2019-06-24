@@ -42,7 +42,7 @@
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Lato Black", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(0, 0);
             this.button1.Name = "button1";
@@ -52,6 +52,7 @@
             this.button1.Text = "302";
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FlatCardSquare
             // 
