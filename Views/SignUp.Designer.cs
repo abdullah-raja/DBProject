@@ -131,7 +131,7 @@
             this.userNameLabel.ForeColor = System.Drawing.Color.DarkRed;
             this.userNameLabel.Location = new System.Drawing.Point(31, 91);
             this.userNameLabel.Name = "userNameLabel";
-            this.userNameLabel.Size = new System.Drawing.Size(100, 19);
+            this.userNameLabel.Size = new System.Drawing.Size(93, 19);
             this.userNameLabel.TabIndex = 7;
             this.userNameLabel.Text = "User Name:";
             // 
@@ -152,7 +152,7 @@
             this.passwordLabelLogin.ForeColor = System.Drawing.Color.DarkRed;
             this.passwordLabelLogin.Location = new System.Drawing.Point(350, 91);
             this.passwordLabelLogin.Name = "passwordLabelLogin";
-            this.passwordLabelLogin.Size = new System.Drawing.Size(90, 19);
+            this.passwordLabelLogin.Size = new System.Drawing.Size(83, 19);
             this.passwordLabelLogin.TabIndex = 9;
             this.passwordLabelLogin.Text = "Password:";
             // 
@@ -218,7 +218,7 @@
             this.label2.ForeColor = System.Drawing.Color.DarkRed;
             this.label2.Location = new System.Drawing.Point(31, 287);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(190, 19);
+            this.label2.Size = new System.Drawing.Size(173, 19);
             this.label2.TabIndex = 25;
             this.label2.Text = "Don\'t have an account?";
             // 
@@ -317,7 +317,7 @@
             this.flatnolabel.ForeColor = System.Drawing.Color.DarkRed;
             this.flatnolabel.Location = new System.Drawing.Point(36, 109);
             this.flatnolabel.Name = "flatnolabel";
-            this.flatnolabel.Size = new System.Drawing.Size(112, 19);
+            this.flatnolabel.Size = new System.Drawing.Size(102, 19);
             this.flatnolabel.TabIndex = 29;
             this.flatnolabel.Text = "Flat Number:";
             this.flatnolabel.Click += new System.EventHandler(this.label5_Click_1);
@@ -329,7 +329,7 @@
             this.membersixdigitcodelabel.ForeColor = System.Drawing.Color.DarkRed;
             this.membersixdigitcodelabel.Location = new System.Drawing.Point(348, 109);
             this.membersixdigitcodelabel.Name = "membersixdigitcodelabel";
-            this.membersixdigitcodelabel.Size = new System.Drawing.Size(125, 19);
+            this.membersixdigitcodelabel.Size = new System.Drawing.Size(113, 19);
             this.membersixdigitcodelabel.TabIndex = 28;
             this.membersixdigitcodelabel.Text = "Six Digit Code:";
             this.membersixdigitcodelabel.Click += new System.EventHandler(this.label4_Click);
@@ -341,7 +341,7 @@
             this.Memberlabel.ForeColor = System.Drawing.Color.DarkRed;
             this.Memberlabel.Location = new System.Drawing.Point(34, 47);
             this.Memberlabel.Name = "Memberlabel";
-            this.Memberlabel.Size = new System.Drawing.Size(183, 33);
+            this.Memberlabel.Size = new System.Drawing.Size(169, 33);
             this.Memberlabel.TabIndex = 24;
             this.Memberlabel.Text = "Enter Details";
             // 
@@ -405,7 +405,7 @@
             this.adminsixdigitcodelabel.ForeColor = System.Drawing.Color.DarkRed;
             this.adminsixdigitcodelabel.Location = new System.Drawing.Point(270, 268);
             this.adminsixdigitcodelabel.Name = "adminsixdigitcodelabel";
-            this.adminsixdigitcodelabel.Size = new System.Drawing.Size(125, 19);
+            this.adminsixdigitcodelabel.Size = new System.Drawing.Size(113, 19);
             this.adminsixdigitcodelabel.TabIndex = 32;
             this.adminsixdigitcodelabel.Text = "Six Digit Code:";
             // 
@@ -459,7 +459,7 @@
             this.BuildingNameLabel.ForeColor = System.Drawing.Color.DarkRed;
             this.BuildingNameLabel.Location = new System.Drawing.Point(29, 91);
             this.BuildingNameLabel.Name = "BuildingNameLabel";
-            this.BuildingNameLabel.Size = new System.Drawing.Size(128, 19);
+            this.BuildingNameLabel.Size = new System.Drawing.Size(115, 19);
             this.BuildingNameLabel.TabIndex = 27;
             this.BuildingNameLabel.Text = "Building Name:";
             // 
@@ -470,7 +470,7 @@
             this.NoofFloorsLabel.ForeColor = System.Drawing.Color.DarkRed;
             this.NoofFloorsLabel.Location = new System.Drawing.Point(348, 91);
             this.NoofFloorsLabel.Name = "NoofFloorsLabel";
-            this.NoofFloorsLabel.Size = new System.Drawing.Size(151, 19);
+            this.NoofFloorsLabel.Size = new System.Drawing.Size(138, 19);
             this.NoofFloorsLabel.TabIndex = 26;
             this.NoofFloorsLabel.Text = "Number of Floors:";
             this.NoofFloorsLabel.Click += new System.EventHandler(this.label5_Click);
@@ -482,7 +482,7 @@
             this.flatsperfloorlabel.ForeColor = System.Drawing.Color.DarkRed;
             this.flatsperfloorlabel.Location = new System.Drawing.Point(29, 182);
             this.flatsperfloorlabel.Name = "flatsperfloorlabel";
-            this.flatsperfloorlabel.Size = new System.Drawing.Size(130, 19);
+            this.flatsperfloorlabel.Size = new System.Drawing.Size(117, 19);
             this.flatsperfloorlabel.TabIndex = 25;
             this.flatsperfloorlabel.Text = "Flats Per Floor:";
             // 
@@ -493,7 +493,7 @@
             this.flatnoformatlabel.ForeColor = System.Drawing.Color.DarkRed;
             this.flatnoformatlabel.Location = new System.Drawing.Point(348, 182);
             this.flatnoformatlabel.Name = "flatnoformatlabel";
-            this.flatnoformatlabel.Size = new System.Drawing.Size(180, 19);
+            this.flatnoformatlabel.Size = new System.Drawing.Size(163, 19);
             this.flatnoformatlabel.TabIndex = 24;
             this.flatnoformatlabel.Text = "Flat Numbers Format:";
             // 
@@ -504,7 +504,7 @@
             this.AdminLabel.ForeColor = System.Drawing.Color.DarkRed;
             this.AdminLabel.Location = new System.Drawing.Point(27, 36);
             this.AdminLabel.Name = "AdminLabel";
-            this.AdminLabel.Size = new System.Drawing.Size(372, 33);
+            this.AdminLabel.Size = new System.Drawing.Size(346, 33);
             this.AdminLabel.TabIndex = 23;
             this.AdminLabel.Text = "Enter Details of Apartments";
             this.AdminLabel.Click += new System.EventHandler(this.AdminLabel_Click);
@@ -516,7 +516,7 @@
             this.NameLabel.ForeColor = System.Drawing.Color.DarkRed;
             this.NameLabel.Location = new System.Drawing.Point(24, 97);
             this.NameLabel.Name = "NameLabel";
-            this.NameLabel.Size = new System.Drawing.Size(100, 19);
+            this.NameLabel.Size = new System.Drawing.Size(93, 19);
             this.NameLabel.TabIndex = 5;
             this.NameLabel.Text = "User Name:";
             // 
@@ -537,7 +537,7 @@
             this.emailLabel.ForeColor = System.Drawing.Color.DarkRed;
             this.emailLabel.Location = new System.Drawing.Point(361, 97);
             this.emailLabel.Name = "emailLabel";
-            this.emailLabel.Size = new System.Drawing.Size(57, 19);
+            this.emailLabel.Size = new System.Drawing.Size(51, 19);
             this.emailLabel.TabIndex = 7;
             this.emailLabel.Text = "Email:";
             // 
@@ -558,7 +558,7 @@
             this.mobileLabel.ForeColor = System.Drawing.Color.DarkRed;
             this.mobileLabel.Location = new System.Drawing.Point(24, 191);
             this.mobileLabel.Name = "mobileLabel";
-            this.mobileLabel.Size = new System.Drawing.Size(136, 19);
+            this.mobileLabel.Size = new System.Drawing.Size(125, 19);
             this.mobileLabel.TabIndex = 9;
             this.mobileLabel.Text = "Mobile Number:";
             // 
@@ -579,7 +579,7 @@
             this.passwordLabel.ForeColor = System.Drawing.Color.DarkRed;
             this.passwordLabel.Location = new System.Drawing.Point(24, 284);
             this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(90, 19);
+            this.passwordLabel.Size = new System.Drawing.Size(83, 19);
             this.passwordLabel.TabIndex = 11;
             this.passwordLabel.Text = "Password:";
             // 
@@ -601,7 +601,7 @@
             this.confirmPasswordLabel.ForeColor = System.Drawing.Color.DarkRed;
             this.confirmPasswordLabel.Location = new System.Drawing.Point(361, 284);
             this.confirmPasswordLabel.Name = "confirmPasswordLabel";
-            this.confirmPasswordLabel.Size = new System.Drawing.Size(157, 19);
+            this.confirmPasswordLabel.Size = new System.Drawing.Size(145, 19);
             this.confirmPasswordLabel.TabIndex = 13;
             this.confirmPasswordLabel.Text = "Confirm Password:";
             // 
@@ -650,7 +650,7 @@
             this.AsLabel.ForeColor = System.Drawing.Color.DarkRed;
             this.AsLabel.Location = new System.Drawing.Point(357, 191);
             this.AsLabel.Name = "AsLabel";
-            this.AsLabel.Size = new System.Drawing.Size(67, 19);
+            this.AsLabel.Size = new System.Drawing.Size(60, 19);
             this.AsLabel.TabIndex = 17;
             this.AsLabel.Text = "As a/an";
             // 
@@ -682,7 +682,7 @@
             this.AlreadyLabel.ForeColor = System.Drawing.Color.DarkRed;
             this.AlreadyLabel.Location = new System.Drawing.Point(24, 447);
             this.AlreadyLabel.Name = "AlreadyLabel";
-            this.AlreadyLabel.Size = new System.Drawing.Size(207, 19);
+            this.AlreadyLabel.Size = new System.Drawing.Size(191, 19);
             this.AlreadyLabel.TabIndex = 19;
             this.AlreadyLabel.Text = "Already have an account?";
             // 
@@ -741,9 +741,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1200, 720);
+            this.Controls.Add(this.AsanAdminPanel);
             this.Controls.Add(this.loginPanel);
             this.Controls.Add(this.signUpPanel);
-            this.Controls.Add(this.AsanAdminPanel);
             this.Controls.Add(this.AsaMemberpanel);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.xuiGradientPanel1);
