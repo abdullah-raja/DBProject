@@ -13,19 +13,16 @@ namespace DBproject.Model
         String email;
         String password;
         bool isAdmin;
-        Building building;
+        
 
         public User(string userName, string email, string password, bool isAdmin)
         {
-            if(isAdmin)
-            {
-                // CREATE BUILDING HERE
-            }
+            this.userName = userName;
+            this.email = email;
+            this.password = password;
+            this.isAdmin = isAdmin;
 
-            else
-            {
-                // JOIN BUILDING
-            }
+            
         }
     }
 }
