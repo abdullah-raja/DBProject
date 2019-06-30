@@ -51,8 +51,10 @@
             this.feeslabel = new System.Windows.Forms.Label();
             this.flatnolabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+
             this.panel3 = new System.Windows.Forms.Panel();
             this.xuiBackgroundSleeper1 = new XanderUI.XUIBackgroundSleeper();
+
             this.mainPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
