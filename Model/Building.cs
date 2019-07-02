@@ -38,7 +38,69 @@ namespace DBproject.Model
                     }
                 }
             }
+              
+            
+
+         
         }
-       
+        // apartmentNAme getter Setters
+        public string getappartmentName()
+        {
+            return this.appartmentName;
+        }
+        public void setappartmentName(string appartmentName)
+        {
+            this.appartmentName = appartmentName;
+        }
+
+        // noOfFloors getter Setters
+        public int getnoOfFloors()
+        {
+            return this.noOfFloors;
+        }
+        public void setnoOfFloors(int noOfFloors)
+        {
+            this.noOfFloors = noOfFloors;
+        }
+
+        // flatsPerFloor getter Setters
+        public int getflatsPerFloor()
+        {
+            return this.flatsPerFloor;
+        }
+        public void setflatsPerFloor(int flatsPerFloor)
+        {
+            this.flatsPerFloor = flatsPerFloor;
+        }
+
+        // Admin getter Setters
+        public User getAdmin()
+        {
+            return this.admin;
+        }
+        public void setAdmin(User admin)
+        {
+            this.admin = admin;
+        }
+
+        // flatNumberScheme getter Setters
+        public int getflatNumberScheme()
+        {
+            return this.flatNumberScheme;
+        }
+        public void setflatNumberScheme(int flatNumberScheme)
+        {
+            this.flatNumberScheme = flatNumberScheme;
+        }
+
+        // code getter Setters
+        public String getcode()
+        {
+            return this.code;
+        }
+        public void setcode(String code)
+        {
+            this.code = code;
+        }
     }
 }
