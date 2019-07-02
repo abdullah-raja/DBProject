@@ -14,7 +14,7 @@ namespace DBproject.Model
         String password;
         bool isAdmin;
         static int userCount = 0;
-        
+
 
         public User(string userName, string email, string password, bool isAdmin)
         {
@@ -24,7 +24,7 @@ namespace DBproject.Model
             this.isAdmin = isAdmin;
             userCount++;
             this.userID = "U" + userCount + DateTime.Today.Year.ToString(); // U232019
-            
+
         }
 
 
@@ -69,7 +69,7 @@ namespace DBproject.Model
 
         // Password Encoding Decoding
 
-        public string encodePassword(string s)
+        string encodePassword(string s)
         {
             string encodedString = "";
             for (int i = s.Length; i >= 0; i--)
@@ -78,7 +78,7 @@ namespace DBproject.Model
             }
 
             return encodedString;
-                
+
         }
 
         // Password Matching
@@ -86,6 +86,11 @@ namespace DBproject.Model
         public bool checkPassowrd(string p)
         {
             return encodePassword(p) == this.password;
+        }
+
+        public bool getUserStatus()
+        {
+            return isAdmin;
         }
 
     }
