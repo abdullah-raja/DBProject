@@ -29,11 +29,11 @@ namespace DBproject.Model
         
 
         //flatNumber getter Setters
-        public int getflatNumber()
+        public int getFlatNumber()
         {
             return this.flatNumber;
         }
-        public void setflatNumber(int flatNumber)
+        public void setFlatNumber(int flatNumber)
         {
             this.flatNumber = flatNumber;
         }
@@ -49,31 +49,31 @@ namespace DBproject.Model
         }
 
         // nameOfResident getter Setters
-        public string getnameOfResident()
+        public string getNameOfResident()
         {
             return this.nameOfResident;
         }
-        public void setnameOfResident(string nameOfResident)
+        public void setNameOfResident(string nameOfResident)
         {
             this.nameOfResident = nameOfResident;
         }
 
         // email getter Setters
-        public String getemail()
+        public String getEmail()
         {
             return this.email;
         }
-        public void setemail(String email)
+        public void setEmail(String email)
         {
             this.email = email;
         }
 
         // contactNumber getter Setters
-        public String getcontactNumber()
+        public String getContactNumber()
         {
             return this.contactNumber;
         }
-        public void setcontactNumber(String contactNumber)
+        public void setContactNumber(String contactNumber)
         {
             this.contactNumber = contactNumber;
         }
@@ -81,21 +81,21 @@ namespace DBproject.Model
        
 
         // dues getter Setters
-        public int getdues()
+        public int getDues()
         {
             return this.dues;
         }
-        public void setdues(int dues)
+        public void setDues(int dues)
         {
             this.dues = dues;
         }
 
         // monthlyFees getter Setters
-        public int getmonthlyFees()
+        public int getMonthlyFees()
         {
             return this.monthlyFees;
         }
-        public void setmonthlyFees(int monthlyFees)
+        public void setMonthlyFees(int monthlyFees)
         {
             this.monthlyFees = monthlyFees;
         }

@@ -44,31 +44,31 @@ namespace DBproject.Model
          
         }
         // apartmentNAme getter Setters
-        public string getappartmentName()
+        public string getAppartmentName()
         {
             return this.appartmentName;
         }
-        public void setappartmentName(string appartmentName)
+        public void setAppartmentName(string appartmentName)
         {
             this.appartmentName = appartmentName;
         }
 
         // noOfFloors getter Setters
-        public int getnoOfFloors()
+        public int getNoOfFloors()
         {
             return this.noOfFloors;
         }
-        public void setnoOfFloors(int noOfFloors)
+        public void setNoOfFloors(int noOfFloors)
         {
             this.noOfFloors = noOfFloors;
         }
 
         // flatsPerFloor getter Setters
-        public int getflatsPerFloor()
+        public int getFlatsPerFloor()
         {
             return this.flatsPerFloor;
         }
-        public void setflatsPerFloor(int flatsPerFloor)
+        public void setFlatsPerFloor(int flatsPerFloor)
         {
             this.flatsPerFloor = flatsPerFloor;
         }
@@ -84,21 +84,21 @@ namespace DBproject.Model
         }
 
         // flatNumberScheme getter Setters
-        public int getflatNumberScheme()
+        public int getFlatNumberScheme()
         {
             return this.flatNumberScheme;
         }
-        public void setflatNumberScheme(int flatNumberScheme)
+        public void setFlatNumberScheme(int flatNumberScheme)
         {
             this.flatNumberScheme = flatNumberScheme;
         }
 
         // code getter Setters
-        public String getcode()
+        public String getCode()
         {
             return this.code;
         }
-        public void setcode(String code)
+        public void setCode(String code)
         {
             this.code = code;
         }
