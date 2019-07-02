@@ -8,6 +8,7 @@ namespace DBproject.Model
 {
     class Building
     {
+        // add getNoOfFlats(), getFlat(int flatNumber)
         String appartmentName;
         int noOfFloors;
         int flatsPerFloor;
