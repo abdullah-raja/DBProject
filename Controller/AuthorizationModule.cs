@@ -30,7 +30,7 @@ namespace DBproject.Controller
 
         }
 
-        public bool insertRecord(Model.User user) // will return true if successful
+        public bool insertRecord(Model.User user, Views.SignUp view) // Sending instance of View to make changes, will return true if successful
         {
             bool insertSuccessul = false;
             connection.Open();
@@ -43,6 +43,7 @@ namespace DBproject.Controller
             insertSuccessul = true;
             connection.Close();
 
+            view.setWelcomeTitle("Welcome " + user.getUserName());
             return insertSuccessul;
 
                 

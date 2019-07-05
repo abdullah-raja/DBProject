@@ -48,7 +48,7 @@
             this.flatnolabel = new System.Windows.Forms.Label();
             this.membersixdigitcodelabel = new System.Windows.Forms.Label();
             this.Memberlabel = new System.Windows.Forms.Label();
-            this.AsanAdminPanel = new System.Windows.Forms.Panel();
+            this.AdminPanel = new System.Windows.Forms.Panel();
             this.SignupAsAdminButton = new XanderUI.XUIButton();
             this.adminsixdigitcodetextBox = new System.Windows.Forms.TextBox();
             this.adminsixdigitcodelabel = new System.Windows.Forms.Label();
@@ -60,7 +60,7 @@
             this.NoofFloorsLabel = new System.Windows.Forms.Label();
             this.flatsperfloorlabel = new System.Windows.Forms.Label();
             this.flatnoformatlabel = new System.Windows.Forms.Label();
-            this.AdminLabel = new System.Windows.Forms.Label();
+            this.CreateApartmentTitle = new System.Windows.Forms.Label();
             this.NameLabel = new System.Windows.Forms.Label();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.emailLabel = new System.Windows.Forms.Label();
@@ -80,9 +80,10 @@
             this.signUpTitle = new System.Windows.Forms.Label();
             this.signUpPanel = new System.Windows.Forms.Panel();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.welcomeTitle = new System.Windows.Forms.Label();
             this.loginPanel.SuspendLayout();
             this.AsaMemberpanel.SuspendLayout();
-            this.AsanAdminPanel.SuspendLayout();
+            this.AdminPanel.SuspendLayout();
             this.signUpPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -345,26 +346,27 @@
             this.Memberlabel.TabIndex = 24;
             this.Memberlabel.Text = "Enter Details";
             // 
-            // AsanAdminPanel
+            // AdminPanel
             // 
-            this.AsanAdminPanel.Controls.Add(this.SignupAsAdminButton);
-            this.AsanAdminPanel.Controls.Add(this.adminsixdigitcodetextBox);
-            this.AsanAdminPanel.Controls.Add(this.adminsixdigitcodelabel);
-            this.AsanAdminPanel.Controls.Add(this.buildingnametextbox);
-            this.AsanAdminPanel.Controls.Add(this.nooffloorstextBox);
-            this.AsanAdminPanel.Controls.Add(this.flatsperfloortextBox);
-            this.AsanAdminPanel.Controls.Add(this.flatnoformattextBox);
-            this.AsanAdminPanel.Controls.Add(this.BuildingNameLabel);
-            this.AsanAdminPanel.Controls.Add(this.NoofFloorsLabel);
-            this.AsanAdminPanel.Controls.Add(this.flatsperfloorlabel);
-            this.AsanAdminPanel.Controls.Add(this.flatnoformatlabel);
-            this.AsanAdminPanel.Controls.Add(this.AdminLabel);
-            this.AsanAdminPanel.Location = new System.Drawing.Point(381, 131);
-            this.AsanAdminPanel.Name = "AsanAdminPanel";
-            this.AsanAdminPanel.Size = new System.Drawing.Size(675, 452);
-            this.AsanAdminPanel.TabIndex = 27;
-            this.AsanAdminPanel.Visible = false;
-            this.AsanAdminPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.AsanAdminPanel_Paint);
+            this.AdminPanel.Controls.Add(this.welcomeTitle);
+            this.AdminPanel.Controls.Add(this.SignupAsAdminButton);
+            this.AdminPanel.Controls.Add(this.adminsixdigitcodetextBox);
+            this.AdminPanel.Controls.Add(this.adminsixdigitcodelabel);
+            this.AdminPanel.Controls.Add(this.buildingnametextbox);
+            this.AdminPanel.Controls.Add(this.nooffloorstextBox);
+            this.AdminPanel.Controls.Add(this.flatsperfloortextBox);
+            this.AdminPanel.Controls.Add(this.flatnoformattextBox);
+            this.AdminPanel.Controls.Add(this.BuildingNameLabel);
+            this.AdminPanel.Controls.Add(this.NoofFloorsLabel);
+            this.AdminPanel.Controls.Add(this.flatsperfloorlabel);
+            this.AdminPanel.Controls.Add(this.flatnoformatlabel);
+            this.AdminPanel.Controls.Add(this.CreateApartmentTitle);
+            this.AdminPanel.Location = new System.Drawing.Point(381, 131);
+            this.AdminPanel.Name = "AdminPanel";
+            this.AdminPanel.Size = new System.Drawing.Size(675, 452);
+            this.AdminPanel.TabIndex = 27;
+            this.AdminPanel.Visible = false;
+            this.AdminPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.AsanAdminPanel_Paint);
             // 
             // SignupAsAdminButton
             // 
@@ -497,17 +499,17 @@
             this.flatnoformatlabel.TabIndex = 24;
             this.flatnoformatlabel.Text = "Flat Numbers Format:";
             // 
-            // AdminLabel
+            // CreateApartmentTitle
             // 
-            this.AdminLabel.AutoSize = true;
-            this.AdminLabel.Font = new System.Drawing.Font("Lato", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AdminLabel.ForeColor = System.Drawing.Color.DarkRed;
-            this.AdminLabel.Location = new System.Drawing.Point(27, 36);
-            this.AdminLabel.Name = "AdminLabel";
-            this.AdminLabel.Size = new System.Drawing.Size(346, 33);
-            this.AdminLabel.TabIndex = 23;
-            this.AdminLabel.Text = "Enter Details of Apartments";
-            this.AdminLabel.Click += new System.EventHandler(this.AdminLabel_Click);
+            this.CreateApartmentTitle.AutoSize = true;
+            this.CreateApartmentTitle.Font = new System.Drawing.Font("Lato", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CreateApartmentTitle.ForeColor = System.Drawing.Color.DarkRed;
+            this.CreateApartmentTitle.Location = new System.Drawing.Point(27, 48);
+            this.CreateApartmentTitle.Name = "CreateApartmentTitle";
+            this.CreateApartmentTitle.Size = new System.Drawing.Size(279, 25);
+            this.CreateApartmentTitle.TabIndex = 23;
+            this.CreateApartmentTitle.Text = " Enter Details of Apartments";
+            this.CreateApartmentTitle.Click += new System.EventHandler(this.AdminLabel_Click);
             // 
             // NameLabel
             // 
@@ -736,12 +738,23 @@
             this.signUpPanel.TabIndex = 1;
             this.signUpPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // welcomeTitle
+            // 
+            this.welcomeTitle.AutoSize = true;
+            this.welcomeTitle.Font = new System.Drawing.Font("Lato", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.welcomeTitle.ForeColor = System.Drawing.Color.Black;
+            this.welcomeTitle.Location = new System.Drawing.Point(31, 26);
+            this.welcomeTitle.Name = "welcomeTitle";
+            this.welcomeTitle.Size = new System.Drawing.Size(115, 16);
+            this.welcomeTitle.TabIndex = 34;
+            this.welcomeTitle.Text = "Welcome Abullah,";
+            // 
             // SignUp
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1200, 720);
-            this.Controls.Add(this.AsanAdminPanel);
+            this.Controls.Add(this.AdminPanel);
             this.Controls.Add(this.loginPanel);
             this.Controls.Add(this.signUpPanel);
             this.Controls.Add(this.AsaMemberpanel);
@@ -756,8 +769,8 @@
             this.loginPanel.PerformLayout();
             this.AsaMemberpanel.ResumeLayout(false);
             this.AsaMemberpanel.PerformLayout();
-            this.AsanAdminPanel.ResumeLayout(false);
-            this.AsanAdminPanel.PerformLayout();
+            this.AdminPanel.ResumeLayout(false);
+            this.AdminPanel.PerformLayout();
             this.signUpPanel.ResumeLayout(false);
             this.signUpPanel.PerformLayout();
             this.ResumeLayout(false);
@@ -785,7 +798,7 @@
         private System.Windows.Forms.Label flatnolabel;
         private System.Windows.Forms.Label membersixdigitcodelabel;
         private System.Windows.Forms.Label Memberlabel;
-        private System.Windows.Forms.Panel AsanAdminPanel;
+        private System.Windows.Forms.Panel AdminPanel;
         private XanderUI.XUIButton SignupAsAdminButton;
         private System.Windows.Forms.TextBox adminsixdigitcodetextBox;
         private System.Windows.Forms.Label adminsixdigitcodelabel;
@@ -797,7 +810,7 @@
         private System.Windows.Forms.Label NoofFloorsLabel;
         private System.Windows.Forms.Label flatsperfloorlabel;
         private System.Windows.Forms.Label flatnoformatlabel;
-        private System.Windows.Forms.Label AdminLabel;
+        private System.Windows.Forms.Label CreateApartmentTitle;
         private System.Windows.Forms.Label NameLabel;
         private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.Label emailLabel;
@@ -817,5 +830,6 @@
         private System.Windows.Forms.Label signUpTitle;
         private System.Windows.Forms.Panel signUpPanel;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Label welcomeTitle;
     }
 }

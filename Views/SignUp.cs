@@ -12,9 +12,11 @@ namespace DBproject.Views
 {
     public partial class SignUp : Form
     {
+        Controller.AuthorizationModule authorizationModule;
         public SignUp()
         {
             InitializeComponent();
+            authorizationModule = new Controller.AuthorizationModule("", "");
         }
 
         private void jGradientPanel1_Paint(object sender, PaintEventArgs e)
@@ -90,14 +92,15 @@ namespace DBproject.Views
         {
             if (adminRadio.Checked)
             {
-                AsanAdminPanel.Visible = true;
+                AdminPanel.Visible = true;
                 loginPanel.Visible = false;
                 signUpPanel.Visible = false;
                 AsaMemberpanel.Visible = false;
+                //authorizationModule.insertRecord()
             }
             if (memebrRadio.Checked)
             {
-                AsanAdminPanel.Visible = false;
+                AdminPanel.Visible = false;
                 loginPanel.Visible = false;
                 signUpPanel.Visible = false;
                 AsaMemberpanel.Visible = true;
@@ -167,8 +170,13 @@ namespace DBproject.Views
 
         private void SignupAsAdminButton_Click(object sender, EventArgs e)
         {
-            AsanAdminPanel.Visible = false;
+            AdminPanel.Visible = false;
             loginPanel.Visible = true;
+        }
+
+        public void setWelcomeTitle(string title)
+        {
+            welcomeTitle.Text = title;
         }
     }
 }
