@@ -7,16 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DBproject.Model;
 
 namespace DBproject.Views
 {
     public partial class SignUp : Form
     {
+        string connectionString = @"Data Source=HAIER-PC\SQLEXPRESS;Initial Catalog=Project_Database;Integrated Security=True";
+        string usersTableName = "tbl_User";
         Controller.AuthorizationModule authorizationModule;
         public SignUp()
         {
             InitializeComponent();
-            authorizationModule = new Controller.AuthorizationModule("", "");
+            authorizationModule = new Controller.AuthorizationModule(this.connectionString
+                , usersTableName);
         }
 
         private void jGradientPanel1_Paint(object sender, PaintEventArgs e)
@@ -90,23 +94,37 @@ namespace DBproject.Views
 
         private void signUpButton_Click(object sender, EventArgs e)
         {
-            if (adminRadio.Checked)
+            if (passwordTextBox.Text == confirmPasswordTextBox.Text)
             {
-                AdminPanel.Visible = true;
-                loginPanel.Visible = false;
-                signUpPanel.Visible = false;
-                AsaMemberpanel.Visible = false;
-                //authorizationModule.insertRecord()
-            }
-            if (memebrRadio.Checked)
-            {
-                AdminPanel.Visible = false;
-                loginPanel.Visible = false;
-                signUpPanel.Visible = false;
-                AsaMemberpanel.Visible = true;
+                if (adminRadio.Checked)
+                {
+
+                    Model.User user = new User(firstNameTextBox.Text, lastNameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, adminRadio.Checked, mobileTextBox.Text);
+
+                    authorizationModule.insertRecord(user, this);
+
+                    AdminPanel.Visible = true;
+                    loginPanel.Visible = false;
+                    signUpPanel.Visible = false;
+                    AsaMemberpanel.Visible = false;
+
+                    
+                }
+                if (memebrRadio.Checked)
+                {
+                    AdminPanel.Visible = false;
+                    loginPanel.Visible = false;
+                    signUpPanel.Visible = false;
+                    AsaMemberpanel.Visible = true;
+                }
+
             }
 
-            
+            else
+            {
+                confirmPasswordError.Visible = true;
+                confirmPasswordTextBox.Text = "";
+            }
             }
 
            /* if (memebrRadio.Checked)

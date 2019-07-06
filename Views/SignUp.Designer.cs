@@ -49,6 +49,7 @@
             this.membersixdigitcodelabel = new System.Windows.Forms.Label();
             this.Memberlabel = new System.Windows.Forms.Label();
             this.AdminPanel = new System.Windows.Forms.Panel();
+            this.welcomeTitle = new System.Windows.Forms.Label();
             this.SignupAsAdminButton = new XanderUI.XUIButton();
             this.adminsixdigitcodetextBox = new System.Windows.Forms.TextBox();
             this.adminsixdigitcodelabel = new System.Windows.Forms.Label();
@@ -62,7 +63,7 @@
             this.flatnoformatlabel = new System.Windows.Forms.Label();
             this.CreateApartmentTitle = new System.Windows.Forms.Label();
             this.NameLabel = new System.Windows.Forms.Label();
-            this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.firstNameTextBox = new System.Windows.Forms.TextBox();
             this.emailLabel = new System.Windows.Forms.Label();
             this.emailTextBox = new System.Windows.Forms.TextBox();
             this.mobileLabel = new System.Windows.Forms.Label();
@@ -80,7 +81,9 @@
             this.signUpTitle = new System.Windows.Forms.Label();
             this.signUpPanel = new System.Windows.Forms.Panel();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.welcomeTitle = new System.Windows.Forms.Label();
+            this.lastNameTextBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.confirmPasswordError = new System.Windows.Forms.Label();
             this.loginPanel.SuspendLayout();
             this.AsaMemberpanel.SuspendLayout();
             this.AdminPanel.SuspendLayout();
@@ -368,6 +371,17 @@
             this.AdminPanel.Visible = false;
             this.AdminPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.AsanAdminPanel_Paint);
             // 
+            // welcomeTitle
+            // 
+            this.welcomeTitle.AutoSize = true;
+            this.welcomeTitle.Font = new System.Drawing.Font("Lato", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.welcomeTitle.ForeColor = System.Drawing.Color.Black;
+            this.welcomeTitle.Location = new System.Drawing.Point(31, 26);
+            this.welcomeTitle.Name = "welcomeTitle";
+            this.welcomeTitle.Size = new System.Drawing.Size(115, 16);
+            this.welcomeTitle.TabIndex = 34;
+            this.welcomeTitle.Text = "Welcome Abullah,";
+            // 
             // SignupAsAdminButton
             // 
             this.SignupAsAdminButton.BackgroundColor = System.Drawing.Color.DarkRed;
@@ -518,19 +532,19 @@
             this.NameLabel.ForeColor = System.Drawing.Color.DarkRed;
             this.NameLabel.Location = new System.Drawing.Point(24, 97);
             this.NameLabel.Name = "NameLabel";
-            this.NameLabel.Size = new System.Drawing.Size(93, 19);
+            this.NameLabel.Size = new System.Drawing.Size(91, 19);
             this.NameLabel.TabIndex = 5;
-            this.NameLabel.Text = "User Name:";
+            this.NameLabel.Text = "First Name:";
             // 
-            // nameTextBox
+            // firstNameTextBox
             // 
-            this.nameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.nameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameTextBox.ForeColor = System.Drawing.Color.Black;
-            this.nameTextBox.Location = new System.Drawing.Point(24, 130);
-            this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(300, 29);
-            this.nameTextBox.TabIndex = 6;
+            this.firstNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.firstNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.firstNameTextBox.ForeColor = System.Drawing.Color.Black;
+            this.firstNameTextBox.Location = new System.Drawing.Point(24, 130);
+            this.firstNameTextBox.Name = "firstNameTextBox";
+            this.firstNameTextBox.Size = new System.Drawing.Size(149, 29);
+            this.firstNameTextBox.TabIndex = 6;
             // 
             // emailLabel
             // 
@@ -715,6 +729,9 @@
             // signUpPanel
             // 
             this.signUpPanel.BackColor = System.Drawing.Color.Transparent;
+            this.signUpPanel.Controls.Add(this.confirmPasswordError);
+            this.signUpPanel.Controls.Add(this.lastNameTextBox);
+            this.signUpPanel.Controls.Add(this.label3);
             this.signUpPanel.Controls.Add(this.signUpTitle);
             this.signUpPanel.Controls.Add(this.gotoLoginButton);
             this.signUpPanel.Controls.Add(this.AlreadyLabel);
@@ -730,7 +747,7 @@
             this.signUpPanel.Controls.Add(this.mobileLabel);
             this.signUpPanel.Controls.Add(this.emailTextBox);
             this.signUpPanel.Controls.Add(this.emailLabel);
-            this.signUpPanel.Controls.Add(this.nameTextBox);
+            this.signUpPanel.Controls.Add(this.firstNameTextBox);
             this.signUpPanel.Controls.Add(this.NameLabel);
             this.signUpPanel.Location = new System.Drawing.Point(409, 12);
             this.signUpPanel.Name = "signUpPanel";
@@ -738,25 +755,47 @@
             this.signUpPanel.TabIndex = 1;
             this.signUpPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // welcomeTitle
+            // lastNameTextBox
             // 
-            this.welcomeTitle.AutoSize = true;
-            this.welcomeTitle.Font = new System.Drawing.Font("Lato", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.welcomeTitle.ForeColor = System.Drawing.Color.Black;
-            this.welcomeTitle.Location = new System.Drawing.Point(31, 26);
-            this.welcomeTitle.Name = "welcomeTitle";
-            this.welcomeTitle.Size = new System.Drawing.Size(115, 16);
-            this.welcomeTitle.TabIndex = 34;
-            this.welcomeTitle.Text = "Welcome Abullah,";
+            this.lastNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lastNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lastNameTextBox.ForeColor = System.Drawing.Color.Black;
+            this.lastNameTextBox.Location = new System.Drawing.Point(185, 130);
+            this.lastNameTextBox.Name = "lastNameTextBox";
+            this.lastNameTextBox.Size = new System.Drawing.Size(149, 29);
+            this.lastNameTextBox.TabIndex = 23;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.ForeColor = System.Drawing.Color.DarkRed;
+            this.label3.Location = new System.Drawing.Point(185, 97);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(87, 19);
+            this.label3.TabIndex = 22;
+            this.label3.Text = "Last Name:";
+            // 
+            // confirmPasswordError
+            // 
+            this.confirmPasswordError.AutoSize = true;
+            this.confirmPasswordError.Font = new System.Drawing.Font("Lato", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.confirmPasswordError.ForeColor = System.Drawing.Color.IndianRed;
+            this.confirmPasswordError.Location = new System.Drawing.Point(361, 351);
+            this.confirmPasswordError.Name = "confirmPasswordError";
+            this.confirmPasswordError.Size = new System.Drawing.Size(176, 16);
+            this.confirmPasswordError.TabIndex = 24;
+            this.confirmPasswordError.Text = "PASSWORDS MUST MATCH";
+            this.confirmPasswordError.Visible = false;
             // 
             // SignUp
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1200, 720);
+            this.Controls.Add(this.signUpPanel);
             this.Controls.Add(this.AdminPanel);
             this.Controls.Add(this.loginPanel);
-            this.Controls.Add(this.signUpPanel);
             this.Controls.Add(this.AsaMemberpanel);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.xuiGradientPanel1);
@@ -812,7 +851,7 @@
         private System.Windows.Forms.Label flatnoformatlabel;
         private System.Windows.Forms.Label CreateApartmentTitle;
         private System.Windows.Forms.Label NameLabel;
-        private System.Windows.Forms.TextBox nameTextBox;
+        private System.Windows.Forms.TextBox firstNameTextBox;
         private System.Windows.Forms.Label emailLabel;
         private System.Windows.Forms.TextBox emailTextBox;
         private System.Windows.Forms.Label mobileLabel;
@@ -831,5 +870,8 @@
         private System.Windows.Forms.Panel signUpPanel;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label welcomeTitle;
+        private System.Windows.Forms.TextBox lastNameTextBox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label confirmPasswordError;
     }
 }

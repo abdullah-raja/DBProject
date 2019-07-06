@@ -35,7 +35,7 @@ namespace DBproject.Controller
             bool insertSuccessul = false;
             connection.Open();
 
-            string query = "INSERT INTO " + TABLE_NAME + " VALUES(" + user.getID() + "," + user.getUserName() + "," + user.getUserStatus() + "," + user.getPassword();
+            string query = "INSERT INTO " + TABLE_NAME + " VALUES('" + user.getID() + "' , '" + user.getEmail() + "' , '" + user.getUserStatus() + "' , '" + user.getPassword() + "' ,  '" + user.getFirstName() + "' , '" + user.getLastname() + "' , '" + user.getMobileNumber() + "' )";
             SqlDataAdapter dataAdapter = new SqlDataAdapter();
             dataAdapter.InsertCommand = new SqlCommand(query, connection);
             dataAdapter.InsertCommand.ExecuteNonQuery();
@@ -43,7 +43,7 @@ namespace DBproject.Controller
             insertSuccessul = true;
             connection.Close();
 
-            view.setWelcomeTitle("Welcome " + user.getUserName());
+            view.setWelcomeTitle("Welcome " + user.getFirstName());
             return insertSuccessul;
 
                 
