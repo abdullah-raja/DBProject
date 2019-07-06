@@ -113,10 +113,17 @@ namespace DBproject.Model
             return encodePassword(p) == this.password;
         }
 
-        public bool getUserStatus()
+        public string getUserStatus()
+        {
+            if(isAdmin)
+            return "Admin";
+
+            return "Member";
+        }
+
+        public bool getIsAdmin()
         {
             return isAdmin;
         }
-
     }
 }

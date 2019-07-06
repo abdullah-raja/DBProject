@@ -10,6 +10,7 @@ namespace DBproject.Controller
     class AuthorizationModule
     {
         string TABLE_NAME;
+        const string insertStoredProcedure = "usp_insertUser";
 
         string connectionString;
         SqlConnection connection;
@@ -35,15 +36,36 @@ namespace DBproject.Controller
             bool insertSuccessul = false;
             connection.Open();
 
-            string query = "INSERT INTO " + TABLE_NAME + " VALUES('" + user.getID() + "' , '" + user.getEmail() + "' , '" + user.getUserStatus() + "' , '" + user.getPassword() + "' ,  '" + user.getFirstName() + "' , '" + user.getLastname() + "' , '" + user.getMobileNumber() + "' )";
-            SqlDataAdapter dataAdapter = new SqlDataAdapter();
-            dataAdapter.InsertCommand = new SqlCommand(query, connection);
-            dataAdapter.InsertCommand.ExecuteNonQuery();
+            SqlCommand insertCommand = new SqlCommand(insertStoredProcedure, connection);
+            insertCommand.CommandType = System.Data.CommandType.StoredProcedure;
 
-            insertSuccessul = true;
+            insertCommand.Parameters.Add(new SqlParameter("@email", user.getEmail()));
+            insertCommand.Parameters.Add(new SqlParameter("@status", user.getUserStatus()));
+            insertCommand.Parameters.Add(new SqlParameter("@password", user.getPassword()));
+            insertCommand.Parameters.Add(new SqlParameter("@firstName", user.getFirstName()));
+            insertCommand.Parameters.Add(new SqlParameter("@lastName", user.getLastname()));
+            insertCommand.Parameters.Add(new SqlParameter("@mobile", user.getMobileNumber()));
+
+            try
+            {
+
+                if (insertCommand.ExecuteNonQuery() > 0) // returns number of rows affected
+                {
+                    view.signUpSuccessful();
+                    view.setWelcomeTitle("Welcome " + user.getFirstName());
+                }
+            }
+
+            catch (Exception es)
+            {
+                view.signUpFailed();
+            }
+
+            
+            
             connection.Close();
 
-            view.setWelcomeTitle("Welcome " + user.getFirstName());
+            
             return insertSuccessul;
 
                 

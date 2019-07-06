@@ -23,23 +23,11 @@ namespace DBproject.Views
                 , usersTableName);
         }
 
-        private void jGradientPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void xuiGradientPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+       
 
         private void exitButton_Click(object sender, EventArgs e)
         {
+            // closing program
             this.Dispose();
         }
 
@@ -61,71 +49,27 @@ namespace DBproject.Views
          //   AsaMemberpanel.Visible = false;
            // AsanAdminPanel.Visible = false;
         }
+        
+       
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void AdminLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void adminRadio_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void signUpButton_Click(object sender, EventArgs e)
         {
-            if (passwordTextBox.Text == confirmPasswordTextBox.Text)
+            // add validations here, emailFormat, Minimum Password Length, all text boxes checked 
+            if (passwordTextBox.Text != confirmPasswordTextBox.Text)
             {
-                if (adminRadio.Checked)
-                {
-
-                    Model.User user = new User(firstNameTextBox.Text, lastNameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, adminRadio.Checked, mobileTextBox.Text);
-
-                    authorizationModule.insertRecord(user, this);
-
-                    AdminPanel.Visible = true;
-                    loginPanel.Visible = false;
-                    signUpPanel.Visible = false;
-                    AsaMemberpanel.Visible = false;
-
-                    
-                }
-                if (memebrRadio.Checked)
-                {
-                    AdminPanel.Visible = false;
-                    loginPanel.Visible = false;
-                    signUpPanel.Visible = false;
-                    AsaMemberpanel.Visible = true;
-                }
-
+                confirmPasswordError.Visible = true;
+                confirmPasswordTextBox.Text = "";
+                confirmPasswordTextBox.Focus();
             }
 
             else
             {
-                confirmPasswordError.Visible = true;
-                confirmPasswordTextBox.Text = "";
+                Model.User user = new User(firstNameTextBox.Text, lastNameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, adminRadio.Checked, mobileTextBox.Text);
+                authorizationModule.insertRecord(user, this);
+
             }
-            }
+        }
 
            /* if (memebrRadio.Checked)
             {
@@ -150,35 +94,14 @@ namespace DBproject.Views
 
         }
 
-        private void textBox2_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void xuiButton3_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
 
-        private void AsanAdminPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+       
 
         private void MakeAMemberButton_Click(object sender, EventArgs e)
         {
@@ -195,6 +118,33 @@ namespace DBproject.Views
         public void setWelcomeTitle(string title)
         {
             welcomeTitle.Text = title;
+        }
+
+        public void signUpFailed()
+        {
+            signUpFaileError.Visible = true;
+            emailTextBox.Focus();
+        }
+
+        public void signUpSuccessful() // controller will call this
+        {
+            if (adminRadio.Checked)
+            {
+                
+                AdminPanel.Visible = true;
+                loginPanel.Visible = false;
+                signUpPanel.Visible = false;
+                AsaMemberpanel.Visible = false;
+
+
+            }
+            if (memebrRadio.Checked)
+            {
+                AdminPanel.Visible = false;
+                loginPanel.Visible = false;
+                signUpPanel.Visible = false;
+                AsaMemberpanel.Visible = true;
+            }
         }
     }
 }

@@ -80,10 +80,11 @@
             this.gotoLoginButton = new System.Windows.Forms.Label();
             this.signUpTitle = new System.Windows.Forms.Label();
             this.signUpPanel = new System.Windows.Forms.Panel();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.confirmPasswordError = new System.Windows.Forms.Label();
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.confirmPasswordError = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.signUpFaileError = new System.Windows.Forms.Label();
             this.loginPanel.SuspendLayout();
             this.AsaMemberpanel.SuspendLayout();
             this.AdminPanel.SuspendLayout();
@@ -103,7 +104,6 @@
             this.xuiGradientPanel1.TabIndex = 0;
             this.xuiGradientPanel1.TopLeft = System.Drawing.Color.Brown;
             this.xuiGradientPanel1.TopRight = System.Drawing.Color.Brown;
-            this.xuiGradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.xuiGradientPanel1_Paint);
             // 
             // exitButton
             // 
@@ -301,7 +301,6 @@
             this.membersixdigitcodetextBox.Name = "membersixdigitcodetextBox";
             this.membersixdigitcodetextBox.Size = new System.Drawing.Size(300, 29);
             this.membersixdigitcodetextBox.TabIndex = 33;
-            this.membersixdigitcodetextBox.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // flatnotextBox
             // 
@@ -312,7 +311,6 @@
             this.flatnotextBox.Name = "flatnotextBox";
             this.flatnotextBox.Size = new System.Drawing.Size(300, 29);
             this.flatnotextBox.TabIndex = 32;
-            this.flatnotextBox.TextChanged += new System.EventHandler(this.textBox2_TextChanged_1);
             // 
             // flatnolabel
             // 
@@ -324,7 +322,6 @@
             this.flatnolabel.Size = new System.Drawing.Size(102, 19);
             this.flatnolabel.TabIndex = 29;
             this.flatnolabel.Text = "Flat Number:";
-            this.flatnolabel.Click += new System.EventHandler(this.label5_Click_1);
             // 
             // membersixdigitcodelabel
             // 
@@ -336,7 +333,6 @@
             this.membersixdigitcodelabel.Size = new System.Drawing.Size(113, 19);
             this.membersixdigitcodelabel.TabIndex = 28;
             this.membersixdigitcodelabel.Text = "Six Digit Code:";
-            this.membersixdigitcodelabel.Click += new System.EventHandler(this.label4_Click);
             // 
             // Memberlabel
             // 
@@ -369,7 +365,6 @@
             this.AdminPanel.Size = new System.Drawing.Size(675, 452);
             this.AdminPanel.TabIndex = 27;
             this.AdminPanel.Visible = false;
-            this.AdminPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.AsanAdminPanel_Paint);
             // 
             // welcomeTitle
             // 
@@ -434,7 +429,6 @@
             this.buildingnametextbox.Name = "buildingnametextbox";
             this.buildingnametextbox.Size = new System.Drawing.Size(300, 29);
             this.buildingnametextbox.TabIndex = 31;
-            this.buildingnametextbox.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // nooffloorstextBox
             // 
@@ -445,7 +439,6 @@
             this.nooffloorstextBox.Name = "nooffloorstextBox";
             this.nooffloorstextBox.Size = new System.Drawing.Size(300, 29);
             this.nooffloorstextBox.TabIndex = 30;
-            this.nooffloorstextBox.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // flatsperfloortextBox
             // 
@@ -466,7 +459,6 @@
             this.flatnoformattextBox.Name = "flatnoformattextBox";
             this.flatnoformattextBox.Size = new System.Drawing.Size(300, 29);
             this.flatnoformattextBox.TabIndex = 28;
-            this.flatnoformattextBox.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // BuildingNameLabel
             // 
@@ -489,7 +481,6 @@
             this.NoofFloorsLabel.Size = new System.Drawing.Size(138, 19);
             this.NoofFloorsLabel.TabIndex = 26;
             this.NoofFloorsLabel.Text = "Number of Floors:";
-            this.NoofFloorsLabel.Click += new System.EventHandler(this.label5_Click);
             // 
             // flatsperfloorlabel
             // 
@@ -523,7 +514,6 @@
             this.CreateApartmentTitle.Size = new System.Drawing.Size(279, 25);
             this.CreateApartmentTitle.TabIndex = 23;
             this.CreateApartmentTitle.Text = " Enter Details of Apartments";
-            this.CreateApartmentTitle.Click += new System.EventHandler(this.AdminLabel_Click);
             // 
             // NameLabel
             // 
@@ -644,7 +634,6 @@
             this.adminRadio.Size = new System.Drawing.Size(78, 16);
             this.adminRadio.TabIndex = 15;
             this.adminRadio.Text = "Admin";
-            this.adminRadio.Click += new System.EventHandler(this.adminRadio_Click);
             // 
             // memebrRadio
             // 
@@ -684,7 +673,7 @@
             this.signUpButton.HoverBackgroundColor = System.Drawing.Color.Brown;
             this.signUpButton.HoverTextColor = System.Drawing.Color.White;
             this.signUpButton.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.signUpButton.Location = new System.Drawing.Point(24, 380);
+            this.signUpButton.Location = new System.Drawing.Point(24, 402);
             this.signUpButton.Name = "signUpButton";
             this.signUpButton.Size = new System.Drawing.Size(145, 50);
             this.signUpButton.TabIndex = 18;
@@ -696,7 +685,7 @@
             // 
             this.AlreadyLabel.AutoSize = true;
             this.AlreadyLabel.ForeColor = System.Drawing.Color.DarkRed;
-            this.AlreadyLabel.Location = new System.Drawing.Point(24, 447);
+            this.AlreadyLabel.Location = new System.Drawing.Point(24, 485);
             this.AlreadyLabel.Name = "AlreadyLabel";
             this.AlreadyLabel.Size = new System.Drawing.Size(191, 19);
             this.AlreadyLabel.TabIndex = 19;
@@ -708,7 +697,7 @@
             this.gotoLoginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gotoLoginButton.ForeColor = System.Drawing.Color.DarkRed;
-            this.gotoLoginButton.Location = new System.Drawing.Point(237, 447);
+            this.gotoLoginButton.Location = new System.Drawing.Point(237, 485);
             this.gotoLoginButton.Name = "gotoLoginButton";
             this.gotoLoginButton.Size = new System.Drawing.Size(53, 20);
             this.gotoLoginButton.TabIndex = 20;
@@ -729,6 +718,7 @@
             // signUpPanel
             // 
             this.signUpPanel.BackColor = System.Drawing.Color.Transparent;
+            this.signUpPanel.Controls.Add(this.signUpFaileError);
             this.signUpPanel.Controls.Add(this.confirmPasswordError);
             this.signUpPanel.Controls.Add(this.lastNameTextBox);
             this.signUpPanel.Controls.Add(this.label3);
@@ -753,28 +743,6 @@
             this.signUpPanel.Name = "signUpPanel";
             this.signUpPanel.Size = new System.Drawing.Size(675, 528);
             this.signUpPanel.TabIndex = 1;
-            this.signUpPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // lastNameTextBox
-            // 
-            this.lastNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lastNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lastNameTextBox.ForeColor = System.Drawing.Color.Black;
-            this.lastNameTextBox.Location = new System.Drawing.Point(185, 130);
-            this.lastNameTextBox.Name = "lastNameTextBox";
-            this.lastNameTextBox.Size = new System.Drawing.Size(149, 29);
-            this.lastNameTextBox.TabIndex = 23;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.ForeColor = System.Drawing.Color.DarkRed;
-            this.label3.Location = new System.Drawing.Point(185, 97);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 19);
-            this.label3.TabIndex = 22;
-            this.label3.Text = "Last Name:";
             // 
             // confirmPasswordError
             // 
@@ -787,6 +755,39 @@
             this.confirmPasswordError.TabIndex = 24;
             this.confirmPasswordError.Text = "PASSWORDS MUST MATCH";
             this.confirmPasswordError.Visible = false;
+            // 
+            // lastNameTextBox
+            // 
+            this.lastNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lastNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lastNameTextBox.ForeColor = System.Drawing.Color.Black;
+            this.lastNameTextBox.Location = new System.Drawing.Point(185, 130);
+            this.lastNameTextBox.Name = "lastNameTextBox";
+            this.lastNameTextBox.Size = new System.Drawing.Size(149, 29);
+            this.lastNameTextBox.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.ForeColor = System.Drawing.Color.DarkRed;
+            this.label3.Location = new System.Drawing.Point(185, 97);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(87, 19);
+            this.label3.TabIndex = 22;
+            this.label3.Text = "Last Name:";
+            // 
+            // signUpFaileError
+            // 
+            this.signUpFaileError.AutoSize = true;
+            this.signUpFaileError.Font = new System.Drawing.Font("Lato", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.signUpFaileError.ForeColor = System.Drawing.Color.IndianRed;
+            this.signUpFaileError.Location = new System.Drawing.Point(27, 455);
+            this.signUpFaileError.Name = "signUpFaileError";
+            this.signUpFaileError.Size = new System.Drawing.Size(280, 16);
+            this.signUpFaileError.TabIndex = 25;
+            this.signUpFaileError.Text = "SIGN UP FAILED! Email Address already exists";
+            this.signUpFaileError.Visible = false;
             // 
             // SignUp
             // 
@@ -873,5 +874,6 @@
         private System.Windows.Forms.TextBox lastNameTextBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label confirmPasswordError;
+        private System.Windows.Forms.Label signUpFaileError;
     }
 }
