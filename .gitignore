@@ -1,5 +1,9 @@
 
+
 *.ide
 .vs/DBproject/v15/Server/sqlite3/storage.ide
 .vs/DBproject/v15/Server/sqlite3/storage.ide-shm
 .vs/DBproject/v15/Server/sqlite3/storage.ide-wal
+
+*.lock
+

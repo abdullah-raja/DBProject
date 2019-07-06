@@ -9,19 +9,23 @@ namespace DBproject.Model
     class User
     {
         string userID;
-        String userName;
+        String firstName;
+        String lastName;
         String email;
         String password;
         bool isAdmin;
+        string mobileNumber;
         static int userCount = 0;
 
 
-        public User(string userName, string email, string password, bool isAdmin)
+        public User(string firstName, string lastName, string email, string password, bool isAdmin, string number)
         {
-            this.userName = userName;
+            this.firstName = firstName;
+            this.lastName = lastName;
             this.email = email;
             this.password = encodePassword(password);
             this.isAdmin = isAdmin;
+            this.mobileNumber = number;
             userCount++;
             this.userID = "U" + userCount + DateTime.Today.Year.ToString(); // U232019
 
@@ -37,16 +41,37 @@ namespace DBproject.Model
 
 
         // UserName Getter Setters
-        public string getUserName()
+        public string getFirstName()
         {
-            return this.userName;
+            return this.firstName;
         }
 
-        public void setUserName(string userName)
+        public void setUserName(string firstName)
         {
-            this.userName = userName;
+            this.firstName = firstName;
         }
 
+        public string getLastname()
+        {
+            return this.lastName;
+        }
+
+        public void setLastName(string lastName)
+        {
+            this.lastName = lastName;
+        }
+
+        // Number
+
+        public string getMobileNumber()
+        {
+            return this.mobileNumber;
+        }
+
+        public void setMobileNumber(string number)
+        {
+            this.mobileNumber = number;
+        }
 
         // Email
 
@@ -72,9 +97,9 @@ namespace DBproject.Model
         string encodePassword(string s)
         {
             string encodedString = "";
-            for (int i = s.Length; i >= 0; i--)
+            for (int i = s.Length-1; i >= 0; i--)
             {
-                encodedString += s;
+                encodedString += s[i];
             }
 
             return encodedString;
@@ -88,10 +113,17 @@ namespace DBproject.Model
             return encodePassword(p) == this.password;
         }
 
-        public bool getUserStatus()
+        public string getUserStatus()
+        {
+            if(isAdmin)
+            return "Admin";
+
+            return "Member";
+        }
+
+        public bool getIsAdmin()
         {
             return isAdmin;
         }
-
     }
 }
