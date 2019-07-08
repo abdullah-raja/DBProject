@@ -11,6 +11,7 @@ namespace DBproject.Model
         // add getNoOfFlats(), getFlat(int flatNumber)
         String appartmentName;
         int noOfFloors;
+        int apartmentId;
         int flatsPerFloor;
         String code;
         User admin;
@@ -44,6 +45,19 @@ namespace DBproject.Model
 
          
         }
+
+        // id getter setter
+
+        public int getID()
+        {
+            return this.apartmentId;
+        }
+
+        public void setID(int id)
+        {
+            this.apartmentId = id;
+        }
+
         // apartmentNAme getter Setters
         public string getAppartmentName()
         {

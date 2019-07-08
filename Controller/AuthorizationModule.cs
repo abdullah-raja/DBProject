@@ -7,31 +7,18 @@ using System.Threading.Tasks;
 
 namespace DBproject.Controller
 {
-    class AuthorizationModule
+    class AuthorizationModule : ControllerModule
     {
-        string TABLE_NAME;
+        
         const string insertStoredProcedure = "usp_insertUser";
-
-        string connectionString;
-        SqlConnection connection;
-
-        public AuthorizationModule(string connectionString, string TableName)
+        
+        public AuthorizationModule(string connectionString, string TableName) : base(connectionString,TableName)
         {
-            this.TABLE_NAME = TableName;
-            try
-            {
-                this.connectionString = connectionString;
-                this.connection = new SqlConnection(this.connectionString);
-            }
-
-            catch (Exception es)
-            {
-                
-            }
+           
 
         }
 
-        public bool insertRecord(Model.User user, Views.SignUp view) // Sending instance of View to make changes, will return true if successful
+        override public bool insertRecord(Model.User user, Views.SignUp view) // Sending instance of View to make changes, will return true if successful
         {
             bool insertSuccessul = false;
             connection.Open();
