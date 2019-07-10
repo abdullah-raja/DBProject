@@ -38,6 +38,10 @@ namespace DBproject.Model
             return this.userID;
         }
 
+        public void setID(string id)
+        {
+            this.userID = id;
+        }
 
 
         // UserName Getter Setters

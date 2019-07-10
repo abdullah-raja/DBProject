@@ -52,12 +52,12 @@
             this.AdminPanel = new System.Windows.Forms.Panel();
             this.welcomeTitle = new System.Windows.Forms.Label();
             this.SignupAsAdminButton = new XanderUI.XUIButton();
-            this.adminsixdigitcodetextBox = new System.Windows.Forms.TextBox();
+            this.codeTextBox = new System.Windows.Forms.TextBox();
             this.adminsixdigitcodelabel = new System.Windows.Forms.Label();
-            this.buildingnametextbox = new System.Windows.Forms.TextBox();
-            this.nooffloorstextBox = new System.Windows.Forms.TextBox();
-            this.flatsperfloortextBox = new System.Windows.Forms.TextBox();
-            this.flatnoformattextBox = new System.Windows.Forms.TextBox();
+            this.buildingNameTextbox = new System.Windows.Forms.TextBox();
+            this.noOfFloorsTextBox = new System.Windows.Forms.TextBox();
+            this.flatsPerFloorTextbox = new System.Windows.Forms.TextBox();
+            this.flatNoFormatTextBox = new System.Windows.Forms.TextBox();
             this.BuildingNameLabel = new System.Windows.Forms.Label();
             this.NoofFloorsLabel = new System.Windows.Forms.Label();
             this.flatsperfloorlabel = new System.Windows.Forms.Label();
@@ -86,8 +86,10 @@
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.PassStrength = new System.Windows.Forms.Label();
+
             this.loginPanel.SuspendLayout();
             this.AsaMemberpanel.SuspendLayout();
             this.AdminPanel.SuspendLayout();
@@ -353,12 +355,12 @@
             // 
             this.AdminPanel.Controls.Add(this.welcomeTitle);
             this.AdminPanel.Controls.Add(this.SignupAsAdminButton);
-            this.AdminPanel.Controls.Add(this.adminsixdigitcodetextBox);
+            this.AdminPanel.Controls.Add(this.codeTextBox);
             this.AdminPanel.Controls.Add(this.adminsixdigitcodelabel);
-            this.AdminPanel.Controls.Add(this.buildingnametextbox);
-            this.AdminPanel.Controls.Add(this.nooffloorstextBox);
-            this.AdminPanel.Controls.Add(this.flatsperfloortextBox);
-            this.AdminPanel.Controls.Add(this.flatnoformattextBox);
+            this.AdminPanel.Controls.Add(this.buildingNameTextbox);
+            this.AdminPanel.Controls.Add(this.noOfFloorsTextBox);
+            this.AdminPanel.Controls.Add(this.flatsPerFloorTextbox);
+            this.AdminPanel.Controls.Add(this.flatNoFormatTextBox);
             this.AdminPanel.Controls.Add(this.BuildingNameLabel);
             this.AdminPanel.Controls.Add(this.NoofFloorsLabel);
             this.AdminPanel.Controls.Add(this.flatsperfloorlabel);
@@ -403,15 +405,15 @@
             this.SignupAsAdminButton.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             this.SignupAsAdminButton.Click += new System.EventHandler(this.SignupAsAdminButton_Click);
             // 
-            // adminsixdigitcodetextBox
+            // codeTextBox
             // 
-            this.adminsixdigitcodetextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.adminsixdigitcodetextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.adminsixdigitcodetextBox.ForeColor = System.Drawing.Color.Black;
-            this.adminsixdigitcodetextBox.Location = new System.Drawing.Point(186, 299);
-            this.adminsixdigitcodetextBox.Name = "adminsixdigitcodetextBox";
-            this.adminsixdigitcodetextBox.Size = new System.Drawing.Size(300, 29);
-            this.adminsixdigitcodetextBox.TabIndex = 33;
+            this.codeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.codeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.codeTextBox.ForeColor = System.Drawing.Color.Black;
+            this.codeTextBox.Location = new System.Drawing.Point(186, 299);
+            this.codeTextBox.Name = "codeTextBox";
+            this.codeTextBox.Size = new System.Drawing.Size(300, 29);
+            this.codeTextBox.TabIndex = 33;
             // 
             // adminsixdigitcodelabel
             // 
@@ -424,45 +426,45 @@
             this.adminsixdigitcodelabel.TabIndex = 32;
             this.adminsixdigitcodelabel.Text = "Six Digit Code:";
             // 
-            // buildingnametextbox
+            // buildingNameTextbox
             // 
-            this.buildingnametextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.buildingnametextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buildingnametextbox.ForeColor = System.Drawing.Color.Black;
-            this.buildingnametextbox.Location = new System.Drawing.Point(29, 123);
-            this.buildingnametextbox.Name = "buildingnametextbox";
-            this.buildingnametextbox.Size = new System.Drawing.Size(300, 29);
-            this.buildingnametextbox.TabIndex = 31;
+            this.buildingNameTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.buildingNameTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buildingNameTextbox.ForeColor = System.Drawing.Color.Black;
+            this.buildingNameTextbox.Location = new System.Drawing.Point(29, 123);
+            this.buildingNameTextbox.Name = "buildingNameTextbox";
+            this.buildingNameTextbox.Size = new System.Drawing.Size(300, 29);
+            this.buildingNameTextbox.TabIndex = 31;
             // 
-            // nooffloorstextBox
+            // noOfFloorsTextBox
             // 
-            this.nooffloorstextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.nooffloorstextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nooffloorstextBox.ForeColor = System.Drawing.Color.Black;
-            this.nooffloorstextBox.Location = new System.Drawing.Point(347, 123);
-            this.nooffloorstextBox.Name = "nooffloorstextBox";
-            this.nooffloorstextBox.Size = new System.Drawing.Size(300, 29);
-            this.nooffloorstextBox.TabIndex = 30;
+            this.noOfFloorsTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.noOfFloorsTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noOfFloorsTextBox.ForeColor = System.Drawing.Color.Black;
+            this.noOfFloorsTextBox.Location = new System.Drawing.Point(347, 123);
+            this.noOfFloorsTextBox.Name = "noOfFloorsTextBox";
+            this.noOfFloorsTextBox.Size = new System.Drawing.Size(300, 29);
+            this.noOfFloorsTextBox.TabIndex = 30;
             // 
-            // flatsperfloortextBox
+            // flatsPerFloorTextbox
             // 
-            this.flatsperfloortextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flatsperfloortextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.flatsperfloortextBox.ForeColor = System.Drawing.Color.Black;
-            this.flatsperfloortextBox.Location = new System.Drawing.Point(29, 211);
-            this.flatsperfloortextBox.Name = "flatsperfloortextBox";
-            this.flatsperfloortextBox.Size = new System.Drawing.Size(300, 29);
-            this.flatsperfloortextBox.TabIndex = 29;
+            this.flatsPerFloorTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flatsPerFloorTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.flatsPerFloorTextbox.ForeColor = System.Drawing.Color.Black;
+            this.flatsPerFloorTextbox.Location = new System.Drawing.Point(29, 211);
+            this.flatsPerFloorTextbox.Name = "flatsPerFloorTextbox";
+            this.flatsPerFloorTextbox.Size = new System.Drawing.Size(300, 29);
+            this.flatsPerFloorTextbox.TabIndex = 29;
             // 
-            // flatnoformattextBox
+            // flatNoFormatTextBox
             // 
-            this.flatnoformattextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flatnoformattextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.flatnoformattextBox.ForeColor = System.Drawing.Color.Black;
-            this.flatnoformattextBox.Location = new System.Drawing.Point(349, 211);
-            this.flatnoformattextBox.Name = "flatnoformattextBox";
-            this.flatnoformattextBox.Size = new System.Drawing.Size(300, 29);
-            this.flatnoformattextBox.TabIndex = 28;
+            this.flatNoFormatTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flatNoFormatTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.flatNoFormatTextBox.ForeColor = System.Drawing.Color.Black;
+            this.flatNoFormatTextBox.Location = new System.Drawing.Point(349, 211);
+            this.flatNoFormatTextBox.Name = "flatNoFormatTextBox";
+            this.flatNoFormatTextBox.Size = new System.Drawing.Size(300, 29);
+            this.flatNoFormatTextBox.TabIndex = 28;
             // 
             // BuildingNameLabel
             // 
@@ -756,7 +758,11 @@
             this.signUpFaileError.ForeColor = System.Drawing.Color.IndianRed;
             this.signUpFaileError.Location = new System.Drawing.Point(27, 455);
             this.signUpFaileError.Name = "signUpFaileError";
+
             this.signUpFaileError.Size = new System.Drawing.Size(322, 16);
+
+            this.signUpFaileError.Size = new System.Drawing.Size(280, 16);
+
             this.signUpFaileError.TabIndex = 25;
             this.signUpFaileError.Text = "SIGN UP FAILED! Email Address already exists";
             this.signUpFaileError.Visible = false;
@@ -794,6 +800,7 @@
             this.label3.TabIndex = 22;
             this.label3.Text = "Last Name:";
             // 
+
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
@@ -809,13 +816,15 @@
             this.PassStrength.TabIndex = 26;
             this.PassStrength.Visible = false;
             // 
+
+
             // SignUp
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1200, 720);
-            this.Controls.Add(this.signUpPanel);
             this.Controls.Add(this.AdminPanel);
+            this.Controls.Add(this.signUpPanel);
             this.Controls.Add(this.loginPanel);
             this.Controls.Add(this.AsaMemberpanel);
             this.Controls.Add(this.exitButton);
@@ -861,12 +870,12 @@
         private System.Windows.Forms.Label Memberlabel;
         private System.Windows.Forms.Panel AdminPanel;
         private XanderUI.XUIButton SignupAsAdminButton;
-        private System.Windows.Forms.TextBox adminsixdigitcodetextBox;
+        private System.Windows.Forms.TextBox codeTextBox;
         private System.Windows.Forms.Label adminsixdigitcodelabel;
-        private System.Windows.Forms.TextBox buildingnametextbox;
-        private System.Windows.Forms.TextBox nooffloorstextBox;
-        private System.Windows.Forms.TextBox flatsperfloortextBox;
-        private System.Windows.Forms.TextBox flatnoformattextBox;
+        private System.Windows.Forms.TextBox buildingNameTextbox;
+        private System.Windows.Forms.TextBox noOfFloorsTextBox;
+        private System.Windows.Forms.TextBox flatsPerFloorTextbox;
+        private System.Windows.Forms.TextBox flatNoFormatTextBox;
         private System.Windows.Forms.Label BuildingNameLabel;
         private System.Windows.Forms.Label NoofFloorsLabel;
         private System.Windows.Forms.Label flatsperfloorlabel;
