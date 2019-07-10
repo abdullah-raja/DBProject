@@ -50,6 +50,7 @@
             this.membersixdigitcodelabel = new System.Windows.Forms.Label();
             this.Memberlabel = new System.Windows.Forms.Label();
             this.AdminPanel = new System.Windows.Forms.Panel();
+            this.refreshCodeButton = new System.Windows.Forms.Button();
             this.welcomeTitle = new System.Windows.Forms.Label();
             this.SignupAsAdminButton = new XanderUI.XUIButton();
             this.codeTextBox = new System.Windows.Forms.TextBox();
@@ -81,6 +82,7 @@
             this.gotoLoginButton = new System.Windows.Forms.Label();
             this.signUpTitle = new System.Windows.Forms.Label();
             this.signUpPanel = new System.Windows.Forms.Panel();
+            this.PassStrength = new System.Windows.Forms.Label();
             this.signUpFaileError = new System.Windows.Forms.Label();
             this.confirmPasswordError = new System.Windows.Forms.Label();
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
@@ -88,7 +90,10 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
 
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+
             this.PassStrength = new System.Windows.Forms.Label();
+
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
 
             this.loginPanel.SuspendLayout();
             this.AsaMemberpanel.SuspendLayout();
@@ -141,7 +146,7 @@
             this.userNameLabel.ForeColor = System.Drawing.Color.DarkRed;
             this.userNameLabel.Location = new System.Drawing.Point(31, 91);
             this.userNameLabel.Name = "userNameLabel";
-            this.userNameLabel.Size = new System.Drawing.Size(100, 19);
+            this.userNameLabel.Size = new System.Drawing.Size(93, 19);
             this.userNameLabel.TabIndex = 7;
             this.userNameLabel.Text = "User Name:";
             // 
@@ -162,7 +167,7 @@
             this.passwordLabelLogin.ForeColor = System.Drawing.Color.DarkRed;
             this.passwordLabelLogin.Location = new System.Drawing.Point(350, 91);
             this.passwordLabelLogin.Name = "passwordLabelLogin";
-            this.passwordLabelLogin.Size = new System.Drawing.Size(90, 19);
+            this.passwordLabelLogin.Size = new System.Drawing.Size(83, 19);
             this.passwordLabelLogin.TabIndex = 9;
             this.passwordLabelLogin.Text = "Password:";
             // 
@@ -228,7 +233,7 @@
             this.label2.ForeColor = System.Drawing.Color.DarkRed;
             this.label2.Location = new System.Drawing.Point(31, 287);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(190, 19);
+            this.label2.Size = new System.Drawing.Size(173, 19);
             this.label2.TabIndex = 25;
             this.label2.Text = "Don\'t have an account?";
             // 
@@ -325,7 +330,7 @@
             this.flatnolabel.ForeColor = System.Drawing.Color.DarkRed;
             this.flatnolabel.Location = new System.Drawing.Point(36, 109);
             this.flatnolabel.Name = "flatnolabel";
-            this.flatnolabel.Size = new System.Drawing.Size(112, 19);
+            this.flatnolabel.Size = new System.Drawing.Size(102, 19);
             this.flatnolabel.TabIndex = 29;
             this.flatnolabel.Text = "Flat Number:";
             // 
@@ -336,7 +341,7 @@
             this.membersixdigitcodelabel.ForeColor = System.Drawing.Color.DarkRed;
             this.membersixdigitcodelabel.Location = new System.Drawing.Point(348, 109);
             this.membersixdigitcodelabel.Name = "membersixdigitcodelabel";
-            this.membersixdigitcodelabel.Size = new System.Drawing.Size(125, 19);
+            this.membersixdigitcodelabel.Size = new System.Drawing.Size(113, 19);
             this.membersixdigitcodelabel.TabIndex = 28;
             this.membersixdigitcodelabel.Text = "Six Digit Code:";
             // 
@@ -347,12 +352,13 @@
             this.Memberlabel.ForeColor = System.Drawing.Color.DarkRed;
             this.Memberlabel.Location = new System.Drawing.Point(34, 47);
             this.Memberlabel.Name = "Memberlabel";
-            this.Memberlabel.Size = new System.Drawing.Size(183, 33);
+            this.Memberlabel.Size = new System.Drawing.Size(169, 33);
             this.Memberlabel.TabIndex = 24;
             this.Memberlabel.Text = "Enter Details";
             // 
             // AdminPanel
             // 
+            this.AdminPanel.Controls.Add(this.refreshCodeButton);
             this.AdminPanel.Controls.Add(this.welcomeTitle);
             this.AdminPanel.Controls.Add(this.SignupAsAdminButton);
             this.AdminPanel.Controls.Add(this.codeTextBox);
@@ -372,6 +378,21 @@
             this.AdminPanel.TabIndex = 27;
             this.AdminPanel.Visible = false;
             // 
+            // refreshCodeButton
+            // 
+            this.refreshCodeButton.BackColor = System.Drawing.Color.Transparent;
+            this.refreshCodeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("refreshCodeButton.BackgroundImage")));
+            this.refreshCodeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.refreshCodeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.refreshCodeButton.ForeColor = System.Drawing.Color.Transparent;
+            this.refreshCodeButton.Location = new System.Drawing.Point(157, 302);
+            this.refreshCodeButton.Name = "refreshCodeButton";
+            this.refreshCodeButton.Size = new System.Drawing.Size(24, 23);
+            this.refreshCodeButton.TabIndex = 35;
+            this.toolTip1.SetToolTip(this.refreshCodeButton, "Click to generate another Code");
+            this.refreshCodeButton.UseVisualStyleBackColor = false;
+            this.refreshCodeButton.Click += new System.EventHandler(this.refreshCodeButton_Click);
+            // 
             // welcomeTitle
             // 
             this.welcomeTitle.AutoSize = true;
@@ -379,7 +400,7 @@
             this.welcomeTitle.ForeColor = System.Drawing.Color.Black;
             this.welcomeTitle.Location = new System.Drawing.Point(31, 26);
             this.welcomeTitle.Name = "welcomeTitle";
-            this.welcomeTitle.Size = new System.Drawing.Size(127, 16);
+            this.welcomeTitle.Size = new System.Drawing.Size(115, 16);
             this.welcomeTitle.TabIndex = 34;
             this.welcomeTitle.Text = "Welcome Abullah,";
             // 
@@ -410,10 +431,15 @@
             this.codeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.codeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.codeTextBox.ForeColor = System.Drawing.Color.Black;
-            this.codeTextBox.Location = new System.Drawing.Point(186, 299);
+
+ 
+            this.codeTextBox.Location = new System.Drawing.Point(186, 296);
+            this.codeTextBox.MaxLength = 6;
             this.codeTextBox.Name = "codeTextBox";
             this.codeTextBox.Size = new System.Drawing.Size(300, 29);
-            this.codeTextBox.TabIndex = 33;
+            this.codeTextBox.TabIndex = 32;
+            this.codeTextBox.TextChanged += new System.EventHandler(this.codeTextBox_TextChanged);
+
             // 
             // adminsixdigitcodelabel
             // 
@@ -422,7 +448,7 @@
             this.adminsixdigitcodelabel.ForeColor = System.Drawing.Color.DarkRed;
             this.adminsixdigitcodelabel.Location = new System.Drawing.Point(270, 268);
             this.adminsixdigitcodelabel.Name = "adminsixdigitcodelabel";
-            this.adminsixdigitcodelabel.Size = new System.Drawing.Size(125, 19);
+            this.adminsixdigitcodelabel.Size = new System.Drawing.Size(113, 19);
             this.adminsixdigitcodelabel.TabIndex = 32;
             this.adminsixdigitcodelabel.Text = "Six Digit Code:";
             // 
@@ -434,7 +460,9 @@
             this.buildingNameTextbox.Location = new System.Drawing.Point(29, 123);
             this.buildingNameTextbox.Name = "buildingNameTextbox";
             this.buildingNameTextbox.Size = new System.Drawing.Size(300, 29);
-            this.buildingNameTextbox.TabIndex = 31;
+
+            this.buildingNameTextbox.TabIndex = 28;
+
             // 
             // noOfFloorsTextBox
             // 
@@ -444,7 +472,9 @@
             this.noOfFloorsTextBox.Location = new System.Drawing.Point(347, 123);
             this.noOfFloorsTextBox.Name = "noOfFloorsTextBox";
             this.noOfFloorsTextBox.Size = new System.Drawing.Size(300, 29);
-            this.noOfFloorsTextBox.TabIndex = 30;
+
+            this.noOfFloorsTextBox.TabIndex = 29;
+
             // 
             // flatsPerFloorTextbox
             // 
@@ -454,7 +484,9 @@
             this.flatsPerFloorTextbox.Location = new System.Drawing.Point(29, 211);
             this.flatsPerFloorTextbox.Name = "flatsPerFloorTextbox";
             this.flatsPerFloorTextbox.Size = new System.Drawing.Size(300, 29);
-            this.flatsPerFloorTextbox.TabIndex = 29;
+
+            this.flatsPerFloorTextbox.TabIndex = 30;
+
             // 
             // flatNoFormatTextBox
             // 
@@ -464,7 +496,9 @@
             this.flatNoFormatTextBox.Location = new System.Drawing.Point(349, 211);
             this.flatNoFormatTextBox.Name = "flatNoFormatTextBox";
             this.flatNoFormatTextBox.Size = new System.Drawing.Size(300, 29);
-            this.flatNoFormatTextBox.TabIndex = 28;
+
+            this.flatNoFormatTextBox.TabIndex = 31;
+
             // 
             // BuildingNameLabel
             // 
@@ -473,7 +507,7 @@
             this.BuildingNameLabel.ForeColor = System.Drawing.Color.DarkRed;
             this.BuildingNameLabel.Location = new System.Drawing.Point(29, 91);
             this.BuildingNameLabel.Name = "BuildingNameLabel";
-            this.BuildingNameLabel.Size = new System.Drawing.Size(128, 19);
+            this.BuildingNameLabel.Size = new System.Drawing.Size(115, 19);
             this.BuildingNameLabel.TabIndex = 27;
             this.BuildingNameLabel.Text = "Building Name:";
             // 
@@ -484,7 +518,7 @@
             this.NoofFloorsLabel.ForeColor = System.Drawing.Color.DarkRed;
             this.NoofFloorsLabel.Location = new System.Drawing.Point(348, 91);
             this.NoofFloorsLabel.Name = "NoofFloorsLabel";
-            this.NoofFloorsLabel.Size = new System.Drawing.Size(151, 19);
+            this.NoofFloorsLabel.Size = new System.Drawing.Size(138, 19);
             this.NoofFloorsLabel.TabIndex = 26;
             this.NoofFloorsLabel.Text = "Number of Floors:";
             // 
@@ -495,7 +529,7 @@
             this.flatsperfloorlabel.ForeColor = System.Drawing.Color.DarkRed;
             this.flatsperfloorlabel.Location = new System.Drawing.Point(29, 182);
             this.flatsperfloorlabel.Name = "flatsperfloorlabel";
-            this.flatsperfloorlabel.Size = new System.Drawing.Size(130, 19);
+            this.flatsperfloorlabel.Size = new System.Drawing.Size(117, 19);
             this.flatsperfloorlabel.TabIndex = 25;
             this.flatsperfloorlabel.Text = "Flats Per Floor:";
             // 
@@ -506,7 +540,7 @@
             this.flatnoformatlabel.ForeColor = System.Drawing.Color.DarkRed;
             this.flatnoformatlabel.Location = new System.Drawing.Point(348, 182);
             this.flatnoformatlabel.Name = "flatnoformatlabel";
-            this.flatnoformatlabel.Size = new System.Drawing.Size(180, 19);
+            this.flatnoformatlabel.Size = new System.Drawing.Size(163, 19);
             this.flatnoformatlabel.TabIndex = 24;
             this.flatnoformatlabel.Text = "Flat Numbers Format:";
             // 
@@ -517,7 +551,7 @@
             this.CreateApartmentTitle.ForeColor = System.Drawing.Color.DarkRed;
             this.CreateApartmentTitle.Location = new System.Drawing.Point(27, 48);
             this.CreateApartmentTitle.Name = "CreateApartmentTitle";
-            this.CreateApartmentTitle.Size = new System.Drawing.Size(301, 25);
+            this.CreateApartmentTitle.Size = new System.Drawing.Size(279, 25);
             this.CreateApartmentTitle.TabIndex = 23;
             this.CreateApartmentTitle.Text = " Enter Details of Apartments";
             // 
@@ -528,7 +562,7 @@
             this.NameLabel.ForeColor = System.Drawing.Color.DarkRed;
             this.NameLabel.Location = new System.Drawing.Point(24, 97);
             this.NameLabel.Name = "NameLabel";
-            this.NameLabel.Size = new System.Drawing.Size(100, 19);
+            this.NameLabel.Size = new System.Drawing.Size(91, 19);
             this.NameLabel.TabIndex = 5;
             this.NameLabel.Text = "First Name:";
             // 
@@ -549,7 +583,7 @@
             this.emailLabel.ForeColor = System.Drawing.Color.DarkRed;
             this.emailLabel.Location = new System.Drawing.Point(361, 97);
             this.emailLabel.Name = "emailLabel";
-            this.emailLabel.Size = new System.Drawing.Size(57, 19);
+            this.emailLabel.Size = new System.Drawing.Size(51, 19);
             this.emailLabel.TabIndex = 7;
             this.emailLabel.Text = "Email:";
             // 
@@ -570,7 +604,7 @@
             this.mobileLabel.ForeColor = System.Drawing.Color.DarkRed;
             this.mobileLabel.Location = new System.Drawing.Point(24, 191);
             this.mobileLabel.Name = "mobileLabel";
-            this.mobileLabel.Size = new System.Drawing.Size(136, 19);
+            this.mobileLabel.Size = new System.Drawing.Size(125, 19);
             this.mobileLabel.TabIndex = 9;
             this.mobileLabel.Text = "Mobile Number:";
             // 
@@ -591,7 +625,7 @@
             this.passwordLabel.ForeColor = System.Drawing.Color.DarkRed;
             this.passwordLabel.Location = new System.Drawing.Point(24, 284);
             this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(90, 19);
+            this.passwordLabel.Size = new System.Drawing.Size(83, 19);
             this.passwordLabel.TabIndex = 11;
             this.passwordLabel.Text = "Password:";
             // 
@@ -613,7 +647,7 @@
             this.confirmPasswordLabel.ForeColor = System.Drawing.Color.DarkRed;
             this.confirmPasswordLabel.Location = new System.Drawing.Point(361, 284);
             this.confirmPasswordLabel.Name = "confirmPasswordLabel";
-            this.confirmPasswordLabel.Size = new System.Drawing.Size(157, 19);
+            this.confirmPasswordLabel.Size = new System.Drawing.Size(145, 19);
             this.confirmPasswordLabel.TabIndex = 13;
             this.confirmPasswordLabel.Text = "Confirm Password:";
             // 
@@ -661,7 +695,7 @@
             this.AsLabel.ForeColor = System.Drawing.Color.DarkRed;
             this.AsLabel.Location = new System.Drawing.Point(357, 191);
             this.AsLabel.Name = "AsLabel";
-            this.AsLabel.Size = new System.Drawing.Size(67, 19);
+            this.AsLabel.Size = new System.Drawing.Size(60, 19);
             this.AsLabel.TabIndex = 17;
             this.AsLabel.Text = "As a/an";
             // 
@@ -693,7 +727,7 @@
             this.AlreadyLabel.ForeColor = System.Drawing.Color.DarkRed;
             this.AlreadyLabel.Location = new System.Drawing.Point(24, 485);
             this.AlreadyLabel.Name = "AlreadyLabel";
-            this.AlreadyLabel.Size = new System.Drawing.Size(207, 19);
+            this.AlreadyLabel.Size = new System.Drawing.Size(191, 19);
             this.AlreadyLabel.TabIndex = 19;
             this.AlreadyLabel.Text = "Already have an account?";
             // 
@@ -751,6 +785,17 @@
             this.signUpPanel.Size = new System.Drawing.Size(675, 528);
             this.signUpPanel.TabIndex = 1;
             // 
+            // PassStrength
+            // 
+            this.PassStrength.AutoSize = true;
+            this.PassStrength.Font = new System.Drawing.Font("Lato", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PassStrength.ForeColor = System.Drawing.Color.IndianRed;
+            this.PassStrength.Location = new System.Drawing.Point(24, 351);
+            this.PassStrength.Name = "PassStrength";
+            this.PassStrength.Size = new System.Drawing.Size(0, 16);
+            this.PassStrength.TabIndex = 26;
+            this.PassStrength.Visible = false;
+            // 
             // signUpFaileError
             // 
             this.signUpFaileError.AutoSize = true;
@@ -759,7 +804,9 @@
             this.signUpFaileError.Location = new System.Drawing.Point(27, 455);
             this.signUpFaileError.Name = "signUpFaileError";
 
-            this.signUpFaileError.Size = new System.Drawing.Size(322, 16);
+
+           
+
 
             this.signUpFaileError.Size = new System.Drawing.Size(280, 16);
 
@@ -774,7 +821,7 @@
             this.confirmPasswordError.ForeColor = System.Drawing.Color.IndianRed;
             this.confirmPasswordError.Location = new System.Drawing.Point(361, 351);
             this.confirmPasswordError.Name = "confirmPasswordError";
-            this.confirmPasswordError.Size = new System.Drawing.Size(194, 16);
+            this.confirmPasswordError.Size = new System.Drawing.Size(176, 16);
             this.confirmPasswordError.TabIndex = 24;
             this.confirmPasswordError.Text = "PASSWORDS MUST MATCH";
             this.confirmPasswordError.Visible = false;
@@ -796,7 +843,7 @@
             this.label3.ForeColor = System.Drawing.Color.DarkRed;
             this.label3.Location = new System.Drawing.Point(185, 97);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 19);
+            this.label3.Size = new System.Drawing.Size(87, 19);
             this.label3.TabIndex = 22;
             this.label3.Text = "Last Name:";
             // 
@@ -805,16 +852,10 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // PassStrength
+            // toolTip1
             // 
-            this.PassStrength.AutoSize = true;
-            this.PassStrength.Font = new System.Drawing.Font("Lato", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PassStrength.ForeColor = System.Drawing.Color.IndianRed;
-            this.PassStrength.Location = new System.Drawing.Point(24, 351);
-            this.PassStrength.Name = "PassStrength";
-            this.PassStrength.Size = new System.Drawing.Size(0, 16);
-            this.PassStrength.TabIndex = 26;
-            this.PassStrength.Visible = false;
+            this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.toolTip1.ToolTipTitle = "Refresh Code";
             // 
 
 
@@ -907,5 +948,7 @@
         private System.Windows.Forms.Label signUpFaileError;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Label PassStrength;
+        private System.Windows.Forms.Button refreshCodeButton;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

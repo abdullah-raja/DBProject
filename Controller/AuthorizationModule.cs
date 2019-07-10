@@ -11,12 +11,11 @@ namespace DBproject.Controller
     {
         
         const string insertStoredProcedure = "usp_insertUser";
-        
-        public AuthorizationModule(string connectionString, string TableName) : base(connectionString,TableName)
-        {
-           
 
+        public AuthorizationModule(string connectionString, string TableName) : base(connectionString, TableName)
+        {
         }
+
 
 
         override public void signIn(Model.User user, Views.SignUp view)
@@ -25,6 +24,9 @@ namespace DBproject.Controller
             // retrive data from DB, using emailAddress
             // store a record in the user, i.e user.setname(<name returned from DB>)
             // call view.signIn fail/successs functions
+
+            
+
         }
 
         override public bool signUp(Model.User user, Views.SignUp view) // Sending instance of View to make changes, will return true if successful
@@ -58,7 +60,18 @@ namespace DBproject.Controller
                     view.signUpSuccessful();
                     view.setWelcomeTitle("Welcome " + user.getFirstName());
                 }
-           }
+
+                else
+                {
+                    view.signUpFailed();
+                }
+            }
+
+
+
+               
+           
+
 
            catch (Exception es)
            {

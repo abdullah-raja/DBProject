@@ -46,9 +46,11 @@ namespace DBproject.Controller
 
         }
 
-        virtual public bool createBuilding(Model.Building building, Views.SignUp view)
+
+        virtual public void createBuilding(Model.Building building, Views.SignUp view, Model.User user)
         {
-            return false;
+            
+
         }
     }
 }

@@ -16,6 +16,7 @@ namespace DBproject.Model
         bool isAdmin;
         string mobileNumber;
         static int userCount = 0;
+        string apartmentID;
 
 
         public User(string firstName, string lastName, string email, string password, bool isAdmin, string number)
@@ -30,7 +31,16 @@ namespace DBproject.Model
             this.userID = "U" + userCount + DateTime.Today.Year.ToString(); // U232019
 
         }
+        //apartment getters setters
+        public void setApartmentID(string id)
+        {
+            this.apartmentID = id;
+        }
 
+        public string getApartmentID()
+        {
+            return this.apartmentID;
+        }
 
         // ID getter Setters
         public string getID()
