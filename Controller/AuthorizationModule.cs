@@ -58,6 +58,11 @@ namespace DBproject.Controller
                     view.signUpSuccessful();
                     view.setWelcomeTitle("Welcome " + user.getFirstName());
                 }
+
+                else
+                {
+                    view.signUpFailed();
+                }
            }
 
            catch (Exception es)

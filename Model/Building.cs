@@ -9,9 +9,10 @@ namespace DBproject.Model
     class Building
     {
         // add getNoOfFlats(), getFlat(int flatNumber)
+
         String appartmentName;
         int noOfFloors;
-        int apartmentId;
+        string apartmentId;
         int flatsPerFloor;
         String code;
         User admin;
@@ -48,12 +49,12 @@ namespace DBproject.Model
 
         // id getter setter
 
-        public int getID()
+        public string getID()
         {
             return this.apartmentId;
         }
 
-        public void setID(int id)
+        public void setID(string id)
         {
             this.apartmentId = id;
         }

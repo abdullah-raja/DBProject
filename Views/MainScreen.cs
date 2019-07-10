@@ -8,14 +8,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DBproject.Model;
+using DBproject.Views;
+
 
 namespace DBproject.Views
 {
     public partial class MainScreen : Form
     {
-        public MainScreen()
+        User user;
+        public MainScreen(string userID)
         {
+
             InitializeComponent();
+            // calling controller function and creating user
         }
 
         private void logoutButton_Click(object sender, EventArgs e)

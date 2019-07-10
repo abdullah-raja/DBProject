@@ -264,17 +264,29 @@ namespace DBproject.Views
             loginPanel.Visible = true;
         }
 
+        // clicking create building
+
         private void SignupAsAdminButton_Click(object sender, EventArgs e)
         {
             controller = new CreateAndJoinBuilding(connectionString, buildingsTableName);
             Building building = new Building(buildingNameTextbox.Text, Convert.ToInt32(noOfFloorsTextBox.Text), Convert.ToInt32(flatsPerFloorTextbox.Text), codeTextBox.Text, user, Convert.ToInt32(flatNoFormatTextBox.Text));
-            controller.createBuilding(building, this);
+            controller.createBuilding(building, this,user);
         }
+
+
+        // will be called by controller when successful
 
         public void buildingCreated()
         {
-            AdminPanel.Visible = false;
-            loginPanel.Visible = true;
+            this.Hide();
+            MainScreen ms = new MainScreen(user.getID());
+            ms.ShowDialog();
+            this.Dispose();
+        }
+
+        public void buildingFailed()
+        {
+            MessageBox.Show("Error! Apartment Creation Failed");
         }
 
         public void setWelcomeTitle(string title)
@@ -285,7 +297,7 @@ namespace DBproject.Views
         public void signInSuccessful()
         {
             this.Hide();
-            MainScreen ms = new MainScreen();
+            MainScreen ms = new MainScreen(user.getID());
             ms.ShowDialog();
             this.Dispose();
 
@@ -303,6 +315,7 @@ namespace DBproject.Views
             {
                 
                 AdminPanel.Visible = true;
+                codeTextBox.Text = generateRandomCode(6);
                 loginPanel.Visible = false;
                 signUpPanel.Visible = false;
                 AsaMemberpanel.Visible = false;
@@ -318,9 +331,34 @@ namespace DBproject.Views
             }
         }
 
+        private string generateRandomCode(int length)
+        {
+            String str = "";
+            Random r = new Random();
+
+            for (int i = 0; i < length; i++)
+            {
+                str += (char)r.Next(65, 91);
+            }
+
+            return str;
+        }
+
         private void passwordTextBox_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void refreshCodeButton_Click(object sender, EventArgs e)
+        {
+            codeTextBox.Text = generateRandomCode(6);
+        }
+
+        private void codeTextBox_TextChanged(object sender, EventArgs e)
+        {
+            codeTextBox.Text = codeTextBox.Text.ToUpper();
+            codeTextBox.SelectionStart = codeTextBox.Text.Length;
+            codeTextBox.SelectionLength = 0;
         }
     }
 }
