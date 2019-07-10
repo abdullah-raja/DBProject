@@ -7,31 +7,27 @@ using System.Threading.Tasks;
 
 namespace DBproject.Controller
 {
-    class AuthorizationModule
+    class AuthorizationModule : ControllerModule
     {
-        string TABLE_NAME;
+        
         const string insertStoredProcedure = "usp_insertUser";
-
-        string connectionString;
-        SqlConnection connection;
-
-        public AuthorizationModule(string connectionString, string TableName)
+        
+        public AuthorizationModule(string connectionString, string TableName) : base(connectionString,TableName)
         {
-            this.TABLE_NAME = TableName;
-            try
-            {
-                this.connectionString = connectionString;
-                this.connection = new SqlConnection(this.connectionString);
-            }
-
-            catch (Exception es)
-            {
-                
-            }
+           
 
         }
 
-        public bool insertRecord(Model.User user, Views.SignUp view) // Sending instance of View to make changes, will return true if successful
+
+        override public void signIn(Model.User user, Views.SignUp view)
+        {
+            // check login info 
+            // retrive data from DB, using emailAddress
+            // store a record in the user, i.e user.setname(<name returned from DB>)
+            // call view.signIn fail/successs functions
+        }
+
+        override public bool signUp(Model.User user, Views.SignUp view) // Sending instance of View to make changes, will return true if successful
         {
             bool insertSuccessul = false;
             connection.Open();
@@ -46,20 +42,28 @@ namespace DBproject.Controller
             insertCommand.Parameters.Add(new SqlParameter("@lastName", user.getLastname()));
             insertCommand.Parameters.Add(new SqlParameter("@mobile", user.getMobileNumber()));
 
-            try
-            {
+            // creating output parameter
+            SqlParameter returnedUserID = insertCommand.Parameters.Add("@userID", System.Data.SqlDbType.UniqueIdentifier, 0, "userID");
+            returnedUserID.Direction = System.Data.ParameterDirection.Output;
+
+           
+
+
+           try
+           {
 
                 if (insertCommand.ExecuteNonQuery() > 0) // returns number of rows affected
                 {
+                    user.setID(insertCommand.Parameters["@userID"].Value.ToString()); // retreiving output value
                     view.signUpSuccessful();
                     view.setWelcomeTitle("Welcome " + user.getFirstName());
                 }
-            }
+           }
 
-            catch (Exception es)
-            {
-                view.signUpFailed();
-            }
+           catch (Exception es)
+           {
+              view.signUpFailed();
+           }
 
             
             

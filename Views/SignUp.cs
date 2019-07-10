@@ -8,7 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DBproject.Model;
+
 using System.Text.RegularExpressions;
+
+using DBproject.Controller;
+
 
 namespace DBproject.Views
 {
@@ -16,12 +20,13 @@ namespace DBproject.Views
     {
         string connectionString = @"Data Source=HAIER-PC\SQLEXPRESS;Initial Catalog=Project_Database;Integrated Security=True";
         string usersTableName = "tbl_User";
-        Controller.AuthorizationModule authorizationModule;
+        string buildingsTableName = "tbl_Buildings";
+        Model.User user;
+        ControllerModule controller;
         public SignUp()
         {
             InitializeComponent();
-            authorizationModule = new Controller.AuthorizationModule(this.connectionString
-                , usersTableName);
+            
         }
 
        
@@ -214,8 +219,10 @@ namespace DBproject.Views
 
             else
             {
-                Model.User user = new User(firstNameTextBox.Text, lastNameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, adminRadio.Checked, mobileTextBox.Text);
-                authorizationModule.insertRecord(user, this);
+                controller = new Controller.AuthorizationModule(this.connectionString
+                , usersTableName);
+                user = new User(firstNameTextBox.Text, lastNameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, adminRadio.Checked, mobileTextBox.Text);
+                controller.signUp(user, this);
 
             }
         }
@@ -236,11 +243,10 @@ namespace DBproject.Views
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            MainScreen ms = new MainScreen();
-            ms.ShowDialog();
-            this.Dispose();
-
+            controller = new Controller.AuthorizationModule(this.connectionString
+                , usersTableName);
+           
+            controller.signIn(user, this);
         }
 
         
@@ -260,6 +266,13 @@ namespace DBproject.Views
 
         private void SignupAsAdminButton_Click(object sender, EventArgs e)
         {
+            controller = new CreateAndJoinBuilding(connectionString, buildingsTableName);
+            Building building = new Building(buildingNameTextbox.Text, Convert.ToInt32(noOfFloorsTextBox.Text), Convert.ToInt32(flatsPerFloorTextbox.Text), codeTextBox.Text, user, Convert.ToInt32(flatNoFormatTextBox.Text));
+            controller.createBuilding(building, this);
+        }
+
+        public void buildingCreated()
+        {
             AdminPanel.Visible = false;
             loginPanel.Visible = true;
         }
@@ -267,6 +280,15 @@ namespace DBproject.Views
         public void setWelcomeTitle(string title)
         {
             welcomeTitle.Text = title;
+        }
+
+        public void signInSuccessful()
+        {
+            this.Hide();
+            MainScreen ms = new MainScreen();
+            ms.ShowDialog();
+            this.Dispose();
+
         }
 
         public void signUpFailed()
