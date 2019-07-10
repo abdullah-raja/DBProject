@@ -80,3 +80,7 @@ C:\Users\abdul\Documents\GitHub\DBProject\obj\Debug\DBproject.Views.UserControls
 E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.Views.UserControls.Anaytics.resources
 E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.Views.UserControls.details.resources
 E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.Views.UserControls.Receipt.resources
+C:\Users\Sarim\Desktop\DbProject\DBProject\obj\Debug\DBproject.Views.UserControls.Anaytics.resources
+C:\Users\Sarim\Desktop\DbProject\DBProject\obj\Debug\DBproject.Views.UserControls.Expense.resources
+C:\Users\Sarim\Desktop\DbProject\DBProject\obj\Debug\DBproject.Views.UserControls.ExpenseCard.resources
+C:\Users\Sarim\Desktop\DbProject\DBProject\obj\Debug\DBproject.Views.UserControls.SearchBar.resources

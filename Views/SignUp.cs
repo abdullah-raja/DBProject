@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DBproject.Model;
+using System.Text.RegularExpressions;
 
 namespace DBproject.Views
 {
@@ -56,6 +57,154 @@ namespace DBproject.Views
         private void signUpButton_Click(object sender, EventArgs e)
         {
             // add validations here, emailFormat, Minimum Password Length, all text boxes checked 
+            
+                string format = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
+
+            if (firstNameTextBox.Text == "" || lastNameTextBox.Text == "" || emailTextBox.Text == "" || mobileTextBox.Text == "" || passwordTextBox.Text == "" || confirmPasswordTextBox.Text == "" || (memebrRadio.Checked != true && adminRadio.Checked != true))
+            //   errorProvider1.Clear();
+            //  errorProvider1.SetError(this., "");
+            //  return;
+            {
+                {
+                    if (firstNameTextBox.Text == "")
+                    {
+                        // errorProvider1.Clear();
+
+                        firstNameTextBox.Focus();
+
+                        errorProvider1.SetError(this.firstNameTextBox, "Please provide first name");
+                        return;
+                    }
+                    else
+                        errorProvider1.Clear();
+                }
+                {
+                    if (lastNameTextBox.Text == "")
+                    {
+                        errorProvider1.SetError(this.lastNameTextBox, "Please provide last name");
+                        //  errorProvider1.Clear();  
+                        // lastNameTextBox.Focus();
+                        return;
+
+
+                    }
+                    else
+                        errorProvider1.Clear();
+                }
+                 if (firstNameTextBox.Text != "" && lastNameTextBox.Text == "")
+                  lastNameTextBox.Focus();
+                {
+                    if (emailTextBox.Text == "")
+                    {
+                        //  errorProvider1.Clear();
+                        errorProvider1.SetError(this.emailTextBox, "Please provide email");
+                        //  emailTextBox.Focus();
+                        return;
+                    }
+                    else
+                        errorProvider1.Clear();
+                }
+                if (firstNameTextBox.Text != "" && lastNameTextBox.Text != "" && emailTextBox.Text == "")
+                    emailTextBox.Focus();
+                {
+                    if (mobileTextBox.Text == "")
+                    {
+                        //  errorProvider1.Clear();
+                        errorProvider1.SetError(this.mobileTextBox, "Please provide mobie number");
+                        // mobileTextBox.Focus(); 
+                        return;
+                    }
+                    else
+                        errorProvider1.Clear();
+                }
+                if (firstNameTextBox.Text != "" && lastNameTextBox.Text != "" && emailTextBox.Text!="" && mobileTextBox.Text == "")
+                    mobileTextBox.Focus();
+                {
+                    if (passwordTextBox.Text == "")
+                    {
+                        //  errorProvider1.Clear();
+                        errorProvider1.SetError(this.firstNameTextBox, "Please set password");
+                        //  passwordTextBox.Focus();
+                        return;
+                    }
+                    else
+                        errorProvider1.Clear();
+                }
+                if (firstNameTextBox.Text != "" && lastNameTextBox.Text != "" && emailTextBox.Text != "" && mobileTextBox.Text != "" && passwordTextBox.Text == "")
+                   passwordTextBox.Focus();
+                {
+                    if (confirmPasswordTextBox.Text == "")
+                    {
+                        //  errorProvider1.Clear();
+                        errorProvider1.SetError(this.confirmPasswordTextBox, "Please confirm your password");
+                        // confirmPasswordTextBox.Focus();
+                        return;
+                    }
+                    else
+                        errorProvider1.Clear();
+                }
+                if (firstNameTextBox.Text != "" && lastNameTextBox.Text != "" && emailTextBox.Text != "" && mobileTextBox.Text != "" && passwordTextBox.Text != "" && confirmPasswordTextBox.Text == "")
+                    confirmPasswordTextBox.Focus();
+                {
+                    if (adminRadio.Checked != true && memebrRadio.Checked != true)
+                    {
+                        // errorProvider1.Clear();
+                        errorProvider1.SetError(this.memebrRadio, "Please select one");
+                        //adminRadio.Focus();
+                        return;
+                    }
+                    else
+                        errorProvider1.Clear();
+                }
+                if (firstNameTextBox.Text != "" && lastNameTextBox.Text != "" && emailTextBox.Text != "" && mobileTextBox.Text != "" && passwordTextBox.Text != "" && confirmPasswordTextBox.Text != "" && (adminRadio.Checked != true && memebrRadio.Checked != true) )
+                    memebrRadio.Focus();
+            }
+            if (Regex.IsMatch(emailTextBox.Text, format))
+                {
+                    errorProvider1.Clear();
+                    emailTextBox.Focus();
+                }
+                else
+                {
+                    errorProvider1.SetError(this.emailTextBox, "Please provide valid email");
+                    return;
+                }
+            
+           if (mobileTextBox.Text.Length != 11)
+            {
+                mobileTextBox.Focus();
+                errorProvider1.SetError(this.mobileTextBox, "Please provide valid mobile number");
+                return;
+               
+                
+            }
+            else {
+                errorProvider1.Clear();
+            }
+               {
+                if (passwordTextBox.Text.Length <= 5)
+                {
+                    PassStrength.Visible = true;
+                    PassStrength.Text = "Your Pasword is Weak";
+                    PassStrength.ForeColor = Color.Red;
+                   // passwordTextBox.Focus();
+                }
+                if (passwordTextBox.Text.Length >=6 && passwordTextBox.Text.Length <= 8)
+                {
+                    PassStrength.Visible = true;
+                   PassStrength.Text = "Your Pasword is Average";
+                    PassStrength.ForeColor = Color.Yellow;
+                   // passwordTextBox.Focus();
+                }
+                if (passwordTextBox.Text.Length >= 9)
+                {
+                    PassStrength.Visible = true;
+                    PassStrength.Text = "Your Pasword is Strong";
+                   PassStrength.ForeColor = Color.Green;
+                    //passwordTextBox.Focus();
+                }
+            }
+          
             if (passwordTextBox.Text != confirmPasswordTextBox.Text)
             {
                 confirmPasswordError.Visible = true;
@@ -145,6 +294,11 @@ namespace DBproject.Views
                 signUpPanel.Visible = false;
                 AsaMemberpanel.Visible = true;
             }
+        }
+
+        private void passwordTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
