@@ -25,6 +25,8 @@ namespace DBproject.Controller
             // retrive data from DB, using emailAddress
             // store a record in the user, i.e user.setname(<name returned from DB>)
             // call view.signIn fail/successs functions
+
+            
         }
 
         override public bool signUp(Model.User user, Views.SignUp view) // Sending instance of View to make changes, will return true if successful
