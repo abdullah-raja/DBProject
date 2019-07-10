@@ -40,6 +40,7 @@ namespace DBproject.Controller
                 if (insertCommand.ExecuteNonQuery() > 0) // returns number of rows affected
                 {
                     building.setID(insertCommand.Parameters["@apartmentId"].Value.ToString()); // retreiving output value
+                    user.setApartmentID(insertCommand.Parameters["@apartmentId"].Value.ToString());
                     view.buildingCreated();
                     
                 }
