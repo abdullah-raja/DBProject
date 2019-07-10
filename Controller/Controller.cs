@@ -36,9 +36,14 @@ namespace DBproject.Controller
 
         }
 
-        virtual public bool insertRecord(Model.User user, Views.SignUp view)
+        virtual public bool signUp(Model.User user, Views.SignUp view)
         {
             return false;
+        }
+
+        virtual public void signIn(Model.User user, Views.SignUp view)
+        {
+
         }
 
         virtual public bool createBuilding(Model.Building building, Views.SignUp view)

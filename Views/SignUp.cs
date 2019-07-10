@@ -70,7 +70,7 @@ namespace DBproject.Views
                 controller = new Controller.AuthorizationModule(this.connectionString
                 , usersTableName);
                 user = new User(firstNameTextBox.Text, lastNameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, adminRadio.Checked, mobileTextBox.Text);
-                controller.insertRecord(user, this);
+                controller.signUp(user, this);
 
             }
         }
@@ -91,11 +91,10 @@ namespace DBproject.Views
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            MainScreen ms = new MainScreen();
-            ms.ShowDialog();
-            this.Dispose();
-
+            controller = new Controller.AuthorizationModule(this.connectionString
+                , usersTableName);
+           
+            controller.signIn(user, this);
         }
 
         
@@ -129,6 +128,15 @@ namespace DBproject.Views
         public void setWelcomeTitle(string title)
         {
             welcomeTitle.Text = title;
+        }
+
+        public void signInSuccessful()
+        {
+            this.Hide();
+            MainScreen ms = new MainScreen();
+            ms.ShowDialog();
+            this.Dispose();
+
         }
 
         public void signUpFailed()
