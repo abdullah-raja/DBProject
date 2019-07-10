@@ -11,6 +11,7 @@ namespace DBproject.Controller
     {
         
         const string insertStoredProcedure = "usp_insertUser";
+        const string loginStoredProcedure = "usp_checkLoginInfo";
 
         public AuthorizationModule(string connectionString, string TableName) : base(connectionString, TableName)
         {
@@ -24,8 +25,14 @@ namespace DBproject.Controller
             // retrive data from DB, using emailAddress
             // store a record in the user, i.e user.setname(<name returned from DB>)
             // call view.signIn fail/successs functions
+            // oye dekh?
 
-            
+            // pehle SQL command ko use kr k password read krna ha
+            // Select password from tbl_Users where userEmail = view.<login email ka jo textbox ha wo>.Text
+            // neeche select statement ki bachodi poori krni ha jisse password read hojayga phr uski match krna ha
+
+            // phr loginStoredProcedure ko execute krna ha aur uske jo output parameters hn unko user k constructor me pass krna ha jese sign up k function me kya ha
+
 
         }
 
@@ -51,8 +58,8 @@ namespace DBproject.Controller
            
 
 
-           try
-           {
+          // try
+          // {
 
                 if (insertCommand.ExecuteNonQuery() > 0) // returns number of rows affected
                 {
@@ -65,7 +72,7 @@ namespace DBproject.Controller
                 {
                     view.signUpFailed();
                 }
-            }
+            /* }
 
 
 
@@ -77,7 +84,7 @@ namespace DBproject.Controller
            {
               view.signUpFailed();
            }
-
+           */
             
             
             connection.Close();

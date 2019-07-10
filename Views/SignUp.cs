@@ -18,7 +18,10 @@ namespace DBproject.Views
 {
     public partial class SignUp : Form
     {
-        string connectionString = @"Data Source=HAIER-PC\SQLEXPRESS;Initial Catalog=Project_Database;Integrated Security=True";
+        string sarim = @"Data Source=(localdb)\mssqllocaldb;Initial Catalog=Project_Database;Integrated Security=True";
+        string raja = @"Data Source=HAIER-PC\SQLEXPRESS;Initial Catalog=Project_Database;Integrated Security=True";
+        string connectionString = @"Data Source=(localdb)\mssqllocaldb;Initial Catalog=Project_Database;Integrated Security=True";
+        
         string usersTableName = "tbl_User";
         string buildingsTableName = "tbl_Buildings";
         Model.User user;
