@@ -88,8 +88,13 @@
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+
+            this.PassStrength = new System.Windows.Forms.Label();
+
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+
             this.loginPanel.SuspendLayout();
             this.AsaMemberpanel.SuspendLayout();
             this.AdminPanel.SuspendLayout();
@@ -426,12 +431,15 @@
             this.codeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.codeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.codeTextBox.ForeColor = System.Drawing.Color.Black;
+
+ 
             this.codeTextBox.Location = new System.Drawing.Point(186, 296);
             this.codeTextBox.MaxLength = 6;
             this.codeTextBox.Name = "codeTextBox";
             this.codeTextBox.Size = new System.Drawing.Size(300, 29);
             this.codeTextBox.TabIndex = 32;
             this.codeTextBox.TextChanged += new System.EventHandler(this.codeTextBox_TextChanged);
+
             // 
             // adminsixdigitcodelabel
             // 
@@ -452,7 +460,9 @@
             this.buildingNameTextbox.Location = new System.Drawing.Point(29, 123);
             this.buildingNameTextbox.Name = "buildingNameTextbox";
             this.buildingNameTextbox.Size = new System.Drawing.Size(300, 29);
+
             this.buildingNameTextbox.TabIndex = 28;
+
             // 
             // noOfFloorsTextBox
             // 
@@ -462,7 +472,9 @@
             this.noOfFloorsTextBox.Location = new System.Drawing.Point(347, 123);
             this.noOfFloorsTextBox.Name = "noOfFloorsTextBox";
             this.noOfFloorsTextBox.Size = new System.Drawing.Size(300, 29);
+
             this.noOfFloorsTextBox.TabIndex = 29;
+
             // 
             // flatsPerFloorTextbox
             // 
@@ -472,7 +484,9 @@
             this.flatsPerFloorTextbox.Location = new System.Drawing.Point(29, 211);
             this.flatsPerFloorTextbox.Name = "flatsPerFloorTextbox";
             this.flatsPerFloorTextbox.Size = new System.Drawing.Size(300, 29);
+
             this.flatsPerFloorTextbox.TabIndex = 30;
+
             // 
             // flatNoFormatTextBox
             // 
@@ -482,7 +496,9 @@
             this.flatNoFormatTextBox.Location = new System.Drawing.Point(349, 211);
             this.flatNoFormatTextBox.Name = "flatNoFormatTextBox";
             this.flatNoFormatTextBox.Size = new System.Drawing.Size(300, 29);
+
             this.flatNoFormatTextBox.TabIndex = 31;
+
             // 
             // BuildingNameLabel
             // 
@@ -787,7 +803,13 @@
             this.signUpFaileError.ForeColor = System.Drawing.Color.IndianRed;
             this.signUpFaileError.Location = new System.Drawing.Point(27, 455);
             this.signUpFaileError.Name = "signUpFaileError";
+
+
+           
+
+
             this.signUpFaileError.Size = new System.Drawing.Size(280, 16);
+
             this.signUpFaileError.TabIndex = 25;
             this.signUpFaileError.Text = "SIGN UP FAILED! Email Address already exists";
             this.signUpFaileError.Visible = false;
@@ -825,6 +847,7 @@
             this.label3.TabIndex = 22;
             this.label3.Text = "Last Name:";
             // 
+
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
@@ -834,6 +857,8 @@
             this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.toolTip1.ToolTipTitle = "Refresh Code";
             // 
+
+
             // SignUp
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
