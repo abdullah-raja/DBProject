@@ -5,19 +5,24 @@ using System.Text;
 using System.Threading.Tasks;
 using DBproject.Model;
 using DBproject.Views;
+
 using System.Data.SqlClient;
 using System.Data;
+
 
 namespace DBproject.Controller
 {
     class CreateAndJoinBuilding : ControllerModule
     {
+
         const string insertStoredProcedure = "usp_insertBuilding";
+
         public CreateAndJoinBuilding(string connectionString, string TableName) : base(connectionString, TableName)
         {
 
 
         }
+
 
         public override void createBuilding(Building building, SignUp view, User user)
         {
@@ -50,6 +55,7 @@ namespace DBproject.Controller
             {
                 view.buildingFailed();
             }
+
         }
     }
 }

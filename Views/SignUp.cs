@@ -18,7 +18,10 @@ namespace DBproject.Views
 {
     public partial class SignUp : Form
     {
-        string connectionString = @"Data Source=HAIER-PC\SQLEXPRESS;Initial Catalog=Project_Database;Integrated Security=True";
+        string sarim = @"Data Source=(localdb)\mssqllocaldb;Initial Catalog=Project_Database;Integrated Security=True";
+        string raja = @"Data Source=HAIER-PC\SQLEXPRESS;Initial Catalog=Project_Database;Integrated Security=True";
+        string connectionString = @"Data Source=(localdb)\mssqllocaldb;Initial Catalog=Project_Database;Integrated Security=True";
+        
         string usersTableName = "tbl_User";
         string buildingsTableName = "tbl_Buildings";
         Model.User user;
@@ -270,6 +273,7 @@ namespace DBproject.Views
         {
             controller = new CreateAndJoinBuilding(connectionString, buildingsTableName);
             Building building = new Building(buildingNameTextbox.Text, Convert.ToInt32(noOfFloorsTextBox.Text), Convert.ToInt32(flatsPerFloorTextbox.Text), codeTextBox.Text, user, Convert.ToInt32(flatNoFormatTextBox.Text));
+
             controller.createBuilding(building, this,user);
         }
 
@@ -287,6 +291,7 @@ namespace DBproject.Views
         public void buildingFailed()
         {
             MessageBox.Show("Error! Apartment Creation Failed");
+
         }
 
         public void setWelcomeTitle(string title)
@@ -297,7 +302,9 @@ namespace DBproject.Views
         public void signInSuccessful()
         {
             this.Hide();
+
             MainScreen ms = new MainScreen(user.getID());
+
             ms.ShowDialog();
             this.Dispose();
 

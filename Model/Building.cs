@@ -12,7 +12,9 @@ namespace DBproject.Model
 
         String appartmentName;
         int noOfFloors;
+
         string apartmentId;
+
         int flatsPerFloor;
         String code;
         User admin;
@@ -50,11 +52,15 @@ namespace DBproject.Model
         // id getter setter
 
         public string getID()
+
         {
             return this.apartmentId;
         }
 
+
+
         public void setID(string id)
+
         {
             this.apartmentId = id;
         }
