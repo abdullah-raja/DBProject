@@ -41,7 +41,7 @@ namespace DBproject.Controller
             return false;
         }
 
-        virtual public void signIn(Model.User user, Views.SignUp view)
+        virtual public void signIn(Model.User user, Views.SignUp view, string enteredEmail, string enteredPassword, Model.Building apartment)
         {
 
         }

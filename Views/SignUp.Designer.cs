@@ -33,9 +33,9 @@
             this.xuiGradientPanel1 = new XanderUI.XUIGradientPanel();
             this.exitButton = new XanderUI.XUIButton();
             this.userNameLabel = new System.Windows.Forms.Label();
-            this.userNameTextLogin = new System.Windows.Forms.TextBox();
+            this.loginEmailTextbox = new System.Windows.Forms.TextBox();
             this.passwordLabelLogin = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.loginPasswordTextbox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.keepSignedIn = new System.Windows.Forms.CheckBox();
             this.loginButton = new XanderUI.XUIButton();
@@ -88,13 +88,9 @@
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-
-            this.PassStrength = new System.Windows.Forms.Label();
-
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-
+            this.loginFailedError = new System.Windows.Forms.Label();
             this.loginPanel.SuspendLayout();
             this.AsaMemberpanel.SuspendLayout();
             this.AdminPanel.SuspendLayout();
@@ -146,19 +142,19 @@
             this.userNameLabel.ForeColor = System.Drawing.Color.DarkRed;
             this.userNameLabel.Location = new System.Drawing.Point(31, 91);
             this.userNameLabel.Name = "userNameLabel";
-            this.userNameLabel.Size = new System.Drawing.Size(93, 19);
+            this.userNameLabel.Size = new System.Drawing.Size(47, 19);
             this.userNameLabel.TabIndex = 7;
-            this.userNameLabel.Text = "User Name:";
+            this.userNameLabel.Text = "Email";
             // 
-            // userNameTextLogin
+            // loginEmailTextbox
             // 
-            this.userNameTextLogin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.userNameTextLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userNameTextLogin.ForeColor = System.Drawing.Color.Black;
-            this.userNameTextLogin.Location = new System.Drawing.Point(31, 124);
-            this.userNameTextLogin.Name = "userNameTextLogin";
-            this.userNameTextLogin.Size = new System.Drawing.Size(300, 29);
-            this.userNameTextLogin.TabIndex = 8;
+            this.loginEmailTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.loginEmailTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginEmailTextbox.ForeColor = System.Drawing.Color.Black;
+            this.loginEmailTextbox.Location = new System.Drawing.Point(31, 124);
+            this.loginEmailTextbox.Name = "loginEmailTextbox";
+            this.loginEmailTextbox.Size = new System.Drawing.Size(300, 29);
+            this.loginEmailTextbox.TabIndex = 8;
             // 
             // passwordLabelLogin
             // 
@@ -171,16 +167,16 @@
             this.passwordLabelLogin.TabIndex = 9;
             this.passwordLabelLogin.Text = "Password:";
             // 
-            // textBox1
+            // loginPasswordTextbox
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.Black;
-            this.textBox1.Location = new System.Drawing.Point(350, 124);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PasswordChar = '*';
-            this.textBox1.Size = new System.Drawing.Size(300, 29);
-            this.textBox1.TabIndex = 10;
+            this.loginPasswordTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.loginPasswordTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginPasswordTextbox.ForeColor = System.Drawing.Color.Black;
+            this.loginPasswordTextbox.Location = new System.Drawing.Point(350, 124);
+            this.loginPasswordTextbox.Name = "loginPasswordTextbox";
+            this.loginPasswordTextbox.PasswordChar = '*';
+            this.loginPasswordTextbox.Size = new System.Drawing.Size(300, 29);
+            this.loginPasswordTextbox.TabIndex = 10;
             // 
             // label1
             // 
@@ -219,7 +215,7 @@
             this.loginButton.HoverBackgroundColor = System.Drawing.Color.Brown;
             this.loginButton.HoverTextColor = System.Drawing.Color.White;
             this.loginButton.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.loginButton.Location = new System.Drawing.Point(31, 213);
+            this.loginButton.Location = new System.Drawing.Point(31, 242);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(145, 50);
             this.loginButton.TabIndex = 24;
@@ -231,7 +227,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.DarkRed;
-            this.label2.Location = new System.Drawing.Point(31, 287);
+            this.label2.Location = new System.Drawing.Point(31, 313);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(173, 19);
             this.label2.TabIndex = 25;
@@ -243,7 +239,7 @@
             this.gotoSignUpButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gotoSignUpButton.ForeColor = System.Drawing.Color.DarkRed;
-            this.gotoSignUpButton.Location = new System.Drawing.Point(227, 287);
+            this.gotoSignUpButton.Location = new System.Drawing.Point(227, 313);
             this.gotoSignUpButton.Name = "gotoSignUpButton";
             this.gotoSignUpButton.Size = new System.Drawing.Size(73, 20);
             this.gotoSignUpButton.TabIndex = 26;
@@ -252,14 +248,15 @@
             // 
             // loginPanel
             // 
+            this.loginPanel.Controls.Add(this.loginFailedError);
             this.loginPanel.Controls.Add(this.gotoSignUpButton);
             this.loginPanel.Controls.Add(this.label2);
             this.loginPanel.Controls.Add(this.loginButton);
             this.loginPanel.Controls.Add(this.keepSignedIn);
             this.loginPanel.Controls.Add(this.label1);
-            this.loginPanel.Controls.Add(this.textBox1);
+            this.loginPanel.Controls.Add(this.loginPasswordTextbox);
             this.loginPanel.Controls.Add(this.passwordLabelLogin);
-            this.loginPanel.Controls.Add(this.userNameTextLogin);
+            this.loginPanel.Controls.Add(this.loginEmailTextbox);
             this.loginPanel.Controls.Add(this.userNameLabel);
             this.loginPanel.Location = new System.Drawing.Point(406, 26);
             this.loginPanel.Name = "loginPanel";
@@ -431,15 +428,12 @@
             this.codeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.codeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.codeTextBox.ForeColor = System.Drawing.Color.Black;
-
- 
             this.codeTextBox.Location = new System.Drawing.Point(186, 296);
             this.codeTextBox.MaxLength = 6;
             this.codeTextBox.Name = "codeTextBox";
             this.codeTextBox.Size = new System.Drawing.Size(300, 29);
             this.codeTextBox.TabIndex = 32;
             this.codeTextBox.TextChanged += new System.EventHandler(this.codeTextBox_TextChanged);
-
             // 
             // adminsixdigitcodelabel
             // 
@@ -460,9 +454,7 @@
             this.buildingNameTextbox.Location = new System.Drawing.Point(29, 123);
             this.buildingNameTextbox.Name = "buildingNameTextbox";
             this.buildingNameTextbox.Size = new System.Drawing.Size(300, 29);
-
             this.buildingNameTextbox.TabIndex = 28;
-
             // 
             // noOfFloorsTextBox
             // 
@@ -472,9 +464,7 @@
             this.noOfFloorsTextBox.Location = new System.Drawing.Point(347, 123);
             this.noOfFloorsTextBox.Name = "noOfFloorsTextBox";
             this.noOfFloorsTextBox.Size = new System.Drawing.Size(300, 29);
-
             this.noOfFloorsTextBox.TabIndex = 29;
-
             // 
             // flatsPerFloorTextbox
             // 
@@ -484,9 +474,7 @@
             this.flatsPerFloorTextbox.Location = new System.Drawing.Point(29, 211);
             this.flatsPerFloorTextbox.Name = "flatsPerFloorTextbox";
             this.flatsPerFloorTextbox.Size = new System.Drawing.Size(300, 29);
-
             this.flatsPerFloorTextbox.TabIndex = 30;
-
             // 
             // flatNoFormatTextBox
             // 
@@ -496,9 +484,7 @@
             this.flatNoFormatTextBox.Location = new System.Drawing.Point(349, 211);
             this.flatNoFormatTextBox.Name = "flatNoFormatTextBox";
             this.flatNoFormatTextBox.Size = new System.Drawing.Size(300, 29);
-
             this.flatNoFormatTextBox.TabIndex = 31;
-
             // 
             // BuildingNameLabel
             // 
@@ -803,13 +789,7 @@
             this.signUpFaileError.ForeColor = System.Drawing.Color.IndianRed;
             this.signUpFaileError.Location = new System.Drawing.Point(27, 455);
             this.signUpFaileError.Name = "signUpFaileError";
-
-
-           
-
-
             this.signUpFaileError.Size = new System.Drawing.Size(280, 16);
-
             this.signUpFaileError.TabIndex = 25;
             this.signUpFaileError.Text = "SIGN UP FAILED! Email Address already exists";
             this.signUpFaileError.Visible = false;
@@ -847,7 +827,6 @@
             this.label3.TabIndex = 22;
             this.label3.Text = "Last Name:";
             // 
-
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
@@ -857,8 +836,18 @@
             this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.toolTip1.ToolTipTitle = "Refresh Code";
             // 
-
-
+            // loginFailedError
+            // 
+            this.loginFailedError.AutoSize = true;
+            this.loginFailedError.Font = new System.Drawing.Font("Lato Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginFailedError.ForeColor = System.Drawing.Color.Black;
+            this.loginFailedError.Location = new System.Drawing.Point(33, 219);
+            this.loginFailedError.Name = "loginFailedError";
+            this.loginFailedError.Size = new System.Drawing.Size(98, 20);
+            this.loginFailedError.TabIndex = 27;
+            this.loginFailedError.Text = "Login Failed!";
+            this.loginFailedError.Visible = false;
+            // 
             // SignUp
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -893,9 +882,9 @@
         private XanderUI.XUIGradientPanel xuiGradientPanel1;
         private XanderUI.XUIButton exitButton;
         private System.Windows.Forms.Label userNameLabel;
-        private System.Windows.Forms.TextBox userNameTextLogin;
+        private System.Windows.Forms.TextBox loginEmailTextbox;
         private System.Windows.Forms.Label passwordLabelLogin;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox loginPasswordTextbox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox keepSignedIn;
         private XanderUI.XUIButton loginButton;
@@ -950,5 +939,6 @@
         private System.Windows.Forms.Label PassStrength;
         private System.Windows.Forms.Button refreshCodeButton;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Label loginFailedError;
     }
 }

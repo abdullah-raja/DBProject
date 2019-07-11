@@ -20,15 +20,18 @@ namespace DBproject.Views
     {
         string sarim = @"Data Source=(localdb)\mssqllocaldb;Initial Catalog=Project_Database;Integrated Security=True";
         string raja = @"Data Source=HAIER-PC\SQLEXPRESS;Initial Catalog=Project_Database;Integrated Security=True";
-        string connectionString = @"Data Source=(localdb)\mssqllocaldb;Initial Catalog=Project_Database;Integrated Security=True";
-        
+        string connectionString = @"Data Source=HAIER-PC\SQLEXPRESS;Initial Catalog=Project_Database;Integrated Security=True";
+
         string usersTableName = "tbl_User";
         string buildingsTableName = "tbl_Buildings";
         Model.User user;
+        Model.Building apartment;
         ControllerModule controller;
         public SignUp()
         {
             InitializeComponent();
+            user = new User();
+            apartment = new Building();
             
         }
 
@@ -230,15 +233,8 @@ namespace DBproject.Views
             }
         }
 
-           /* if (memebrRadio.Checked)
-            {
-                AsaMemberPanel.Visible = true;
-                signUpPanel.Visible = false;
-            }*/
-
-
+           
         
-
         private void xuiButton1_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -249,7 +245,7 @@ namespace DBproject.Views
             controller = new Controller.AuthorizationModule(this.connectionString
                 , usersTableName);
            
-            controller.signIn(user, this);
+            controller.signIn(this.user , this, loginEmailTextbox.Text, loginPasswordTextbox.Text, apartment);
         }
 
         
@@ -283,7 +279,7 @@ namespace DBproject.Views
         public void buildingCreated()
         {
             this.Hide();
-            MainScreen ms = new MainScreen(user.getID());
+            MainScreen ms = new MainScreen();
             ms.ShowDialog();
             this.Dispose();
         }
@@ -299,12 +295,30 @@ namespace DBproject.Views
             welcomeTitle.Text = title;
         }
 
-        public void signInSuccessful()
+        public void logInInFailed(bool passwordIncorrect)
+        {
+            loginFailedError.Visible = true;
+            if (passwordIncorrect)
+            {
+                loginFailedError.Text = "Login Failed due to INCORRECT PASSWORD";
+                loginPasswordTextbox.Text = "";
+                loginPasswordTextbox.Focus();
+             
+            }
+
+            else
+            {
+                loginFailedError.Text = "Login Failed! Account does not exists";
+                loginPasswordTextbox.Text = "";
+                loginEmailTextbox.Text = "";
+                loginEmailTextbox.Focus();
+            }
+        }
+
+        public void logInSuccessful()
         {
             this.Hide();
-
-            MainScreen ms = new MainScreen(user.getID());
-
+            MainScreen ms = new MainScreen();
             ms.ShowDialog();
             this.Dispose();
 
@@ -314,6 +328,28 @@ namespace DBproject.Views
         {
             signUpFaileError.Visible = true;
             emailTextBox.Focus();
+        }
+
+        public void signUpSuccessful(bool isAdmin)
+        {
+            if (isAdmin)
+            {
+
+                AdminPanel.Visible = true;
+                codeTextBox.Text = generateRandomCode(6);
+                loginPanel.Visible = false;
+                signUpPanel.Visible = false;
+                AsaMemberpanel.Visible = false;
+
+
+            }
+            else
+            {
+                AdminPanel.Visible = false;
+                loginPanel.Visible = false;
+                signUpPanel.Visible = false;
+                AsaMemberpanel.Visible = true;
+            }
         }
 
         public void signUpSuccessful() // controller will call this
