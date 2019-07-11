@@ -17,7 +17,7 @@ namespace DBproject.Views
     public partial class MainScreen : Form
     {
         User user;
-        public MainScreen(string userID)
+        public MainScreen()
         {
 
             InitializeComponent();

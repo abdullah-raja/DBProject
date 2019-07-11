@@ -18,6 +18,10 @@ namespace DBproject.Model
         static int userCount = 0;
         string apartmentID;
 
+        public User()
+        {
+
+        }
 
         public User(string firstName, string lastName, string email, string password, bool isAdmin, string number)
         {
@@ -28,12 +32,34 @@ namespace DBproject.Model
             this.isAdmin = isAdmin;
             this.mobileNumber = number;
             userCount++;
-            this.userID = "U" + userCount + DateTime.Today.Year.ToString(); // U232019
+            
 
         }
+
+        public User(string id, string firstName, string lastName, string email, string password, bool isAdmin, string number) : this(firstName,lastName,email,password,isAdmin,number)
+        {
+            this.userID = id;
+        }
+
+
+        public void setAllValues(string id, string firstName, string lastName, string email, string password, bool isAdmin, string number)
+        {
+            this.userID = id;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.email = email;
+            this.password = encodePassword(password);
+            this.isAdmin = isAdmin;
+            this.mobileNumber = number;
+            userCount++;
+            
+
+        }
+
         //apartment getters setters
         public void setApartmentID(string id)
         {
+            
             this.apartmentID = id;
         }
 
@@ -108,7 +134,7 @@ namespace DBproject.Model
 
         // Password Encoding Decoding
 
-        string encodePassword(string s)
+        public static string encodePassword(string s)
         {
             string encodedString = "";
             for (int i = s.Length-1; i >= 0; i--)

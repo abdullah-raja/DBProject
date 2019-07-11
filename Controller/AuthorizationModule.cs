@@ -12,6 +12,7 @@ namespace DBproject.Controller
         
         const string insertStoredProcedure = "usp_insertUser";
         const string loginStoredProcedure = "usp_checkLoginInfo";
+        const string BUILDINGS_TABLE = "tbl_Buildings";
 
         public AuthorizationModule(string connectionString, string TableName) : base(connectionString, TableName)
         {
@@ -19,19 +20,97 @@ namespace DBproject.Controller
 
 
 
-        override public void signIn(Model.User user, Views.SignUp view)
+        override public void signIn(Model.User user, Views.SignUp view, string enteredEmail, string enteredPassword, Model.Building apartment)
         {
-            // check login info 
-            // retrive data from DB, using emailAddress
-            // store a record in the user, i.e user.setname(<name returned from DB>)
-            // call view.signIn fail/successs functions
-            // oye dekh?
+            bool passwordMatched = false;
+            string selectAllQuery = "SELECT userID, userFirstName, userLastName, userStatus, userMobileNumber, apartmentID FROM " + TABLE_NAME + " WHERE userEmail = '" + enteredEmail + "'";
+         
 
-            // pehle SQL command ko use kr k password read krna ha
-            // Select password from tbl_Users where userEmail = view.<login email ka jo textbox ha wo>.Text
-            // neeche select statement ki bachodi poori krni ha jisse password read hojayga phr uski match krna ha
+            connection.Open();
+            string selectQuery = "SELECT password FROM " + TABLE_NAME + " WHERE userEmail = '" + enteredEmail + "'";
 
-            // phr loginStoredProcedure ko execute krna ha aur uske jo output parameters hn unko user k constructor me pass krna ha jese sign up k function me kya ha
+            using (SqlCommand command = new SqlCommand(selectQuery, connection)) // getting password against entered email
+            {
+                using (SqlDataReader dr = command.ExecuteReader())
+                {
+                    if (dr.Read())
+                        passwordMatched = enteredPassword == Model.User.encodePassword(dr["password"].ToString()); // if password matches
+
+                    else
+                    {
+                        view.logInInFailed(false);
+                        return;
+                    }
+
+                }
+
+            }
+
+            if (passwordMatched)
+            {
+                
+            using (SqlCommand getUserCommand = new SqlCommand(selectAllQuery, connection))
+            {
+                using (SqlDataReader dr2 = getUserCommand.ExecuteReader())
+                {
+                    
+                        while (dr2.Read())
+                        {
+                            bool isAdmin;
+                            if (dr2["userStatus"].ToString() == "Admin")
+                                isAdmin = true;
+
+                            else
+                                isAdmin = false;
+
+                            user.setAllValues(dr2["userID"].ToString(), dr2["userFirstName"].ToString(), dr2["userLastName"].ToString(), enteredEmail, enteredPassword, isAdmin, dr2["userMobileNumber"].ToString());
+
+                            if (dr2["apartmentID"].ToString() != "") // user have already joined/created a building
+                            {
+                                user.setApartmentID(dr2["apartmentID"].ToString());
+                                view.logInSuccessful();
+                            }
+
+                            else // user have to join or create a building first
+                            {
+
+                                view.signUpSuccessful(isAdmin);
+
+                            }
+
+                            
+                        }
+
+                       
+                }
+
+            }
+
+                if (user.getApartmentID() != null)
+                {
+                    string selectApartmentQuery = "SELECT * FROM tbl_Buildings WHERE apartmentID = " + "'" + Guid.Parse(user.getApartmentID()) + "'";
+                    using (SqlCommand getApartmentCommand = new SqlCommand(selectApartmentQuery, connection))
+                    {
+                        using (SqlDataReader apartmentReader = getApartmentCommand.ExecuteReader())
+                        {
+                            while (apartmentReader.Read())
+                            {
+                                apartment.setAllValues(user.getApartmentID(), apartmentReader["apartmentName"].ToString(), (Int32)apartmentReader["numberOfFloors"], (Int32)apartmentReader["flatsPerFloor"], apartmentReader["code"].ToString(), user, 0);
+                            }
+                        }
+                    }
+
+                }
+
+                else
+                    apartment = null;
+
+            }
+
+            else // password incorrect
+            {
+                view.logInInFailed(true);
+            }
 
 
         }

@@ -16,6 +16,7 @@ namespace DBproject.Controller
     {
 
         const string insertStoredProcedure = "usp_insertBuilding";
+        const string updateApartmentProcedure = "usp_updateApartmentID";
 
         public CreateAndJoinBuilding(string connectionString, string TableName) : base(connectionString, TableName)
         {
@@ -34,7 +35,7 @@ namespace DBproject.Controller
             insertCommand.Parameters.Add(new SqlParameter("@numberOfFloors", building.getNoOfFloors()));
             insertCommand.Parameters.Add(new SqlParameter("@flatsPerFloor", building.getNoOfFloors()));
             insertCommand.Parameters.Add(new SqlParameter("@code", building.getCode()));
-            insertCommand.Parameters.Add(new SqlParameter("@adminID", user.getID()));
+            insertCommand.Parameters.Add(new SqlParameter("@adminID", Guid.Parse(user.getID())));
 
             SqlParameter returnedID = insertCommand.Parameters.Add(new SqlParameter("@apartmentId", System.Data.SqlDbType.UniqueIdentifier,0, "apartmentID"));
             returnedID.Direction = ParameterDirection.Output;
@@ -46,6 +47,7 @@ namespace DBproject.Controller
                 {
                     building.setID(insertCommand.Parameters["@apartmentId"].Value.ToString()); // retreiving output value
                     user.setApartmentID(insertCommand.Parameters["@apartmentId"].Value.ToString());
+    
                     view.buildingCreated();
                     
                 }
