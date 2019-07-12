@@ -17,6 +17,7 @@ namespace DBproject.Controller
 
         const string insertStoredProcedure = "usp_insertBuilding";
         const string updateApartmentProcedure = "usp_updateApartmentID";
+        const string createFlatsProcedure = "usp_InsertFlat";
 
         public CreateAndJoinBuilding(string connectionString, string TableName) : base(connectionString, TableName)
         {
@@ -41,23 +42,44 @@ namespace DBproject.Controller
             SqlParameter returnedID = insertCommand.Parameters.Add(new SqlParameter("@apartmentId", System.Data.SqlDbType.UniqueIdentifier,0, "apartmentID"));
             returnedID.Direction = ParameterDirection.Output;
 
-            try
-           {
+           // try
+         //  {
 
                 if (insertCommand.ExecuteNonQuery() > 0) // returns number of rows affected
                 {
                     building.setID(insertCommand.Parameters["@apartmentId"].Value.ToString()); // retreiving output value
                     user.setApartmentID(insertCommand.Parameters["@apartmentId"].Value.ToString());
-    
+
+                    
+
+                    for(int i = 0; i<building.getNoOfFloors(); i++)
+                    {
+                        for(int j = 0; j<building.getFlatsPerFloor(); j++)
+                        {
+
+                            SqlCommand createFlats = new SqlCommand(createFlatsProcedure, connection);
+                            createFlats.CommandType = CommandType.StoredProcedure;
+                            createFlats.Parameters.Add(new SqlParameter("@flatNumber", building.getFlatAt(i,j).getFlatNumber()));
+                            createFlats.Parameters.Add(new SqlParameter("@apartmentID", Guid.Parse(building.getID())));
+                            
+                            createFlats.ExecuteNonQuery();
+
+                        createFlats.Dispose();
+                        }
+                    }
+
+                    
+
                     view.buildingCreated();
                     
                 }
-            }
+           // }
 
-            catch (Exception es)
+           /* catch (Exception es)
             {
                 view.buildingFailed();
             }
+            */
 
         }
     }

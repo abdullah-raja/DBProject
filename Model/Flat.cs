@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DBproject.Model
 {
-    class Flat
+    public class Flat
     {
         int flatNumber;
         int floor;
@@ -15,15 +15,21 @@ namespace DBproject.Model
         string contactNumber;
         int dues;
         int monthlyFees;
+        bool isManager;
         User member;
+        Building apartment;
 
-        public Flat(int flatNumberScheme, int floor, int index)
+        public Flat(int flatNumberScheme, int floor, int index, Building apartment)
         {
+            this.apartment = apartment;
             this.floor = floor;
             if(flatNumberScheme == 0)
             {
                 int f = (floor * 100) + index;
+                this.flatNumber = f;
             }
+
+            
             
         }
         
@@ -109,5 +115,12 @@ namespace DBproject.Model
         {
             this.member = member;
         }
+
+        public Building getApartment()
+        {
+            return this.apartment;
+        }
+
+        
     }
 }

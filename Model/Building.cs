@@ -44,7 +44,7 @@ namespace DBproject.Model
                 {
                     if (flatNumberScheme == 0)
                     {
-                        this.flats[i, j] = new Flat(flatNumberScheme, i, j);
+                        this.flats[i, j] = new Flat(flatNumberScheme, i+1, j+1,this);
                         
                     }
                 }
@@ -80,7 +80,7 @@ namespace DBproject.Model
                 {
                     if (flatNumberScheme == 0)
                     {
-                        this.flats[i, j] = new Flat(flatNumberScheme, i, j);
+                        this.flats[i, j] = new Flat(flatNumberScheme, i+1, j+1,this);
 
                     }
                 }
@@ -169,6 +169,12 @@ namespace DBproject.Model
         public void setCode(String code)
         {
             this.code = code;
+        }
+
+        public Flat getFlatAt(int floor, int flat)
+        {
+            return flats[floor, flat];
+            
         }
     }
 }
