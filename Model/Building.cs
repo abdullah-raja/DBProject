@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace DBproject.Model
 {
-    class Building
+    public class Building
     {
         // add getNoOfFlats(), getFlat(int flatNumber)
 
         String appartmentName;
         int noOfFloors;
-
+        int balance;
         string apartmentId;
 
         int flatsPerFloor;
@@ -26,7 +26,7 @@ namespace DBproject.Model
 
         }
         
-        public Building(string appartmentName, int noOfFloors, int flatsPerFloor, string code, User admin, int flatNumberScheme)
+        public Building(string appartmentName, int noOfFloors, int flatsPerFloor, string code, User admin, int flatNumberScheme, int balance)
         {
             this.appartmentName = appartmentName;
             this.noOfFloors = noOfFloors;
@@ -35,6 +35,7 @@ namespace DBproject.Model
             this.admin = admin;
             this.flatNumberScheme = flatNumberScheme;
             this.flats = new Flat[noOfFloors, flatsPerFloor];
+            this.balance = balance;
             // Create Flats Here
 
             for(int i = 0; i < noOfFloors; i++)
@@ -55,12 +56,12 @@ namespace DBproject.Model
         }
 
         // id getter setter
-        public Building(string apartmentID, string apartmentName, int noOfFloors, int flatsPerFloor, string code, User admin, int flatNumberScheme):this(apartmentName,noOfFloors,flatsPerFloor,code,admin,flatNumberScheme)
+        public Building(string apartmentID, string apartmentName, int noOfFloors, int flatsPerFloor, string code, User admin, int flatNumberScheme, int balance):this(apartmentName,noOfFloors,flatsPerFloor,code,admin,flatNumberScheme, balance)
         {
             this.apartmentId = apartmentID;
         }
 
-        public void setAllValues(string apartmentID, string apartmentName, int noOfFloors, int flatsPerFloor, string code, User admin, int flatNumberScheme)
+        public void setAllValues(string apartmentID, string apartmentName, int noOfFloors, int flatsPerFloor, string code, User admin, int flatNumberScheme, int balance)
         {
             this.apartmentId = apartmentID;
             this.appartmentName = apartmentName;
@@ -70,6 +71,7 @@ namespace DBproject.Model
             this.admin = admin;
             this.flatNumberScheme = flatNumberScheme;
             this.flats = new Flat[noOfFloors, flatsPerFloor];
+            this.balance = balance;
             // Create Flats Here
 
             for (int i = 0; i < noOfFloors; i++)
@@ -84,6 +86,17 @@ namespace DBproject.Model
                 }
             }
         }
+
+        public int getBalance()
+        {
+            return this.balance;
+        }
+
+        public void setBalance(int balance)
+        {
+            this.balance = balance;
+        }
+
         public string getID()
 
         {

@@ -42,6 +42,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.gotoSignUpButton = new System.Windows.Forms.Label();
             this.loginPanel = new System.Windows.Forms.Panel();
+            this.loginFailedError = new System.Windows.Forms.Label();
             this.AsaMemberpanel = new System.Windows.Forms.Panel();
             this.MakeAMemberButton = new XanderUI.XUIButton();
             this.membersixdigitcodetextBox = new System.Windows.Forms.TextBox();
@@ -90,12 +91,13 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.loginFailedError = new System.Windows.Forms.Label();
+            this.balanceInput = new System.Windows.Forms.NumericUpDown();
             this.loginPanel.SuspendLayout();
             this.AsaMemberpanel.SuspendLayout();
             this.AdminPanel.SuspendLayout();
             this.signUpPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.balanceInput)).BeginInit();
             this.SuspendLayout();
             // 
             // xuiGradientPanel1
@@ -264,6 +266,18 @@
             this.loginPanel.TabIndex = 3;
             this.loginPanel.Visible = false;
             // 
+            // loginFailedError
+            // 
+            this.loginFailedError.AutoSize = true;
+            this.loginFailedError.Font = new System.Drawing.Font("Lato Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginFailedError.ForeColor = System.Drawing.Color.Black;
+            this.loginFailedError.Location = new System.Drawing.Point(33, 219);
+            this.loginFailedError.Name = "loginFailedError";
+            this.loginFailedError.Size = new System.Drawing.Size(98, 20);
+            this.loginFailedError.TabIndex = 27;
+            this.loginFailedError.Text = "Login Failed!";
+            this.loginFailedError.Visible = false;
+            // 
             // AsaMemberpanel
             // 
             this.AsaMemberpanel.Controls.Add(this.MakeAMemberButton);
@@ -355,6 +369,7 @@
             // 
             // AdminPanel
             // 
+            this.AdminPanel.Controls.Add(this.balanceInput);
             this.AdminPanel.Controls.Add(this.refreshCodeButton);
             this.AdminPanel.Controls.Add(this.welcomeTitle);
             this.AdminPanel.Controls.Add(this.SignupAsAdminButton);
@@ -836,25 +851,30 @@
             this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.toolTip1.ToolTipTitle = "Refresh Code";
             // 
-            // loginFailedError
+            // balanceInput
             // 
-            this.loginFailedError.AutoSize = true;
-            this.loginFailedError.Font = new System.Drawing.Font("Lato Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginFailedError.ForeColor = System.Drawing.Color.Black;
-            this.loginFailedError.Location = new System.Drawing.Point(33, 219);
-            this.loginFailedError.Name = "loginFailedError";
-            this.loginFailedError.Size = new System.Drawing.Size(98, 20);
-            this.loginFailedError.TabIndex = 27;
-            this.loginFailedError.Text = "Login Failed!";
-            this.loginFailedError.Visible = false;
+            this.balanceInput.Increment = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.balanceInput.Location = new System.Drawing.Point(505, 297);
+            this.balanceInput.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+            this.balanceInput.Name = "balanceInput";
+            this.balanceInput.Size = new System.Drawing.Size(120, 27);
+            this.balanceInput.TabIndex = 36;
             // 
             // SignUp
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1200, 720);
-            this.Controls.Add(this.loginPanel);
             this.Controls.Add(this.AdminPanel);
+            this.Controls.Add(this.loginPanel);
             this.Controls.Add(this.signUpPanel);
             this.Controls.Add(this.AsaMemberpanel);
             this.Controls.Add(this.exitButton);
@@ -873,6 +893,7 @@
             this.signUpPanel.ResumeLayout(false);
             this.signUpPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.balanceInput)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -940,5 +961,6 @@
         private System.Windows.Forms.Button refreshCodeButton;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label loginFailedError;
+        private System.Windows.Forms.NumericUpDown balanceInput;
     }
 }

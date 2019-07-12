@@ -17,10 +17,13 @@ namespace DBproject.Views
     public partial class MainScreen : Form
     {
         User user;
-        public MainScreen()
+        Building apartment;
+        public MainScreen(User user, Building apartment)
         {
 
             InitializeComponent();
+            this.user = user;
+            this.apartment = apartment;
             // calling controller function and creating user
         }
 

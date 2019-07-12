@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DBproject.Model
 {
-    class User
+    public class User
     {
         string userID;
         String firstName;
