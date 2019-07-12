@@ -35,6 +35,7 @@ namespace DBproject.Controller
             insertCommand.Parameters.Add(new SqlParameter("@numberOfFloors", building.getNoOfFloors()));
             insertCommand.Parameters.Add(new SqlParameter("@flatsPerFloor", building.getNoOfFloors()));
             insertCommand.Parameters.Add(new SqlParameter("@code", building.getCode()));
+            insertCommand.Parameters.Add(new SqlParameter("@balance", building.getBalance()));
             insertCommand.Parameters.Add(new SqlParameter("@adminID", Guid.Parse(user.getID())));
 
             SqlParameter returnedID = insertCommand.Parameters.Add(new SqlParameter("@apartmentId", System.Data.SqlDbType.UniqueIdentifier,0, "apartmentID"));
