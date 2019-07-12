@@ -1,0 +1,210 @@
+USE [master]
+GO
+/****** Object:  Database [Project_Database]    Script Date: 7/12/2019 4:16:21 PM ******/
+CREATE DATABASE [Project_Database]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'Project_Database', FILENAME = N'c:\Program Files\Microsoft SQL Server\MSSQL11.SQLEXPRESS\MSSQL\DATA\Project_Database.mdf' , SIZE = 3136KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+ LOG ON 
+( NAME = N'Project_Database_log', FILENAME = N'c:\Program Files\Microsoft SQL Server\MSSQL11.SQLEXPRESS\MSSQL\DATA\Project_Database_log.ldf' , SIZE = 832KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+GO
+ALTER DATABASE [Project_Database] SET COMPATIBILITY_LEVEL = 110
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [Project_Database].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [Project_Database] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [Project_Database] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [Project_Database] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [Project_Database] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [Project_Database] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [Project_Database] SET AUTO_CLOSE ON 
+GO
+ALTER DATABASE [Project_Database] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [Project_Database] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [Project_Database] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [Project_Database] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [Project_Database] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [Project_Database] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [Project_Database] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [Project_Database] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [Project_Database] SET  ENABLE_BROKER 
+GO
+ALTER DATABASE [Project_Database] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [Project_Database] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [Project_Database] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [Project_Database] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [Project_Database] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [Project_Database] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [Project_Database] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [Project_Database] SET RECOVERY SIMPLE 
+GO
+ALTER DATABASE [Project_Database] SET  MULTI_USER 
+GO
+ALTER DATABASE [Project_Database] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [Project_Database] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [Project_Database] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [Project_Database] SET TARGET_RECOVERY_TIME = 0 SECONDS 
+GO
+USE [Project_Database]
+GO
+/****** Object:  Table [dbo].[tbl_Buildings]    Script Date: 7/12/2019 4:16:23 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbl_Buildings](
+	[apartmentID] [uniqueidentifier] NOT NULL,
+	[apartmentName] [varchar](30) NULL,
+	[numberOfFloors] [int] NULL,
+	[flatesPerFloor] [int] NULL,
+	[code] [varchar](6) NULL,
+	[flatNumberScheme] [int] NULL,
+	[adminID] [uniqueidentifier] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[apartmentID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tbl_User]    Script Date: 7/12/2019 4:16:24 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbl_User](
+	[userID] [uniqueidentifier] NOT NULL,
+	[userEmail] [varchar](30) NULL,
+	[userStatus] [varchar](10) NULL,
+	[password] [varchar](30) NULL,
+	[userFirstName] [varchar](30) NULL,
+	[userLastName] [varchar](30) NULL,
+	[userMobileNumber] [varchar](11) NULL,
+	[apartmentID] [uniqueidentifier] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[userID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[userMobileNumber] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[userEmail] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[tbl_Buildings]  WITH CHECK ADD FOREIGN KEY([adminID])
+REFERENCES [dbo].[tbl_User] ([userID])
+GO
+ALTER TABLE [dbo].[tbl_User]  WITH CHECK ADD FOREIGN KEY([apartmentID])
+REFERENCES [dbo].[tbl_Buildings] ([apartmentID])
+ON DELETE CASCADE
+GO
+/****** Object:  StoredProcedure [dbo].[usp_checkLoginInfo]    Script Date: 7/12/2019 4:16:24 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[usp_checkLoginInfo]
+@givenEmail varchar(30),
+
+@userID UNIQUEIDENTIFIER OUTPUT,
+@firstName varchar(30) OUTPUT,
+@lastName varchar(30) OUTPUT,
+@status varchar(30) OUTPUT,
+@mobile varchar(11) OUTPUT,
+@apartmentID UNIQUEIDENTIFIER OUTPUT
+
+AS
+
+
+	SELECT @userID = userID, @firstName = userFirstName, @lastName = userLastName, @status = userStatus, @mobile = userMobileNumber, @apartmentID = apartmentID
+	FROM tbl_User 
+
+	WHERE userEmail = @givenEmail
+GO
+/****** Object:  StoredProcedure [dbo].[usp_insertBuilding]    Script Date: 7/12/2019 4:16:24 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[usp_insertBuilding]
+@apartmentId UNIQUEIDENTIFIER OUTPUT,
+@apartmentName varchar(30),
+@numberOfFloors int,
+@flatsPerFloor int,
+@code varchar(6),
+@adminID UNIQUEIDENTIFIER
+
+ AS
+SET @apartmentId = NEWID();
+INSERT  tbl_Buildings
+VALUES (@apartmentID, @apartmentName, @numberOfFloors, @flatsPerFloor, @code,0,@adminID)
+
+
+
+UPDATE tbl_User
+   SET apartmentID = @apartmentId
+ WHERE userID = @adminID
+GO
+/****** Object:  StoredProcedure [dbo].[usp_insertUser]    Script Date: 7/12/2019 4:16:24 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[usp_insertUser]  @email varchar(50), @status varchar(30), @password varchar(30), @firstName varchar(30), @lastName varchar(30), @mobile varchar(11), @userID UNIQUEIDENTIFIER OUTPUT
+AS
+SET @userID = NEWID();
+INSERT INTO [dbo].[tbl_User]
+     
+	 
+     VALUES(@userID, @email, @status, @password, @firstName, @lastName, @mobile, null)
+	 
+           
+GO
+/****** Object:  StoredProcedure [dbo].[usp_updateApartmentID]    Script Date: 7/12/2019 4:16:24 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[usp_updateApartmentID]
+@userID UNIQUEIDENTIFIER,
+@apartmentID UNIQUEIDENTIFIER
+
+AS
+UPDATE [dbo].[tbl_User]
+   SET [apartmentID] = @apartmentID
+ WHERE userID = @userID
+GO
+USE [master]
+GO
+ALTER DATABASE [Project_Database] SET  READ_WRITE 
+GO
