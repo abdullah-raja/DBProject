@@ -92,6 +92,8 @@
     <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\Tables\TABLE_BUILDING.cs" />
+    <Compile Include="Util\Tables\TABLE_FLATS.cs" />
     <Compile Include="Util\Tables\TABLE_USER.cs" />
     <Compile Include="Views\MainScreen.cs">
       <SubType>Form</SubType>
