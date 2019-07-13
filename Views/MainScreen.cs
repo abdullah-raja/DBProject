@@ -10,12 +10,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DBproject.Model;
 using DBproject.Views;
+using DBproject.Controller;
 
 
 namespace DBproject.Views
 {
     public partial class MainScreen : Form
     {
+        ControllerModule controller;
         User user;
         Building apartment;
         public MainScreen(User user, Building apartment)
@@ -24,6 +26,7 @@ namespace DBproject.Views
             InitializeComponent();
             this.user = user;
             this.apartment = apartment;
+            updateMainScreen();
             // calling controller function and creating user
         }
 
@@ -49,7 +52,7 @@ namespace DBproject.Views
             settingsButton.ForeColor = Color.White;
             analyticsButton.ForeColor = Color.White;
 
-            Income inc = new Income(6,6);
+            Income inc = new Income(apartment);
             inc.Dock = DockStyle.Fill;
             main.Controls.Clear();
             main.Controls.Add(inc);
@@ -76,6 +79,14 @@ namespace DBproject.Views
 
         private void expense1_Load(object sender, EventArgs e)
         {
+
+        }
+
+        public void updateMainScreen()
+        {
+            nameLabel.Text = user.getFirstName() + " "+ user.getLastname();
+            flatNumberLabel.Text = user.getIsAdmin() ? "Admin" : "";
+            currentBalance.Text = "Rs " + apartment.getBalance().ToString();
 
         }
     }
