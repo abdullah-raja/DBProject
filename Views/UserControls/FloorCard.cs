@@ -7,16 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DBproject.Model;
+using DBproject.Controller;
 
 namespace DBproject.Views.UserControls
 {
     public partial class FloorCard : UserControl
     {
-        int flats;
-        public FloorCard(int flats)
+        Income view;
+        Building apartment;
+        public FloorCard(Building apartment, Income view)
         {
             InitializeComponent();
-            this.flats = flats;
+            this.apartment = apartment;
+            this.view = view;
         }
     
         public void setText(string str)
@@ -29,11 +33,12 @@ namespace DBproject.Views.UserControls
             FlowLayoutPanel FloorsPanel = (FlowLayoutPanel)this.Parent;
             
                 FloorsPanel.Controls.Clear();
-                for (int j = 0; j < flats; j++)
+                for (int j = 0; j < apartment.getFlatsPerFloor(); j++)
                 {
-                    FlatCardSquare flat = new FlatCardSquare();
-                flat.Margin = new Padding(10, 10, 10, 10);
-                    flat.setText((((this.TabIndex + 1) * 100) + j).ToString());
+               
+                    FlatCardSquare flat = new FlatCardSquare(apartment.getFlatAt(this.TabIndex,j),view);
+                    flat.Margin = new Padding(10, 10, 10, 10);
+                    flat.setText((((this.TabIndex + 1) * 100) + j+1).ToString());
                     FloorsPanel.Controls.Add(flat);
                 }
             

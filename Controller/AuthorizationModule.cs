@@ -68,7 +68,7 @@ namespace DBproject.Controller
                             if (dr2["apartmentID"].ToString() != "") // user have already joined/created a building
                             {
                                 user.setApartmentID(dr2["apartmentID"].ToString());
-                                view.logInSuccessful();
+                                
                             }
 
                             else // user have to join or create a building first
@@ -95,6 +95,7 @@ namespace DBproject.Controller
                         {
                             while (apartmentReader.Read())
                             {
+                              //  int  l = (Int32)apartmentReader["flatsPerFloor"];
                                 apartment.setAllValues(user.getApartmentID(), apartmentReader["apartmentName"].ToString(), (Int32)apartmentReader["numberOfFloors"], (Int32)apartmentReader["flatsPerFloor"], apartmentReader["code"].ToString(), user, 0, (int)apartmentReader["balance"]);
                             }
                         }
@@ -105,6 +106,7 @@ namespace DBproject.Controller
                 else
                     apartment = null;
 
+                view.logInSuccessful();
             }
 
             else // password incorrect
