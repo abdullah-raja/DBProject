@@ -4,6 +4,8 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DBproject.Model;
+using DBproject.Views;
 
 namespace DBproject.Controller
 {
@@ -50,6 +52,16 @@ namespace DBproject.Controller
         virtual public void createBuilding(Model.Building building, Views.SignUp view, Model.User user)
         {
             
+
+        }
+
+        virtual public void showDetailsPanel(Flat flat, Views.UserControls.Income view)
+        {
+
+        }
+
+        virtual public void updateDetailsPanel(Flat flat)
+        {
 
         }
     }

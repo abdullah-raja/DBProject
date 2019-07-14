@@ -229,7 +229,7 @@ namespace DBproject.Views
         private void SignupAsAdminButton_Click(object sender, EventArgs e)
         {
             controller = new CreateAndJoinBuilding(connectionString, buildingsTableName);
-            Building building = new Building(buildingNameTextbox.Text, Convert.ToInt32(noOfFloorsTextBox.Text), Convert.ToInt32(flatsPerFloorTextbox.Text), codeTextBox.Text, user, Convert.ToInt32(flatNoFormatTextBox.Text), (int)balanceInput.Value);
+            Building building = new Building(buildingNameTextbox.Text, Convert.ToInt32(noOfFloorsInput.Text), Convert.ToInt32(flatsPerFloorInput.Text), codeTextBox.Text, user, Convert.ToInt32(flatNoFormatInput.Text), (int)balanceInput.Value);
 
             controller.createBuilding(building, this,user);
         }

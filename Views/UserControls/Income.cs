@@ -7,25 +7,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DBproject.Model;
+using DBproject.Controller;
 
 namespace DBproject.Views.UserControls
 {
     public partial class Income : UserControl
     {
+        bool settingActivated;
+        Building apartment;
+        ControllerModule controller;
+        string connectionString = @"Data Source=HAIER-PC\SQLEXPRESS;Initial Catalog=Project_Database;Integrated Security=True";
+        string flatTableName = "tbl_Flats";
         public Income()
         {
+
             InitializeComponent();
+            DateTime day = DateTime.Now;
+
+            monthComboBox.SelectedIndex = day.Month-1;
+            this.settingActivated = false;
 
         }
 
-        public Income(int floors, int flats)
+        public Income(Building apartment):this()
         {
-            InitializeComponent();
 
+            this.apartment = apartment;
             FloorsPanel.Controls.Clear();
-            for (int i = 0; i < floors; i++)
+            for (int i = 0; i < apartment.getNoOfFloors(); i++)
             {
-                FloorCard floor = new FloorCard(flats);
+                FloorCard floor = new FloorCard(apartment,this);
                 floor.setText("Floor # " + (i + 1).ToString());
                 floor.Anchor = AnchorStyles.Left;
                 floor.Anchor = AnchorStyles.Top;
@@ -35,6 +47,17 @@ namespace DBproject.Views.UserControls
             }
             
 
+
+        }
+
+        public void showDetails(string name, int flatNumber, int fees, int dues, bool manager, string email, string mobile)
+        {
+            detailsName.Text = name;
+            detailsFlatNumber.Text = flatNumber.ToString();
+            detailsMaintanance.Text = fees.ToString();
+            detailsDues.Text = dues.ToString();
+            detailsEmail.Text = email;
+            detailsMobile.Text = mobile;
 
         }
 
@@ -51,12 +74,28 @@ namespace DBproject.Views.UserControls
 
         private void SettingButton_Click(object sender, EventArgs e)
         {
-            NAMEtextBox1.ReadOnly = false;
-            flatnoTextBox1.ReadOnly = false;
-            feesTextBox3.ReadOnly = false;
-            duesTextBox2.ReadOnly = false;
-            switchButton.Visible = true;
-            switchlabel.Visible = true;
+            detailsName.ReadOnly = settingActivated;
+            detailsFlatNumber.ReadOnly = settingActivated;
+            detailsMaintanance.ReadOnly = settingActivated;
+            detailsDues.ReadOnly = settingActivated;
+            managerButton.Visible = !settingActivated;
+            switchlabel.Visible = !settingActivated;
+
+            if (!settingActivated)
+            {
+               
+                SettingButton.ButtonText = "OK";
+            }
+
+            else
+            {
+                SettingButton.ButtonText = "Settings";
+                controller = new MainScreenController(connectionString, flatTableName);
+                Flat flat = new Flat(Convert.ToInt32(detailsFlatNumber.Text), detailsName.Text, detailsEmail.Text, detailsMobile.Text, Convert.ToInt32(detailsDues.Text), Convert.ToInt32(detailsMaintanance.Text), false, this.apartment);
+                controller.updateDetailsPanel(flat);
+            }
+            settingActivated = !settingActivated;
+            
         }
 
         private void duesTextBox2_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
@@ -84,14 +123,14 @@ namespace DBproject.Views.UserControls
 
         private void switchButton_Click(object sender, EventArgs e)
         {
-            switchButton.Text= "MANAGER";
+            managerButton.Text= "MANAGER";
             //switchButton.TextColor = Color.DarkRed;
             //switchButton.BackgroundColor = Color.White;
         }
 
         private void switchButton_MouseClick(object sender, MouseEventArgs e)
         {
-            switchButton.ButtonText = "MANAGER";
+            managerButton.ButtonText = "MANAGER";
         }
     }
 }
