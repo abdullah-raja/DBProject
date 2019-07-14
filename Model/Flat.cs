@@ -82,7 +82,9 @@ namespace DBproject.Model
         // email getter Setters
         public String getEmail()
         {
+            
             return this.email;
+            
         }
         public void setEmail(String email)
         {
