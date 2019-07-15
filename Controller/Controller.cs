@@ -74,7 +74,12 @@ namespace DBproject.Controller
             
         }
 
-        virtual public void sendEmail(string email)
+        virtual public void sendEmail(string email, Receipt receipt)
+        {
+
+        }
+
+        virtual public void showPaidReceipt(Receipt recipt, string month, int flatNumber)
         {
 
         }

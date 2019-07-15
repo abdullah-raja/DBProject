@@ -91,9 +91,9 @@
             this.recievelabel.ForeColor = System.Drawing.Color.DarkRed;
             this.recievelabel.Location = new System.Drawing.Point(482, 142);
             this.recievelabel.Name = "recievelabel";
-            this.recievelabel.Size = new System.Drawing.Size(139, 19);
+            this.recievelabel.Size = new System.Drawing.Size(58, 19);
             this.recievelabel.TabIndex = 11;
-            this.recievelabel.Text = "RECIEVED FROM:";
+            this.recievelabel.Text = "FLAT #";
             // 
             // IDlabel
             // 
@@ -114,6 +114,7 @@
             this.receiptTrID.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.receiptTrID.Location = new System.Drawing.Point(486, 85);
             this.receiptTrID.Name = "receiptTrID";
+            this.receiptTrID.ReadOnly = true;
             this.receiptTrID.Size = new System.Drawing.Size(157, 26);
             this.receiptTrID.TabIndex = 13;
             this.receiptTrID.Text = "0001";
@@ -189,9 +190,9 @@
             this.confirmButton1.HoverBackgroundColor = System.Drawing.Color.Brown;
             this.confirmButton1.HoverTextColor = System.Drawing.Color.White;
             this.confirmButton1.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.confirmButton1.Location = new System.Drawing.Point(45, 303);
+            this.confirmButton1.Location = new System.Drawing.Point(222, 290);
             this.confirmButton1.Name = "confirmButton1";
-            this.confirmButton1.Size = new System.Drawing.Size(90, 30);
+            this.confirmButton1.Size = new System.Drawing.Size(134, 43);
             this.confirmButton1.TabIndex = 27;
             this.confirmButton1.TextColor = System.Drawing.Color.White;
             this.confirmButton1.Vertical_Alignment = System.Drawing.StringAlignment.Center;
@@ -246,9 +247,9 @@
             this.CancelButton1.HoverBackgroundColor = System.Drawing.Color.Brown;
             this.CancelButton1.HoverTextColor = System.Drawing.Color.White;
             this.CancelButton1.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.CancelButton1.Location = new System.Drawing.Point(204, 303);
+            this.CancelButton1.Location = new System.Drawing.Point(375, 290);
             this.CancelButton1.Name = "CancelButton1";
-            this.CancelButton1.Size = new System.Drawing.Size(90, 30);
+            this.CancelButton1.Size = new System.Drawing.Size(134, 43);
             this.CancelButton1.TabIndex = 31;
             this.CancelButton1.TextColor = System.Drawing.Color.White;
             this.CancelButton1.Vertical_Alignment = System.Drawing.StringAlignment.Center;

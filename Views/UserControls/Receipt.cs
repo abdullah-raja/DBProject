@@ -21,11 +21,25 @@ namespace DBproject.Views.UserControls
         {
             InitializeComponent();
 
-            setValues(flat);
-            transaction = new IncomingTransaction(receiptTrID.Text, apatment, flat, (int)receiptAmount.Value, reciptDateTime.Value, flat, receiptMonthBox.SelectedItem.ToString());
+            if(flat.getDues() > 0)
+            {
+
+                setValues(flat);
+                transaction = new IncomingTransaction(receiptTrID.Text, apatment, flat, (int)receiptAmount.Value, reciptDateTime.Value, flat, receiptMonthBox.SelectedItem.ToString());
+
+            }
+
+            else
+            {
+
+                controller = new TransactionModule(Util.CONNECTION_DETAILS.CONNECITION_STRING, Util.Tables.TABLE_INCOMING_TRANSACTIONS.TABLE_NAME);
+                controller.showPaidReceipt(this, receiptMonthBox.SelectedItem.ToString(), Convert.ToInt32(receiptFlatNumber.Text));
+            }
 
 
         }
+
+
 
         private void setValues(Flat flat)
         {
@@ -38,25 +52,7 @@ namespace DBproject.Views.UserControls
 
         }
 
-        
-
-        private void confirmButton1_Click(object sender, EventArgs e)
-        {
-            receiptpanel1.Visible = false;
-            
-        }
-
-        private void CancelButton_Click(object sender, EventArgs e)
-        {
-            receiptpanel1.Visible = false;
-        }
-
-        
-        private void CancelButton1_Click(object sender, EventArgs e)
-        {
-            receiptpanel1.Visible = false;
-
-        }
+       
 
         private void confirmButton1_Click_1(object sender, EventArgs e)
         {
@@ -74,6 +70,30 @@ namespace DBproject.Views.UserControls
             this.Dispose();
         }
 
-       
+        public void setValues(DateTime date, string name, string trID, int flatNumber, int amount, string month)
+        {
+            receiptAmount.ReadOnly = true;
+            receiptAmount.BackColor = Color.LightGray;
+            receiptAmount.Value = amount;
+
+
+            receiptName.ReadOnly = true;
+            receiptName.BackColor = Color.LightGray;
+            receiptName.Text = name;
+
+            
+            receiptFlatNumber.ReadOnly = true;
+            receiptFlatNumber.BackColor = Color.LightGray;
+            receiptFlatNumber.Text = flatNumber.ToString();
+
+            receiptMonthBox.Enabled = false;
+            receiptMonthBox.BackColor = Color.LightGray;
+            receiptMonthBox.SelectedValue = month;
+
+            reciptDateTime.Enabled = false;
+            reciptDateTime.CalendarMonthBackground = Color.LightGray;
+            reciptDateTime.Value = date;
+
+        }
     }
 }

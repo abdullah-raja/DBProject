@@ -131,6 +131,7 @@ namespace DBproject.Views.UserControls
         {
             Flat flat = new Flat(Convert.ToInt32(detailsFlatNumber.Text), detailsName.Text, detailsEmail.Text, detailsMobile.Text, Convert.ToInt32(detailsDues.Text), Convert.ToInt32(detailsMaintanance.Text), 1, this.apartment);
             Receipt receipt = new Receipt(flat,this.apartment);
+            
             this.Controls.Add(receipt);
             receipt.BringToFront();
 

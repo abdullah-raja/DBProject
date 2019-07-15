@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using DBproject.Model;
 using DBproject.Util.StoredProcedures;
 using DBproject.Views.UserControls;
+using DBproject.Util.Tables;
 
 namespace DBproject.Controller
 {
@@ -18,6 +19,13 @@ namespace DBproject.Controller
 
         }
         
+        override public void showPaidReceipt(Receipt recipt, string month, int flatNumber)
+        {
+            string selectQuery = "SELECT " + TABLE_INCOMING_TRANSACTIONS.KEY_DATE_PAID + ", " + TABLE_INCOMING_TRANSACTIONS.KEY_TRID + ", " + TABLE_FLATS.KEY_RESIDENT_NAME + ", " + TABLE_FLATS.KEY_FLAT_NUMBER + ", " + TABLE_INCOMING_TRANSACTIONS.KEY_AMOUNT + ", " + TABLE_INCOMING_TRANSACTIONS.KEY_MONTH + " FROM " + TABLE_FLATS.TBL_FLATS +
+                                 "INNER JOIN " + TABLE_INCOMING_TRANSACTIONS.TABLE_NAME + " ON " + TABLE_FLATS.KEY_FLAT_NUMBER + " = " + TABLE_INCOMING_TRANSACTIONS.KEY_FLAT_NUMBER + " AND " + TABLE_FLATS.TBL_FLATS + "." + TABLE_FLATS.KEY_APPARTMENT_ID + " = " + TABLE_INCOMING_TRANSACTIONS.TABLE_NAME + "." + TABLE_INCOMING_TRANSACTIONS.KEY_APARTMENT_ID +
+                                 " WHERE " + TABLE_INCOMING_TRANSACTIONS.KEY_MONTH + " = '" + month + "' AND" + TABLE_FLATS.KEY_FLAT_NUMBER + " = " + flatNumber;
+        }
+
         override public void confirmTransaction(IncomingTransaction transaction)
         {
             SqlCommand insertCommand = new SqlCommand(INSERT_TRANSACTION_SP.SP_NAME, connection);
@@ -45,7 +53,7 @@ namespace DBproject.Controller
             connection.Close();
         }
 
-        override public void sendEmail(string email)
+        override public void sendEmail(string email, Receipt receipt)
         {
             // send email functionality here
         }
