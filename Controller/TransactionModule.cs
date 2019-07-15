@@ -22,8 +22,20 @@ namespace DBproject.Controller
         override public void showPaidReceipt(Receipt recipt, string month, int flatNumber)
         {
             string selectQuery = "SELECT " + TABLE_INCOMING_TRANSACTIONS.KEY_DATE_PAID + ", " + TABLE_INCOMING_TRANSACTIONS.KEY_TRID + ", " + TABLE_FLATS.KEY_RESIDENT_NAME + ", " + TABLE_FLATS.KEY_FLAT_NUMBER + ", " + TABLE_INCOMING_TRANSACTIONS.KEY_AMOUNT + ", " + TABLE_INCOMING_TRANSACTIONS.KEY_MONTH + " FROM " + TABLE_FLATS.TBL_FLATS +
-                                 "INNER JOIN " + TABLE_INCOMING_TRANSACTIONS.TABLE_NAME + " ON " + TABLE_FLATS.KEY_FLAT_NUMBER + " = " + TABLE_INCOMING_TRANSACTIONS.KEY_FLAT_NUMBER + " AND " + TABLE_FLATS.TBL_FLATS + "." + TABLE_FLATS.KEY_APPARTMENT_ID + " = " + TABLE_INCOMING_TRANSACTIONS.TABLE_NAME + "." + TABLE_INCOMING_TRANSACTIONS.KEY_APARTMENT_ID +
-                                 " WHERE " + TABLE_INCOMING_TRANSACTIONS.KEY_MONTH + " = '" + month + "' AND" + TABLE_FLATS.KEY_FLAT_NUMBER + " = " + flatNumber;
+                                 " INNER JOIN " + TABLE_INCOMING_TRANSACTIONS.TABLE_NAME + " ON " + TABLE_FLATS.KEY_FLAT_NUMBER + " = " + TABLE_INCOMING_TRANSACTIONS.KEY_FLAT_NUMBER + " AND " + TABLE_FLATS.TBL_FLATS + "." + TABLE_FLATS.KEY_APPARTMENT_ID + " = " + TABLE_INCOMING_TRANSACTIONS.TABLE_NAME + "." + TABLE_INCOMING_TRANSACTIONS.KEY_APARTMENT_ID +
+                                 " WHERE " + TABLE_INCOMING_TRANSACTIONS.KEY_MONTH + " = '" + month + "' AND " + TABLE_FLATS.KEY_FLAT_NUMBER + " = " + flatNumber;
+
+            connection.Open();
+            using (SqlCommand command = new SqlCommand(selectQuery, connection))
+            {
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if(reader.Read())
+                    {
+                        recipt.setValues((DateTime)reader[TABLE_INCOMING_TRANSACTIONS.KEY_DATE_PAID], reader[TABLE_FLATS.KEY_RESIDENT_NAME].ToString(), reader[TABLE_INCOMING_TRANSACTIONS.KEY_TRID].ToString(), (Int32)reader[TABLE_FLATS.KEY_FLAT_NUMBER], (int)reader[TABLE_INCOMING_TRANSACTIONS.KEY_AMOUNT], reader[TABLE_INCOMING_TRANSACTIONS.KEY_MONTH].ToString());
+                    }
+                }
+            }
         }
 
         override public void confirmTransaction(IncomingTransaction transaction)

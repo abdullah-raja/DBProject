@@ -16,7 +16,7 @@ namespace DBproject.Util.Tables
         public static string KEY_MOBILE_NUMBER = "mobileNumber";
         public static string KEY_DUES = "dues";
         public static string KEY_MONTHLYFEE = "monthlyFee";
-        public static string KEY_APPARTMENT_ID = "appartmentID";
+        public static string KEY_APPARTMENT_ID = "apartmentID";
         public static string KEY_RESIDENT_NAME = "residentName";
         public static string KEY_IS_MANAGER = "isManager";
     }

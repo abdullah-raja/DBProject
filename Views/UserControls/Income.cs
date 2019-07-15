@@ -129,9 +129,13 @@ namespace DBproject.Views.UserControls
 
         private void CollectButton_Click(object sender, EventArgs e)
         {
+            Receipt receipt;
             Flat flat = new Flat(Convert.ToInt32(detailsFlatNumber.Text), detailsName.Text, detailsEmail.Text, detailsMobile.Text, Convert.ToInt32(detailsDues.Text), Convert.ToInt32(detailsMaintanance.Text), 1, this.apartment);
-            Receipt receipt = new Receipt(flat,this.apartment);
-            
+            if (flat.getDues() > 0)
+                receipt = new Receipt(flat, this.apartment);
+
+            else
+                receipt = new Receipt(flat, monthComboBox.SelectedItem.ToString());
             this.Controls.Add(receipt);
             receipt.BringToFront();
 
