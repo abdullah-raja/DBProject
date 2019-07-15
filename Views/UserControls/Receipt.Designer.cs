@@ -30,22 +30,22 @@
         {
             this.receiptLabel = new System.Windows.Forms.Label();
             this.datelabel = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.reciptDateTime = new System.Windows.Forms.DateTimePicker();
             this.recievelabel = new System.Windows.Forms.Label();
             this.IDlabel = new System.Windows.Forms.Label();
-            this.IDtextBox1 = new System.Windows.Forms.TextBox();
-            this.recieveTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.receiptTrID = new System.Windows.Forms.TextBox();
+            this.receiptFlatNumber = new System.Windows.Forms.MaskedTextBox();
             this.amountlabel1 = new System.Windows.Forms.Label();
             this.monthlabel2 = new System.Windows.Forms.Label();
-            this.monthcomboBox1 = new System.Windows.Forms.ComboBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.receiptMonthBox = new System.Windows.Forms.ComboBox();
+            this.receiptAmount = new System.Windows.Forms.NumericUpDown();
             this.confirmButton1 = new XanderUI.XUIButton();
             this.agreedcheckBox1 = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.recnameTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.receiptName = new System.Windows.Forms.MaskedTextBox();
             this.CancelButton1 = new XanderUI.XUIButton();
             this.receiptpanel1 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.receiptAmount)).BeginInit();
             this.receiptpanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,14 +74,14 @@
             this.datelabel.TabIndex = 9;
             this.datelabel.Text = "DATE";
             // 
-            // dateTimePicker1
+            // reciptDateTime
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(44, 88);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(125, 27);
-            this.dateTimePicker1.TabIndex = 10;
+            this.reciptDateTime.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reciptDateTime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.reciptDateTime.Location = new System.Drawing.Point(44, 88);
+            this.reciptDateTime.Name = "reciptDateTime";
+            this.reciptDateTime.Size = new System.Drawing.Size(125, 27);
+            this.reciptDateTime.TabIndex = 10;
             // 
             // recievelabel
             // 
@@ -107,26 +107,26 @@
             this.IDlabel.TabIndex = 12;
             this.IDlabel.Text = "TRANSACTION ID:";
             // 
-            // IDtextBox1
+            // receiptTrID
             // 
-            this.IDtextBox1.BackColor = System.Drawing.Color.White;
-            this.IDtextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.IDtextBox1.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IDtextBox1.Location = new System.Drawing.Point(486, 85);
-            this.IDtextBox1.Name = "IDtextBox1";
-            this.IDtextBox1.Size = new System.Drawing.Size(157, 26);
-            this.IDtextBox1.TabIndex = 13;
-            this.IDtextBox1.Text = "0001";
+            this.receiptTrID.BackColor = System.Drawing.Color.LightGray;
+            this.receiptTrID.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.receiptTrID.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.receiptTrID.Location = new System.Drawing.Point(486, 85);
+            this.receiptTrID.Name = "receiptTrID";
+            this.receiptTrID.Size = new System.Drawing.Size(157, 26);
+            this.receiptTrID.TabIndex = 13;
+            this.receiptTrID.Text = "0001";
             // 
-            // recieveTextBox1
+            // receiptFlatNumber
             // 
-            this.recieveTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.recieveTextBox1.Font = new System.Drawing.Font("Lato", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.recieveTextBox1.Location = new System.Drawing.Point(486, 164);
-            this.recieveTextBox1.Name = "recieveTextBox1";
-            this.recieveTextBox1.Size = new System.Drawing.Size(157, 26);
-            this.recieveTextBox1.TabIndex = 14;
-            this.recieveTextBox1.Text = "112";
+            this.receiptFlatNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.receiptFlatNumber.Font = new System.Drawing.Font("Lato", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.receiptFlatNumber.Location = new System.Drawing.Point(486, 164);
+            this.receiptFlatNumber.Name = "receiptFlatNumber";
+            this.receiptFlatNumber.Size = new System.Drawing.Size(157, 26);
+            this.receiptFlatNumber.TabIndex = 14;
+            this.receiptFlatNumber.Text = "112";
             // 
             // amountlabel1
             // 
@@ -152,23 +152,28 @@
             this.monthlabel2.TabIndex = 16;
             this.monthlabel2.Text = "MONTH:";
             // 
-            // monthcomboBox1
+            // receiptMonthBox
             // 
-            this.monthcomboBox1.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.monthcomboBox1.FormattingEnabled = true;
-            this.monthcomboBox1.Location = new System.Drawing.Point(483, 230);
-            this.monthcomboBox1.Name = "monthcomboBox1";
-            this.monthcomboBox1.Size = new System.Drawing.Size(202, 27);
-            this.monthcomboBox1.TabIndex = 17;
+            this.receiptMonthBox.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.receiptMonthBox.FormattingEnabled = true;
+            this.receiptMonthBox.Location = new System.Drawing.Point(483, 230);
+            this.receiptMonthBox.Name = "receiptMonthBox";
+            this.receiptMonthBox.Size = new System.Drawing.Size(202, 27);
+            this.receiptMonthBox.TabIndex = 17;
             // 
-            // numericUpDown1
+            // receiptAmount
             // 
-            this.numericUpDown1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.numericUpDown1.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.Location = new System.Drawing.Point(44, 230);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(136, 23);
-            this.numericUpDown1.TabIndex = 18;
+            this.receiptAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.receiptAmount.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.receiptAmount.Location = new System.Drawing.Point(44, 230);
+            this.receiptAmount.Maximum = new decimal(new int[] {
+            500000000,
+            0,
+            0,
+            0});
+            this.receiptAmount.Name = "receiptAmount";
+            this.receiptAmount.Size = new System.Drawing.Size(136, 23);
+            this.receiptAmount.TabIndex = 18;
             // 
             // confirmButton1
             // 
@@ -217,16 +222,15 @@
             this.label1.TabIndex = 29;
             this.label1.Text = "NAME:";
             // 
-            // recnameTextBox1
+            // receiptName
             // 
-            this.recnameTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.recnameTextBox1.Font = new System.Drawing.Font("Lato", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.recnameTextBox1.Location = new System.Drawing.Point(45, 164);
-            this.recnameTextBox1.Name = "recnameTextBox1";
-            this.recnameTextBox1.Size = new System.Drawing.Size(157, 26);
-            this.recnameTextBox1.TabIndex = 30;
-            this.recnameTextBox1.Text = "SARIM";
-            this.recnameTextBox1.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected_1);
+            this.receiptName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.receiptName.Font = new System.Drawing.Font("Lato", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.receiptName.Location = new System.Drawing.Point(45, 164);
+            this.receiptName.Name = "receiptName";
+            this.receiptName.Size = new System.Drawing.Size(157, 26);
+            this.receiptName.TabIndex = 30;
+            this.receiptName.Text = "SARIM";
             // 
             // CancelButton1
             // 
@@ -254,19 +258,19 @@
             // 
             this.receiptpanel1.BackColor = System.Drawing.Color.LightGray;
             this.receiptpanel1.Controls.Add(this.CancelButton1);
-            this.receiptpanel1.Controls.Add(this.recnameTextBox1);
+            this.receiptpanel1.Controls.Add(this.receiptName);
             this.receiptpanel1.Controls.Add(this.label1);
             this.receiptpanel1.Controls.Add(this.agreedcheckBox1);
             this.receiptpanel1.Controls.Add(this.confirmButton1);
-            this.receiptpanel1.Controls.Add(this.numericUpDown1);
-            this.receiptpanel1.Controls.Add(this.monthcomboBox1);
+            this.receiptpanel1.Controls.Add(this.receiptAmount);
+            this.receiptpanel1.Controls.Add(this.receiptMonthBox);
             this.receiptpanel1.Controls.Add(this.monthlabel2);
             this.receiptpanel1.Controls.Add(this.amountlabel1);
-            this.receiptpanel1.Controls.Add(this.recieveTextBox1);
-            this.receiptpanel1.Controls.Add(this.IDtextBox1);
+            this.receiptpanel1.Controls.Add(this.receiptFlatNumber);
+            this.receiptpanel1.Controls.Add(this.receiptTrID);
             this.receiptpanel1.Controls.Add(this.IDlabel);
             this.receiptpanel1.Controls.Add(this.recievelabel);
-            this.receiptpanel1.Controls.Add(this.dateTimePicker1);
+            this.receiptpanel1.Controls.Add(this.reciptDateTime);
             this.receiptpanel1.Controls.Add(this.datelabel);
             this.receiptpanel1.Controls.Add(this.receiptLabel);
             this.receiptpanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -283,7 +287,7 @@
             this.Controls.Add(this.receiptpanel1);
             this.Name = "Receipt";
             this.Size = new System.Drawing.Size(756, 352);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.receiptAmount)).EndInit();
             this.receiptpanel1.ResumeLayout(false);
             this.receiptpanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -294,19 +298,19 @@
 
         private System.Windows.Forms.Label receiptLabel;
         private System.Windows.Forms.Label datelabel;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker reciptDateTime;
         private System.Windows.Forms.Label recievelabel;
         private System.Windows.Forms.Label IDlabel;
-        private System.Windows.Forms.TextBox IDtextBox1;
-        private System.Windows.Forms.MaskedTextBox recieveTextBox1;
+        private System.Windows.Forms.TextBox receiptTrID;
+        private System.Windows.Forms.MaskedTextBox receiptFlatNumber;
         private System.Windows.Forms.Label amountlabel1;
         private System.Windows.Forms.Label monthlabel2;
-        private System.Windows.Forms.ComboBox monthcomboBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.ComboBox receiptMonthBox;
+        private System.Windows.Forms.NumericUpDown receiptAmount;
         private XanderUI.XUIButton confirmButton1;
         private System.Windows.Forms.CheckBox agreedcheckBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MaskedTextBox recnameTextBox1;
+        private System.Windows.Forms.MaskedTextBox receiptName;
         private XanderUI.XUIButton CancelButton1;
         private System.Windows.Forms.Panel receiptpanel1;
     }

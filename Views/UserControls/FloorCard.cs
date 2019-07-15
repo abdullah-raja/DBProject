@@ -41,6 +41,8 @@ namespace DBproject.Views.UserControls
                     flat.setText((((this.TabIndex + 1) * 100) + j+1).ToString());
                     FloorsPanel.Controls.Add(flat);
                 }
+
+                FloorsPanel.Controls.Add(new BackButton(apartment,view));
             
         }
     }

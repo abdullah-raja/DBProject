@@ -26,7 +26,7 @@ namespace DBproject.Controller
         }
 
 
-        public override void createBuilding(Building building, SignUp view, User user)
+        public override void createBuilding(Building building, SignUp view, User user, int adminFlat)
         {
             connection.Open();
             SqlCommand insertCommand = new SqlCommand(insertStoredProcedure, connection);
@@ -34,7 +34,7 @@ namespace DBproject.Controller
 
             insertCommand.Parameters.Add(new SqlParameter("@apartmentName", building.getAppartmentName()));
             insertCommand.Parameters.Add(new SqlParameter("@numberOfFloors", building.getNoOfFloors()));
-            insertCommand.Parameters.Add(new SqlParameter("@flatsPerFloor", building.getNoOfFloors()));
+            insertCommand.Parameters.Add(new SqlParameter("@flatsPerFloor", building.getFlatsPerFloor()));
             insertCommand.Parameters.Add(new SqlParameter("@code", building.getCode()));
             insertCommand.Parameters.Add(new SqlParameter("@balance", building.getBalance()));
             insertCommand.Parameters.Add(new SqlParameter("@adminID", Guid.Parse(user.getID())));
@@ -51,18 +51,28 @@ namespace DBproject.Controller
                     user.setApartmentID(insertCommand.Parameters["@apartmentId"].Value.ToString());
 
                     
-
+                    
+                    // setting flats
                     for(int i = 0; i<building.getNoOfFloors(); i++)
                     {
                         for(int j = 0; j<building.getFlatsPerFloor(); j++)
                         {
 
-                            SqlCommand createFlats = new SqlCommand(createFlatsProcedure, connection);
-                            createFlats.CommandType = CommandType.StoredProcedure;
-                            createFlats.Parameters.Add(new SqlParameter("@flatNumber", building.getFlatAt(i,j).getFlatNumber()));
-                            createFlats.Parameters.Add(new SqlParameter("@apartmentID", Guid.Parse(building.getID())));
-                            
-                            createFlats.ExecuteNonQuery();
+
+                        SqlCommand createFlats = new SqlCommand(createFlatsProcedure, connection);
+                        createFlats.CommandType = CommandType.StoredProcedure;
+                        createFlats.Parameters.Add(new SqlParameter("@flatNumber", building.getFlatAt(i, j).getFlatNumber()));
+                        createFlats.Parameters.Add(new SqlParameter("@apartmentID", Guid.Parse(building.getID())));
+                        
+
+                        if (i+1 == adminFlat / 100 && j+1 == adminFlat % 10)
+                        createFlats.Parameters.Add(new SqlParameter("@isManager", 3)); // admin will be manager
+
+                        else
+                        createFlats.Parameters.Add(new SqlParameter("@isManager", 1));  // 1 = not manager, // 2 = manager, 3 = admi, 
+
+
+                        createFlats.ExecuteNonQuery();
 
                         createFlats.Dispose();
                         }

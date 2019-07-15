@@ -58,6 +58,8 @@ namespace DBproject.Views.UserControls
             detailsDues.Text = dues.ToString();
             detailsEmail.Text = email;
             detailsMobile.Text = mobile;
+            if (dues <= 0)
+                CollectButton.ButtonText = "COLLECTED";
 
         }
 
@@ -74,25 +76,37 @@ namespace DBproject.Views.UserControls
 
         private void SettingButton_Click(object sender, EventArgs e)
         {
+            Color defaultColor = Color.Gainsboro;
             detailsName.ReadOnly = settingActivated;
-            detailsFlatNumber.ReadOnly = settingActivated;
             detailsMaintanance.ReadOnly = settingActivated;
-            detailsDues.ReadOnly = settingActivated;
+            detailsEmail.ReadOnly = settingActivated;
+            detailsMobile.ReadOnly = settingActivated;
             managerButton.Visible = !settingActivated;
             switchlabel.Visible = !settingActivated;
 
             if (!settingActivated)
             {
-               
+                
                 SettingButton.ButtonText = "OK";
+                detailsName.BackColor = Color.White;
+                detailsMaintanance.BackColor = Color.White;
+                detailsEmail.BackColor = Color.White;
+                detailsMobile.BackColor = Color.White;
+
+               
             }
 
             else
             {
                 SettingButton.ButtonText = "Settings";
+                detailsName.BackColor = defaultColor;
+                detailsMaintanance.BackColor = defaultColor;
+                detailsEmail.BackColor = defaultColor;
+                detailsMobile.BackColor = defaultColor;
                 controller = new MainScreenController(connectionString, flatTableName);
-                Flat flat = new Flat(Convert.ToInt32(detailsFlatNumber.Text), detailsName.Text, detailsEmail.Text, detailsMobile.Text, Convert.ToInt32(detailsDues.Text), Convert.ToInt32(detailsMaintanance.Text), false, this.apartment);
+                Flat flat = new Flat(Convert.ToInt32(detailsFlatNumber.Text), detailsName.Text, detailsEmail.Text, detailsMobile.Text, Convert.ToInt32(detailsDues.Text), Convert.ToInt32(detailsMaintanance.Text), 1, this.apartment);
                 controller.updateDetailsPanel(flat);
+
             }
             settingActivated = !settingActivated;
             
@@ -115,7 +129,8 @@ namespace DBproject.Views.UserControls
 
         private void CollectButton_Click(object sender, EventArgs e)
         {
-            Receipt receipt = new Receipt();
+            Flat flat = new Flat(Convert.ToInt32(detailsFlatNumber.Text), detailsName.Text, detailsEmail.Text, detailsMobile.Text, Convert.ToInt32(detailsDues.Text), Convert.ToInt32(detailsMaintanance.Text), 1, this.apartment);
+            Receipt receipt = new Receipt(flat,this.apartment);
             this.Controls.Add(receipt);
             receipt.BringToFront();
 

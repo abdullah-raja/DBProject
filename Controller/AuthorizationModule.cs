@@ -75,6 +75,7 @@ namespace DBproject.Controller
                             {
 
                                 view.signUpSuccessful(isAdmin);
+                                return;
 
                             }
 
@@ -86,7 +87,7 @@ namespace DBproject.Controller
 
             }
 
-                if (user.getApartmentID() != null)
+                if (user.getApartmentID() != null) // getting apartment details
                 {
                     string selectApartmentQuery = "SELECT * FROM tbl_Buildings WHERE apartmentID = " + "'" + Guid.Parse(user.getApartmentID()) + "'";
                     using (SqlCommand getApartmentCommand = new SqlCommand(selectApartmentQuery, connection))
@@ -139,8 +140,8 @@ namespace DBproject.Controller
            
 
 
-          // try
-          // {
+           try
+           {
 
                 if (insertCommand.ExecuteNonQuery() > 0) // returns number of rows affected
                 {
@@ -153,7 +154,7 @@ namespace DBproject.Controller
                 {
                     view.signUpFailed();
                 }
-            /* }
+             }
 
 
 
@@ -165,7 +166,7 @@ namespace DBproject.Controller
            {
               view.signUpFailed();
            }
-           */
+           
             
             
             connection.Close();

@@ -34,7 +34,7 @@ namespace DBproject.Views.UserControls
 
         private void button1_Click(object sender, EventArgs e)
         {
-            controller = new Controller.MainScreenController(connectionString, "tbl_Flats");
+            controller = new Controller.MainScreenController(connectionString, Util.Tables.TABLE_FLATS.TBL_FLATS);
             controller.showDetailsPanel(flat, view);
         }
     }

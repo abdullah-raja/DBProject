@@ -37,26 +37,26 @@
             this.monthComboBox = new System.Windows.Forms.ComboBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.FloorsPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.detailsPanel = new System.Windows.Forms.Panel();
-            this.receiptLabel = new System.Windows.Forms.Label();
-            this.switchlabel = new System.Windows.Forms.Label();
-            this.managerButton = new XanderUI.XUIButton();
-            this.SettingButton = new XanderUI.XUIButton();
-            this.CollectButton = new XanderUI.XUIButton();
-            this.detailsMaintanance = new System.Windows.Forms.MaskedTextBox();
-            this.detailsDues = new System.Windows.Forms.MaskedTextBox();
-            this.detailsFlatNumber = new System.Windows.Forms.MaskedTextBox();
-            this.detailsName = new System.Windows.Forms.TextBox();
-            this.dueslabel = new System.Windows.Forms.Label();
-            this.feeslabel = new System.Windows.Forms.Label();
-            this.flatnolabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.xuiBackgroundSleeper1 = new XanderUI.XUIBackgroundSleeper();
-            this.detailsEmail = new System.Windows.Forms.MaskedTextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.flatnolabel = new System.Windows.Forms.Label();
+            this.feeslabel = new System.Windows.Forms.Label();
+            this.dueslabel = new System.Windows.Forms.Label();
+            this.detailsName = new System.Windows.Forms.TextBox();
+            this.detailsFlatNumber = new System.Windows.Forms.MaskedTextBox();
+            this.detailsDues = new System.Windows.Forms.MaskedTextBox();
+            this.detailsMaintanance = new System.Windows.Forms.MaskedTextBox();
+            this.CollectButton = new XanderUI.XUIButton();
+            this.SettingButton = new XanderUI.XUIButton();
+            this.managerButton = new XanderUI.XUIButton();
+            this.switchlabel = new System.Windows.Forms.Label();
+            this.receiptLabel = new System.Windows.Forms.Label();
             this.detailsEmailLabel = new System.Windows.Forms.Label();
-            this.detailsMobile = new System.Windows.Forms.MaskedTextBox();
+            this.detailsEmail = new System.Windows.Forms.MaskedTextBox();
             this.detailsMobileLabel = new System.Windows.Forms.Label();
+            this.detailsMobile = new System.Windows.Forms.MaskedTextBox();
+            this.detailsPanel = new System.Windows.Forms.Panel();
             this.mainPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -181,6 +181,248 @@
             this.FloorsPanel.Size = new System.Drawing.Size(640, 579);
             this.FloorsPanel.TabIndex = 6;
             // 
+            // panel3
+            // 
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(200, 100);
+            this.panel3.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DarkRed;
+            this.label1.Location = new System.Drawing.Point(14, 63);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 19);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Name:";
+            // 
+            // flatnolabel
+            // 
+            this.flatnolabel.AutoSize = true;
+            this.flatnolabel.BackColor = System.Drawing.Color.Transparent;
+            this.flatnolabel.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.flatnolabel.ForeColor = System.Drawing.Color.DarkRed;
+            this.flatnolabel.Location = new System.Drawing.Point(14, 102);
+            this.flatnolabel.Name = "flatnolabel";
+            this.flatnolabel.Size = new System.Drawing.Size(64, 19);
+            this.flatnolabel.TabIndex = 10;
+            this.flatnolabel.Text = "Flat No:";
+            // 
+            // feeslabel
+            // 
+            this.feeslabel.AutoSize = true;
+            this.feeslabel.BackColor = System.Drawing.Color.Transparent;
+            this.feeslabel.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.feeslabel.ForeColor = System.Drawing.Color.DarkRed;
+            this.feeslabel.Location = new System.Drawing.Point(14, 139);
+            this.feeslabel.Name = "feeslabel";
+            this.feeslabel.Size = new System.Drawing.Size(210, 19);
+            this.feeslabel.TabIndex = 11;
+            this.feeslabel.Text = "Monthly Maintainance Fees:";
+            // 
+            // dueslabel
+            // 
+            this.dueslabel.AutoSize = true;
+            this.dueslabel.BackColor = System.Drawing.Color.Transparent;
+            this.dueslabel.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dueslabel.ForeColor = System.Drawing.Color.DarkRed;
+            this.dueslabel.Location = new System.Drawing.Point(14, 198);
+            this.dueslabel.Name = "dueslabel";
+            this.dueslabel.Size = new System.Drawing.Size(137, 19);
+            this.dueslabel.TabIndex = 12;
+            this.dueslabel.Text = "PREVIOUS DUES:";
+            this.dueslabel.Click += new System.EventHandler(this.dueslabel_Click);
+            // 
+            // detailsName
+            // 
+            this.detailsName.BackColor = System.Drawing.Color.Gainsboro;
+            this.detailsName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.detailsName.Location = new System.Drawing.Point(79, 63);
+            this.detailsName.Name = "detailsName";
+            this.detailsName.ReadOnly = true;
+            this.detailsName.Size = new System.Drawing.Size(214, 20);
+            this.detailsName.TabIndex = 13;
+            this.detailsName.Text = "SARIM";
+            // 
+            // detailsFlatNumber
+            // 
+            this.detailsFlatNumber.BackColor = System.Drawing.Color.Gainsboro;
+            this.detailsFlatNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.detailsFlatNumber.Location = new System.Drawing.Point(88, 101);
+            this.detailsFlatNumber.Name = "detailsFlatNumber";
+            this.detailsFlatNumber.ReadOnly = true;
+            this.detailsFlatNumber.Size = new System.Drawing.Size(205, 20);
+            this.detailsFlatNumber.TabIndex = 14;
+            this.detailsFlatNumber.Text = "112";
+            // 
+            // detailsDues
+            // 
+            this.detailsDues.BackColor = System.Drawing.Color.Gainsboro;
+            this.detailsDues.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.detailsDues.Location = new System.Drawing.Point(18, 220);
+            this.detailsDues.Name = "detailsDues";
+            this.detailsDues.ReadOnly = true;
+            this.detailsDues.Size = new System.Drawing.Size(187, 20);
+            this.detailsDues.TabIndex = 15;
+            this.detailsDues.Text = "0000";
+            this.detailsDues.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.duesTextBox2_MaskInputRejected);
+            // 
+            // detailsMaintanance
+            // 
+            this.detailsMaintanance.BackColor = System.Drawing.Color.Gainsboro;
+            this.detailsMaintanance.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.detailsMaintanance.Location = new System.Drawing.Point(18, 161);
+            this.detailsMaintanance.Name = "detailsMaintanance";
+            this.detailsMaintanance.ReadOnly = true;
+            this.detailsMaintanance.Size = new System.Drawing.Size(107, 20);
+            this.detailsMaintanance.TabIndex = 16;
+            this.detailsMaintanance.Text = "1000";
+            this.detailsMaintanance.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.feesTextBox3_MaskInputRejected);
+            // 
+            // CollectButton
+            // 
+            this.CollectButton.BackgroundColor = System.Drawing.Color.DarkRed;
+            this.CollectButton.ButtonImage = null;
+            this.CollectButton.ButtonStyle = XanderUI.XUIButton.Style.Material;
+            this.CollectButton.ButtonText = "COLLECT";
+            this.CollectButton.ClickBackColor = System.Drawing.Color.White;
+            this.CollectButton.ClickTextColor = System.Drawing.Color.DarkRed;
+            this.CollectButton.CornerRadius = 5;
+            this.CollectButton.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CollectButton.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
+            this.CollectButton.HoverBackgroundColor = System.Drawing.Color.Brown;
+            this.CollectButton.HoverTextColor = System.Drawing.Color.White;
+            this.CollectButton.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.CollectButton.Location = new System.Drawing.Point(17, 462);
+            this.CollectButton.Name = "CollectButton";
+            this.CollectButton.Size = new System.Drawing.Size(108, 44);
+            this.CollectButton.TabIndex = 25;
+            this.CollectButton.TextColor = System.Drawing.Color.White;
+            this.CollectButton.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.CollectButton.Click += new System.EventHandler(this.CollectButton_Click);
+            // 
+            // SettingButton
+            // 
+            this.SettingButton.BackgroundColor = System.Drawing.Color.DarkRed;
+            this.SettingButton.ButtonImage = null;
+            this.SettingButton.ButtonStyle = XanderUI.XUIButton.Style.Material;
+            this.SettingButton.ButtonText = "SETTING";
+            this.SettingButton.ClickBackColor = System.Drawing.Color.White;
+            this.SettingButton.ClickTextColor = System.Drawing.Color.DarkRed;
+            this.SettingButton.CornerRadius = 5;
+            this.SettingButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SettingButton.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
+            this.SettingButton.HoverBackgroundColor = System.Drawing.Color.Brown;
+            this.SettingButton.HoverTextColor = System.Drawing.Color.White;
+            this.SettingButton.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.SettingButton.Location = new System.Drawing.Point(142, 462);
+            this.SettingButton.Name = "SettingButton";
+            this.SettingButton.Size = new System.Drawing.Size(116, 44);
+            this.SettingButton.TabIndex = 26;
+            this.SettingButton.TextColor = System.Drawing.Color.White;
+            this.SettingButton.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.SettingButton.Click += new System.EventHandler(this.SettingButton_Click);
+            // 
+            // managerButton
+            // 
+            this.managerButton.BackgroundColor = System.Drawing.Color.DarkRed;
+            this.managerButton.ButtonImage = null;
+            this.managerButton.ButtonStyle = XanderUI.XUIButton.Style.Material;
+            this.managerButton.ButtonText = "MEMBER";
+            this.managerButton.ClickBackColor = System.Drawing.Color.White;
+            this.managerButton.ClickTextColor = System.Drawing.Color.DarkRed;
+            this.managerButton.CornerRadius = 5;
+            this.managerButton.Font = new System.Drawing.Font("Lato", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.managerButton.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
+            this.managerButton.HoverBackgroundColor = System.Drawing.Color.Brown;
+            this.managerButton.HoverTextColor = System.Drawing.Color.White;
+            this.managerButton.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.managerButton.Location = new System.Drawing.Point(18, 422);
+            this.managerButton.Name = "managerButton";
+            this.managerButton.Size = new System.Drawing.Size(57, 23);
+            this.managerButton.TabIndex = 27;
+            this.managerButton.TextColor = System.Drawing.Color.White;
+            this.managerButton.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.managerButton.Visible = false;
+            this.managerButton.Click += new System.EventHandler(this.switchButton_Click);
+            this.managerButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.switchButton_MouseClick);
+            // 
+            // switchlabel
+            // 
+            this.switchlabel.AutoSize = true;
+            this.switchlabel.BackColor = System.Drawing.Color.Transparent;
+            this.switchlabel.Font = new System.Drawing.Font("Lato", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.switchlabel.ForeColor = System.Drawing.Color.DarkRed;
+            this.switchlabel.Location = new System.Drawing.Point(16, 406);
+            this.switchlabel.Name = "switchlabel";
+            this.switchlabel.Size = new System.Drawing.Size(106, 13);
+            this.switchlabel.TabIndex = 28;
+            this.switchlabel.Text = "Switch To Manager?";
+            this.switchlabel.Visible = false;
+            // 
+            // receiptLabel
+            // 
+            this.receiptLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.receiptLabel.AutoSize = true;
+            this.receiptLabel.BackColor = System.Drawing.Color.DarkRed;
+            this.receiptLabel.Font = new System.Drawing.Font("Lato", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.receiptLabel.ForeColor = System.Drawing.Color.White;
+            this.receiptLabel.Location = new System.Drawing.Point(111, 12);
+            this.receiptLabel.Name = "receiptLabel";
+            this.receiptLabel.Size = new System.Drawing.Size(107, 29);
+            this.receiptLabel.TabIndex = 29;
+            this.receiptLabel.Text = "DETAILS";
+            // 
+            // detailsEmailLabel
+            // 
+            this.detailsEmailLabel.AutoSize = true;
+            this.detailsEmailLabel.BackColor = System.Drawing.Color.Transparent;
+            this.detailsEmailLabel.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.detailsEmailLabel.ForeColor = System.Drawing.Color.DarkRed;
+            this.detailsEmailLabel.Location = new System.Drawing.Point(14, 259);
+            this.detailsEmailLabel.Name = "detailsEmailLabel";
+            this.detailsEmailLabel.Size = new System.Drawing.Size(51, 19);
+            this.detailsEmailLabel.TabIndex = 30;
+            this.detailsEmailLabel.Text = "Email:";
+            // 
+            // detailsEmail
+            // 
+            this.detailsEmail.BackColor = System.Drawing.Color.Gainsboro;
+            this.detailsEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.detailsEmail.Location = new System.Drawing.Point(71, 259);
+            this.detailsEmail.Name = "detailsEmail";
+            this.detailsEmail.ReadOnly = true;
+            this.detailsEmail.Size = new System.Drawing.Size(187, 20);
+            this.detailsEmail.TabIndex = 31;
+            this.detailsEmail.Text = "Abd@gmail.com";
+            // 
+            // detailsMobileLabel
+            // 
+            this.detailsMobileLabel.AutoSize = true;
+            this.detailsMobileLabel.BackColor = System.Drawing.Color.Transparent;
+            this.detailsMobileLabel.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.detailsMobileLabel.ForeColor = System.Drawing.Color.DarkRed;
+            this.detailsMobileLabel.Location = new System.Drawing.Point(15, 304);
+            this.detailsMobileLabel.Name = "detailsMobileLabel";
+            this.detailsMobileLabel.Size = new System.Drawing.Size(63, 19);
+            this.detailsMobileLabel.TabIndex = 32;
+            this.detailsMobileLabel.Text = "Mobile:";
+            // 
+            // detailsMobile
+            // 
+            this.detailsMobile.BackColor = System.Drawing.Color.Gainsboro;
+            this.detailsMobile.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.detailsMobile.Location = new System.Drawing.Point(89, 304);
+            this.detailsMobile.Name = "detailsMobile";
+            this.detailsMobile.ReadOnly = true;
+            this.detailsMobile.Size = new System.Drawing.Size(187, 20);
+            this.detailsMobile.TabIndex = 33;
+            this.detailsMobile.Text = "0324-2140044";
+            // 
             // detailsPanel
             // 
             this.detailsPanel.BackColor = System.Drawing.Color.Gainsboro;
@@ -207,248 +449,6 @@
             this.detailsPanel.Name = "detailsPanel";
             this.detailsPanel.Size = new System.Drawing.Size(323, 579);
             this.detailsPanel.TabIndex = 16;
-            // 
-            // receiptLabel
-            // 
-            this.receiptLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.receiptLabel.AutoSize = true;
-            this.receiptLabel.BackColor = System.Drawing.Color.DarkRed;
-            this.receiptLabel.Font = new System.Drawing.Font("Lato", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.receiptLabel.ForeColor = System.Drawing.Color.White;
-            this.receiptLabel.Location = new System.Drawing.Point(111, 12);
-            this.receiptLabel.Name = "receiptLabel";
-            this.receiptLabel.Size = new System.Drawing.Size(107, 29);
-            this.receiptLabel.TabIndex = 29;
-            this.receiptLabel.Text = "DETAILS";
-            // 
-            // switchlabel
-            // 
-            this.switchlabel.AutoSize = true;
-            this.switchlabel.BackColor = System.Drawing.Color.Transparent;
-            this.switchlabel.Font = new System.Drawing.Font("Lato", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.switchlabel.ForeColor = System.Drawing.Color.DarkRed;
-            this.switchlabel.Location = new System.Drawing.Point(16, 406);
-            this.switchlabel.Name = "switchlabel";
-            this.switchlabel.Size = new System.Drawing.Size(106, 13);
-            this.switchlabel.TabIndex = 28;
-            this.switchlabel.Text = "Switch To Manager?";
-            this.switchlabel.Visible = false;
-            // 
-            // managerButton
-            // 
-            this.managerButton.BackgroundColor = System.Drawing.Color.DarkRed;
-            this.managerButton.ButtonImage = null;
-            this.managerButton.ButtonStyle = XanderUI.XUIButton.Style.Material;
-            this.managerButton.ButtonText = "MEMBER";
-            this.managerButton.ClickBackColor = System.Drawing.Color.White;
-            this.managerButton.ClickTextColor = System.Drawing.Color.DarkRed;
-            this.managerButton.CornerRadius = 5;
-            this.managerButton.Font = new System.Drawing.Font("Lato", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.managerButton.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.managerButton.HoverBackgroundColor = System.Drawing.Color.Brown;
-            this.managerButton.HoverTextColor = System.Drawing.Color.White;
-            this.managerButton.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.managerButton.Location = new System.Drawing.Point(18, 422);
-            this.managerButton.Name = "managerButton";
-            this.managerButton.Size = new System.Drawing.Size(57, 23);
-            this.managerButton.TabIndex = 27;
-            this.managerButton.TextColor = System.Drawing.Color.White;
-            this.managerButton.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            this.managerButton.Visible = false;
-            this.managerButton.Click += new System.EventHandler(this.switchButton_Click);
-            this.managerButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.switchButton_MouseClick);
-            // 
-            // SettingButton
-            // 
-            this.SettingButton.BackgroundColor = System.Drawing.Color.DarkRed;
-            this.SettingButton.ButtonImage = null;
-            this.SettingButton.ButtonStyle = XanderUI.XUIButton.Style.Material;
-            this.SettingButton.ButtonText = "SETTING";
-            this.SettingButton.ClickBackColor = System.Drawing.Color.White;
-            this.SettingButton.ClickTextColor = System.Drawing.Color.DarkRed;
-            this.SettingButton.CornerRadius = 5;
-            this.SettingButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SettingButton.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.SettingButton.HoverBackgroundColor = System.Drawing.Color.Brown;
-            this.SettingButton.HoverTextColor = System.Drawing.Color.White;
-            this.SettingButton.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.SettingButton.Location = new System.Drawing.Point(142, 462);
-            this.SettingButton.Name = "SettingButton";
-            this.SettingButton.Size = new System.Drawing.Size(90, 30);
-            this.SettingButton.TabIndex = 26;
-            this.SettingButton.TextColor = System.Drawing.Color.White;
-            this.SettingButton.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            this.SettingButton.Click += new System.EventHandler(this.SettingButton_Click);
-            // 
-            // CollectButton
-            // 
-            this.CollectButton.BackgroundColor = System.Drawing.Color.DarkRed;
-            this.CollectButton.ButtonImage = null;
-            this.CollectButton.ButtonStyle = XanderUI.XUIButton.Style.Material;
-            this.CollectButton.ButtonText = "COLLECT";
-            this.CollectButton.ClickBackColor = System.Drawing.Color.White;
-            this.CollectButton.ClickTextColor = System.Drawing.Color.DarkRed;
-            this.CollectButton.CornerRadius = 5;
-            this.CollectButton.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CollectButton.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.CollectButton.HoverBackgroundColor = System.Drawing.Color.Brown;
-            this.CollectButton.HoverTextColor = System.Drawing.Color.White;
-            this.CollectButton.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.CollectButton.Location = new System.Drawing.Point(17, 462);
-            this.CollectButton.Name = "CollectButton";
-            this.CollectButton.Size = new System.Drawing.Size(90, 30);
-            this.CollectButton.TabIndex = 25;
-            this.CollectButton.TextColor = System.Drawing.Color.White;
-            this.CollectButton.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            this.CollectButton.Click += new System.EventHandler(this.CollectButton_Click);
-            // 
-            // detailsMaintanance
-            // 
-            this.detailsMaintanance.BackColor = System.Drawing.Color.Gainsboro;
-            this.detailsMaintanance.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.detailsMaintanance.Location = new System.Drawing.Point(18, 161);
-            this.detailsMaintanance.Name = "detailsMaintanance";
-            this.detailsMaintanance.ReadOnly = true;
-            this.detailsMaintanance.Size = new System.Drawing.Size(107, 20);
-            this.detailsMaintanance.TabIndex = 16;
-            this.detailsMaintanance.Text = "1000";
-            this.detailsMaintanance.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.feesTextBox3_MaskInputRejected);
-            // 
-            // detailsDues
-            // 
-            this.detailsDues.BackColor = System.Drawing.Color.Gainsboro;
-            this.detailsDues.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.detailsDues.Location = new System.Drawing.Point(18, 220);
-            this.detailsDues.Name = "detailsDues";
-            this.detailsDues.ReadOnly = true;
-            this.detailsDues.Size = new System.Drawing.Size(187, 20);
-            this.detailsDues.TabIndex = 15;
-            this.detailsDues.Text = "0000";
-            this.detailsDues.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.duesTextBox2_MaskInputRejected);
-            // 
-            // detailsFlatNumber
-            // 
-            this.detailsFlatNumber.BackColor = System.Drawing.Color.Gainsboro;
-            this.detailsFlatNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.detailsFlatNumber.Location = new System.Drawing.Point(88, 101);
-            this.detailsFlatNumber.Name = "detailsFlatNumber";
-            this.detailsFlatNumber.ReadOnly = true;
-            this.detailsFlatNumber.Size = new System.Drawing.Size(205, 20);
-            this.detailsFlatNumber.TabIndex = 14;
-            this.detailsFlatNumber.Text = "112";
-            // 
-            // detailsName
-            // 
-            this.detailsName.BackColor = System.Drawing.Color.Gainsboro;
-            this.detailsName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.detailsName.Location = new System.Drawing.Point(79, 63);
-            this.detailsName.Name = "detailsName";
-            this.detailsName.ReadOnly = true;
-            this.detailsName.Size = new System.Drawing.Size(214, 20);
-            this.detailsName.TabIndex = 13;
-            this.detailsName.Text = "SARIM";
-            // 
-            // dueslabel
-            // 
-            this.dueslabel.AutoSize = true;
-            this.dueslabel.BackColor = System.Drawing.Color.Transparent;
-            this.dueslabel.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dueslabel.ForeColor = System.Drawing.Color.DarkRed;
-            this.dueslabel.Location = new System.Drawing.Point(14, 198);
-            this.dueslabel.Name = "dueslabel";
-            this.dueslabel.Size = new System.Drawing.Size(137, 19);
-            this.dueslabel.TabIndex = 12;
-            this.dueslabel.Text = "PREVIOUS DUES:";
-            this.dueslabel.Click += new System.EventHandler(this.dueslabel_Click);
-            // 
-            // feeslabel
-            // 
-            this.feeslabel.AutoSize = true;
-            this.feeslabel.BackColor = System.Drawing.Color.Transparent;
-            this.feeslabel.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.feeslabel.ForeColor = System.Drawing.Color.DarkRed;
-            this.feeslabel.Location = new System.Drawing.Point(14, 139);
-            this.feeslabel.Name = "feeslabel";
-            this.feeslabel.Size = new System.Drawing.Size(210, 19);
-            this.feeslabel.TabIndex = 11;
-            this.feeslabel.Text = "Monthly Maintainance Fees:";
-            // 
-            // flatnolabel
-            // 
-            this.flatnolabel.AutoSize = true;
-            this.flatnolabel.BackColor = System.Drawing.Color.Transparent;
-            this.flatnolabel.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.flatnolabel.ForeColor = System.Drawing.Color.DarkRed;
-            this.flatnolabel.Location = new System.Drawing.Point(14, 102);
-            this.flatnolabel.Name = "flatnolabel";
-            this.flatnolabel.Size = new System.Drawing.Size(64, 19);
-            this.flatnolabel.TabIndex = 10;
-            this.flatnolabel.Text = "Flat No:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DarkRed;
-            this.label1.Location = new System.Drawing.Point(14, 63);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 19);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Name:";
-            // 
-            // panel3
-            // 
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(200, 100);
-            this.panel3.TabIndex = 0;
-            // 
-            // detailsEmail
-            // 
-            this.detailsEmail.BackColor = System.Drawing.Color.Gainsboro;
-            this.detailsEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.detailsEmail.Location = new System.Drawing.Point(71, 259);
-            this.detailsEmail.Name = "detailsEmail";
-            this.detailsEmail.ReadOnly = true;
-            this.detailsEmail.Size = new System.Drawing.Size(187, 20);
-            this.detailsEmail.TabIndex = 31;
-            this.detailsEmail.Text = "Abd@gmail.com";
-            // 
-            // detailsEmailLabel
-            // 
-            this.detailsEmailLabel.AutoSize = true;
-            this.detailsEmailLabel.BackColor = System.Drawing.Color.Transparent;
-            this.detailsEmailLabel.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.detailsEmailLabel.ForeColor = System.Drawing.Color.DarkRed;
-            this.detailsEmailLabel.Location = new System.Drawing.Point(14, 259);
-            this.detailsEmailLabel.Name = "detailsEmailLabel";
-            this.detailsEmailLabel.Size = new System.Drawing.Size(51, 19);
-            this.detailsEmailLabel.TabIndex = 30;
-            this.detailsEmailLabel.Text = "Email:";
-            // 
-            // detailsMobile
-            // 
-            this.detailsMobile.BackColor = System.Drawing.Color.Gainsboro;
-            this.detailsMobile.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.detailsMobile.Location = new System.Drawing.Point(89, 304);
-            this.detailsMobile.Name = "detailsMobile";
-            this.detailsMobile.ReadOnly = true;
-            this.detailsMobile.Size = new System.Drawing.Size(187, 20);
-            this.detailsMobile.TabIndex = 33;
-            this.detailsMobile.Text = "0324-2140044";
-            // 
-            // detailsMobileLabel
-            // 
-            this.detailsMobileLabel.AutoSize = true;
-            this.detailsMobileLabel.BackColor = System.Drawing.Color.Transparent;
-            this.detailsMobileLabel.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.detailsMobileLabel.ForeColor = System.Drawing.Color.DarkRed;
-            this.detailsMobileLabel.Location = new System.Drawing.Point(15, 304);
-            this.detailsMobileLabel.Name = "detailsMobileLabel";
-            this.detailsMobileLabel.Size = new System.Drawing.Size(63, 19);
-            this.detailsMobileLabel.TabIndex = 32;
-            this.detailsMobileLabel.Text = "Mobile:";
             // 
             // Income
             // 
@@ -485,8 +485,11 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private XanderUI.XUIBackgroundSleeper xuiBackgroundSleeper1;
-
         private System.Windows.Forms.Panel detailsPanel;
+        private System.Windows.Forms.MaskedTextBox detailsMobile;
+        private System.Windows.Forms.Label detailsMobileLabel;
+        private System.Windows.Forms.MaskedTextBox detailsEmail;
+        private System.Windows.Forms.Label detailsEmailLabel;
         private System.Windows.Forms.Label receiptLabel;
         private System.Windows.Forms.Label switchlabel;
         private XanderUI.XUIButton managerButton;
@@ -500,9 +503,5 @@
         private System.Windows.Forms.Label feeslabel;
         private System.Windows.Forms.Label flatnolabel;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MaskedTextBox detailsMobile;
-        private System.Windows.Forms.Label detailsMobileLabel;
-        private System.Windows.Forms.MaskedTextBox detailsEmail;
-        private System.Windows.Forms.Label detailsEmailLabel;
     }
 }

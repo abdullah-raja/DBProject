@@ -8,97 +8,26 @@ namespace DBproject.Model
 {
     class IncomingTransaction
     {
-        Guid trID
-        {
-            get
-            {
-                return this.trID;
-            }
-            set
-            {
-                this.trID = value;
-            }
-        }
-        Building apartment
-        {
-            get
-            {
-                return this.apartment;
-            }
+        String trID;
 
-            set
-            {
-                this.apartment = value;
-            }
+        Building apartment;
 
-        }
-        Flat paidBy
-        {
-            get
-            {
-                return this.paidBy;
-            }
+        Flat paidBy;
 
-            set
-            {
-                this.paidBy = value;
-            }
-        }
-        int amount
-        {
-            get
-            {
-                return this.amount;
-            }
+        int amount;
 
-            set
-            {
-                this.amount = value;
-            }
-        }
-        DateTime date
-        {
-            get
-            {
-                return this.date;
-            }
+        DateTime date;
 
-            set
-            {
-                this.date = value;
-            }
-        }
-        Flat collectedBy
-        {
-            get
-            {
-                return this.collectedBy;
-            }
+        Flat collectedBy;
 
-            set
-            {
-                this.collectedBy = value;
-            }
-        }
-        string forTheMonth
-        {
-            get
-            {
-                return this.forTheMonth;
-            }
-
-            set
-            {
-                this.forTheMonth = value;
-            }
-        }
-
+        string forTheMonth;
+        
         public IncomingTransaction()
         {
-
+           
         }
 
-        public IncomingTransaction(Guid trID, Building apartment, Flat paidBy, int amount, DateTime date, Flat collectedBy, string forTheMonth)
+        public IncomingTransaction(String trID, Building apartment, Flat paidBy, int amount, DateTime date, Flat collectedBy, string forTheMonth)
         {
             this.trID = trID;
             this.apartment = apartment;
@@ -109,5 +38,43 @@ namespace DBproject.Model
             this.forTheMonth = forTheMonth;
 
         }
+
+        public String getTrID()
+        {
+            return this.trID;
+        }
+
+        
+
+        public Building getApartment()
+        {
+            return this.apartment;
+        }
+
+        public Flat getPaidBy()
+        {
+            return this.paidBy;
+        }
+
+        public int getAmount()
+        {
+            return this.amount;
+        }
+
+        public DateTime getDate()
+        {
+            return this.date;
+        }
+
+        public Flat getCollectedBy()
+        {
+            return this.collectedBy;
+        }
+
+        public string getMonth()
+        {
+            return this.forTheMonth;
+        }
+
     }
 }

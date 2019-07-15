@@ -51,6 +51,10 @@
             this.membersixdigitcodelabel = new System.Windows.Forms.Label();
             this.Memberlabel = new System.Windows.Forms.Label();
             this.AdminPanel = new System.Windows.Forms.Panel();
+            this.flatsPerFloorInput = new System.Windows.Forms.NumericUpDown();
+            this.noOfFloorsInput = new System.Windows.Forms.NumericUpDown();
+            this.flatNoFormatInput = new System.Windows.Forms.NumericUpDown();
+            this.balancelabel = new System.Windows.Forms.Label();
             this.balanceInput = new System.Windows.Forms.NumericUpDown();
             this.refreshCodeButton = new System.Windows.Forms.Button();
             this.welcomeTitle = new System.Windows.Forms.Label();
@@ -96,13 +100,14 @@
             this.errorProvider5 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider6 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider7 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.balancelabel = new System.Windows.Forms.Label();
-            this.flatNoFormatInput = new System.Windows.Forms.NumericUpDown();
-            this.noOfFloorsInput = new System.Windows.Forms.NumericUpDown();
-            this.flatsPerFloorInput = new System.Windows.Forms.NumericUpDown();
+            this.adminFlatInput = new System.Windows.Forms.NumericUpDown();
+            this.yourFlat = new System.Windows.Forms.Label();
             this.loginPanel.SuspendLayout();
             this.AsaMemberpanel.SuspendLayout();
             this.AdminPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.flatsPerFloorInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.noOfFloorsInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flatNoFormatInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.balanceInput)).BeginInit();
             this.signUpPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -112,9 +117,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.flatNoFormatInput)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.noOfFloorsInput)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.flatsPerFloorInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.adminFlatInput)).BeginInit();
             this.SuspendLayout();
             // 
             // xuiGradientPanel1
@@ -161,7 +164,7 @@
             this.userNameLabel.ForeColor = System.Drawing.Color.DarkRed;
             this.userNameLabel.Location = new System.Drawing.Point(31, 91);
             this.userNameLabel.Name = "userNameLabel";
-            this.userNameLabel.Size = new System.Drawing.Size(52, 19);
+            this.userNameLabel.Size = new System.Drawing.Size(47, 19);
             this.userNameLabel.TabIndex = 7;
             this.userNameLabel.Text = "Email";
             // 
@@ -182,7 +185,7 @@
             this.passwordLabelLogin.ForeColor = System.Drawing.Color.DarkRed;
             this.passwordLabelLogin.Location = new System.Drawing.Point(350, 91);
             this.passwordLabelLogin.Name = "passwordLabelLogin";
-            this.passwordLabelLogin.Size = new System.Drawing.Size(90, 19);
+            this.passwordLabelLogin.Size = new System.Drawing.Size(83, 19);
             this.passwordLabelLogin.TabIndex = 9;
             this.passwordLabelLogin.Text = "Password:";
             // 
@@ -248,7 +251,7 @@
             this.label2.ForeColor = System.Drawing.Color.DarkRed;
             this.label2.Location = new System.Drawing.Point(31, 313);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(190, 19);
+            this.label2.Size = new System.Drawing.Size(173, 19);
             this.label2.TabIndex = 25;
             this.label2.Text = "Don\'t have an account?";
             // 
@@ -358,7 +361,7 @@
             this.flatnolabel.ForeColor = System.Drawing.Color.DarkRed;
             this.flatnolabel.Location = new System.Drawing.Point(36, 109);
             this.flatnolabel.Name = "flatnolabel";
-            this.flatnolabel.Size = new System.Drawing.Size(112, 19);
+            this.flatnolabel.Size = new System.Drawing.Size(102, 19);
             this.flatnolabel.TabIndex = 29;
             this.flatnolabel.Text = "Flat Number:";
             // 
@@ -369,7 +372,7 @@
             this.membersixdigitcodelabel.ForeColor = System.Drawing.Color.DarkRed;
             this.membersixdigitcodelabel.Location = new System.Drawing.Point(348, 109);
             this.membersixdigitcodelabel.Name = "membersixdigitcodelabel";
-            this.membersixdigitcodelabel.Size = new System.Drawing.Size(125, 19);
+            this.membersixdigitcodelabel.Size = new System.Drawing.Size(113, 19);
             this.membersixdigitcodelabel.TabIndex = 28;
             this.membersixdigitcodelabel.Text = "Six Digit Code:";
             // 
@@ -380,12 +383,14 @@
             this.Memberlabel.ForeColor = System.Drawing.Color.DarkRed;
             this.Memberlabel.Location = new System.Drawing.Point(34, 47);
             this.Memberlabel.Name = "Memberlabel";
-            this.Memberlabel.Size = new System.Drawing.Size(183, 33);
+            this.Memberlabel.Size = new System.Drawing.Size(169, 33);
             this.Memberlabel.TabIndex = 24;
             this.Memberlabel.Text = "Enter Details";
             // 
             // AdminPanel
             // 
+            this.AdminPanel.Controls.Add(this.adminFlatInput);
+            this.AdminPanel.Controls.Add(this.yourFlat);
             this.AdminPanel.Controls.Add(this.flatsPerFloorInput);
             this.AdminPanel.Controls.Add(this.noOfFloorsInput);
             this.AdminPanel.Controls.Add(this.flatNoFormatInput);
@@ -408,6 +413,79 @@
             this.AdminPanel.TabIndex = 27;
             this.AdminPanel.Visible = false;
             // 
+            // flatsPerFloorInput
+            // 
+            this.flatsPerFloorInput.Increment = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.flatsPerFloorInput.Location = new System.Drawing.Point(508, 123);
+            this.flatsPerFloorInput.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+            this.flatsPerFloorInput.Name = "flatsPerFloorInput";
+            this.flatsPerFloorInput.Size = new System.Drawing.Size(120, 27);
+            this.flatsPerFloorInput.TabIndex = 40;
+            this.flatsPerFloorInput.Value = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
+            // 
+            // noOfFloorsInput
+            // 
+            this.noOfFloorsInput.Increment = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.noOfFloorsInput.Location = new System.Drawing.Point(352, 123);
+            this.noOfFloorsInput.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+            this.noOfFloorsInput.Name = "noOfFloorsInput";
+            this.noOfFloorsInput.Size = new System.Drawing.Size(120, 27);
+            this.noOfFloorsInput.TabIndex = 39;
+            this.noOfFloorsInput.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.noOfFloorsInput.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
+            // 
+            // flatNoFormatInput
+            // 
+            this.flatNoFormatInput.Increment = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.flatNoFormatInput.Location = new System.Drawing.Point(37, 212);
+            this.flatNoFormatInput.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+            this.flatNoFormatInput.Name = "flatNoFormatInput";
+            this.flatNoFormatInput.Size = new System.Drawing.Size(120, 27);
+            this.flatNoFormatInput.TabIndex = 38;
+            // 
+            // balancelabel
+            // 
+            this.balancelabel.AutoSize = true;
+            this.balancelabel.BackColor = System.Drawing.Color.Transparent;
+            this.balancelabel.ForeColor = System.Drawing.Color.DarkRed;
+            this.balancelabel.Location = new System.Drawing.Point(442, 186);
+            this.balancelabel.Name = "balancelabel";
+            this.balancelabel.Size = new System.Drawing.Size(61, 19);
+            this.balancelabel.TabIndex = 37;
+            this.balancelabel.Text = "Balane:";
+            // 
             // balanceInput
             // 
             this.balanceInput.Increment = new decimal(new int[] {
@@ -415,7 +493,7 @@
             0,
             0,
             0});
-            this.balanceInput.Location = new System.Drawing.Point(351, 296);
+            this.balanceInput.Location = new System.Drawing.Point(445, 212);
             this.balanceInput.Maximum = new decimal(new int[] {
             2147483647,
             0,
@@ -447,7 +525,7 @@
             this.welcomeTitle.ForeColor = System.Drawing.Color.Black;
             this.welcomeTitle.Location = new System.Drawing.Point(31, 26);
             this.welcomeTitle.Name = "welcomeTitle";
-            this.welcomeTitle.Size = new System.Drawing.Size(127, 16);
+            this.welcomeTitle.Size = new System.Drawing.Size(115, 16);
             this.welcomeTitle.TabIndex = 34;
             this.welcomeTitle.Text = "Welcome Abullah,";
             // 
@@ -465,9 +543,9 @@
             this.SignupAsAdminButton.HoverBackgroundColor = System.Drawing.Color.Brown;
             this.SignupAsAdminButton.HoverTextColor = System.Drawing.Color.White;
             this.SignupAsAdminButton.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.SignupAsAdminButton.Location = new System.Drawing.Point(274, 358);
+            this.SignupAsAdminButton.Location = new System.Drawing.Point(375, 289);
             this.SignupAsAdminButton.Name = "SignupAsAdminButton";
-            this.SignupAsAdminButton.Size = new System.Drawing.Size(145, 50);
+            this.SignupAsAdminButton.Size = new System.Drawing.Size(110, 37);
             this.SignupAsAdminButton.TabIndex = 25;
             this.SignupAsAdminButton.TextColor = System.Drawing.Color.White;
             this.SignupAsAdminButton.Vertical_Alignment = System.Drawing.StringAlignment.Center;
@@ -492,7 +570,7 @@
             this.adminsixdigitcodelabel.ForeColor = System.Drawing.Color.DarkRed;
             this.adminsixdigitcodelabel.Location = new System.Drawing.Point(29, 268);
             this.adminsixdigitcodelabel.Name = "adminsixdigitcodelabel";
-            this.adminsixdigitcodelabel.Size = new System.Drawing.Size(125, 19);
+            this.adminsixdigitcodelabel.Size = new System.Drawing.Size(113, 19);
             this.adminsixdigitcodelabel.TabIndex = 32;
             this.adminsixdigitcodelabel.Text = "Six Digit Code:";
             // 
@@ -505,6 +583,7 @@
             this.buildingNameTextbox.Name = "buildingNameTextbox";
             this.buildingNameTextbox.Size = new System.Drawing.Size(300, 29);
             this.buildingNameTextbox.TabIndex = 28;
+            this.buildingNameTextbox.Text = "Cp";
             // 
             // BuildingNameLabel
             // 
@@ -513,7 +592,7 @@
             this.BuildingNameLabel.ForeColor = System.Drawing.Color.DarkRed;
             this.BuildingNameLabel.Location = new System.Drawing.Point(29, 91);
             this.BuildingNameLabel.Name = "BuildingNameLabel";
-            this.BuildingNameLabel.Size = new System.Drawing.Size(128, 19);
+            this.BuildingNameLabel.Size = new System.Drawing.Size(115, 19);
             this.BuildingNameLabel.TabIndex = 27;
             this.BuildingNameLabel.Text = "Building Name:";
             // 
@@ -524,7 +603,7 @@
             this.NoofFloorsLabel.ForeColor = System.Drawing.Color.DarkRed;
             this.NoofFloorsLabel.Location = new System.Drawing.Point(348, 91);
             this.NoofFloorsLabel.Name = "NoofFloorsLabel";
-            this.NoofFloorsLabel.Size = new System.Drawing.Size(151, 19);
+            this.NoofFloorsLabel.Size = new System.Drawing.Size(138, 19);
             this.NoofFloorsLabel.TabIndex = 26;
             this.NoofFloorsLabel.Text = "Number of Floors:";
             // 
@@ -533,9 +612,9 @@
             this.flatsperfloorlabel.AutoSize = true;
             this.flatsperfloorlabel.BackColor = System.Drawing.Color.Transparent;
             this.flatsperfloorlabel.ForeColor = System.Drawing.Color.DarkRed;
-            this.flatsperfloorlabel.Location = new System.Drawing.Point(29, 182);
+            this.flatsperfloorlabel.Location = new System.Drawing.Point(505, 91);
             this.flatsperfloorlabel.Name = "flatsperfloorlabel";
-            this.flatsperfloorlabel.Size = new System.Drawing.Size(130, 19);
+            this.flatsperfloorlabel.Size = new System.Drawing.Size(117, 19);
             this.flatsperfloorlabel.TabIndex = 25;
             this.flatsperfloorlabel.Text = "Flats Per Floor:";
             // 
@@ -544,9 +623,9 @@
             this.flatnoformatlabel.AutoSize = true;
             this.flatnoformatlabel.BackColor = System.Drawing.Color.Transparent;
             this.flatnoformatlabel.ForeColor = System.Drawing.Color.DarkRed;
-            this.flatnoformatlabel.Location = new System.Drawing.Point(348, 182);
+            this.flatnoformatlabel.Location = new System.Drawing.Point(33, 186);
             this.flatnoformatlabel.Name = "flatnoformatlabel";
-            this.flatnoformatlabel.Size = new System.Drawing.Size(180, 19);
+            this.flatnoformatlabel.Size = new System.Drawing.Size(163, 19);
             this.flatnoformatlabel.TabIndex = 24;
             this.flatnoformatlabel.Text = "Flat Numbers Format:";
             // 
@@ -557,7 +636,7 @@
             this.CreateApartmentTitle.ForeColor = System.Drawing.Color.DarkRed;
             this.CreateApartmentTitle.Location = new System.Drawing.Point(27, 48);
             this.CreateApartmentTitle.Name = "CreateApartmentTitle";
-            this.CreateApartmentTitle.Size = new System.Drawing.Size(301, 25);
+            this.CreateApartmentTitle.Size = new System.Drawing.Size(279, 25);
             this.CreateApartmentTitle.TabIndex = 23;
             this.CreateApartmentTitle.Text = " Enter Details of Apartments";
             // 
@@ -568,7 +647,7 @@
             this.NameLabel.ForeColor = System.Drawing.Color.DarkRed;
             this.NameLabel.Location = new System.Drawing.Point(24, 97);
             this.NameLabel.Name = "NameLabel";
-            this.NameLabel.Size = new System.Drawing.Size(100, 19);
+            this.NameLabel.Size = new System.Drawing.Size(91, 19);
             this.NameLabel.TabIndex = 5;
             this.NameLabel.Text = "First Name:";
             // 
@@ -579,7 +658,7 @@
             this.emailLabel.ForeColor = System.Drawing.Color.DarkRed;
             this.emailLabel.Location = new System.Drawing.Point(361, 97);
             this.emailLabel.Name = "emailLabel";
-            this.emailLabel.Size = new System.Drawing.Size(57, 19);
+            this.emailLabel.Size = new System.Drawing.Size(51, 19);
             this.emailLabel.TabIndex = 7;
             this.emailLabel.Text = "Email:";
             // 
@@ -592,6 +671,7 @@
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(300, 29);
             this.emailTextBox.TabIndex = 8;
+            this.emailTextBox.Text = "abd@gmail.com";
             // 
             // mobileLabel
             // 
@@ -600,7 +680,7 @@
             this.mobileLabel.ForeColor = System.Drawing.Color.DarkRed;
             this.mobileLabel.Location = new System.Drawing.Point(24, 191);
             this.mobileLabel.Name = "mobileLabel";
-            this.mobileLabel.Size = new System.Drawing.Size(136, 19);
+            this.mobileLabel.Size = new System.Drawing.Size(125, 19);
             this.mobileLabel.TabIndex = 9;
             this.mobileLabel.Text = "Mobile Number:";
             // 
@@ -613,6 +693,7 @@
             this.mobileTextBox.Name = "mobileTextBox";
             this.mobileTextBox.Size = new System.Drawing.Size(300, 29);
             this.mobileTextBox.TabIndex = 10;
+            this.mobileTextBox.Text = "03242140044";
             // 
             // passwordLabel
             // 
@@ -621,7 +702,7 @@
             this.passwordLabel.ForeColor = System.Drawing.Color.DarkRed;
             this.passwordLabel.Location = new System.Drawing.Point(24, 284);
             this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(90, 19);
+            this.passwordLabel.Size = new System.Drawing.Size(83, 19);
             this.passwordLabel.TabIndex = 11;
             this.passwordLabel.Text = "Password:";
             // 
@@ -635,6 +716,7 @@
             this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(300, 29);
             this.passwordTextBox.TabIndex = 12;
+            this.passwordTextBox.Text = "12";
             this.passwordTextBox.TextChanged += new System.EventHandler(this.passwordTextBox_TextChanged_1);
             this.passwordTextBox.Leave += new System.EventHandler(this.passwordTextBox_Leave);
             // 
@@ -645,7 +727,7 @@
             this.confirmPasswordLabel.ForeColor = System.Drawing.Color.DarkRed;
             this.confirmPasswordLabel.Location = new System.Drawing.Point(361, 284);
             this.confirmPasswordLabel.Name = "confirmPasswordLabel";
-            this.confirmPasswordLabel.Size = new System.Drawing.Size(157, 19);
+            this.confirmPasswordLabel.Size = new System.Drawing.Size(145, 19);
             this.confirmPasswordLabel.TabIndex = 13;
             this.confirmPasswordLabel.Text = "Confirm Password:";
             // 
@@ -659,6 +741,7 @@
             this.confirmPasswordTextBox.PasswordChar = '*';
             this.confirmPasswordTextBox.Size = new System.Drawing.Size(300, 29);
             this.confirmPasswordTextBox.TabIndex = 14;
+            this.confirmPasswordTextBox.Text = "12";
             // 
             // adminRadio
             // 
@@ -693,7 +776,7 @@
             this.AsLabel.ForeColor = System.Drawing.Color.DarkRed;
             this.AsLabel.Location = new System.Drawing.Point(357, 191);
             this.AsLabel.Name = "AsLabel";
-            this.AsLabel.Size = new System.Drawing.Size(67, 19);
+            this.AsLabel.Size = new System.Drawing.Size(60, 19);
             this.AsLabel.TabIndex = 17;
             this.AsLabel.Text = "As a/an";
             // 
@@ -725,7 +808,7 @@
             this.AlreadyLabel.ForeColor = System.Drawing.Color.DarkRed;
             this.AlreadyLabel.Location = new System.Drawing.Point(24, 485);
             this.AlreadyLabel.Name = "AlreadyLabel";
-            this.AlreadyLabel.Size = new System.Drawing.Size(207, 19);
+            this.AlreadyLabel.Size = new System.Drawing.Size(191, 19);
             this.AlreadyLabel.TabIndex = 19;
             this.AlreadyLabel.Text = "Already have an account?";
             // 
@@ -814,7 +897,7 @@
             this.signUpFaileError.ForeColor = System.Drawing.Color.IndianRed;
             this.signUpFaileError.Location = new System.Drawing.Point(27, 455);
             this.signUpFaileError.Name = "signUpFaileError";
-            this.signUpFaileError.Size = new System.Drawing.Size(322, 16);
+            this.signUpFaileError.Size = new System.Drawing.Size(280, 16);
             this.signUpFaileError.TabIndex = 25;
             this.signUpFaileError.Text = "SIGN UP FAILED! Email Address already exists";
             this.signUpFaileError.Visible = false;
@@ -826,7 +909,7 @@
             this.confirmPasswordError.ForeColor = System.Drawing.Color.IndianRed;
             this.confirmPasswordError.Location = new System.Drawing.Point(361, 351);
             this.confirmPasswordError.Name = "confirmPasswordError";
-            this.confirmPasswordError.Size = new System.Drawing.Size(194, 16);
+            this.confirmPasswordError.Size = new System.Drawing.Size(176, 16);
             this.confirmPasswordError.TabIndex = 24;
             this.confirmPasswordError.Text = "PASSWORDS MUST MATCH";
             this.confirmPasswordError.Visible = false;
@@ -841,6 +924,7 @@
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(149, 29);
             this.lastNameTextBox.TabIndex = 7;
+            this.lastNameTextBox.Text = "Raja";
             // 
             // label3
             // 
@@ -849,7 +933,7 @@
             this.label3.ForeColor = System.Drawing.Color.DarkRed;
             this.label3.Location = new System.Drawing.Point(185, 97);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 19);
+            this.label3.Size = new System.Drawing.Size(87, 19);
             this.label3.TabIndex = 22;
             this.label3.Text = "Last Name:";
             // 
@@ -862,6 +946,7 @@
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(149, 29);
             this.firstNameTextBox.TabIndex = 6;
+            this.firstNameTextBox.Text = "Abd";
             // 
             // toolTip1
             // 
@@ -896,76 +981,46 @@
             // 
             this.errorProvider7.ContainerControl = this;
             // 
-            // balancelabel
+            // adminFlatInput
             // 
-            this.balancelabel.AutoSize = true;
-            this.balancelabel.BackColor = System.Drawing.Color.Transparent;
-            this.balancelabel.ForeColor = System.Drawing.Color.DarkRed;
-            this.balancelabel.Location = new System.Drawing.Point(348, 268);
-            this.balancelabel.Name = "balancelabel";
-            this.balancelabel.Size = new System.Drawing.Size(67, 19);
-            this.balancelabel.TabIndex = 37;
-            this.balancelabel.Text = "Balane:";
-            // 
-            // flatNoFormatInput
-            // 
-            this.flatNoFormatInput.Increment = new decimal(new int[] {
+            this.adminFlatInput.Increment = new decimal(new int[] {
             100,
             0,
             0,
             0});
-            this.flatNoFormatInput.Location = new System.Drawing.Point(352, 208);
-            this.flatNoFormatInput.Maximum = new decimal(new int[] {
+            this.adminFlatInput.Location = new System.Drawing.Point(238, 212);
+            this.adminFlatInput.Maximum = new decimal(new int[] {
             2147483647,
             0,
             0,
             0});
-            this.flatNoFormatInput.Name = "flatNoFormatInput";
-            this.flatNoFormatInput.Size = new System.Drawing.Size(120, 27);
-            this.flatNoFormatInput.TabIndex = 38;
-            // 
-            // noOfFloorsInput
-            // 
-            this.noOfFloorsInput.Increment = new decimal(new int[] {
-            100,
+            this.adminFlatInput.Name = "adminFlatInput";
+            this.adminFlatInput.Size = new System.Drawing.Size(120, 27);
+            this.adminFlatInput.TabIndex = 42;
+            this.adminFlatInput.Value = new decimal(new int[] {
+            201,
             0,
             0,
             0});
-            this.noOfFloorsInput.Location = new System.Drawing.Point(352, 123);
-            this.noOfFloorsInput.Maximum = new decimal(new int[] {
-            2147483647,
-            0,
-            0,
-            0});
-            this.noOfFloorsInput.Name = "noOfFloorsInput";
-            this.noOfFloorsInput.Size = new System.Drawing.Size(120, 27);
-            this.noOfFloorsInput.TabIndex = 39;
-            this.noOfFloorsInput.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
             // 
-            // flatsPerFloorInput
+            // yourFlat
             // 
-            this.flatsPerFloorInput.Increment = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            this.flatsPerFloorInput.Location = new System.Drawing.Point(29, 208);
-            this.flatsPerFloorInput.Maximum = new decimal(new int[] {
-            2147483647,
-            0,
-            0,
-            0});
-            this.flatsPerFloorInput.Name = "flatsPerFloorInput";
-            this.flatsPerFloorInput.Size = new System.Drawing.Size(120, 27);
-            this.flatsPerFloorInput.TabIndex = 40;
+            this.yourFlat.AutoSize = true;
+            this.yourFlat.BackColor = System.Drawing.Color.Transparent;
+            this.yourFlat.ForeColor = System.Drawing.Color.DarkRed;
+            this.yourFlat.Location = new System.Drawing.Point(234, 186);
+            this.yourFlat.Name = "yourFlat";
+            this.yourFlat.Size = new System.Drawing.Size(97, 19);
+            this.yourFlat.TabIndex = 41;
+            this.yourFlat.Text = "Admin Flat #";
             // 
             // SignUp
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1200, 720);
-            this.Controls.Add(this.AdminPanel);
             this.Controls.Add(this.signUpPanel);
+            this.Controls.Add(this.AdminPanel);
             this.Controls.Add(this.loginPanel);
             this.Controls.Add(this.AsaMemberpanel);
             this.Controls.Add(this.exitButton);
@@ -981,6 +1036,9 @@
             this.AsaMemberpanel.PerformLayout();
             this.AdminPanel.ResumeLayout(false);
             this.AdminPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.flatsPerFloorInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.noOfFloorsInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flatNoFormatInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.balanceInput)).EndInit();
             this.signUpPanel.ResumeLayout(false);
             this.signUpPanel.PerformLayout();
@@ -991,9 +1049,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.flatNoFormatInput)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.noOfFloorsInput)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.flatsPerFloorInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.adminFlatInput)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1070,5 +1126,7 @@
         private System.Windows.Forms.NumericUpDown noOfFloorsInput;
         private System.Windows.Forms.NumericUpDown flatNoFormatInput;
         private System.Windows.Forms.Label balancelabel;
+        private System.Windows.Forms.NumericUpDown adminFlatInput;
+        private System.Windows.Forms.Label yourFlat;
     }
 }

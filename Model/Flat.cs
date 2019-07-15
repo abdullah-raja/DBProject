@@ -15,7 +15,7 @@ namespace DBproject.Model
         string contactNumber;
         int dues;
         int monthlyFees;
-        bool isManager;
+        int isManager;
         User member;
         Building apartment;
         
@@ -34,7 +34,7 @@ namespace DBproject.Model
             
         }
 
-        public Flat(int flatNumber, string nameOfResident,string email,string contactNumber,int dues, int monthlyFees, bool isManager, Building apartment)
+        public Flat(int flatNumber, string nameOfResident,string email,string contactNumber,int dues, int monthlyFees, int isManager, Building apartment)
         {
             this.flatNumber = flatNumber;
             this.floor = flatNumber - 100;
@@ -138,7 +138,7 @@ namespace DBproject.Model
             return this.apartment;
         }
 
-        public bool getIsManager()
+        public int getIsManager()
         {
             return this.isManager;
         }

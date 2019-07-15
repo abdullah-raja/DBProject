@@ -231,7 +231,7 @@ namespace DBproject.Views
             controller = new CreateAndJoinBuilding(connectionString, buildingsTableName);
             Building building = new Building(buildingNameTextbox.Text, Convert.ToInt32(noOfFloorsInput.Value), Convert.ToInt32(flatsPerFloorInput.Value), codeTextBox.Text, user, Convert.ToInt32(flatNoFormatInput.Value), (int)balanceInput.Value);
 
-            controller.createBuilding(building, this,user);
+            controller.createBuilding(building, this,user,Convert.ToInt32(adminFlatInput.Value));
         }
 
 

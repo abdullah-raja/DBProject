@@ -6,6 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using DBproject.Model;
 using DBproject.Views;
+using DBproject.Views.UserControls;
+using System.Data.SqlClient;
+using DBproject.Util.StoredProcedures;
 
 namespace DBproject.Controller
 {
@@ -49,7 +52,8 @@ namespace DBproject.Controller
         }
 
 
-        virtual public void createBuilding(Model.Building building, Views.SignUp view, Model.User user)
+        virtual public void createBuilding(Model.Building building, Views.SignUp view, Model.User user, int adminFlat
+            )
         {
             
 
@@ -61,6 +65,16 @@ namespace DBproject.Controller
         }
 
         virtual public void updateDetailsPanel(Flat flat)
+        {
+
+        }
+
+        virtual public void confirmTransaction(IncomingTransaction transaction)
+        {
+            
+        }
+
+        virtual public void sendEmail(string email)
         {
 
         }
