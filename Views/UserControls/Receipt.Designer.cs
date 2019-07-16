@@ -37,7 +37,6 @@
             this.receiptFlatNumber = new System.Windows.Forms.MaskedTextBox();
             this.amountlabel1 = new System.Windows.Forms.Label();
             this.monthlabel2 = new System.Windows.Forms.Label();
-            this.receiptMonthBox = new System.Windows.Forms.ComboBox();
             this.receiptAmount = new System.Windows.Forms.NumericUpDown();
             this.confirmButton1 = new XanderUI.XUIButton();
             this.agreedcheckBox1 = new System.Windows.Forms.CheckBox();
@@ -45,6 +44,7 @@
             this.receiptName = new System.Windows.Forms.MaskedTextBox();
             this.CancelButton1 = new XanderUI.XUIButton();
             this.receiptpanel1 = new System.Windows.Forms.Panel();
+            this.receiptMonthBox = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.receiptAmount)).BeginInit();
             this.receiptpanel1.SuspendLayout();
             this.SuspendLayout();
@@ -121,10 +121,12 @@
             // 
             // receiptFlatNumber
             // 
+            this.receiptFlatNumber.BackColor = System.Drawing.Color.LightGray;
             this.receiptFlatNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.receiptFlatNumber.Font = new System.Drawing.Font("Lato", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.receiptFlatNumber.Location = new System.Drawing.Point(486, 164);
             this.receiptFlatNumber.Name = "receiptFlatNumber";
+            this.receiptFlatNumber.ReadOnly = true;
             this.receiptFlatNumber.Size = new System.Drawing.Size(157, 26);
             this.receiptFlatNumber.TabIndex = 14;
             this.receiptFlatNumber.Text = "112";
@@ -147,23 +149,15 @@
             this.monthlabel2.BackColor = System.Drawing.Color.Transparent;
             this.monthlabel2.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.monthlabel2.ForeColor = System.Drawing.Color.DarkRed;
-            this.monthlabel2.Location = new System.Drawing.Point(479, 208);
+            this.monthlabel2.Location = new System.Drawing.Point(482, 208);
             this.monthlabel2.Name = "monthlabel2";
             this.monthlabel2.Size = new System.Drawing.Size(75, 19);
             this.monthlabel2.TabIndex = 16;
             this.monthlabel2.Text = "MONTH:";
             // 
-            // receiptMonthBox
-            // 
-            this.receiptMonthBox.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.receiptMonthBox.FormattingEnabled = true;
-            this.receiptMonthBox.Location = new System.Drawing.Point(483, 230);
-            this.receiptMonthBox.Name = "receiptMonthBox";
-            this.receiptMonthBox.Size = new System.Drawing.Size(202, 27);
-            this.receiptMonthBox.TabIndex = 17;
-            // 
             // receiptAmount
             // 
+            this.receiptAmount.BackColor = System.Drawing.Color.LightGray;
             this.receiptAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.receiptAmount.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.receiptAmount.Location = new System.Drawing.Point(44, 230);
@@ -173,6 +167,7 @@
             0,
             0});
             this.receiptAmount.Name = "receiptAmount";
+            this.receiptAmount.ReadOnly = true;
             this.receiptAmount.Size = new System.Drawing.Size(136, 23);
             this.receiptAmount.TabIndex = 18;
             // 
@@ -225,10 +220,12 @@
             // 
             // receiptName
             // 
+            this.receiptName.BackColor = System.Drawing.Color.LightGray;
             this.receiptName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.receiptName.Font = new System.Drawing.Font("Lato", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.receiptName.Location = new System.Drawing.Point(45, 164);
             this.receiptName.Name = "receiptName";
+            this.receiptName.ReadOnly = true;
             this.receiptName.Size = new System.Drawing.Size(157, 26);
             this.receiptName.TabIndex = 30;
             this.receiptName.Text = "SARIM";
@@ -258,13 +255,13 @@
             // receiptpanel1
             // 
             this.receiptpanel1.BackColor = System.Drawing.Color.LightGray;
+            this.receiptpanel1.Controls.Add(this.receiptMonthBox);
             this.receiptpanel1.Controls.Add(this.CancelButton1);
             this.receiptpanel1.Controls.Add(this.receiptName);
             this.receiptpanel1.Controls.Add(this.label1);
             this.receiptpanel1.Controls.Add(this.agreedcheckBox1);
             this.receiptpanel1.Controls.Add(this.confirmButton1);
             this.receiptpanel1.Controls.Add(this.receiptAmount);
-            this.receiptpanel1.Controls.Add(this.receiptMonthBox);
             this.receiptpanel1.Controls.Add(this.monthlabel2);
             this.receiptpanel1.Controls.Add(this.amountlabel1);
             this.receiptpanel1.Controls.Add(this.receiptFlatNumber);
@@ -279,6 +276,18 @@
             this.receiptpanel1.Name = "receiptpanel1";
             this.receiptpanel1.Size = new System.Drawing.Size(756, 352);
             this.receiptpanel1.TabIndex = 12;
+            // 
+            // receiptMonthBox
+            // 
+            this.receiptMonthBox.BackColor = System.Drawing.Color.LightGray;
+            this.receiptMonthBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.receiptMonthBox.Font = new System.Drawing.Font("Lato", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.receiptMonthBox.Location = new System.Drawing.Point(486, 230);
+            this.receiptMonthBox.Name = "receiptMonthBox";
+            this.receiptMonthBox.ReadOnly = true;
+            this.receiptMonthBox.Size = new System.Drawing.Size(157, 26);
+            this.receiptMonthBox.TabIndex = 32;
+            this.receiptMonthBox.Text = "112";
             // 
             // Receipt
             // 
@@ -306,7 +315,6 @@
         private System.Windows.Forms.MaskedTextBox receiptFlatNumber;
         private System.Windows.Forms.Label amountlabel1;
         private System.Windows.Forms.Label monthlabel2;
-        private System.Windows.Forms.ComboBox receiptMonthBox;
         private System.Windows.Forms.NumericUpDown receiptAmount;
         private XanderUI.XUIButton confirmButton1;
         private System.Windows.Forms.CheckBox agreedcheckBox1;
@@ -314,5 +322,6 @@
         private System.Windows.Forms.MaskedTextBox receiptName;
         private XanderUI.XUIButton CancelButton1;
         private System.Windows.Forms.Panel receiptpanel1;
+        private System.Windows.Forms.MaskedTextBox receiptMonthBox;
     }
 }

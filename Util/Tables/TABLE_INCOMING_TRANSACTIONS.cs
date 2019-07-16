@@ -16,6 +16,7 @@ namespace DBproject.Util.Tables
         public static string KEY_AMOUNT = "amount";
         public static string KEY_MONTH = "month";
         public static string KEY_COLLECTED_BY = "collectedBy";
+        public static string KEY_YEAR = "year";
 
     }
 }

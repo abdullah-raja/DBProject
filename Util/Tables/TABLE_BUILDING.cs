@@ -8,9 +8,9 @@ namespace DBproject.Util.Tables
 {
     class TABLE_BUILDING
     {
-        public static string TBL_BUILDING = "tbl_Building";
-        public static string KEY_APPARTMENT_ID = "appartmentID";
-        public static string KEY_APPARTMENT_NAME = "appartmentName";
+        public static string TBL_BUILDING = "tbl_Buildings";
+        public static string KEY_APPARTMENT_ID = "apartmentID";
+        public static string KEY_APPARTMENT_NAME = "apartmentName";
         public static string KEY_NUMBER_OF_FLOOR = "numberOfFloors";
         public static string KEY_FLATS_PER_FLOOR = "flatsPerFloor";
         public static string KEY_CODE = "code";

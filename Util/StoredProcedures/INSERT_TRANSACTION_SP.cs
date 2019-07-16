@@ -16,5 +16,6 @@ namespace DBproject.Util.StoredProcedures
         public static string DATE_PARAM = "@datePaid";
         public static string COLLECTED_BY_PARAM = "@collectedBy";
         public static string MONTH_PARAM = "@month";
+        public static string YEAR_PARAM = "@year";
     }
 }

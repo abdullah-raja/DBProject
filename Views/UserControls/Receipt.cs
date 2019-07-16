@@ -17,37 +17,43 @@ namespace DBproject.Views.UserControls
     {
         IncomingTransaction transaction;
         ControllerModule controller;
-        public Receipt(Flat flat, Building apatment)
+        MainScreen mainScreen;
+        Building apartment;
+        public Receipt(Flat flat, Building apartment, string month, int year, MainScreen mainScreen) // used for collection
         {
             InitializeComponent();
-            receiptMonthBox.Items.AddRange(new object[] { "JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER" });
-            receiptMonthBox.SelectedIndex = DateTime.Now.Month-1;
-
-            setValues(flat);
-            transaction = new IncomingTransaction(receiptTrID.Text, apatment, flat, (int)receiptAmount.Value, reciptDateTime.Value, flat, receiptMonthBox.SelectedItem.ToString());
-
             
+            setValues(flat,month,year);
+            controller = new TransactionModule(Util.CONNECTION_DETAILS.CONNECITION_STRING, Util.Tables.TABLE_INCOMING_TRANSACTIONS.TABLE_NAME);
+            
+            transaction = new IncomingTransaction(receiptTrID.Text, apartment, flat, (int)receiptAmount.Value, reciptDateTime.Value, flat, month, year);
+            this.mainScreen = mainScreen;
+            this.apartment = apartment;
 
         }
 
-        public Receipt(Flat flat, string month)
+        public Receipt(Flat flat, string month) // used for showing
         {
             InitializeComponent();
-            receiptMonthBox.Items.AddRange(new object[] { "JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER" });
+
+            
+            // receiptMonthBox.Items.AddRange(new object[] { "JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER" });
             controller = new TransactionModule(Util.CONNECTION_DETAILS.CONNECITION_STRING, Util.Tables.TABLE_INCOMING_TRANSACTIONS.TABLE_NAME);
+            
             controller.showPaidReceipt(this, month, flat.getFlatNumber());
             
         }
 
 
 
-        private void setValues(Flat flat)
+        private void setValues(Flat flat, string month, int year)
         {
             
             receiptTrID.Text = Guid.NewGuid().ToString().Substring(0, 8).ToUpper();
             receiptName.Text = flat.getNameOfResident();
             receiptFlatNumber.Text = flat.getFlatNumber().ToString();
             receiptAmount.Value = Convert.ToDecimal(flat.getMonthlyFees());
+            receiptMonthBox.Text = month + ", " + year.ToString();
             
 
         }
@@ -61,6 +67,9 @@ namespace DBproject.Views.UserControls
 
             controller = new MainScreenController(Util.CONNECTION_DETAILS.CONNECITION_STRING, Util.Tables.TABLE_FLATS.TBL_FLATS);
             controller.showDetailsPanel(this.transaction.getPaidBy(), (Income)this.Parent);
+
+            controller.updateBalance(this.apartment, this.mainScreen);
+
             this.Dispose();
            // receiptpanel1.Visible = false;
         }
@@ -70,28 +79,16 @@ namespace DBproject.Views.UserControls
             this.Dispose();
         }
 
-        public void setValues(DateTime date, string name, string trID, int flatNumber, int amount, string month)
+        public void setValues(DateTime date, string name, string trID, int flatNumber, int amount, string month, int year)
         {
             
-            receiptAmount.BackColor = Color.LightGray;
-            receiptAmount.Enabled = false;
-            receiptAmount.Value = amount;
-
-            receiptTrID.Text = trID;
-
-
-            receiptName.ReadOnly = true;
-            receiptName.BackColor = Color.LightGray;
-            receiptName.Text = name;
-
             
-            receiptFlatNumber.ReadOnly = true;
-            receiptFlatNumber.BackColor = Color.LightGray;
+            receiptAmount.Value = amount;
+            receiptTrID.Text = trID;
+            receiptName.Text = name;
             receiptFlatNumber.Text = flatNumber.ToString();
-
-            receiptMonthBox.Enabled = false;
-            receiptMonthBox.BackColor = Color.LightGray;
-            receiptMonthBox.SelectedItem = month;
+            receiptMonthBox.Text = month + ", " + year.ToString();
+            
 
             reciptDateTime.Enabled = false;
             reciptDateTime.CalendarMonthBackground = Color.LightGray;
@@ -101,5 +98,7 @@ namespace DBproject.Views.UserControls
             CancelButton1.Left = (CancelButton1.Parent.Width - CancelButton1.Width) / 2;
 
         }
+
+       
     }
 }

@@ -52,16 +52,13 @@ namespace DBproject.Views
             settingsButton.ForeColor = Color.White;
             analyticsButton.ForeColor = Color.White;
 
-            Income inc = new Income(apartment);
+            Income inc = new Income(apartment, this);
             inc.Dock = DockStyle.Fill;
             main.Controls.Clear();
             main.Controls.Add(inc);
         }
 
-        private void mainPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        
 
         private void expensesButton_Click(object sender, EventArgs e)
         {
@@ -77,9 +74,9 @@ namespace DBproject.Views
                 
         }
 
-        private void expense1_Load(object sender, EventArgs e)
+        public void updateBalance()
         {
-
+            currentBalance.Text = "Rs " + apartment.getBalance().ToString();
         }
 
         public void updateMainScreen()

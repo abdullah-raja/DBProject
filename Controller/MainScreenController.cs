@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using DBproject.Model;
 using DBproject.Views;
 using System.Data.SqlClient;
+using DBproject.Util.Tables;
+using DBproject.Views.UserControls;
 
 namespace DBproject.Controller
 {
@@ -64,6 +66,33 @@ namespace DBproject.Controller
 
             updateCommand.ExecuteNonQuery();
 
+        }
+
+        override public void updateBalance(Building apartment, MainScreen view)
+        {
+            string query = "SELECT " + TABLE_BUILDING.KEY_BALANCE + " FROM " + TABLE_BUILDING.TBL_BUILDING +
+                            " WHERE " + TABLE_BUILDING.KEY_APPARTMENT_ID + " = '" + apartment.getID() + "'";
+
+            connection.Open();
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                using (SqlDataReader reader = command.ExecuteReader())
+
+                {
+                    while(reader.Read())
+                    {
+                        apartment.setBalance(Convert.ToInt32(reader[TABLE_BUILDING.KEY_BALANCE]));
+                        view.updateBalance();
+                    }
+                }
+            }
+        }
+
+        public override void newMonthStarted(Income view)
+        {
+            SqlCommand command = new SqlCommand(Util.StoredProcedures.MONTH_STARTED_SP.SP_NAME, connection);
+            connection.Open();
+            command.ExecuteNonQuery();
         }
     }
 }

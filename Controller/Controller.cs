@@ -83,5 +83,25 @@ namespace DBproject.Controller
         {
 
         }
+
+        virtual public void setMonths(Income view, int year)
+        {
+
+        }
+
+        virtual public void setYears(Income view)
+        {
+
+        }
+
+        virtual public void updateBalance(Building apartment, MainScreen view)
+        {
+
+        }
+
+        virtual public void newMonthStarted(Income view)
+        {
+
+        }
     }
 }

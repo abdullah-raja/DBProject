@@ -21,13 +21,14 @@ namespace DBproject.Model
         Flat collectedBy;
 
         string forTheMonth;
+        int year;
         
         public IncomingTransaction()
         {
            
         }
 
-        public IncomingTransaction(String trID, Building apartment, Flat paidBy, int amount, DateTime date, Flat collectedBy, string forTheMonth)
+        public IncomingTransaction(String trID, Building apartment, Flat paidBy, int amount, DateTime date, Flat collectedBy, string forTheMonth, int year)
         {
             this.trID = trID;
             this.apartment = apartment;
@@ -36,7 +37,7 @@ namespace DBproject.Model
             this.date = date;
             this.collectedBy = collectedBy;
             this.forTheMonth = forTheMonth;
-
+            this.year = year;
         }
 
         public String getTrID()
@@ -74,6 +75,16 @@ namespace DBproject.Model
         public string getMonth()
         {
             return this.forTheMonth;
+        }
+
+        public int getYear()
+        {
+            return this.year;
+        }
+
+        public void setYear(int year)
+        {
+            this.year = year;
         }
 
     }

@@ -19,20 +19,20 @@ namespace DBproject.Views.UserControls
         ControllerModule controller;
         string connectionString = @"Data Source=HAIER-PC\SQLEXPRESS;Initial Catalog=Project_Database;Integrated Security=True";
         string flatTableName = "tbl_Flats";
+        MainScreen mainScreen;
         public Income()
         {
 
             InitializeComponent();
-            DateTime day = DateTime.Now;
-
-            monthComboBox.SelectedIndex = day.Month-1;
+            controller = new TransactionModule(Util.CONNECTION_DETAILS.CONNECITION_STRING, Util.Tables.TABLE_INCOMING_TRANSACTIONS.TABLE_NAME); // jo months ki transactions avail hn wohi combobox me daalna
+            controller.setYears(this);
             this.settingActivated = false;
 
         }
 
-        public Income(Building apartment):this()
+        public Income(Building apartment, MainScreen mainScreen):this()
         {
-
+            this.mainScreen = mainScreen;
             this.apartment = apartment;
             FloorsPanel.Controls.Clear();
             for (int i = 0; i < apartment.getNoOfFloors(); i++)
@@ -52,6 +52,7 @@ namespace DBproject.Views.UserControls
 
         public void showDetails(string name, int flatNumber, int fees, int dues, bool manager, string email, string mobile)
         {
+            detailsPanel.Visible = true;
             detailsName.Text = name;
             detailsFlatNumber.Text = flatNumber.ToString();
             detailsMaintanance.Text = fees.ToString();
@@ -60,6 +61,8 @@ namespace DBproject.Views.UserControls
             detailsMobile.Text = mobile;
             if (dues <= 0)
                 CollectButton.ButtonText = "COLLECTED";
+            else
+                CollectButton.ButtonText = "COLLECT";
 
         }
 
@@ -104,7 +107,8 @@ namespace DBproject.Views.UserControls
                 detailsEmail.BackColor = defaultColor;
                 detailsMobile.BackColor = defaultColor;
                 controller = new MainScreenController(connectionString, flatTableName);
-                Flat flat = new Flat(Convert.ToInt32(detailsFlatNumber.Text), detailsName.Text, detailsEmail.Text, detailsMobile.Text, Convert.ToInt32(detailsDues.Text), Convert.ToInt32(detailsMaintanance.Text), 1, this.apartment);
+                Flat flat = new Flat(Convert.ToInt32(detailsFlatNumber.Text), detailsName.Text, detailsEmail.Text, detailsMobile.Text, Convert.ToInt32(detailsMaintanance.Text), Convert.ToInt32(detailsMaintanance.Text), 1, this.apartment);
+                detailsDues.Text = flat.getDues().ToString();
                 controller.updateDetailsPanel(flat);
 
             }
@@ -132,7 +136,7 @@ namespace DBproject.Views.UserControls
             Receipt receipt;
             Flat flat = new Flat(Convert.ToInt32(detailsFlatNumber.Text), detailsName.Text, detailsEmail.Text, detailsMobile.Text, Convert.ToInt32(detailsDues.Text), Convert.ToInt32(detailsMaintanance.Text), 1, this.apartment);
             if (flat.getDues() > 0)
-                receipt = new Receipt(flat, this.apartment);
+                receipt = new Receipt(flat, this.apartment, monthComboBox.SelectedItem.ToString(),Convert.ToInt32(yearComboBox.SelectedItem), mainScreen);
 
             else
                 receipt = new Receipt(flat, monthComboBox.SelectedItem.ToString());
@@ -151,6 +155,39 @@ namespace DBproject.Views.UserControls
         private void switchButton_MouseClick(object sender, MouseEventArgs e)
         {
             managerButton.ButtonText = "MANAGER";
+        }
+
+        public void setMonths(List<String> months)
+        {
+            monthComboBox.Items.AddRange(months.ToArray());
+
+            string currentMonth = miscFunctions.ToMonthName(DateTime.Now).ToUpper();
+            if (!monthComboBox.Items.Contains(currentMonth))
+                monthComboBox.Items.Add(currentMonth);
+
+            monthComboBox.SelectedItem = currentMonth;
+        }
+
+        public void setYears(List<String> years)
+        {
+            yearComboBox.Items.AddRange(years.ToArray());
+
+            string currentYear = DateTime.Now.Year.ToString();
+            if (!yearComboBox.Items.Contains(currentYear))
+            {
+                yearComboBox.Items.Add(currentYear);
+                controller = new MainScreenController(Util.CONNECTION_DETAILS.CONNECITION_STRING, "");
+                controller.newMonthStarted(this);
+            } // increment dues
+                
+
+            yearComboBox.SelectedItem = currentYear;
+            controller.setMonths(this, Convert.ToInt32(yearComboBox.SelectedItem));
+        }
+
+        private void yearComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            controller.setMonths(this, Convert.ToInt32(yearComboBox.SelectedItem));
         }
     }
 }

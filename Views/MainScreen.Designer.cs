@@ -34,7 +34,6 @@
             this.nameLabel = new System.Windows.Forms.Label();
             this.profiePicture = new System.Windows.Forms.PictureBox();
             this.sidePanel = new System.Windows.Forms.Panel();
-            this.quitButton = new XanderUI.XUIButton();
             this.settingsButton = new System.Windows.Forms.Button();
             this.analyticsButton = new System.Windows.Forms.Button();
             this.expensesButton = new System.Windows.Forms.Button();
@@ -102,7 +101,6 @@
             // sidePanel
             // 
             this.sidePanel.BackColor = System.Drawing.Color.DarkRed;
-            this.sidePanel.Controls.Add(this.quitButton);
             this.sidePanel.Controls.Add(this.settingsButton);
             this.sidePanel.Controls.Add(this.analyticsButton);
             this.sidePanel.Controls.Add(this.expensesButton);
@@ -113,29 +111,6 @@
             this.sidePanel.Name = "sidePanel";
             this.sidePanel.Size = new System.Drawing.Size(225, 720);
             this.sidePanel.TabIndex = 0;
-            // 
-            // quitButton
-            // 
-            this.quitButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.quitButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(70)))), ((int)(((byte)(75)))));
-            this.quitButton.ButtonImage = null;
-            this.quitButton.ButtonStyle = XanderUI.XUIButton.Style.Dark;
-            this.quitButton.ButtonText = "LOGOUT";
-            this.quitButton.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(75)))), ((int)(((byte)(80)))));
-            this.quitButton.ClickTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(130)))), ((int)(((byte)(140)))));
-            this.quitButton.CornerRadius = 5;
-            this.quitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.quitButton.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.quitButton.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
-            this.quitButton.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(215)))));
-            this.quitButton.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.quitButton.Location = new System.Drawing.Point(47, 644);
-            this.quitButton.Name = "quitButton";
-            this.quitButton.Size = new System.Drawing.Size(128, 50);
-            this.quitButton.TabIndex = 5;
-            this.quitButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(200)))), ((int)(((byte)(185)))));
-            this.quitButton.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             // 
             // settingsButton
             // 
@@ -261,7 +236,7 @@
             this.currentBalLabel.ForeColor = System.Drawing.Color.White;
             this.currentBalLabel.Location = new System.Drawing.Point(558, 40);
             this.currentBalLabel.Name = "currentBalLabel";
-            this.currentBalLabel.Size = new System.Drawing.Size(75, 19);
+            this.currentBalLabel.Size = new System.Drawing.Size(69, 19);
             this.currentBalLabel.TabIndex = 1;
             this.currentBalLabel.Text = "Balance:";
             // 
@@ -315,7 +290,6 @@
         private System.Windows.Forms.PictureBox profiePicture;
         private System.Windows.Forms.Panel sidePanel;
         private System.Windows.Forms.Label flatNumberLabel;
-        private XanderUI.XUIButton quitButton;
         private System.Windows.Forms.Button settingsButton;
         private System.Windows.Forms.Button analyticsButton;
         private System.Windows.Forms.Button expensesButton;
