@@ -34,6 +34,10 @@
             this.othersExpenses = new System.Windows.Forms.Button();
             this.regularExpensesButton = new System.Windows.Forms.Button();
             this.titlePanel = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.yearLabel = new System.Windows.Forms.Label();
+            this.yearComboBox = new System.Windows.Forms.ComboBox();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.monthPanel = new System.Windows.Forms.Panel();
             this.monthInnerPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.MonthLabel = new System.Windows.Forms.Label();
@@ -41,15 +45,16 @@
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.ExpenseTitle = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.triangle = new System.Windows.Forms.PictureBox();
-            this.expensesList = new System.Windows.Forms.FlowLayoutPanel();
-            this.addExpenseButton = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.otherExpensesList = new System.Windows.Forms.FlowLayoutPanel();
-            this.searchBar1 = new DBproject.Views.UserControls.SearchBar();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.searchBar1 = new DBproject.Views.UserControls.SearchBar();
+            this.addExpenseButton = new System.Windows.Forms.Button();
+            this.expensesList = new System.Windows.Forms.FlowLayoutPanel();
+            this.triangle = new System.Windows.Forms.PictureBox();
+            this.otherExpensesList = new System.Windows.Forms.FlowLayoutPanel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.topPanel.SuspendLayout();
             this.titlePanel.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
             this.monthPanel.SuspendLayout();
             this.monthInnerPanel.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -105,6 +110,7 @@
             // titlePanel
             // 
             this.titlePanel.BackColor = System.Drawing.Color.Silver;
+            this.titlePanel.Controls.Add(this.flowLayoutPanel3);
             this.titlePanel.Controls.Add(this.monthPanel);
             this.titlePanel.Controls.Add(this.ExpenseTitle);
             this.titlePanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -113,6 +119,48 @@
             this.titlePanel.Name = "titlePanel";
             this.titlePanel.Size = new System.Drawing.Size(975, 50);
             this.titlePanel.TabIndex = 0;
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel3.BackColor = System.Drawing.Color.Transparent;
+            this.flowLayoutPanel3.Controls.Add(this.yearLabel);
+            this.flowLayoutPanel3.Controls.Add(this.yearComboBox);
+            this.flowLayoutPanel3.Controls.Add(this.flowLayoutPanel4);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(517, 11);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(148, 31);
+            this.flowLayoutPanel3.TabIndex = 6;
+            // 
+            // yearLabel
+            // 
+            this.yearLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.yearLabel.AutoSize = true;
+            this.yearLabel.BackColor = System.Drawing.Color.Transparent;
+            this.yearLabel.Location = new System.Drawing.Point(3, 7);
+            this.yearLabel.Name = "yearLabel";
+            this.yearLabel.Size = new System.Drawing.Size(32, 13);
+            this.yearLabel.TabIndex = 0;
+            this.yearLabel.Text = "Year:";
+            this.yearLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // yearComboBox
+            // 
+            this.yearComboBox.BackColor = System.Drawing.Color.White;
+            this.yearComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.yearComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.yearComboBox.FormattingEnabled = true;
+            this.yearComboBox.Location = new System.Drawing.Point(41, 3);
+            this.yearComboBox.Name = "yearComboBox";
+            this.yearComboBox.Size = new System.Drawing.Size(78, 21);
+            this.yearComboBox.TabIndex = 1;
+            // 
+            // flowLayoutPanel4
+            // 
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 30);
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(200, 100);
+            this.flowLayoutPanel4.TabIndex = 2;
             // 
             // monthPanel
             // 
@@ -154,19 +202,6 @@
             this.monthComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.monthComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.monthComboBox.FormattingEnabled = true;
-            this.monthComboBox.Items.AddRange(new object[] {
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December"});
             this.monthComboBox.Location = new System.Drawing.Point(70, 3);
             this.monthComboBox.Name = "monthComboBox";
             this.monthComboBox.Size = new System.Drawing.Size(173, 27);
@@ -210,69 +245,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(975, 638);
             this.panel1.TabIndex = 2;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // triangle
-            // 
-            this.triangle.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.triangle.BackColor = System.Drawing.Color.Transparent;
-            this.triangle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.triangle.Image = ((System.Drawing.Image)(resources.GetObject("triangle.Image")));
-            this.triangle.Location = new System.Drawing.Point(228, 100);
-            this.triangle.Margin = new System.Windows.Forms.Padding(0);
-            this.triangle.Name = "triangle";
-            this.triangle.Size = new System.Drawing.Size(30, 22);
-            this.triangle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.triangle.TabIndex = 2;
-            this.triangle.TabStop = false;
-            // 
-            // expensesList
-            // 
-            this.expensesList.AutoScroll = true;
-            this.expensesList.BackColor = System.Drawing.Color.Gainsboro;
-            this.expensesList.Location = new System.Drawing.Point(0, 180);
-            this.expensesList.Name = "expensesList";
-            this.expensesList.Size = new System.Drawing.Size(975, 441);
-            this.expensesList.TabIndex = 3;
-            this.expensesList.Visible = false;
-            // 
-            // addExpenseButton
-            // 
-            this.addExpenseButton.BackColor = System.Drawing.Color.DarkRed;
-            this.addExpenseButton.FlatAppearance.BorderSize = 0;
-            this.addExpenseButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.addExpenseButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
-            this.addExpenseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addExpenseButton.Font = new System.Drawing.Font("Lato Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addExpenseButton.ForeColor = System.Drawing.Color.White;
-            this.addExpenseButton.Location = new System.Drawing.Point(3, 128);
-            this.addExpenseButton.Name = "addExpenseButton";
-            this.addExpenseButton.Size = new System.Drawing.Size(144, 39);
-            this.addExpenseButton.TabIndex = 0;
-            this.addExpenseButton.Text = "Add Expense";
-            this.addExpenseButton.UseVisualStyleBackColor = false;
-            this.addExpenseButton.Click += new System.EventHandler(this.addExpenseButton_Click);
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // otherExpensesList
-            // 
-            this.otherExpensesList.AutoScroll = true;
-            this.otherExpensesList.BackColor = System.Drawing.Color.Gainsboro;
-            this.otherExpensesList.Location = new System.Drawing.Point(981, 122);
-            this.otherExpensesList.Name = "otherExpensesList";
-            this.otherExpensesList.Size = new System.Drawing.Size(975, 513);
-            this.otherExpensesList.TabIndex = 4;
-            // 
-            // searchBar1
-            // 
-            this.searchBar1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.searchBar1.Location = new System.Drawing.Point(469, 120);
-            this.searchBar1.Name = "searchBar1";
-            this.searchBar1.Size = new System.Drawing.Size(341, 47);
-            this.searchBar1.TabIndex = 5;
             // 
             // comboBox1
             // 
@@ -292,6 +264,64 @@
             this.comboBox1.Size = new System.Drawing.Size(121, 33);
             this.comboBox1.TabIndex = 6;
             // 
+            // searchBar1
+            // 
+            this.searchBar1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.searchBar1.Location = new System.Drawing.Point(469, 120);
+            this.searchBar1.Name = "searchBar1";
+            this.searchBar1.Size = new System.Drawing.Size(341, 47);
+            this.searchBar1.TabIndex = 5;
+            // 
+            // addExpenseButton
+            // 
+            this.addExpenseButton.BackColor = System.Drawing.Color.DarkRed;
+            this.addExpenseButton.FlatAppearance.BorderSize = 0;
+            this.addExpenseButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.addExpenseButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
+            this.addExpenseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addExpenseButton.Font = new System.Drawing.Font("Lato Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addExpenseButton.ForeColor = System.Drawing.Color.White;
+            this.addExpenseButton.Location = new System.Drawing.Point(3, 128);
+            this.addExpenseButton.Name = "addExpenseButton";
+            this.addExpenseButton.Size = new System.Drawing.Size(144, 39);
+            this.addExpenseButton.TabIndex = 0;
+            this.addExpenseButton.Text = "Add Expense";
+            this.addExpenseButton.UseVisualStyleBackColor = false;
+            this.addExpenseButton.Click += new System.EventHandler(this.addExpenseButton_Click);
+            // 
+            // expensesList
+            // 
+            this.expensesList.AutoScroll = true;
+            this.expensesList.BackColor = System.Drawing.Color.Gainsboro;
+            this.expensesList.Location = new System.Drawing.Point(0, 180);
+            this.expensesList.Name = "expensesList";
+            this.expensesList.Size = new System.Drawing.Size(975, 441);
+            this.expensesList.TabIndex = 3;
+            this.expensesList.Visible = false;
+            // 
+            // triangle
+            // 
+            this.triangle.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.triangle.BackColor = System.Drawing.Color.Transparent;
+            this.triangle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.triangle.Image = ((System.Drawing.Image)(resources.GetObject("triangle.Image")));
+            this.triangle.Location = new System.Drawing.Point(228, 100);
+            this.triangle.Margin = new System.Windows.Forms.Padding(0);
+            this.triangle.Name = "triangle";
+            this.triangle.Size = new System.Drawing.Size(30, 22);
+            this.triangle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.triangle.TabIndex = 2;
+            this.triangle.TabStop = false;
+            // 
+            // otherExpensesList
+            // 
+            this.otherExpensesList.AutoScroll = true;
+            this.otherExpensesList.BackColor = System.Drawing.Color.Gainsboro;
+            this.otherExpensesList.Location = new System.Drawing.Point(981, 122);
+            this.otherExpensesList.Name = "otherExpensesList";
+            this.otherExpensesList.Size = new System.Drawing.Size(975, 513);
+            this.otherExpensesList.TabIndex = 4;
+            // 
             // Expense
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -300,10 +330,11 @@
             this.MinimumSize = new System.Drawing.Size(975, 638);
             this.Name = "Expense";
             this.Size = new System.Drawing.Size(975, 638);
-            this.Load += new System.EventHandler(this.Expense_Load);
             this.topPanel.ResumeLayout(false);
             this.titlePanel.ResumeLayout(false);
             this.titlePanel.PerformLayout();
+            this.flowLayoutPanel3.ResumeLayout(false);
+            this.flowLayoutPanel3.PerformLayout();
             this.monthPanel.ResumeLayout(false);
             this.monthInnerPanel.ResumeLayout(false);
             this.monthInnerPanel.PerformLayout();
@@ -333,5 +364,9 @@
         private System.Windows.Forms.FlowLayoutPanel otherExpensesList;
         private SearchBar searchBar1;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private System.Windows.Forms.Label yearLabel;
+        private System.Windows.Forms.ComboBox yearComboBox;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
     }
 }

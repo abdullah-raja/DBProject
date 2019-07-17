@@ -8,6 +8,7 @@ using DBproject.Model;
 using DBproject.Util.StoredProcedures;
 using DBproject.Views.UserControls;
 using DBproject.Util.Tables;
+using System.Windows.Forms;
 
 namespace DBproject.Controller
 {
@@ -71,12 +72,13 @@ namespace DBproject.Controller
             // send email functionality here
         }
 
-        public override void setMonths(Income view, int year)
+        public override void setMonths(Income view, int year) // for income
         {
+            
             List<String> months = new List<String>();
             string selectQuery = "SELECT DISTINCT " + TABLE_INCOMING_TRANSACTIONS.KEY_MONTH + " FROM " + TABLE_INCOMING_TRANSACTIONS.TABLE_NAME + " WHERE " + TABLE_INCOMING_TRANSACTIONS.KEY_YEAR + " = " + year;
             connection.Open();
-
+            
             using (SqlCommand command = new SqlCommand(selectQuery, connection))
             {
                 using (SqlDataReader monthReader = command.ExecuteReader())
@@ -91,8 +93,50 @@ namespace DBproject.Controller
             connection.Close();
             view.setMonths(months);
         }
+        public override void setMonths(Expense view, int year)
+        {
+            List<String> months = new List<String>();
+            string selectQuery = "SELECT DISTINCT " + TABLE_INCOMING_TRANSACTIONS.KEY_MONTH + " FROM " + TABLE_INCOMING_TRANSACTIONS.TABLE_NAME + " WHERE " + TABLE_INCOMING_TRANSACTIONS.KEY_YEAR + " = " + year;
+            connection.Open();
+
+            using (SqlCommand command = new SqlCommand(selectQuery, connection))
+            {
+                using (SqlDataReader monthReader = command.ExecuteReader())
+                {
+                    while (monthReader.Read())
+                    {
+                        months.Add(monthReader[TABLE_INCOMING_TRANSACTIONS.KEY_MONTH].ToString());
+                    }
+                }
+            }
+
+            connection.Close();
+            view.setMonths(months);
+
+        }
 
         override public void setYears(Income view)
+        {
+            List<String> years = new List<String>();
+            string selectQuery = "SELECT DISTINCT " + TABLE_INCOMING_TRANSACTIONS.KEY_YEAR + " FROM " + TABLE_INCOMING_TRANSACTIONS.TABLE_NAME;
+            connection.Open();
+
+            using (SqlCommand command = new SqlCommand(selectQuery, connection))
+            {
+                using (SqlDataReader yearReader = command.ExecuteReader())
+                {
+                    while (yearReader.Read())
+                    {
+                        years.Add(yearReader[TABLE_INCOMING_TRANSACTIONS.KEY_YEAR].ToString());
+                    }
+                }
+            }
+
+            connection.Close();
+            view.setYears(years);
+        }
+
+        public override void setYears(Expense view)
         {
             List<String> years = new List<String>();
             string selectQuery = "SELECT DISTINCT " + TABLE_INCOMING_TRANSACTIONS.KEY_YEAR + " FROM " + TABLE_INCOMING_TRANSACTIONS.TABLE_NAME;

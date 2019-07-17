@@ -3,22 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DBproject.Views.UserControls;
 
 namespace DBproject.Model
 {
-    enum ExpenseStatus
+    public enum ExpenseStatus
     {
         Paid,
         Unpaid
     }
 
-    enum ExpenseType
+    public enum ExpenseType
     {
         Regular,
         Other
     }
 
-    class Expense
+    public class ExpenseDetails
     {
         Building apartment;
         Guid expenseID;
@@ -29,16 +30,31 @@ namespace DBproject.Model
         string month;
         int year;
 
-        public Expense(Building apartment, string expenseName, ExpenseType type, ExpenseStatus status, string month, int year)
+        public ExpenseDetails(Building apartment, string expenseName, int amount, ExpenseType type, ExpenseStatus status, string month, int year)
         {
             expenseID = Guid.NewGuid();
             this.apartment = apartment;
             this.expenseName = expenseName;
+            this.expenseAmount = amount;
             this.type = type;
             this.status = status;
             this.month = month;
             this.year = year;
             
+            
+        }
+
+        public ExpenseDetails(ExpenseCard expense, Building apartment, string month, int year)
+        {
+            expenseID = Guid.NewGuid();
+            this.apartment = apartment;
+            this.expenseName = expense.getName();
+         //   this.type = expense.getExpenseType();
+           // this.status = expense.getStatus();
+            this.month = month;
+            this.year = year;
+            this.expenseAmount = expense.getAmount();
+
         }
 
         public string getStringID()
@@ -107,6 +123,15 @@ namespace DBproject.Model
             this.year = year;
         }
 
+        public int getAmount()
+        {
+            return this.expenseAmount;
+        }
+
+        public void setAmount(int amount)
+        {
+            this.expenseAmount = amount; 
+        }
 
         
 

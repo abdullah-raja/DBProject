@@ -7,30 +7,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DBproject.Controller;
+using DBproject.Util;
+using DBproject.Model;
 
 namespace DBproject.Views.UserControls
 {
     public partial class Expense : UserControl
     {
+        Building apartment;
+        List<ExpenseCard> expenses;
+        ControllerModule controller;
         bool regularActive = true;
         int otherLoacation = 716;
         int regularLocation = 228;
         public Expense()
         {
             InitializeComponent();
-           
-
+            controller = new TransactionModule(CONNECTION_DETAILS.CONNECITION_STRING, "");
+            controller.setYears(this);
+            expenses = new List<ExpenseCard>();
 
         }
 
-        public Expense(int i):this()  // will be used for regular expenses
+        public Expense(int i, Building apartment):this()  // will be used for regular expenses
         {
             expensesList.Visible = true;
             otherExpensesList.Visible = false;
 
             otherExpensesList.Location = expensesList.Location;
+            this.apartment = apartment;
 
-            for (int j = 0; j < i; j++)
+           /* for (int j = 0; j < i; j++)
             {
                 ExpenseCard exp = new ExpenseCard();
                 exp.setName("Electric Bill");
@@ -40,12 +48,10 @@ namespace DBproject.Views.UserControls
 
 
             }
+            */
         }
 
-        private void Expense_Load(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void othersExpenses_Click(object sender, EventArgs e)
         {
@@ -58,11 +64,7 @@ namespace DBproject.Views.UserControls
             triangle.Location = new Point(otherLoacation, triangle.Location.Y);
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-           
-        }
-
+       
         private void addOtherExpenseButton_Click(object sender, EventArgs e)
         {
             ExpenseCard expense = new ExpenseCard();
@@ -71,17 +73,9 @@ namespace DBproject.Views.UserControls
 
         private void addExpenseButton_Click(object sender, EventArgs e)
         {
-            if (regularActive)
-            {
-                ExpenseCard expense = new ExpenseCard();
-                expensesList.Controls.Add(expense);
-            }
-
-            else
-            {
-                ExpenseCard expense = new ExpenseCard();
-                otherExpensesList.Controls.Add(expense);
-            }
+            this.addExpense();
+            controller = new ExpenseModule(Util.CONNECTION_DETAILS.CONNECITION_STRING, "");
+            controller.addExpense(this, regularActive, expenses.Last().GetExpenseDetails());
         }
 
         private void regularExpensesButton_Click(object sender, EventArgs e)
@@ -92,13 +86,48 @@ namespace DBproject.Views.UserControls
             triangle.Location = new Point(regularLocation, triangle.Location.Y);
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        public void setMonths(List<String> months)
         {
-           /* if(regularActive)
+            monthComboBox.Items.AddRange(months.ToArray());
+
+            string currentMonth = miscFunctions.ToMonthName(DateTime.Now).ToUpper();
+            if (!monthComboBox.Items.Contains(currentMonth))
+                monthComboBox.Items.Add(currentMonth);
+
+            monthComboBox.SelectedItem = currentMonth;
+        }
+
+        public void setYears(List<String> years)
+        {
+            yearComboBox.Items.AddRange(years.ToArray());
+
+            string currentYear = DateTime.Now.Year.ToString();
+            if (!yearComboBox.Items.Contains(currentYear))
             {
-                triangle.Location = new Point(triangle.Location.X + 10, triangle.Location.Y);
-                if(triangle.Location.X > )
-            }  */
+                yearComboBox.Items.Add(currentYear);
+                controller = new MainScreenController(Util.CONNECTION_DETAILS.CONNECITION_STRING, "");
+                // controller.newMonthStarted(this);
+            } // increment dues
+
+
+            yearComboBox.SelectedItem = currentYear;
+            controller.setMonths(this, Convert.ToInt32(yearComboBox.SelectedItem));
+        }
+
+        public void addExpense() // will be called by view
+        {
+            ExpenseCard expense;
+            if (regularActive)
+                expense = new ExpenseCard(ExpenseType.Regular, this.apartment, monthComboBox.SelectedItem.ToString(), Convert.ToInt32(yearComboBox.SelectedItem));
+
+            else
+                expense = new ExpenseCard(ExpenseType.Other, this.apartment, monthComboBox.SelectedItem.ToString(), Convert.ToInt32(yearComboBox.SelectedItem));
+
+            expenses.Add(expense);
+            expensesList.Controls.Add(expense);
+            expense.Focus();
+           // ExpenseDetails expDetails = new ExpenseDetails(expense,apartment,monthComboBox.SelectedItem.ToString(), Convert.ToInt32(yearComboBox.SelectedItem));
+
         }
     }
 }

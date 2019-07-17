@@ -89,7 +89,17 @@ namespace DBproject.Controller
 
         }
 
+        virtual public void setMonths(Expense view, int year)
+        {
+
+        }
+
         virtual public void setYears(Income view)
+        {
+
+        }
+
+        virtual public void setYears(Expense view)
         {
 
         }
@@ -100,6 +110,16 @@ namespace DBproject.Controller
         }
 
         virtual public void newMonthStarted(Income view)
+        {
+
+        }
+
+        virtual public void addExpense(Expense view, bool regularActive, ExpenseDetails expDetails)
+        {
+
+        }
+
+        virtual public void addExpense(ExpenseDetails expDetails)
         {
 
         }

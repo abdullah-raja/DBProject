@@ -9,11 +9,11 @@ namespace DBproject.Model
     class OutgoingTransaction
     {
         string trID;
-        Expense expense;
+        ExpenseDetails expense;
         DateTime datePaid;
         Flat paidBy;
 
-        public OutgoingTransaction(string trID, Expense expense, DateTime date, Flat paidBy)
+        public OutgoingTransaction(string trID, ExpenseDetails expense, DateTime date, Flat paidBy)
         {
             this.trID = trID;
             this.expense = expense;
@@ -26,7 +26,7 @@ namespace DBproject.Model
             return this.trID;
         }
 
-        public Expense getExpense()
+        public ExpenseDetails getExpense()
         {
             return this.expense;
         }

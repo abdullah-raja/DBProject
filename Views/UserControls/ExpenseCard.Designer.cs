@@ -37,6 +37,7 @@
             this.payButton = new System.Windows.Forms.Button();
             this.textBoxPanel = new System.Windows.Forms.Panel();
             this.panelForAmount = new System.Windows.Forms.Panel();
+            this.paidLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.expenseAmount)).BeginInit();
             this.textBoxPanel.SuspendLayout();
             this.panelForAmount.SuspendLayout();
@@ -52,6 +53,7 @@
             this.expenseNameTextBox.Size = new System.Drawing.Size(493, 29);
             this.expenseNameTextBox.TabIndex = 0;
             this.expenseNameTextBox.Text = "Electric bill";
+            this.expenseNameTextBox.Leave += new System.EventHandler(this.expenseNameTextBox_Leave);
             // 
             // expenseNameLabel
             // 
@@ -88,6 +90,7 @@
             this.expenseAmount.Name = "expenseAmount";
             this.expenseAmount.Size = new System.Drawing.Size(107, 32);
             this.expenseAmount.TabIndex = 5;
+            this.expenseAmount.Leave += new System.EventHandler(this.expenseAmount_Leave);
             // 
             // Rs
             // 
@@ -110,9 +113,9 @@
             this.deeteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deeteButton.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deeteButton.ForeColor = System.Drawing.Color.White;
-            this.deeteButton.Location = new System.Drawing.Point(844, 25);
+            this.deeteButton.Location = new System.Drawing.Point(844, 32);
             this.deeteButton.Name = "deeteButton";
-            this.deeteButton.Size = new System.Drawing.Size(115, 46);
+            this.deeteButton.Size = new System.Drawing.Size(115, 39);
             this.deeteButton.TabIndex = 7;
             this.deeteButton.Text = "DELETE";
             this.deeteButton.UseVisualStyleBackColor = false;
@@ -128,9 +131,9 @@
             this.payButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.payButton.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.payButton.ForeColor = System.Drawing.Color.White;
-            this.payButton.Location = new System.Drawing.Point(723, 25);
+            this.payButton.Location = new System.Drawing.Point(724, 32);
             this.payButton.Name = "payButton";
-            this.payButton.Size = new System.Drawing.Size(115, 46);
+            this.payButton.Size = new System.Drawing.Size(114, 39);
             this.payButton.TabIndex = 8;
             this.payButton.Text = "PAY";
             this.payButton.UseVisualStyleBackColor = false;
@@ -155,10 +158,22 @@
             this.panelForAmount.Size = new System.Drawing.Size(120, 39);
             this.panelForAmount.TabIndex = 10;
             // 
+            // paidLabel
+            // 
+            this.paidLabel.AutoSize = true;
+            this.paidLabel.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paidLabel.Location = new System.Drawing.Point(720, 10);
+            this.paidLabel.Name = "paidLabel";
+            this.paidLabel.Size = new System.Drawing.Size(46, 19);
+            this.paidLabel.TabIndex = 11;
+            this.paidLabel.Text = "Paid!";
+            this.paidLabel.Visible = false;
+            // 
             // ExpenseCard
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.paidLabel);
             this.Controls.Add(this.panelForAmount);
             this.Controls.Add(this.textBoxPanel);
             this.Controls.Add(this.payButton);
@@ -190,5 +205,6 @@
         private System.Windows.Forms.Button payButton;
         private System.Windows.Forms.Panel textBoxPanel;
         private System.Windows.Forms.Panel panelForAmount;
+        private System.Windows.Forms.Label paidLabel;
     }
 }

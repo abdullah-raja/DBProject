@@ -67,7 +67,7 @@ namespace DBproject.Views
             settingsButton.ForeColor = Color.White;
             analyticsButton.ForeColor = Color.White;
 
-            Expense exp = new Expense(3);
+            Expense exp = new Expense(3, this.apartment);
             exp.Dock = DockStyle.Fill;
             main.Controls.Clear();
             main.Controls.Add(exp);
