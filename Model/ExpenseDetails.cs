@@ -44,6 +44,21 @@ namespace DBproject.Model
             
         }
 
+
+        public ExpenseDetails(string id, Building apartment, string expenseName, int amount, ExpenseType type, ExpenseStatus status, string month, int year)
+        {
+            expenseID = Guid.Parse(id);
+            this.apartment = apartment;
+            this.expenseName = expenseName;
+            this.expenseAmount = amount;
+            this.type = type;
+            this.status = status;
+            this.month = month;
+            this.year = year;
+
+
+        }
+
         public ExpenseDetails(ExpenseCard expense, Building apartment, string month, int year)
         {
             expenseID = Guid.NewGuid();

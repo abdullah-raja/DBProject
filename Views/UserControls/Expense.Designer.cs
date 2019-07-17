@@ -45,13 +45,13 @@
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.ExpenseTitle = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.searchBar1 = new DBproject.Views.UserControls.SearchBar();
+            this.statusFilter = new System.Windows.Forms.ComboBox();
             this.addExpenseButton = new System.Windows.Forms.Button();
             this.expensesList = new System.Windows.Forms.FlowLayoutPanel();
             this.triangle = new System.Windows.Forms.PictureBox();
             this.otherExpensesList = new System.Windows.Forms.FlowLayoutPanel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.searchBar = new DBproject.Views.UserControls.SearchBar(this);
             this.topPanel.SuspendLayout();
             this.titlePanel.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
@@ -63,10 +63,11 @@
             // 
             // topPanel
             // 
+            this.topPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.topPanel.BackColor = System.Drawing.Color.Transparent;
             this.topPanel.Controls.Add(this.othersExpenses);
             this.topPanel.Controls.Add(this.regularExpensesButton);
-            this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(0, 50);
             this.topPanel.Name = "topPanel";
             this.topPanel.Size = new System.Drawing.Size(975, 60);
@@ -137,9 +138,10 @@
             this.yearLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.yearLabel.AutoSize = true;
             this.yearLabel.BackColor = System.Drawing.Color.Transparent;
+            this.yearLabel.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.yearLabel.Location = new System.Drawing.Point(3, 7);
             this.yearLabel.Name = "yearLabel";
-            this.yearLabel.Size = new System.Drawing.Size(32, 13);
+            this.yearLabel.Size = new System.Drawing.Size(46, 19);
             this.yearLabel.TabIndex = 0;
             this.yearLabel.Text = "Year:";
             this.yearLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -149,15 +151,16 @@
             this.yearComboBox.BackColor = System.Drawing.Color.White;
             this.yearComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.yearComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.yearComboBox.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.yearComboBox.FormattingEnabled = true;
-            this.yearComboBox.Location = new System.Drawing.Point(41, 3);
+            this.yearComboBox.Location = new System.Drawing.Point(55, 3);
             this.yearComboBox.Name = "yearComboBox";
-            this.yearComboBox.Size = new System.Drawing.Size(78, 21);
+            this.yearComboBox.Size = new System.Drawing.Size(78, 27);
             this.yearComboBox.TabIndex = 1;
             // 
             // flowLayoutPanel4
             // 
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 30);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 36);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
             this.flowLayoutPanel4.Size = new System.Drawing.Size(200, 100);
             this.flowLayoutPanel4.TabIndex = 2;
@@ -229,48 +232,42 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.Gainsboro;
-            this.panel1.Controls.Add(this.comboBox1);
-            this.panel1.Controls.Add(this.searchBar1);
+            this.panel1.Controls.Add(this.statusFilter);
+            this.panel1.Controls.Add(this.searchBar);
             this.panel1.Controls.Add(this.addExpenseButton);
             this.panel1.Controls.Add(this.expensesList);
             this.panel1.Controls.Add(this.topPanel);
             this.panel1.Controls.Add(this.titlePanel);
             this.panel1.Controls.Add(this.triangle);
             this.panel1.Controls.Add(this.otherExpensesList);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.MaximumSize = new System.Drawing.Size(975, 638);
             this.panel1.MinimumSize = new System.Drawing.Size(975, 638);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(975, 638);
             this.panel1.TabIndex = 2;
             // 
-            // comboBox1
+            // statusFilter
             // 
-            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.comboBox1.AutoCompleteCustomSource.AddRange(new string[] {
+            this.statusFilter.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.statusFilter.AutoCompleteCustomSource.AddRange(new string[] {
             "All"});
-            this.comboBox1.DisplayMember = "dd";
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.statusFilter.DisplayMember = "dd";
+            this.statusFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.statusFilter.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusFilter.FormattingEnabled = true;
+            this.statusFilter.Items.AddRange(new object[] {
             "All",
             "Paid",
             "Unpaid"});
-            this.comboBox1.Location = new System.Drawing.Point(804, 128);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 33);
-            this.comboBox1.TabIndex = 6;
-            // 
-            // searchBar1
-            // 
-            this.searchBar1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.searchBar1.Location = new System.Drawing.Point(469, 120);
-            this.searchBar1.Name = "searchBar1";
-            this.searchBar1.Size = new System.Drawing.Size(341, 47);
-            this.searchBar1.TabIndex = 5;
+            this.statusFilter.Location = new System.Drawing.Point(804, 128);
+            this.statusFilter.Name = "statusFilter";
+            this.statusFilter.Size = new System.Drawing.Size(121, 33);
+            this.statusFilter.TabIndex = 6;
+            this.statusFilter.Text = "All";
+            this.statusFilter.SelectedValueChanged += new System.EventHandler(this.statusFilter_SelectedValueChanged);
             // 
             // addExpenseButton
             // 
@@ -291,6 +288,8 @@
             // 
             // expensesList
             // 
+            this.expensesList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.expensesList.AutoScroll = true;
             this.expensesList.BackColor = System.Drawing.Color.Gainsboro;
             this.expensesList.Location = new System.Drawing.Point(0, 180);
@@ -315,6 +314,8 @@
             // 
             // otherExpensesList
             // 
+            this.otherExpensesList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.otherExpensesList.AutoScroll = true;
             this.otherExpensesList.BackColor = System.Drawing.Color.Gainsboro;
             this.otherExpensesList.Location = new System.Drawing.Point(981, 122);
@@ -322,11 +323,18 @@
             this.otherExpensesList.Size = new System.Drawing.Size(975, 513);
             this.otherExpensesList.TabIndex = 4;
             // 
+            // searchBar
+            // 
+            this.searchBar.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.searchBar.Location = new System.Drawing.Point(469, 120);
+            this.searchBar.Name = "searchBar";
+            this.searchBar.Size = new System.Drawing.Size(341, 47);
+            this.searchBar.TabIndex = 5;
+            // 
             // Expense
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.panel1);
-            this.MaximumSize = new System.Drawing.Size(975, 638);
             this.MinimumSize = new System.Drawing.Size(975, 638);
             this.Name = "Expense";
             this.Size = new System.Drawing.Size(975, 638);
@@ -362,8 +370,8 @@
         private System.Windows.Forms.Button addExpenseButton;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.FlowLayoutPanel otherExpensesList;
-        private SearchBar searchBar1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private SearchBar searchBar;
+        private System.Windows.Forms.ComboBox statusFilter;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.Label yearLabel;
         private System.Windows.Forms.ComboBox yearComboBox;

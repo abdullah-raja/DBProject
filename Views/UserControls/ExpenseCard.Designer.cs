@@ -33,7 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.expenseAmount = new System.Windows.Forms.NumericUpDown();
             this.Rs = new System.Windows.Forms.Label();
-            this.deeteButton = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
             this.payButton = new System.Windows.Forms.Button();
             this.textBoxPanel = new System.Windows.Forms.Panel();
             this.panelForAmount = new System.Windows.Forms.Panel();
@@ -52,11 +52,12 @@
             this.expenseNameTextBox.Name = "expenseNameTextBox";
             this.expenseNameTextBox.Size = new System.Drawing.Size(493, 29);
             this.expenseNameTextBox.TabIndex = 0;
-            this.expenseNameTextBox.Text = "Electric bill";
             this.expenseNameTextBox.Leave += new System.EventHandler(this.expenseNameTextBox_Leave);
             // 
             // expenseNameLabel
             // 
+            this.expenseNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.expenseNameLabel.AutoSize = true;
             this.expenseNameLabel.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.expenseNameLabel.Location = new System.Drawing.Point(18, 10);
@@ -67,6 +68,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(546, 10);
@@ -94,6 +96,7 @@
             // 
             // Rs
             // 
+            this.Rs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Rs.AutoSize = true;
             this.Rs.BackColor = System.Drawing.Color.Transparent;
             this.Rs.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -103,27 +106,27 @@
             this.Rs.TabIndex = 6;
             this.Rs.Text = "Rs.";
             // 
-            // deeteButton
+            // deleteButton
             // 
-            this.deeteButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.deeteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.deeteButton.FlatAppearance.BorderSize = 0;
-            this.deeteButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.deeteButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.deeteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deeteButton.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deeteButton.ForeColor = System.Drawing.Color.White;
-            this.deeteButton.Location = new System.Drawing.Point(844, 32);
-            this.deeteButton.Name = "deeteButton";
-            this.deeteButton.Size = new System.Drawing.Size(115, 39);
-            this.deeteButton.TabIndex = 7;
-            this.deeteButton.Text = "DELETE";
-            this.deeteButton.UseVisualStyleBackColor = false;
-            this.deeteButton.Click += new System.EventHandler(this.deeteButton_Click);
+            this.deleteButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.deleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.deleteButton.FlatAppearance.BorderSize = 0;
+            this.deleteButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.deleteButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteButton.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteButton.ForeColor = System.Drawing.Color.White;
+            this.deleteButton.Location = new System.Drawing.Point(844, 32);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(115, 39);
+            this.deleteButton.TabIndex = 7;
+            this.deleteButton.Text = "DELETE";
+            this.deleteButton.UseVisualStyleBackColor = false;
+            this.deleteButton.Click += new System.EventHandler(this.deeteButton_Click);
             // 
             // payButton
             // 
-            this.payButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.payButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.payButton.BackColor = System.Drawing.Color.DarkRed;
             this.payButton.FlatAppearance.BorderSize = 0;
             this.payButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
@@ -137,9 +140,12 @@
             this.payButton.TabIndex = 8;
             this.payButton.Text = "PAY";
             this.payButton.UseVisualStyleBackColor = false;
+            this.payButton.Click += new System.EventHandler(this.payButton_Click);
             // 
             // textBoxPanel
             // 
+            this.textBoxPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxPanel.BackColor = System.Drawing.Color.LightGray;
             this.textBoxPanel.Controls.Add(this.expenseNameTextBox);
             this.textBoxPanel.Location = new System.Drawing.Point(22, 32);
@@ -150,6 +156,7 @@
             // 
             // panelForAmount
             // 
+            this.panelForAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panelForAmount.BackColor = System.Drawing.Color.LightGray;
             this.panelForAmount.Controls.Add(this.expenseAmount);
             this.panelForAmount.Location = new System.Drawing.Point(550, 32);
@@ -160,6 +167,7 @@
             // 
             // paidLabel
             // 
+            this.paidLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.paidLabel.AutoSize = true;
             this.paidLabel.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.paidLabel.Location = new System.Drawing.Point(720, 10);
@@ -172,16 +180,16 @@
             // ExpenseCard
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.paidLabel);
             this.Controls.Add(this.panelForAmount);
             this.Controls.Add(this.textBoxPanel);
             this.Controls.Add(this.payButton);
-            this.Controls.Add(this.deeteButton);
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.Rs);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.expenseNameLabel);
-            this.MaximumSize = new System.Drawing.Size(975, 88);
             this.MinimumSize = new System.Drawing.Size(975, 88);
             this.Name = "ExpenseCard";
             this.Size = new System.Drawing.Size(975, 88);
@@ -201,7 +209,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown expenseAmount;
         private System.Windows.Forms.Label Rs;
-        private System.Windows.Forms.Button deeteButton;
+        private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button payButton;
         private System.Windows.Forms.Panel textBoxPanel;
         private System.Windows.Forms.Panel panelForAmount;

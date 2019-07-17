@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DBproject.Model
 {
-    class OutgoingTransaction
+    public class OutgoingTransaction
     {
         string trID;
         ExpenseDetails expense;
@@ -19,6 +19,14 @@ namespace DBproject.Model
             this.expense = expense;
             this.datePaid = date;
             this.paidBy = paidBy;
+        }
+
+        public OutgoingTransaction(string trID, ExpenseDetails expense, DateTime date)
+        {
+            this.trID = trID;
+            this.expense = expense;
+            this.datePaid = date;
+            
         }
 
         public string getTrID()
@@ -39,6 +47,11 @@ namespace DBproject.Model
         public Flat getPaidBy()
         {
             return this.paidBy;
+        }
+
+        public void setDate(DateTime date)
+        {
+            this.datePaid = date;
         }
     }
 }

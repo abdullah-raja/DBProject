@@ -12,9 +12,21 @@ namespace DBproject.Views.UserControls
 {
     public partial class SearchBar : UserControl
     {
+        Expense view;
         public SearchBar()
         {
             InitializeComponent();
+        }
+
+        public SearchBar(Expense view)
+        {
+            InitializeComponent();
+            this.view = view;
+        }
+
+        private void textBox_TextChanged(object sender, EventArgs e)
+        {
+            view.searchWithName(textBox.Text);
         }
     }
 }

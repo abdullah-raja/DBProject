@@ -18,37 +18,55 @@ namespace DBproject.Views.UserControls
         Building apartment;
         List<ExpenseCard> expenses;
         ControllerModule controller;
+        MainScreen mainView;
         bool regularActive = true;
         int otherLoacation = 716;
         int regularLocation = 228;
         public Expense()
         {
             InitializeComponent();
+            statusFilter.SelectedIndex = 0;
             controller = new TransactionModule(CONNECTION_DETAILS.CONNECITION_STRING, "");
             controller.setYears(this);
             expenses = new List<ExpenseCard>();
 
+            
+            
+
         }
 
-        public Expense(int i, Building apartment):this()  // will be used for regular expenses
+        public Expense(int i, Building apartment, MainScreen mainView):this()  // will be used for regular expenses
         {
+            this.mainView = mainView;
             expensesList.Visible = true;
             otherExpensesList.Visible = false;
 
             otherExpensesList.Location = expensesList.Location;
             this.apartment = apartment;
 
-           /* for (int j = 0; j < i; j++)
+            controller = new ExpenseModule(CONNECTION_DETAILS.CONNECITION_STRING, "");
+            controller.getAllExpense(this.expenses, this.apartment, monthComboBox.SelectedItem.ToString(), Convert.ToInt32(yearComboBox.SelectedItem));
+            foreach (ExpenseCard exp in expenses)
             {
-                ExpenseCard exp = new ExpenseCard();
-                exp.setName("Electric Bill");
-                exp.setAmount(2000);
-                expensesList.Controls.Add(exp);
-                
+                if (exp.GetExpenseDetails().GetExpenseType() == ExpenseType.Regular)
+                {
+                    expensesList.Controls.Add(exp);
+                    if (exp.GetExpenseDetails().GetExpenseStatus() == ExpenseStatus.Paid)
+                        exp.SendToBack();
+                    else
+                        exp.BringToFront();
+                }
 
-
+                else
+                {
+                    otherExpensesList.Controls.Add(exp);
+                    if (exp.GetExpenseDetails().GetExpenseStatus() == ExpenseStatus.Paid)
+                        exp.SendToBack();
+                    else
+                        exp.BringToFront();
+                }
+                    
             }
-            */
         }
 
        
@@ -118,16 +136,91 @@ namespace DBproject.Views.UserControls
         {
             ExpenseCard expense;
             if (regularActive)
-                expense = new ExpenseCard(ExpenseType.Regular, this.apartment, monthComboBox.SelectedItem.ToString(), Convert.ToInt32(yearComboBox.SelectedItem));
+            {
+                expense = new ExpenseCard(ExpenseType.Regular, this.apartment, monthComboBox.SelectedItem.ToString(), Convert.ToInt32(yearComboBox.SelectedItem),this.mainView);
+                expensesList.Controls.Add(expense);
+                
+            }
+
 
             else
-                expense = new ExpenseCard(ExpenseType.Other, this.apartment, monthComboBox.SelectedItem.ToString(), Convert.ToInt32(yearComboBox.SelectedItem));
+            {   
+                expense = new ExpenseCard(ExpenseType.Other, this.apartment, monthComboBox.SelectedItem.ToString(), Convert.ToInt32(yearComboBox.SelectedItem), this.mainView);
+                otherExpensesList.Controls.Add(expense);
+            }
 
+            expense.BringToFront();
             expenses.Add(expense);
-            expensesList.Controls.Add(expense);
+            
             expense.Focus();
            // ExpenseDetails expDetails = new ExpenseDetails(expense,apartment,monthComboBox.SelectedItem.ToString(), Convert.ToInt32(yearComboBox.SelectedItem));
 
+        }
+
+        private void statusFilter_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (statusFilter.SelectedIndex == 1)
+                showPaidExpenses();
+
+            else if (statusFilter.SelectedIndex == 2)
+                showUnpaidExpenses();
+
+            else
+                showAll();
+
+        }
+
+        private void showPaidExpenses()
+        {
+            foreach(ExpenseCard exp in expenses)
+            {
+                if (exp.GetExpenseDetails().GetExpenseStatus() == ExpenseStatus.Unpaid)
+                    exp.Hide();
+
+                else
+                    exp.Show();
+
+            }
+        }
+
+        private void showUnpaidExpenses()
+        {
+            foreach (ExpenseCard exp in expenses)
+            {
+                if (exp.GetExpenseDetails().GetExpenseStatus() == ExpenseStatus.Paid)
+                    exp.Hide();
+
+                else
+                    exp.Show();
+            }
+        }
+
+        private void showAll()
+        {
+            try
+            {
+                foreach (ExpenseCard exp in expenses)
+                {
+                    exp.Show();
+                }
+            }
+
+            catch
+            {
+
+            }
+        }
+
+        public void searchWithName(string str)
+        {
+            foreach(ExpenseCard exp in expenses)
+            {
+                if (exp.GetExpenseDetails().getExpenseName().Contains(str))
+                    exp.Show();
+
+                else
+                    exp.Hide();
+            }
         }
     }
 }

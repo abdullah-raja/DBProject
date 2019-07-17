@@ -85,3 +85,5 @@ C:\Users\Sarim\Desktop\DbProject\DBProject\obj\Debug\DBproject.Views.UserControl
 C:\Users\Sarim\Desktop\DbProject\DBProject\obj\Debug\DBproject.Views.UserControls.ExpenseCard.resources
 C:\Users\Sarim\Desktop\DbProject\DBProject\obj\Debug\DBproject.Views.UserControls.SearchBar.resources
 E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.Views.UserControls.BackButton.resources
+E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.Views.UserControls.ExpenseReceipt.resources
+E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.Views.UserControls.BalanceDetails.resources

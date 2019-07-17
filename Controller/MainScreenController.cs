@@ -70,6 +70,7 @@ namespace DBproject.Controller
 
         override public void updateBalance(Building apartment, MainScreen view)
         {
+            int income = 0, expense = 0;
             string query = "SELECT " + TABLE_BUILDING.KEY_BALANCE + " FROM " + TABLE_BUILDING.TBL_BUILDING +
                             " WHERE " + TABLE_BUILDING.KEY_APPARTMENT_ID + " = '" + apartment.getID() + "'";
 
@@ -82,10 +83,35 @@ namespace DBproject.Controller
                     while(reader.Read())
                     {
                         apartment.setBalance(Convert.ToInt32(reader[TABLE_BUILDING.KEY_BALANCE]));
-                        view.updateBalance();
+                        
                     }
                 }
             }
+
+            string incomeQuery = "SELECT SUM(" + TABLE_INCOMING_TRANSACTIONS.KEY_AMOUNT + ") FROM " + TABLE_INCOMING_TRANSACTIONS.TABLE_NAME +
+                                 " WHERE MONTH(" + TABLE_INCOMING_TRANSACTIONS.KEY_DATE_PAID + ") = MONTH(GETDATE()) AND YEAR(" + TABLE_INCOMING_TRANSACTIONS.KEY_DATE_PAID +") = YEAR(GETDATE())";
+
+            using (SqlCommand incomeCommand = new SqlCommand(incomeQuery, connection))
+            {
+                using (SqlDataReader incomeReader = incomeCommand.ExecuteReader())
+                {
+                    if (incomeReader.Read())
+                        income = (int)incomeReader[0];
+
+                }
+            }
+
+            string expenseQuery = "SELECT SUM(" + TABLE_EXPENSES.KEY_AMOUNT + ") FROM [paidExpenses] v INNER JOIN " + TABLE_OUTGOING_TRANSACTION.TABLE_NAME + " t on v.expenseID = t.expenseID";
+            using (SqlCommand expenseCommand = new SqlCommand(expenseQuery, connection))
+            {
+                using (SqlDataReader expenseReader = expenseCommand.ExecuteReader())
+                {
+                    if (expenseReader.Read())
+                        expense = (int)expenseReader[0];
+                }
+            }
+
+            view.updateBalance(income, expense);
         }
 
         public override void newMonthStarted(Income view)

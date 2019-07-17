@@ -20,6 +20,8 @@ namespace DBproject.Views
         ControllerModule controller;
         User user;
         Building apartment;
+        BalanceDetails balanceDetails;
+        int starting, income, expense, current = 0; 
         public MainScreen(User user, Building apartment)
         {
 
@@ -27,6 +29,8 @@ namespace DBproject.Views
             this.user = user;
             this.apartment = apartment;
             updateMainScreen();
+            controller = new MainScreenController(Util.CONNECTION_DETAILS.CONNECITION_STRING, "");
+            controller.updateBalance(apartment, this);
             // calling controller function and creating user
         }
 
@@ -67,16 +71,25 @@ namespace DBproject.Views
             settingsButton.ForeColor = Color.White;
             analyticsButton.ForeColor = Color.White;
 
-            Expense exp = new Expense(3, this.apartment);
+            Expense exp = new Expense(3, this.apartment,this);
             exp.Dock = DockStyle.Fill;
             main.Controls.Clear();
             main.Controls.Add(exp);
                 
         }
 
-        public void updateBalance()
+        private void currentBalance_MouseLeave(object sender, EventArgs e)
+        {
+            System.Threading.Thread.Sleep(1000);
+            balanceDetails.Dispose();
+        }
+
+        public void updateBalance(int inc, int exp)
         {
             currentBalance.Text = "Rs " + apartment.getBalance().ToString();
+            this.income = inc;
+            this.expense = exp;
+            this.starting = apartment.getBalance() + exp - inc;
         }
 
         public void updateMainScreen()
@@ -86,5 +99,20 @@ namespace DBproject.Views
             currentBalance.Text = "Rs " + apartment.getBalance().ToString();
 
         }
+
+        private void currentBalance_MouseEnter(object sender, EventArgs e)
+        {
+            
+            
+            balanceDetails = new BalanceDetails(starting, income, expense, apartment.getBalance());
+            balanceDetails.Location = this.PointToClient(MousePosition);
+            
+            // balanceDetails.
+
+            this.Controls.Add(balanceDetails);
+            balanceDetails.BringToFront();
+        }
+
+        
     }
 }

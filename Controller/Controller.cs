@@ -123,5 +123,15 @@ namespace DBproject.Controller
         {
 
         }
+
+        virtual public void getAllExpense(List<ExpenseCard> expenses, Building apartment, string month, int year)
+        {
+
+        }
+
+        virtual public void confirmPayment(OutgoingTransaction transaction, ExpenseCard expense)
+        {
+
+        }
     }
 }

@@ -16,15 +16,17 @@ namespace DBproject.Views.UserControls
     {
         ExpenseDetails expenseDetails;
         ControllerModule controller;
+        MainScreen mainView;
         public ExpenseCard()
         {
             InitializeComponent();
             expenseNameTextBox.Focus();
+            
         }
 
-        public ExpenseCard(ExpenseType type, Building apartment, String month, int year) : this()
+        public ExpenseCard(ExpenseType type, Building apartment, String month, int year, MainScreen mainView) : this()
         {
-            
+            this.mainView = mainView;
             this.expenseDetails = new ExpenseDetails(apartment, this.getName(), this.getAmount(), type, ExpenseStatus.Unpaid, month, year);
         }
 
@@ -59,21 +61,28 @@ namespace DBproject.Views.UserControls
             this.Dispose();
         }
 
-        private void changeToPaid()
+        public void changeToPaid()
         {
             payButton.Text = "DETAILS";
             paidLabel.Visible = true;
             expenseNameTextBox.ReadOnly = true;
             expenseAmount.Enabled = false;
+            this.BackColor = Color.LightGray;
+            this.expenseDetails.setExpenseStatus(ExpenseStatus.Paid);
+            this.SendToBack();
+            deleteButton.Visible = false;
 
         }
 
-        private void changeToUnpaid()
+        public void changeToUnpaid()
         {
             payButton.Text = "PAY";
             paidLabel.Visible = false;
             expenseNameTextBox.ReadOnly = false;
             expenseAmount.Enabled = true;
+            this.expenseDetails.setExpenseStatus(ExpenseStatus.Unpaid);
+            this.BringToFront();
+            deleteButton.Visible = true;
         }
 
         public string getName()
@@ -133,6 +142,17 @@ namespace DBproject.Views.UserControls
         private void expenseAmount_Leave(object sender, EventArgs e)
         {
             this.addExpense();
+        }
+
+        private void payButton_Click(object sender, EventArgs e)
+        {
+            OutgoingTransaction tr = new OutgoingTransaction(Guid.NewGuid().ToString().Substring(0, 8).ToUpper(), this.expenseDetails, DateTime.Now);
+            ExpenseReceipt receipt = new ExpenseReceipt(tr, this, mainView);
+            this.Parent.Parent.Controls.Add(receipt);
+            receipt.BringToFront();
+            receipt.Left = 50;
+            receipt.Top = 50;
+
         }
     }
 }

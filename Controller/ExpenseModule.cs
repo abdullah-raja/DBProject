@@ -7,6 +7,7 @@ using DBproject.Views.UserControls;
 using DBproject.Model;
 using System.Data.SqlClient;
 using DBproject.Util.StoredProcedures;
+using DBproject.Util.Tables;
 
 namespace DBproject.Controller
 {
@@ -63,6 +64,40 @@ namespace DBproject.Controller
 
         }
 
+        public override void getAllExpense(List<ExpenseCard> expenses, Building apartment, string month, int year)
+        {
+            string selectQuery = "SELECT * FROM " + TABLE_EXPENSES.TABLE_NAME +
+                                " WHERE " + TABLE_EXPENSES.KEY_APARTMENT_ID + " = '" + apartment.getID() + "' AND "
+                                + TABLE_EXPENSES.KEY_MONTH + " = '" + month + "' AND " + TABLE_EXPENSES.KEY_YEAR + " = " + year;
+
+            connection.Open();
+            using (SqlCommand selectCommand = new SqlCommand(selectQuery, connection))
+            {
+                using (SqlDataReader reader = selectCommand.ExecuteReader())
+                {
+                    while(reader.Read())
+                    {
+                        ExpenseDetails exp = new ExpenseDetails(reader[TABLE_EXPENSES.KEY_ID].ToString(), apartment, reader[TABLE_EXPENSES.KEY_NAME].ToString(), Convert.ToInt32(reader[TABLE_EXPENSES.KEY_AMOUNT]), (ExpenseType)Enum.Parse(typeof(ExpenseType), reader[TABLE_EXPENSES.KEY_TYPE].ToString(), true), (ExpenseStatus)Enum.Parse(typeof(ExpenseStatus), reader[TABLE_EXPENSES.KEY_STATUS].ToString(), true), reader[TABLE_EXPENSES.KEY_MONTH].ToString(), (int)reader[TABLE_EXPENSES.KEY_YEAR]);
+                        expenses.Add(new ExpenseCard(exp));
+                    }
+                }
+            }
+        }
+
+        public override void confirmPayment(OutgoingTransaction transaction, ExpenseCard expense)
+        {
+            SqlCommand insertCommand = new SqlCommand(INSERT_OUT_TR_SP.SP_NAME, connection);
+            insertCommand.CommandType = System.Data.CommandType.StoredProcedure;
+
+            insertCommand.Parameters.Add(new SqlParameter(INSERT_OUT_TR_SP.TR_ID_PARAM, transaction.getTrID()));
+            insertCommand.Parameters.Add(new SqlParameter(INSERT_OUT_TR_SP.EXPENSE_ID_PARAM, transaction.getExpense().getExpenseID()));
+            insertCommand.Parameters.Add(new SqlParameter(INSERT_OUT_TR_SP.DATE_PARAM, transaction.getDate()));
+
+            connection.Open();
+            insertCommand.ExecuteNonQuery();
+            connection.Close();
+            expense.changeToPaid();
+        }
 
     }
 }

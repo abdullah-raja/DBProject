@@ -253,10 +253,14 @@
             this.currentBalance.Size = new System.Drawing.Size(119, 29);
             this.currentBalance.TabIndex = 0;
             this.currentBalance.Text = "Rs 20,000";
+            this.currentBalance.MouseEnter += new System.EventHandler(this.currentBalance_MouseEnter);
+            this.currentBalance.MouseLeave += new System.EventHandler(this.currentBalance_MouseLeave);
             // 
             // main
             // 
-            this.main.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.main.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.main.BackColor = System.Drawing.SystemColors.Control;
             this.main.Location = new System.Drawing.Point(225, 82);
             this.main.Name = "main";
             this.main.Size = new System.Drawing.Size(975, 638);
@@ -266,8 +270,8 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1200, 720);
-            this.Controls.Add(this.main);
             this.Controls.Add(this.topPanel);
+            this.Controls.Add(this.main);
             this.Controls.Add(this.sidePanel);
             this.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
