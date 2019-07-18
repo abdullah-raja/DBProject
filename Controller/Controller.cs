@@ -133,5 +133,20 @@ namespace DBproject.Controller
         {
 
         }
+
+        virtual public void deleteExpense(ExpenseDetails expense)
+        {
+
+        }
+
+        virtual public void showIncomePieChart(Anaytics view, Building apartment)
+        {
+
+        }
+
+        virtual public void showExpensePieChart(Anaytics view, Building apartment)
+        {
+
+        }
     }
 }

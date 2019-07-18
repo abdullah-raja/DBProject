@@ -65,6 +65,7 @@ namespace DBproject.Controller
             }
             
             connection.Close();
+
         }
 
         override public void sendEmail(string email, Receipt receipt)
@@ -114,6 +115,8 @@ namespace DBproject.Controller
             view.setMonths(months);
 
         }
+
+
 
         override public void setYears(Income view)
         {

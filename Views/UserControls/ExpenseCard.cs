@@ -58,7 +58,8 @@ namespace DBproject.Views.UserControls
 
         private void deeteButton_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+
+            this.deleteExpense();
         }
 
         public void changeToPaid()
@@ -153,6 +154,23 @@ namespace DBproject.Views.UserControls
             receipt.Left = 50;
             receipt.Top = 50;
 
+        }
+
+        public void setView(MainScreen view)
+        {
+            this.mainView = view;
+        }
+
+        public MainScreen getMainView()
+        {
+            return this.mainView;
+        }
+
+        private void deleteExpense()
+        {
+            controller = new ExpenseModule(Util.CONNECTION_DETAILS.CONNECITION_STRING, "");
+            controller.deleteExpense(this.GetExpenseDetails());
+            this.Dispose();
         }
     }
 }

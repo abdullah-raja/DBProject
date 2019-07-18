@@ -84,6 +84,14 @@ namespace DBproject.Views
             balanceDetails.Dispose();
         }
 
+        private void analyticsButton_Click(object sender, EventArgs e)
+        {
+            Anaytics analytics = new Anaytics(this.apartment);
+            analytics.Dock = DockStyle.Fill;
+            main.Controls.Clear();
+            main.Controls.Add(analytics);
+        }
+
         public void updateBalance(int inc, int exp)
         {
             currentBalance.Text = "Rs " + apartment.getBalance().ToString();

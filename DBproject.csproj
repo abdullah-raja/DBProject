@@ -78,6 +78,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\AnalyticsModule.cs" />
     <Compile Include="Controller\AuthorizationModule.cs" />
     <Compile Include="Controller\Controller.cs" />
     <Compile Include="Controller\CreateAndJoinBuilding.cs" />
@@ -177,6 +178,12 @@
     <Compile Include="Views\UserControls\FloorCard.Designer.cs">
       <DependentUpon>FloorCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControls\Graphs\strokedPieChart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\Graphs\strokedPieChart.Designer.cs">
+      <DependentUpon>strokedPieChart.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\Income.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -239,6 +246,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\FloorCard.resx">
       <DependentUpon>FloorCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\Graphs\strokedPieChart.resx">
+      <DependentUpon>strokedPieChart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\Income.resx">
       <DependentUpon>Income.cs</DependentUpon>

@@ -145,6 +145,7 @@
             this.analyticsButton.TabIndex = 3;
             this.analyticsButton.Text = "ANALYTICS";
             this.analyticsButton.UseVisualStyleBackColor = true;
+            this.analyticsButton.Click += new System.EventHandler(this.analyticsButton_Click);
             // 
             // expensesButton
             // 

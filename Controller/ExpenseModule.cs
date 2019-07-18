@@ -8,6 +8,7 @@ using DBproject.Model;
 using System.Data.SqlClient;
 using DBproject.Util.StoredProcedures;
 using DBproject.Util.Tables;
+using System.Windows.Forms;
 
 namespace DBproject.Controller
 {
@@ -97,6 +98,24 @@ namespace DBproject.Controller
             insertCommand.ExecuteNonQuery();
             connection.Close();
             expense.changeToPaid();
+        }
+
+
+        override public void deleteExpense(ExpenseDetails expense)
+        {
+            connection.Open();
+            string deleteQuery = "DELETE " + TABLE_EXPENSES.TABLE_NAME + " WHERE " + TABLE_EXPENSES.KEY_ID + " = '" + expense.getExpenseID().ToString() + "'";
+            SqlCommand command = new SqlCommand(deleteQuery,connection);
+
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+
+            catch(Exception es)
+            {
+                MessageBox.Show(es.Message);
+            }
         }
 
     }

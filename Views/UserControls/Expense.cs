@@ -48,6 +48,7 @@ namespace DBproject.Views.UserControls
             controller.getAllExpense(this.expenses, this.apartment, monthComboBox.SelectedItem.ToString(), Convert.ToInt32(yearComboBox.SelectedItem));
             foreach (ExpenseCard exp in expenses)
             {
+                exp.setView(this.mainView);
                 if (exp.GetExpenseDetails().GetExpenseType() == ExpenseType.Regular)
                 {
                     expensesList.Controls.Add(exp);
