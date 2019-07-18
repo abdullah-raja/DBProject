@@ -128,6 +128,7 @@
             this.settingsButton.TabIndex = 4;
             this.settingsButton.Text = "SETTINGS";
             this.settingsButton.UseVisualStyleBackColor = true;
+            this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
             // 
             // analyticsButton
             // 

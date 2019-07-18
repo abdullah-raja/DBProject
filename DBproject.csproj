@@ -178,6 +178,18 @@
     <Compile Include="Views\UserControls\FloorCard.Designer.cs">
       <DependentUpon>FloorCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControls\Graphs\BarGraph.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\Graphs\BarGraph.Designer.cs">
+      <DependentUpon>BarGraph.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Graphs\Check.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\Graphs\Check.Designer.cs">
+      <DependentUpon>Check.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\Graphs\strokedPieChart.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -246,6 +258,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\FloorCard.resx">
       <DependentUpon>FloorCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\Graphs\BarGraph.resx">
+      <DependentUpon>BarGraph.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\Graphs\Check.resx">
+      <DependentUpon>Check.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\Graphs\strokedPieChart.resx">
       <DependentUpon>strokedPieChart.cs</DependentUpon>

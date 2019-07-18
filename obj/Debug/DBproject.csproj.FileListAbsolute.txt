@@ -88,3 +88,5 @@ E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.Views.UserControls.BackButt
 E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.Views.UserControls.ExpenseReceipt.resources
 E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.Views.UserControls.BalanceDetails.resources
 E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.Views.UserControls.Graphs.strokedPieChart.resources
+E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.Views.UserControls.Graphs.BarGraph.resources
+E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.Views.UserControls.Graphs.Check.resources

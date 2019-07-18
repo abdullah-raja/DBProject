@@ -50,12 +50,12 @@
             this.notReceivedValue = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.remainingLegend = new System.Windows.Forms.Button();
-            this.totalValue = new System.Windows.Forms.Label();
+            this.totalIncomeValue = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.expenseChartPanel = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.totalExpensesValue = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.unpaidValue = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -233,7 +233,7 @@
             // 
             // 
             this.splitContainer1.Panel1.Controls.Add(this.panel2);
-            this.splitContainer1.Panel1.Controls.Add(this.totalValue);
+            this.splitContainer1.Panel1.Controls.Add(this.totalIncomeValue);
             this.splitContainer1.Panel1.Controls.Add(this.label5);
             this.splitContainer1.Panel1.Controls.Add(this.notReceivedValue);
             this.splitContainer1.Panel1.Controls.Add(this.label4);
@@ -247,7 +247,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.panel3);
-            this.splitContainer1.Panel2.Controls.Add(this.label3);
+            this.splitContainer1.Panel2.Controls.Add(this.totalExpensesValue);
             this.splitContainer1.Panel2.Controls.Add(this.label6);
             this.splitContainer1.Panel2.Controls.Add(this.unpaidValue);
             this.splitContainer1.Panel2.Controls.Add(this.label8);
@@ -347,17 +347,17 @@
             this.remainingLegend.TabIndex = 6;
             this.remainingLegend.UseVisualStyleBackColor = false;
             // 
-            // totalValue
+            // totalIncomeValue
             // 
-            this.totalValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.totalValue.AutoSize = true;
-            this.totalValue.Font = new System.Drawing.Font("Lato Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalValue.ForeColor = System.Drawing.Color.Black;
-            this.totalValue.Location = new System.Drawing.Point(109, 268);
-            this.totalValue.Name = "totalValue";
-            this.totalValue.Size = new System.Drawing.Size(83, 19);
-            this.totalValue.TabIndex = 10;
-            this.totalValue.Text = "25 ( 16,00)";
+            this.totalIncomeValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.totalIncomeValue.AutoSize = true;
+            this.totalIncomeValue.Font = new System.Drawing.Font("Lato Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalIncomeValue.ForeColor = System.Drawing.Color.Black;
+            this.totalIncomeValue.Location = new System.Drawing.Point(109, 268);
+            this.totalIncomeValue.Name = "totalIncomeValue";
+            this.totalIncomeValue.Size = new System.Drawing.Size(83, 19);
+            this.totalIncomeValue.TabIndex = 10;
+            this.totalIncomeValue.Text = "25 ( 16,00)";
             // 
             // label5
             // 
@@ -398,17 +398,17 @@
             this.panel3.Size = new System.Drawing.Size(166, 2);
             this.panel3.TabIndex = 21;
             // 
-            // label3
+            // totalExpensesValue
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Lato Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(114, 268);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 19);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "25 ( 16,00)";
+            this.totalExpensesValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.totalExpensesValue.AutoSize = true;
+            this.totalExpensesValue.Font = new System.Drawing.Font("Lato Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalExpensesValue.ForeColor = System.Drawing.Color.Black;
+            this.totalExpensesValue.Location = new System.Drawing.Point(114, 268);
+            this.totalExpensesValue.Name = "totalExpensesValue";
+            this.totalExpensesValue.Size = new System.Drawing.Size(83, 19);
+            this.totalExpensesValue.TabIndex = 20;
+            this.totalExpensesValue.Text = "25 ( 16,00)";
             // 
             // label6
             // 
@@ -539,7 +539,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.Label totalValue;
+        private System.Windows.Forms.Label totalIncomeValue;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label notReceivedValue;
         private System.Windows.Forms.Label label4;
@@ -551,7 +551,7 @@
         private System.Windows.Forms.Panel incomeChartPanel;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label totalExpensesValue;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label unpaidValue;
         private System.Windows.Forms.Label label8;

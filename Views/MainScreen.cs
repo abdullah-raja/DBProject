@@ -92,6 +92,30 @@ namespace DBproject.Views
             main.Controls.Add(analytics);
         }
 
+        private void settingsButton_Click(object sender, EventArgs e)
+        {
+            UserControls.Graphs.BarGraph barGraph = new UserControls.Graphs.BarGraph();
+            for(int i = 0; i < 12; i++)
+            {
+                int inc = 20000, exp = 6000, total = inc + exp;
+
+                if (i < 3)
+                barGraph.setData(i, inc * (i + 1), exp * (i + 1));
+
+                else
+                {
+                    if(i % 3 == 0)
+                    barGraph.setData(i, inc / (i + 1), exp / (i + 1));
+
+                    else
+                    barGraph.setData(i, inc , exp);
+                }
+            }
+            barGraph.updateGraph();
+            main.Controls.Add(barGraph);
+          //  barGraph.drawG();
+        }
+
         public void updateBalance(int inc, int exp)
         {
             currentBalance.Text = "Rs " + apartment.getBalance().ToString();
