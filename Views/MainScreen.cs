@@ -116,6 +116,22 @@ namespace DBproject.Views
           //  barGraph.drawG();
         }
 
+        private void MainScreen_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'project_DatabaseDataSet.tbl_Flats' table. You can move, or remove it, as needed.
+            this.tbl_FlatsTableAdapter.Fill(this.project_DatabaseDataSet.tbl_Flats);
+            // TODO: This line of code loads data into the 'project_DatabaseDataSet.tbl_Flats' table. You can move, or remove it, as needed.
+            this.tbl_FlatsTableAdapter.Fill(this.project_DatabaseDataSet.tbl_Flats);
+
+        }
+
+        private void generateMonthlyReport_Click(object sender, EventArgs e)
+        {
+            ReportDialogBox reportDialog = new ReportDialogBox();
+            reportDialog.Show();
+           // this.Enabled = false;
+        }
+
         public void updateBalance(int inc, int exp)
         {
             currentBalance.Text = "Rs " + apartment.getBalance().ToString();

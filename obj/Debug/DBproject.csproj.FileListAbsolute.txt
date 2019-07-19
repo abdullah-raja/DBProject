@@ -90,3 +90,4 @@ E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.Views.UserControls.BalanceD
 E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.Views.UserControls.Graphs.strokedPieChart.resources
 E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.Views.UserControls.Graphs.BarGraph.resources
 E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.Views.UserControls.Graphs.Check.resources
+E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.Views.ReportDialogBox.resources

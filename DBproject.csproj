@@ -64,6 +64,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -99,6 +100,11 @@
     <Compile Include="Model\OutgoingTransaction.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Project_DatabaseDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Project_DatabaseDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\CONNECTION_DETAILS.cs" />
     <Compile Include="Util\StoredProcedures\INSERT_EXPENSE_SP.cs" />
@@ -117,6 +123,12 @@
     </Compile>
     <Compile Include="Views\MainScreen.Designer.cs">
       <DependentUpon>MainScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReportDialogBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ReportDialogBox.Designer.cs">
+      <DependentUpon>ReportDialogBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\SignUp.cs">
       <SubType>Form</SubType>
@@ -229,6 +241,9 @@
     <EmbeddedResource Include="Views\MainScreen.resx">
       <DependentUpon>MainScreen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\ReportDialogBox.resx">
+      <DependentUpon>ReportDialogBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>
     </EmbeddedResource>
@@ -278,6 +293,17 @@
       <DependentUpon>Receipt.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
+    <None Include="Project_DatabaseDataSet.xsc">
+      <DependentUpon>Project_DatabaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Project_DatabaseDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Project_DatabaseDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Project_DatabaseDataSet.xss">
+      <DependentUpon>Project_DatabaseDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

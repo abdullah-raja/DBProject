@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainScreen));
             this.PicNamePanel = new System.Windows.Forms.Panel();
             this.flatNumberLabel = new System.Windows.Forms.Label();
@@ -44,10 +45,15 @@
             this.currentBalLabel = new System.Windows.Forms.Label();
             this.currentBalance = new System.Windows.Forms.Label();
             this.main = new System.Windows.Forms.Panel();
+            this.project_DatabaseDataSet = new DBproject.Project_DatabaseDataSet();
+            this.tblFlatsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tbl_FlatsTableAdapter = new DBproject.Project_DatabaseDataSetTableAdapters.tbl_FlatsTableAdapter();
             this.PicNamePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profiePicture)).BeginInit();
             this.sidePanel.SuspendLayout();
             this.topPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.project_DatabaseDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblFlatsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // PicNamePanel
@@ -214,6 +220,7 @@
             this.generateMonthlyReport.Size = new System.Drawing.Size(40, 33);
             this.generateMonthlyReport.TabIndex = 3;
             this.generateMonthlyReport.UseVisualStyleBackColor = false;
+            this.generateMonthlyReport.Click += new System.EventHandler(this.generateMonthlyReport_Click);
             // 
             // logoutButton
             // 
@@ -260,13 +267,26 @@
             // 
             // main
             // 
-            this.main.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.main.BackColor = System.Drawing.SystemColors.Control;
+            this.main.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.main.Location = new System.Drawing.Point(225, 82);
             this.main.Name = "main";
             this.main.Size = new System.Drawing.Size(975, 638);
             this.main.TabIndex = 2;
+            // 
+            // project_DatabaseDataSet
+            // 
+            this.project_DatabaseDataSet.DataSetName = "Project_DatabaseDataSet";
+            this.project_DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tblFlatsBindingSource
+            // 
+            this.tblFlatsBindingSource.DataMember = "tbl_Flats";
+            this.tblFlatsBindingSource.DataSource = this.project_DatabaseDataSet;
+            // 
+            // tbl_FlatsTableAdapter
+            // 
+            this.tbl_FlatsTableAdapter.ClearBeforeFill = true;
             // 
             // MainScreen
             // 
@@ -280,11 +300,14 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainScreen";
             this.Text = "MainScreen";
+            this.Load += new System.EventHandler(this.MainScreen_Load);
             this.PicNamePanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.profiePicture)).EndInit();
             this.sidePanel.ResumeLayout(false);
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.project_DatabaseDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblFlatsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -306,5 +329,8 @@
         private System.Windows.Forms.Label currentBalance;
         private System.Windows.Forms.Button generateMonthlyReport;
         private System.Windows.Forms.Panel main;
+        private Project_DatabaseDataSet project_DatabaseDataSet;
+        private System.Windows.Forms.BindingSource tblFlatsBindingSource;
+        private Project_DatabaseDataSetTableAdapters.tbl_FlatsTableAdapter tbl_FlatsTableAdapter;
     }
 }
