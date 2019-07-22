@@ -43,6 +43,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.yearBox = new System.Windows.Forms.ComboBox();
             this.okButton = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.SuspendLayout();
             // 
             // flatNumberCheckBox
@@ -51,7 +52,7 @@
             this.flatNumberCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.flatNumberCheckBox.ForeColor = System.Drawing.Color.DimGray;
             this.flatNumberCheckBox.Location = new System.Drawing.Point(48, 113);
-            this.flatNumberCheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flatNumberCheckBox.Margin = new System.Windows.Forms.Padding(4);
             this.flatNumberCheckBox.Name = "flatNumberCheckBox";
             this.flatNumberCheckBox.Size = new System.Drawing.Size(109, 22);
             this.flatNumberCheckBox.TabIndex = 0;
@@ -214,6 +215,8 @@
             // yearBox
             // 
             this.yearBox.FormattingEnabled = true;
+            this.yearBox.Items.AddRange(new object[] {
+            "2017"});
             this.yearBox.Location = new System.Drawing.Point(486, 163);
             this.yearBox.Name = "yearBox";
             this.yearBox.Size = new System.Drawing.Size(79, 26);
@@ -230,6 +233,7 @@
             this.okButton.TabIndex = 16;
             this.okButton.Text = "GENERATE REPORT";
             this.okButton.UseVisualStyleBackColor = false;
+            this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
             // ReportDialogBox
             // 
@@ -253,7 +257,7 @@
             this.Controls.Add(this.flatNumberCheckBox);
             this.Font = new System.Drawing.Font("Lato", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ReportDialogBox";
             this.Text = "ReportDialogBox";
             this.TransparencyKey = System.Drawing.Color.Transparent;
@@ -279,5 +283,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox yearBox;
         private System.Windows.Forms.Button okButton;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

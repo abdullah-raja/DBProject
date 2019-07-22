@@ -127,7 +127,7 @@ namespace DBproject.Views
 
         private void generateMonthlyReport_Click(object sender, EventArgs e)
         {
-            ReportDialogBox reportDialog = new ReportDialogBox();
+            ReportDialogBox reportDialog = new ReportDialogBox(this.apartment);
             reportDialog.Show();
            // this.Enabled = false;
         }

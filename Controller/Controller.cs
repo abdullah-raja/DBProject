@@ -148,5 +148,10 @@ namespace DBproject.Controller
         {
 
         }
+
+        virtual public void generateReprt(ReportDialogBox view ,Building apartment, int month, int year)
+        {
+
+        }
     }
 }
