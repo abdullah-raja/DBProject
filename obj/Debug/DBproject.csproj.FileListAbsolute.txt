@@ -92,3 +92,4 @@ E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.Views.UserControls.Graphs.B
 E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.Views.UserControls.Graphs.Check.resources
 E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.Views.ReportDialogBox.resources
 E:\UBIT\DBPR\DBproject\DBproject\bin\Debug\itextsharp.dll
+E:\UBIT\DBPR\DBproject\DBproject\obj\Debug\DBproject.Views.UserControls.Settings.resources

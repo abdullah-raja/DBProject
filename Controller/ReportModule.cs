@@ -22,12 +22,14 @@ namespace DBproject.Controller
 
         public override void generateReprt(ReportDialogBox view ,Building apartment, int month, int year)
         {
-            view.exportPdf(generateIncomeReport(apartment, month, year), null);
+            int incomeSum = 0;
+            view.exportPdf(generateIncomeReport(apartment, month, year, ref incomeSum), null, incomeSum,0);
 
         }
 
-        private DataTable generateIncomeReport(Building apartment, int month, int year)
+        private DataTable generateIncomeReport(Building apartment, int month, int year, ref int sum)
         {
+            sum = 0;
             string incomeQuery = "SELECT " + TABLE_FLATS.KEY_FLAT_NUMBER + ", " + TABLE_INCOMING_TRANSACTIONS.KEY_AMOUNT;
             DataTable incomeTable = new DataTable();
             incomeTable.Columns.Add("FLAT NUMBER");
@@ -55,21 +57,22 @@ namespace DBproject.Controller
                 " OR MONTH(" + TABLE_INCOMING_TRANSACTIONS.KEY_DATE_PAID + ") is null" + " AND YEAR(" + Util.Tables.TABLE_INCOMING_TRANSACTIONS.KEY_DATE_PAID + ") = " + year + " OR YEAR(" + Util.Tables.TABLE_INCOMING_TRANSACTIONS.KEY_DATE_PAID + ") is null";
 
             connection.Open();
-            using (SqlCommand insertCommand = new SqlCommand(incomeQuery, connection))
+            using (SqlCommand incomeCommand = new SqlCommand(incomeQuery, connection))
             {
-                using (SqlDataReader insertReader = insertCommand.ExecuteReader())
+                using (SqlDataReader incomeReader = incomeCommand.ExecuteReader())
                 {
 
-                    while (insertReader.Read())
+                    while (incomeReader.Read())
                     {
                         try
                         {
-                            incomeTable.Rows.Add(insertReader[TABLE_FLATS.KEY_FLAT_NUMBER].ToString(), insertReader[TABLE_INCOMING_TRANSACTIONS.KEY_AMOUNT].ToString(), insertReader[TABLE_INCOMING_TRANSACTIONS.KEY_MONTH].ToString(), Convert.ToDateTime(insertReader[TABLE_INCOMING_TRANSACTIONS.KEY_DATE_PAID]), insertReader[TABLE_FLATS.KEY_DUES].ToString());
+                            incomeTable.Rows.Add(incomeReader[TABLE_FLATS.KEY_FLAT_NUMBER].ToString(), incomeReader[TABLE_INCOMING_TRANSACTIONS.KEY_AMOUNT].ToString(), incomeReader[TABLE_INCOMING_TRANSACTIONS.KEY_MONTH].ToString(), Convert.ToDateTime(incomeReader[TABLE_INCOMING_TRANSACTIONS.KEY_DATE_PAID]).Date, incomeReader[TABLE_FLATS.KEY_DUES].ToString());
+                            sum += (int)incomeReader[TABLE_INCOMING_TRANSACTIONS.KEY_AMOUNT];
                         }
 
                         catch (InvalidCastException es)
                         {
-                            incomeTable.Rows.Add(insertReader[TABLE_FLATS.KEY_FLAT_NUMBER].ToString(), "-", insertReader[TABLE_INCOMING_TRANSACTIONS.KEY_MONTH].ToString(), "-", insertReader[TABLE_FLATS.KEY_DUES].ToString());
+                            incomeTable.Rows.Add(incomeReader[TABLE_FLATS.KEY_FLAT_NUMBER].ToString(), "-", incomeReader[TABLE_INCOMING_TRANSACTIONS.KEY_MONTH].ToString(), "-", incomeReader[TABLE_FLATS.KEY_DUES].ToString());
                         }
                     }
                 }
