@@ -153,5 +153,10 @@ namespace DBproject.Controller
         {
 
         }
+
+        virtual public void setMonthAndYears(ReportDialogBox view, Building apartment)
+        {
+
+        }
     }
 }

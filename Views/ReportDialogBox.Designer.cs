@@ -49,6 +49,7 @@
             // flatNumberCheckBox
             // 
             this.flatNumberCheckBox.AutoSize = true;
+            this.flatNumberCheckBox.Enabled = false;
             this.flatNumberCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.flatNumberCheckBox.ForeColor = System.Drawing.Color.DimGray;
             this.flatNumberCheckBox.Location = new System.Drawing.Point(48, 113);
@@ -58,11 +59,11 @@
             this.flatNumberCheckBox.TabIndex = 0;
             this.flatNumberCheckBox.Text = "Flat Number";
             this.flatNumberCheckBox.UseVisualStyleBackColor = true;
-            this.flatNumberCheckBox.Visible = false;
             // 
             // amountCheckbox
             // 
             this.amountCheckbox.AutoSize = true;
+            this.amountCheckbox.Enabled = false;
             this.amountCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.amountCheckbox.ForeColor = System.Drawing.Color.DimGray;
             this.amountCheckbox.Location = new System.Drawing.Point(48, 150);
@@ -72,7 +73,6 @@
             this.amountCheckbox.TabIndex = 1;
             this.amountCheckbox.Text = "Amount";
             this.amountCheckbox.UseVisualStyleBackColor = true;
-            this.amountCheckbox.Visible = false;
             // 
             // monthCheckbox
             // 
@@ -86,7 +86,6 @@
             this.monthCheckbox.TabIndex = 3;
             this.monthCheckbox.Text = "For the Month";
             this.monthCheckbox.UseVisualStyleBackColor = true;
-            this.monthCheckbox.Visible = false;
             // 
             // dateCheckbox
             // 
@@ -100,7 +99,6 @@
             this.dateCheckbox.TabIndex = 2;
             this.dateCheckbox.Text = "Date";
             this.dateCheckbox.UseVisualStyleBackColor = true;
-            this.dateCheckbox.Visible = false;
             // 
             // receivableCheckbox
             // 
@@ -114,11 +112,12 @@
             this.receivableCheckbox.TabIndex = 4;
             this.receivableCheckbox.Text = "Dues Receivable";
             this.receivableCheckbox.UseVisualStyleBackColor = true;
-            this.receivableCheckbox.Visible = false;
             // 
             // incomeCheckbox
             // 
             this.incomeCheckbox.AutoSize = true;
+            this.incomeCheckbox.Checked = true;
+            this.incomeCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.incomeCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.incomeCheckbox.Font = new System.Drawing.Font("Lato", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.incomeCheckbox.Location = new System.Drawing.Point(48, 61);
@@ -133,6 +132,8 @@
             // expenseCheckbox
             // 
             this.expenseCheckbox.AutoSize = true;
+            this.expenseCheckbox.Checked = true;
+            this.expenseCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.expenseCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.expenseCheckbox.Font = new System.Drawing.Font("Lato", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.expenseCheckbox.Location = new System.Drawing.Point(270, 61);
@@ -147,6 +148,7 @@
             // expenseDetails
             // 
             this.expenseDetails.AutoSize = true;
+            this.expenseDetails.Enabled = false;
             this.expenseDetails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.expenseDetails.ForeColor = System.Drawing.Color.DimGray;
             this.expenseDetails.Location = new System.Drawing.Point(270, 187);
@@ -156,11 +158,11 @@
             this.expenseDetails.TabIndex = 8;
             this.expenseDetails.Text = "Details";
             this.expenseDetails.UseVisualStyleBackColor = true;
-            this.expenseDetails.Visible = false;
             // 
             // expenseAmount
             // 
             this.expenseAmount.AutoSize = true;
+            this.expenseAmount.Enabled = false;
             this.expenseAmount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.expenseAmount.ForeColor = System.Drawing.Color.DimGray;
             this.expenseAmount.Location = new System.Drawing.Point(270, 150);
@@ -170,11 +172,11 @@
             this.expenseAmount.TabIndex = 7;
             this.expenseAmount.Text = "Amount";
             this.expenseAmount.UseVisualStyleBackColor = true;
-            this.expenseAmount.Visible = false;
             // 
             // expenseDateCheckbox
             // 
             this.expenseDateCheckbox.AutoSize = true;
+            this.expenseDateCheckbox.Enabled = false;
             this.expenseDateCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.expenseDateCheckbox.ForeColor = System.Drawing.Color.DimGray;
             this.expenseDateCheckbox.Location = new System.Drawing.Point(270, 113);
@@ -184,7 +186,6 @@
             this.expenseDateCheckbox.TabIndex = 6;
             this.expenseDateCheckbox.Text = "Date";
             this.expenseDateCheckbox.UseVisualStyleBackColor = true;
-            this.expenseDateCheckbox.Visible = false;
             // 
             // monthBox
             // 
@@ -215,8 +216,6 @@
             // yearBox
             // 
             this.yearBox.FormattingEnabled = true;
-            this.yearBox.Items.AddRange(new object[] {
-            "2017"});
             this.yearBox.Location = new System.Drawing.Point(486, 163);
             this.yearBox.Name = "yearBox";
             this.yearBox.Size = new System.Drawing.Size(79, 26);
@@ -261,6 +260,7 @@
             this.Name = "ReportDialogBox";
             this.Text = "ReportDialogBox";
             this.TransparencyKey = System.Drawing.Color.Transparent;
+           // this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ReportDialogBox_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

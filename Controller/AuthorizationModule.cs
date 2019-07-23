@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DBproject.Util.Tables;
 
 namespace DBproject.Controller
 {
@@ -89,6 +90,7 @@ namespace DBproject.Controller
 
                 if (user.getApartmentID() != null) // getting apartment details
                 {
+                    
                     string selectApartmentQuery = "SELECT * FROM tbl_Buildings WHERE apartmentID = " + "'" + Guid.Parse(user.getApartmentID()) + "'";
                     using (SqlCommand getApartmentCommand = new SqlCommand(selectApartmentQuery, connection))
                     {
@@ -98,9 +100,15 @@ namespace DBproject.Controller
                             {
                               //  int  l = (Int32)apartmentReader["flatsPerFloor"];
                                 apartment.setAllValues(user.getApartmentID(), apartmentReader["apartmentName"].ToString(), (Int32)apartmentReader["numberOfFloors"], (Int32)apartmentReader["flatsPerFloor"], apartmentReader["code"].ToString(), user, 0, (int)apartmentReader["balance"]);
+                                
+
                             }
                         }
                     }
+
+                    Model.Flat adminFlat = getAdminFlat(apartment, user);
+                    apartment.makeAdmin(adminFlat.getFlatNumber());
+                    user.setFlat(apartment.getAdminFlat());
 
                 }
 
@@ -118,6 +126,32 @@ namespace DBproject.Controller
 
         }
 
+        private Model.Flat getAdminFlat(Model.Building apartment, Model.User user)
+        {
+            Model.Flat adminFlat = null;
+            string selectAdminFlat = "SELECT * FROM " + Util.Tables.TABLE_FLATS.TBL_FLATS + " WHERE " + Util.Tables.TABLE_FLATS.KEY_USER_ID + " = '" + user.getID() + "'";
+            using (SqlCommand getFlatCommand = new SqlCommand(selectAdminFlat, connection))
+            {
+                using (SqlDataReader reader = getFlatCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        //  int  l = (Int32)apartmentReader["flatsPerFloor"];
+                        try
+                        {
+                            adminFlat = new Model.Flat(Convert.ToInt32(reader[TABLE_FLATS.KEY_FLAT_NUMBER]), reader[TABLE_FLATS.KEY_RESIDENT_NAME].ToString(), reader[TABLE_FLATS.KEY_EMAIL].ToString(), reader[TABLE_FLATS.KEY_MOBILE_NUMBER].ToString(), Convert.ToInt32(reader[TABLE_FLATS.KEY_DUES]), Convert.ToInt32(reader[TABLE_FLATS.KEY_MONTHLYFEE]), Convert.ToInt32(reader[TABLE_FLATS.KEY_IS_MANAGER]), apartment);
+                        }
+
+                        catch (InvalidCastException cs)
+                        {
+                            adminFlat = new Model.Flat(Convert.ToInt32(reader[TABLE_FLATS.KEY_FLAT_NUMBER]), reader[TABLE_FLATS.KEY_RESIDENT_NAME].ToString(), reader[TABLE_FLATS.KEY_EMAIL].ToString(), reader[TABLE_FLATS.KEY_MOBILE_NUMBER].ToString(), 0, 0, Convert.ToInt32(reader[TABLE_FLATS.KEY_IS_MANAGER]), apartment);
+                        }
+                    }
+                }
+            }
+
+            return adminFlat;
+        }
         override public bool signUp(Model.User user, Views.SignUp view) // Sending instance of View to make changes, will return true if successful
         {
             bool insertSuccessul = false;

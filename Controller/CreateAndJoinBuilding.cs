@@ -63,13 +63,15 @@ namespace DBproject.Controller
                         createFlats.CommandType = CommandType.StoredProcedure;
                         createFlats.Parameters.Add(new SqlParameter("@flatNumber", building.getFlatAt(i, j).getFlatNumber()));
                         createFlats.Parameters.Add(new SqlParameter("@apartmentID", Guid.Parse(building.getID())));
+
+
+                        if (i + 1 == adminFlat / 100 && j + 1 == adminFlat % 10)
+                        {
+                            building.getFlatAt(i, j).makeManager(3);
+                            user.setFlat(building.getFlatAt(i, j));
+                        }
                         
-
-                        if (i+1 == adminFlat / 100 && j+1 == adminFlat % 10)
-                        createFlats.Parameters.Add(new SqlParameter("@isManager", 3)); // admin will be manager
-
-                        else
-                        createFlats.Parameters.Add(new SqlParameter("@isManager", 1));  // 1 = not manager, // 2 = manager, 3 = admi, 
+                        createFlats.Parameters.Add(new SqlParameter("@isManager", building.getFlatAt(i, j).getIsManager()));  // 1 = not manager, // 2 = manager, 3 = admi, 
 
 
                         createFlats.ExecuteNonQuery();

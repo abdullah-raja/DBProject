@@ -17,6 +17,7 @@ namespace DBproject.Model
         string mobileNumber;
         static int userCount = 0;
         string apartmentID;
+        Flat userFlat;
 
         public User()
         {
@@ -54,6 +55,19 @@ namespace DBproject.Model
             userCount++;
             
 
+        }
+
+        public void setFlat(Flat flat)
+        {
+            this.userFlat = flat;
+            userFlat.setContactNumber(this.mobileNumber);
+            userFlat.setEmail(this.email);
+            userFlat.setNameOfResident(this.firstName + " " + this.lastName);
+        }
+
+        public Flat getFlat()
+        {
+            return this.userFlat;
         }
 
         //apartment getters setters

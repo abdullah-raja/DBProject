@@ -22,8 +22,8 @@ namespace DBproject.Controller
 
         public override void generateReprt(ReportDialogBox view ,Building apartment, int month, int year)
         {
-            int incomeSum = 0;
-            view.exportPdf(generateIncomeReport(apartment, month, year, ref incomeSum), null, incomeSum,0);
+            int incomeSum = 0, expenseSum = 0;
+            view.exportPdf(generateIncomeReport(apartment, month, year, ref incomeSum), generateExpenseReport(apartment, month, year, ref expenseSum), incomeSum, expenseSum);
 
         }
 
@@ -66,7 +66,7 @@ namespace DBproject.Controller
                     {
                         try
                         {
-                            incomeTable.Rows.Add(incomeReader[TABLE_FLATS.KEY_FLAT_NUMBER].ToString(), incomeReader[TABLE_INCOMING_TRANSACTIONS.KEY_AMOUNT].ToString(), incomeReader[TABLE_INCOMING_TRANSACTIONS.KEY_MONTH].ToString(), Convert.ToDateTime(incomeReader[TABLE_INCOMING_TRANSACTIONS.KEY_DATE_PAID]).Date, incomeReader[TABLE_FLATS.KEY_DUES].ToString());
+                            incomeTable.Rows.Add(incomeReader[TABLE_FLATS.KEY_FLAT_NUMBER].ToString(), incomeReader[TABLE_INCOMING_TRANSACTIONS.KEY_AMOUNT].ToString(), incomeReader[TABLE_INCOMING_TRANSACTIONS.KEY_MONTH].ToString(), Convert.ToDateTime(incomeReader[TABLE_INCOMING_TRANSACTIONS.KEY_DATE_PAID]).ToShortDateString(), incomeReader[TABLE_FLATS.KEY_DUES].ToString());
                             sum += (int)incomeReader[TABLE_INCOMING_TRANSACTIONS.KEY_AMOUNT];
                         }
 
@@ -81,6 +81,79 @@ namespace DBproject.Controller
             }
             connection.Close();
             return incomeTable;
+        }
+
+
+
+        private DataTable generateExpenseReport(Building apartment, int month, int year, ref int sum)
+        {
+            sum = 0;
+            string expenseQuery = "SELECT " + TABLE_OUTGOING_TRANSACTION.KEY_DATE + ", " + TABLE_EXPENSES.KEY_NAME
+                + ", " + TABLE_EXPENSES.KEY_AMOUNT + " FROM " + Util.VIEWS.EXPENSE_REPORT_VIEW
+                + " WHERE " + TABLE_EXPENSES.KEY_APARTMENT_ID + " = '" + apartment.getID() + "' AND MONTH(" + TABLE_OUTGOING_TRANSACTION.KEY_DATE + ") = " + month +
+                " AND YEAR(" + Util.Tables.TABLE_OUTGOING_TRANSACTION.KEY_DATE + ") = " + year;
+
+            DataTable expenseTable = new DataTable();
+            expenseTable.Columns.Add("DATE PAID");
+            expenseTable.Columns.Add("DETAILS");
+            expenseTable.Columns.Add("AMOUNT");
+
+            // Concatnating column name according to the check box
+
+
+       
+
+            connection.Open();
+            using (SqlCommand expenseCommand = new SqlCommand(expenseQuery, connection))
+            {
+                using (SqlDataReader expenseReader = expenseCommand.ExecuteReader())
+                {
+
+                    while (expenseReader.Read())
+                    {
+                        
+                            expenseTable.Rows.Add(Convert.ToDateTime(expenseReader[TABLE_OUTGOING_TRANSACTION.KEY_DATE]).ToShortDateString(), expenseReader[TABLE_EXPENSES.KEY_NAME].ToString(), expenseReader[TABLE_INCOMING_TRANSACTIONS.KEY_AMOUNT].ToString());
+                            sum += (int)expenseReader[TABLE_EXPENSES.KEY_AMOUNT];
+                        
+                        
+                    }
+                }
+
+
+            }
+            connection.Close();
+            return expenseTable;
+        }
+
+
+        override public void setMonthAndYears(ReportDialogBox view, Building apartment)
+        {
+            List<String> months = new List<String>();
+            List<String> years = new List<String>();
+            string selectQuery = "SELECT DISTINCT MONTH(" + TABLE_OUTGOING_TRANSACTION.KEY_DATE + "), YEAR(" + TABLE_OUTGOING_TRANSACTION.KEY_DATE + ") FROM " +
+                                Util.VIEWS.EXPENSE_REPORT_VIEW + " WHERE " + TABLE_EXPENSES.KEY_APARTMENT_ID + " = '" + apartment.getID() + "'";
+            connection.Open();
+
+            using (SqlCommand command = new SqlCommand(selectQuery, connection))
+            {
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (Convert.ToInt32(reader[0]) != DateTime.Now.Month || Convert.ToInt32(reader[1]) != DateTime.Now.Year)
+                        {
+                            int month = Convert.ToInt32(reader[0]);
+
+                            months.Add(miscFunctions.ToMonthName(month));
+                            years.Add(reader[1].ToString());
+                        }
+                    }
+                }
+            }
+
+            connection.Close();
+            view.setMonths(months);
+            view.setYears(years);
         }
     }
 }

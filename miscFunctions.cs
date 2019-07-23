@@ -14,6 +14,10 @@ namespace DBproject
             return CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(dateTime.Month);
         }
 
-       
+        public static string ToMonthName(int month)
+        {
+            return CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(month);
+        }
+
     }
 }

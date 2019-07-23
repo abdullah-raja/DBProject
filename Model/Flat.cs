@@ -24,6 +24,7 @@ namespace DBproject.Model
         {
             this.apartment = apartment;
             this.floor = floor;
+            this.isManager = 1;
             if(flatNumberScheme == 0)
             {
                 int f = (floor * 100) + index;
@@ -37,7 +38,7 @@ namespace DBproject.Model
         public Flat(int flatNumber, string nameOfResident,string email,string contactNumber,int dues, int monthlyFees, int isManager, Building apartment)
         {
             this.flatNumber = flatNumber;
-            this.floor = flatNumber - 100;
+            this.floor = flatNumber / 100;
             this.nameOfResident = nameOfResident;
             this.email = email;
             this.contactNumber = contactNumber;
@@ -48,6 +49,15 @@ namespace DBproject.Model
 
         }
         
+        public void makeManager(int i)
+        {
+            this.isManager = i;
+        }
+
+        public int getIsManager()
+        {
+            return this.isManager;
+        }
 
         //flatNumber getter Setters
         public int getFlatNumber()
@@ -138,10 +148,6 @@ namespace DBproject.Model
             return this.apartment;
         }
 
-        public int getIsManager()
-        {
-            return this.isManager;
-        }
 
         
     }

@@ -128,8 +128,16 @@ namespace DBproject.Views
         private void generateMonthlyReport_Click(object sender, EventArgs e)
         {
             ReportDialogBox reportDialog = new ReportDialogBox(this.apartment);
+            this.Enabled = false;
             reportDialog.Show();
-           // this.Enabled = false;
+            if (reportDialog.DialogResult == DialogResult.Cancel)
+                this.Enabled = true;
+            reportDialog.FormClosed += (s, es) =>
+            {
+                this.Enabled = true;
+            };
+
+            // this.Enabled = false;
         }
 
         public void updateBalance(int inc, int exp)
@@ -143,7 +151,7 @@ namespace DBproject.Views
         public void updateMainScreen()
         {
             nameLabel.Text = user.getFirstName() + " "+ user.getLastname();
-            flatNumberLabel.Text = user.getIsAdmin() ? "Admin" : "";
+            flatNumberLabel.Text = user.getFlat().getFlatNumber().ToString();
             currentBalance.Text = "Rs " + apartment.getBalance().ToString();
 
         }

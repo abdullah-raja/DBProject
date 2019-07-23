@@ -9,5 +9,6 @@ namespace DBproject.Util.Tables
     class TABLE_OUTGOING_TRANSACTION
     {
         public static string TABLE_NAME = "tbl_OutgoingTransactions";
+        public static string KEY_DATE = "datePaid";
     }
 }

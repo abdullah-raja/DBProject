@@ -81,6 +81,7 @@ namespace DBproject.Model
                     if (flatNumberScheme == 0)
                     {
                         this.flats[i, j] = new Flat(flatNumberScheme, i+1, j+1,this);
+                        
 
                     }
                 }
@@ -176,5 +177,27 @@ namespace DBproject.Model
             return flats[floor, flat];
             
         }
+
+        public void makeAdmin(int floor, int flat)
+        {
+            this.flats[floor, flat].makeManager(3);
+        }
+
+        public void makeAdmin(int flatNumber)
+        {
+            this.flats[flatNumber/100-1, flatNumber%100-1].makeManager(3);
+        }
+
+        public Flat getAdminFlat()
+        {
+            Flat f = null;
+            for (int i = 0; i < noOfFloors; i++)
+                for (int j = 0; j < flatsPerFloor; j++)
+                    if (flats[i, j].getIsManager() == 3)
+                        f = flats[i, j];
+
+            return f;
+        }
+
     }
 }

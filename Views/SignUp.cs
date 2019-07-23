@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using DBproject.Model;
 
 using System.Text.RegularExpressions;
-
+using XanderUI;
 using DBproject.Controller;
 
 
@@ -229,9 +229,9 @@ namespace DBproject.Views
         private void SignupAsAdminButton_Click(object sender, EventArgs e)
         {
             controller = new CreateAndJoinBuilding(connectionString, buildingsTableName);
-            Building building = new Building(buildingNameTextbox.Text, Convert.ToInt32(noOfFloorsInput.Value), Convert.ToInt32(flatsPerFloorInput.Value), codeTextBox.Text, user, Convert.ToInt32(flatNoFormatInput.Value), (int)balanceInput.Value);
-
-            controller.createBuilding(building, this,user,Convert.ToInt32(adminFlatInput.Value));
+            this.apartment = new Building(buildingNameTextbox.Text, Convert.ToInt32(noOfFloorsInput.Value), Convert.ToInt32(flatsPerFloorInput.Value), codeTextBox.Text, user, Convert.ToInt32(flatNoFormatInput.Value), (int)balanceInput.Value);
+            
+            controller.createBuilding(apartment, this,user,Convert.ToInt32(adminFlatInput.Value));
         }
 
 
