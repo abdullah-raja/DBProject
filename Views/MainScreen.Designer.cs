@@ -264,6 +264,7 @@
             this.currentBalance.Text = "Rs 20,000";
             this.currentBalance.MouseEnter += new System.EventHandler(this.currentBalance_MouseEnter);
             this.currentBalance.MouseLeave += new System.EventHandler(this.currentBalance_MouseLeave);
+            this.currentBalance.MouseHover += new System.EventHandler(this.currentBalance_MouseHover);
             // 
             // main
             // 

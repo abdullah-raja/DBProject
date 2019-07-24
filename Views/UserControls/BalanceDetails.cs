@@ -13,13 +13,15 @@ namespace DBproject.Views.UserControls
     public partial class BalanceDetails : UserControl
     {
         int starting, income, expenses, current;
+        MainScreen mainView;
         public BalanceDetails()
         {
             InitializeComponent();
         }
 
-        public BalanceDetails(int startingValue, int income, int expense, int current) : this()
+        public BalanceDetails(MainScreen mainView, int startingValue, int income, int expense, int current) : this()
         {
+            this.mainView = mainView;
             this.starting = startingValue;
             this.income = income;
             this.expenses = expense;
@@ -41,6 +43,8 @@ namespace DBproject.Views.UserControls
         private void showMore_Click(object sender, EventArgs e)
         {
 
+            mainView.showAnalytics();
+        
         }
     }
 }

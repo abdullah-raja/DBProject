@@ -44,13 +44,15 @@
             this.loginPanel = new System.Windows.Forms.Panel();
             this.loginFailedError = new System.Windows.Forms.Label();
             this.AsaMemberpanel = new System.Windows.Forms.Panel();
+            this.joinApartmentButton = new XanderUI.XUIButton();
             this.MakeAMemberButton = new XanderUI.XUIButton();
             this.membersixdigitcodetextBox = new System.Windows.Forms.TextBox();
-            this.flatnotextBox = new System.Windows.Forms.TextBox();
-            this.flatnolabel = new System.Windows.Forms.Label();
+            this.ApartmentIDLabel = new System.Windows.Forms.Label();
             this.membersixdigitcodelabel = new System.Windows.Forms.Label();
             this.Memberlabel = new System.Windows.Forms.Label();
             this.AdminPanel = new System.Windows.Forms.Panel();
+            this.adminFlatInput = new System.Windows.Forms.NumericUpDown();
+            this.yourFlat = new System.Windows.Forms.Label();
             this.flatsPerFloorInput = new System.Windows.Forms.NumericUpDown();
             this.noOfFloorsInput = new System.Windows.Forms.NumericUpDown();
             this.flatNoFormatInput = new System.Windows.Forms.NumericUpDown();
@@ -100,11 +102,12 @@
             this.errorProvider5 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider6 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider7 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.adminFlatInput = new System.Windows.Forms.NumericUpDown();
-            this.yourFlat = new System.Windows.Forms.Label();
+            this.chooseFlatNumber = new System.Windows.Forms.ComboBox();
+            this.apartmentIDTextbox = new System.Windows.Forms.TextBox();
             this.loginPanel.SuspendLayout();
             this.AsaMemberpanel.SuspendLayout();
             this.AdminPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.adminFlatInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flatsPerFloorInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.noOfFloorsInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flatNoFormatInput)).BeginInit();
@@ -117,7 +120,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.adminFlatInput)).BeginInit();
             this.SuspendLayout();
             // 
             // xuiGradientPanel1
@@ -300,10 +302,12 @@
             // 
             // AsaMemberpanel
             // 
+            this.AsaMemberpanel.Controls.Add(this.chooseFlatNumber);
+            this.AsaMemberpanel.Controls.Add(this.joinApartmentButton);
             this.AsaMemberpanel.Controls.Add(this.MakeAMemberButton);
             this.AsaMemberpanel.Controls.Add(this.membersixdigitcodetextBox);
-            this.AsaMemberpanel.Controls.Add(this.flatnotextBox);
-            this.AsaMemberpanel.Controls.Add(this.flatnolabel);
+            this.AsaMemberpanel.Controls.Add(this.apartmentIDTextbox);
+            this.AsaMemberpanel.Controls.Add(this.ApartmentIDLabel);
             this.AsaMemberpanel.Controls.Add(this.membersixdigitcodelabel);
             this.AsaMemberpanel.Controls.Add(this.Memberlabel);
             this.AsaMemberpanel.Location = new System.Drawing.Point(396, 85);
@@ -312,12 +316,34 @@
             this.AsaMemberpanel.TabIndex = 35;
             this.AsaMemberpanel.Visible = false;
             // 
+            // joinApartmentButton
+            // 
+            this.joinApartmentButton.BackgroundColor = System.Drawing.Color.DarkRed;
+            this.joinApartmentButton.ButtonImage = null;
+            this.joinApartmentButton.ButtonStyle = XanderUI.XUIButton.Style.Material;
+            this.joinApartmentButton.ButtonText = "JOIN";
+            this.joinApartmentButton.ClickBackColor = System.Drawing.Color.White;
+            this.joinApartmentButton.ClickTextColor = System.Drawing.Color.DarkRed;
+            this.joinApartmentButton.CornerRadius = 5;
+            this.joinApartmentButton.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.joinApartmentButton.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
+            this.joinApartmentButton.HoverBackgroundColor = System.Drawing.Color.Brown;
+            this.joinApartmentButton.HoverTextColor = System.Drawing.Color.White;
+            this.joinApartmentButton.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.joinApartmentButton.Location = new System.Drawing.Point(49, 225);
+            this.joinApartmentButton.Name = "joinApartmentButton";
+            this.joinApartmentButton.Size = new System.Drawing.Size(131, 46);
+            this.joinApartmentButton.TabIndex = 35;
+            this.joinApartmentButton.TextColor = System.Drawing.Color.White;
+            this.joinApartmentButton.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.joinApartmentButton.Visible = false;
+            // 
             // MakeAMemberButton
             // 
             this.MakeAMemberButton.BackgroundColor = System.Drawing.Color.DarkRed;
             this.MakeAMemberButton.ButtonImage = null;
             this.MakeAMemberButton.ButtonStyle = XanderUI.XUIButton.Style.Material;
-            this.MakeAMemberButton.ButtonText = "Join";
+            this.MakeAMemberButton.ButtonText = "NEXT";
             this.MakeAMemberButton.ClickBackColor = System.Drawing.Color.White;
             this.MakeAMemberButton.ClickTextColor = System.Drawing.Color.DarkRed;
             this.MakeAMemberButton.CornerRadius = 5;
@@ -326,9 +352,9 @@
             this.MakeAMemberButton.HoverBackgroundColor = System.Drawing.Color.Brown;
             this.MakeAMemberButton.HoverTextColor = System.Drawing.Color.White;
             this.MakeAMemberButton.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.MakeAMemberButton.Location = new System.Drawing.Point(270, 278);
+            this.MakeAMemberButton.Location = new System.Drawing.Point(38, 225);
             this.MakeAMemberButton.Name = "MakeAMemberButton";
-            this.MakeAMemberButton.Size = new System.Drawing.Size(145, 50);
+            this.MakeAMemberButton.Size = new System.Drawing.Size(131, 46);
             this.MakeAMemberButton.TabIndex = 34;
             this.MakeAMemberButton.TextColor = System.Drawing.Color.White;
             this.MakeAMemberButton.Vertical_Alignment = System.Drawing.StringAlignment.Center;
@@ -340,30 +366,21 @@
             this.membersixdigitcodetextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.membersixdigitcodetextBox.ForeColor = System.Drawing.Color.Black;
             this.membersixdigitcodetextBox.Location = new System.Drawing.Point(348, 150);
+            this.membersixdigitcodetextBox.MaxLength = 6;
             this.membersixdigitcodetextBox.Name = "membersixdigitcodetextBox";
-            this.membersixdigitcodetextBox.Size = new System.Drawing.Size(300, 29);
+            this.membersixdigitcodetextBox.Size = new System.Drawing.Size(155, 29);
             this.membersixdigitcodetextBox.TabIndex = 33;
             // 
-            // flatnotextBox
+            // ApartmentIDLabel
             // 
-            this.flatnotextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flatnotextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.flatnotextBox.ForeColor = System.Drawing.Color.Black;
-            this.flatnotextBox.Location = new System.Drawing.Point(36, 150);
-            this.flatnotextBox.Name = "flatnotextBox";
-            this.flatnotextBox.Size = new System.Drawing.Size(300, 29);
-            this.flatnotextBox.TabIndex = 32;
-            // 
-            // flatnolabel
-            // 
-            this.flatnolabel.AutoSize = true;
-            this.flatnolabel.BackColor = System.Drawing.Color.Transparent;
-            this.flatnolabel.ForeColor = System.Drawing.Color.DarkRed;
-            this.flatnolabel.Location = new System.Drawing.Point(36, 109);
-            this.flatnolabel.Name = "flatnolabel";
-            this.flatnolabel.Size = new System.Drawing.Size(102, 19);
-            this.flatnolabel.TabIndex = 29;
-            this.flatnolabel.Text = "Flat Number:";
+            this.ApartmentIDLabel.AutoSize = true;
+            this.ApartmentIDLabel.BackColor = System.Drawing.Color.Transparent;
+            this.ApartmentIDLabel.ForeColor = System.Drawing.Color.DarkRed;
+            this.ApartmentIDLabel.Location = new System.Drawing.Point(36, 108);
+            this.ApartmentIDLabel.Name = "ApartmentIDLabel";
+            this.ApartmentIDLabel.Size = new System.Drawing.Size(111, 19);
+            this.ApartmentIDLabel.TabIndex = 29;
+            this.ApartmentIDLabel.Text = "Apartment ID:";
             // 
             // membersixdigitcodelabel
             // 
@@ -383,9 +400,9 @@
             this.Memberlabel.ForeColor = System.Drawing.Color.DarkRed;
             this.Memberlabel.Location = new System.Drawing.Point(34, 47);
             this.Memberlabel.Name = "Memberlabel";
-            this.Memberlabel.Size = new System.Drawing.Size(169, 33);
+            this.Memberlabel.Size = new System.Drawing.Size(200, 33);
             this.Memberlabel.TabIndex = 24;
-            this.Memberlabel.Text = "Enter Details";
+            this.Memberlabel.Text = "Join Apartment";
             // 
             // AdminPanel
             // 
@@ -412,6 +429,39 @@
             this.AdminPanel.Size = new System.Drawing.Size(675, 452);
             this.AdminPanel.TabIndex = 27;
             this.AdminPanel.Visible = false;
+            // 
+            // adminFlatInput
+            // 
+            this.adminFlatInput.Increment = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.adminFlatInput.Location = new System.Drawing.Point(238, 212);
+            this.adminFlatInput.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+            this.adminFlatInput.Name = "adminFlatInput";
+            this.adminFlatInput.Size = new System.Drawing.Size(120, 27);
+            this.adminFlatInput.TabIndex = 42;
+            this.adminFlatInput.Value = new decimal(new int[] {
+            201,
+            0,
+            0,
+            0});
+            // 
+            // yourFlat
+            // 
+            this.yourFlat.AutoSize = true;
+            this.yourFlat.BackColor = System.Drawing.Color.Transparent;
+            this.yourFlat.ForeColor = System.Drawing.Color.DarkRed;
+            this.yourFlat.Location = new System.Drawing.Point(234, 186);
+            this.yourFlat.Name = "yourFlat";
+            this.yourFlat.Size = new System.Drawing.Size(97, 19);
+            this.yourFlat.TabIndex = 41;
+            this.yourFlat.Text = "Admin Flat #";
             // 
             // flatsPerFloorInput
             // 
@@ -981,50 +1031,36 @@
             // 
             this.errorProvider7.ContainerControl = this;
             // 
-            // adminFlatInput
+            // chooseFlatNumber
             // 
-            this.adminFlatInput.Increment = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            this.adminFlatInput.Location = new System.Drawing.Point(238, 212);
-            this.adminFlatInput.Maximum = new decimal(new int[] {
-            2147483647,
-            0,
-            0,
-            0});
-            this.adminFlatInput.Name = "adminFlatInput";
-            this.adminFlatInput.Size = new System.Drawing.Size(120, 27);
-            this.adminFlatInput.TabIndex = 42;
-            this.adminFlatInput.Value = new decimal(new int[] {
-            201,
-            0,
-            0,
-            0});
+            this.chooseFlatNumber.FormattingEnabled = true;
+            this.chooseFlatNumber.Location = new System.Drawing.Point(36, 150);
+            this.chooseFlatNumber.Name = "chooseFlatNumber";
+            this.chooseFlatNumber.Size = new System.Drawing.Size(106, 27);
+            this.chooseFlatNumber.TabIndex = 36;
+            this.chooseFlatNumber.Visible = false;
             // 
-            // yourFlat
+            // apartmentIDTextbox
             // 
-            this.yourFlat.AutoSize = true;
-            this.yourFlat.BackColor = System.Drawing.Color.Transparent;
-            this.yourFlat.ForeColor = System.Drawing.Color.DarkRed;
-            this.yourFlat.Location = new System.Drawing.Point(234, 186);
-            this.yourFlat.Name = "yourFlat";
-            this.yourFlat.Size = new System.Drawing.Size(97, 19);
-            this.yourFlat.TabIndex = 41;
-            this.yourFlat.Text = "Admin Flat #";
+            this.apartmentIDTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.apartmentIDTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.apartmentIDTextbox.ForeColor = System.Drawing.Color.Black;
+            this.apartmentIDTextbox.Location = new System.Drawing.Point(36, 149);
+            this.apartmentIDTextbox.Name = "apartmentIDTextbox";
+            this.apartmentIDTextbox.Size = new System.Drawing.Size(300, 29);
+            this.apartmentIDTextbox.TabIndex = 32;
             // 
             // SignUp
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1200, 720);
-            this.Controls.Add(this.signUpPanel);
-            this.Controls.Add(this.AdminPanel);
-            this.Controls.Add(this.loginPanel);
             this.Controls.Add(this.AsaMemberpanel);
+            this.Controls.Add(this.signUpPanel);
+            this.Controls.Add(this.loginPanel);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.xuiGradientPanel1);
+            this.Controls.Add(this.AdminPanel);
             this.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -1036,6 +1072,7 @@
             this.AsaMemberpanel.PerformLayout();
             this.AdminPanel.ResumeLayout(false);
             this.AdminPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.adminFlatInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.flatsPerFloorInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.noOfFloorsInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.flatNoFormatInput)).EndInit();
@@ -1049,7 +1086,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.adminFlatInput)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1071,8 +1107,7 @@
         private System.Windows.Forms.Panel AsaMemberpanel;
         private XanderUI.XUIButton MakeAMemberButton;
         private System.Windows.Forms.TextBox membersixdigitcodetextBox;
-        private System.Windows.Forms.TextBox flatnotextBox;
-        private System.Windows.Forms.Label flatnolabel;
+        private System.Windows.Forms.Label ApartmentIDLabel;
         private System.Windows.Forms.Label membersixdigitcodelabel;
         private System.Windows.Forms.Label Memberlabel;
         private System.Windows.Forms.Panel AdminPanel;
@@ -1128,5 +1163,8 @@
         private System.Windows.Forms.Label balancelabel;
         private System.Windows.Forms.NumericUpDown adminFlatInput;
         private System.Windows.Forms.Label yourFlat;
+        private XanderUI.XUIButton joinApartmentButton;
+        private System.Windows.Forms.ComboBox chooseFlatNumber;
+        private System.Windows.Forms.TextBox apartmentIDTextbox;
     }
 }

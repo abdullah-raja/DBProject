@@ -12,5 +12,7 @@ namespace DBproject.Util.StoredProcedures
         public static string TR_ID_PARAM = "@trID";
         public static string EXPENSE_ID_PARAM = "@expenseID";
         public static string DATE_PARAM = "@date";
+        public static string PAID_BY_PARAM = "@paidBy";
+        public static string APARTMENT_ID_PARAM = "@apartmentID";
     }
 }

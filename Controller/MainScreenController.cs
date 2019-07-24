@@ -89,7 +89,7 @@ namespace DBproject.Controller
             }
 
             string incomeQuery = "SELECT SUM(" + TABLE_INCOMING_TRANSACTIONS.KEY_AMOUNT + ") FROM " + TABLE_INCOMING_TRANSACTIONS.TABLE_NAME +
-                                 " WHERE MONTH(" + TABLE_INCOMING_TRANSACTIONS.KEY_DATE_PAID + ") = MONTH(GETDATE()) AND YEAR(" + TABLE_INCOMING_TRANSACTIONS.KEY_DATE_PAID +") = YEAR(GETDATE())";
+                                 " WHERE MONTH(" + TABLE_INCOMING_TRANSACTIONS.KEY_DATE_PAID + ") = MONTH(GETDATE()) AND YEAR(" + TABLE_INCOMING_TRANSACTIONS.KEY_DATE_PAID +") = YEAR(GETDATE()) AND " + TABLE_INCOMING_TRANSACTIONS.KEY_APARTMENT_ID + " = '" + apartment.getID() + "'";
 
             using (SqlCommand incomeCommand = new SqlCommand(incomeQuery, connection))
             {
@@ -101,7 +101,8 @@ namespace DBproject.Controller
                 }
             }
 
-            string expenseQuery = "SELECT SUM(" + TABLE_EXPENSES.KEY_AMOUNT + ") FROM [paidExpenses] v INNER JOIN " + TABLE_OUTGOING_TRANSACTION.TABLE_NAME + " t on v.expenseID = t.expenseID";
+            string expenseQuery = "SELECT SUM(" + TABLE_EXPENSES.KEY_AMOUNT + ") FROM [paidExpenses] v INNER JOIN " + TABLE_OUTGOING_TRANSACTION.TABLE_NAME + " t on v.expenseID = t.expenseID GROUP BY MONTH(t." + TABLE_OUTGOING_TRANSACTION.KEY_DATE + "), t." + TABLE_OUTGOING_TRANSACTION.KEY_APARTMENT_ID +
+                " HAVING MONTH(t." + TABLE_OUTGOING_TRANSACTION.KEY_DATE + ") = MONTH(GETDATE()) AND t." + TABLE_OUTGOING_TRANSACTION.KEY_APARTMENT_ID + " = '" + apartment.getID() + "'"; 
             using (SqlCommand expenseCommand = new SqlCommand(expenseQuery, connection))
             {
                 using (SqlDataReader expenseReader = expenseCommand.ExecuteReader())

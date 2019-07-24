@@ -93,7 +93,8 @@ namespace DBproject.Controller
             insertCommand.Parameters.Add(new SqlParameter(INSERT_OUT_TR_SP.TR_ID_PARAM, transaction.getTrID()));
             insertCommand.Parameters.Add(new SqlParameter(INSERT_OUT_TR_SP.EXPENSE_ID_PARAM, transaction.getExpense().getExpenseID()));
             insertCommand.Parameters.Add(new SqlParameter(INSERT_OUT_TR_SP.DATE_PARAM, transaction.getDate()));
-
+            insertCommand.Parameters.Add(new SqlParameter(INSERT_OUT_TR_SP.PAID_BY_PARAM, transaction.getPaidBy().getFlatNumber()));
+            insertCommand.Parameters.Add(new SqlParameter(INSERT_OUT_TR_SP.APARTMENT_ID_PARAM, Guid.Parse(transaction.getPaidBy().getApartment().getID())));
             connection.Open();
             insertCommand.ExecuteNonQuery();
             connection.Close();

@@ -211,5 +211,29 @@ namespace DBproject.Controller
                 
 
         }
+
+        public override void joinApartment(string id, string code, Views.SignUp view)
+        {
+            List<string> flatsNumbers = new List<string>();
+            string flatQuer = "SELECT " + TABLE_FLATS.KEY_FLAT_NUMBER + " FROM " + Util.VIEWS.FLATS_VIEW +
+                " WHERE " + TABLE_FLATS.KEY_APPARTMENT_ID + " = '" + id + "' AND " + TABLE_BUILDING.KEY_CODE + " = '" + code + "'";
+            connection.Open();
+            using (SqlCommand flatsCommand = new SqlCommand(flatQuer, connection))
+            {
+                using (SqlDataReader reader = flatsCommand.ExecuteReader())
+                {
+                    while(reader.Read())
+                    {
+                        flatsNumbers.Add((reader[0].ToString()));
+                    }
+                }
+            }
+
+            view.joinApartmentSuccessful(flatsNumbers);
+
+
+
+
+        }
     }
 }

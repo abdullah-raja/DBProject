@@ -15,6 +15,7 @@ namespace DBproject.Views.UserControls
     public partial class Income : UserControl
     {
         bool settingActivated;
+        User user;
         Building apartment;
         ControllerModule controller;
         string connectionString = @"Data Source=HAIER-PC\SQLEXPRESS;Initial Catalog=Project_Database;Integrated Security=True";
@@ -30,8 +31,9 @@ namespace DBproject.Views.UserControls
 
         }
 
-        public Income(Building apartment, MainScreen mainScreen):this()
+        public Income(User user, Building apartment, MainScreen mainScreen):this()
         {
+            this.user = user;
             this.mainScreen = mainScreen;
             this.apartment = apartment;
             FloorsPanel.Controls.Clear();
@@ -79,70 +81,60 @@ namespace DBproject.Views.UserControls
 
         private void SettingButton_Click(object sender, EventArgs e)
         {
-            Color defaultColor = Color.Gainsboro;
-            detailsName.ReadOnly = settingActivated;
-            detailsMaintanance.ReadOnly = settingActivated;
-            detailsEmail.ReadOnly = settingActivated;
-            detailsMobile.ReadOnly = settingActivated;
-            managerButton.Visible = !settingActivated;
-            switchlabel.Visible = !settingActivated;
-
-            if (!settingActivated)
+            if (user.getFlat().getIsManager() == 3) // only admin can click settings button
             {
-                
-                SettingButton.ButtonText = "OK";
-                detailsName.BackColor = Color.White;
-                detailsMaintanance.BackColor = Color.White;
-                detailsEmail.BackColor = Color.White;
-                detailsMobile.BackColor = Color.White;
+                Color defaultColor = Color.Gainsboro;
+                detailsName.ReadOnly = settingActivated;
+                detailsMaintanance.ReadOnly = settingActivated;
+                detailsEmail.ReadOnly = settingActivated;
+                detailsMobile.ReadOnly = settingActivated;
+                managerButton.Visible = !settingActivated;
+                switchlabel.Visible = !settingActivated;
 
-               
+                if (!settingActivated)
+                {
+
+                    SettingButton.ButtonText = "OK";
+                    detailsName.BackColor = Color.White;
+                    detailsMaintanance.BackColor = Color.White;
+                    detailsEmail.BackColor = Color.White;
+                    detailsMobile.BackColor = Color.White;
+
+
+                }
+
+                else
+                {
+                    SettingButton.ButtonText = "Settings";
+                    detailsName.BackColor = defaultColor;
+                    detailsMaintanance.BackColor = defaultColor;
+                    detailsEmail.BackColor = defaultColor;
+                    detailsMobile.BackColor = defaultColor;
+                    controller = new MainScreenController(connectionString, flatTableName);
+                    Flat flat = new Flat(Convert.ToInt32(detailsFlatNumber.Text), detailsName.Text, detailsEmail.Text, detailsMobile.Text, Convert.ToInt32(detailsMaintanance.Text), Convert.ToInt32(detailsMaintanance.Text), 1, this.apartment);
+                    detailsDues.Text = flat.getDues().ToString();
+                    controller.updateDetailsPanel(flat);
+
+                }
+                settingActivated = !settingActivated;
             }
-
-            else
-            {
-                SettingButton.ButtonText = "Settings";
-                detailsName.BackColor = defaultColor;
-                detailsMaintanance.BackColor = defaultColor;
-                detailsEmail.BackColor = defaultColor;
-                detailsMobile.BackColor = defaultColor;
-                controller = new MainScreenController(connectionString, flatTableName);
-                Flat flat = new Flat(Convert.ToInt32(detailsFlatNumber.Text), detailsName.Text, detailsEmail.Text, detailsMobile.Text, Convert.ToInt32(detailsMaintanance.Text), Convert.ToInt32(detailsMaintanance.Text), 1, this.apartment);
-                detailsDues.Text = flat.getDues().ToString();
-                controller.updateDetailsPanel(flat);
-
-            }
-            settingActivated = !settingActivated;
-            
         }
 
-        private void duesTextBox2_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
-
-        private void feesTextBox3_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
-
-        private void dueslabel_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void CollectButton_Click(object sender, EventArgs e)
         {
-            Receipt receipt;
-            Flat flat = new Flat(Convert.ToInt32(detailsFlatNumber.Text), detailsName.Text, detailsEmail.Text, detailsMobile.Text, Convert.ToInt32(detailsDues.Text), Convert.ToInt32(detailsMaintanance.Text), 1, this.apartment);
-            if (flat.getDues() > 0)
-                receipt = new Receipt(flat, this.apartment, monthComboBox.SelectedItem.ToString(),Convert.ToInt32(yearComboBox.SelectedItem), mainScreen);
+            
+                Receipt receipt;
+                Flat flat = new Flat(Convert.ToInt32(detailsFlatNumber.Text), detailsName.Text, detailsEmail.Text, detailsMobile.Text, Convert.ToInt32(detailsDues.Text), Convert.ToInt32(detailsMaintanance.Text), 1, this.apartment);
+                if (flat.getDues() > 0 && user.getFlat().getIsManager() >= 2)
+                    receipt = new Receipt(user,flat, this.apartment, monthComboBox.SelectedItem.ToString(), Convert.ToInt32(yearComboBox.SelectedItem), mainScreen);
 
-            else
-                receipt = new Receipt(flat, monthComboBox.SelectedItem.ToString());
-            this.Controls.Add(receipt);
-            receipt.BringToFront();
-
+                else
+                    receipt = new Receipt(flat, monthComboBox.SelectedItem.ToString());
+                this.Controls.Add(receipt);
+                receipt.BringToFront();
+            
         }
 
         private void switchButton_Click(object sender, EventArgs e)

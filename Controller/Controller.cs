@@ -158,5 +158,10 @@ namespace DBproject.Controller
         {
 
         }
+
+        virtual public void joinApartment(string id, string code, Views.SignUp view)
+        {
+
+        }
     }
 }

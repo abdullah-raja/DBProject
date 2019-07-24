@@ -15,6 +15,7 @@ namespace DBproject.Views.UserControls
 {
     public partial class Expense : UserControl
     {
+        User user;
         Building apartment;
         List<ExpenseCard> expenses;
         ControllerModule controller;
@@ -35,8 +36,9 @@ namespace DBproject.Views.UserControls
 
         }
 
-        public Expense(int i, Building apartment, MainScreen mainView):this()  // will be used for regular expenses
+        public Expense(User user, Building apartment, MainScreen mainView):this()  // will be used for regular expenses
         {
+            this.user = user;
             this.mainView = mainView;
             expensesList.Visible = true;
             otherExpensesList.Visible = false;
@@ -86,15 +88,21 @@ namespace DBproject.Views.UserControls
        
         private void addOtherExpenseButton_Click(object sender, EventArgs e)
         {
-            ExpenseCard expense = new ExpenseCard();
-            otherExpensesList.Controls.Add(expense);
+            if (user.getFlat().getIsManager() >= 3)
+            {
+                ExpenseCard expense = new ExpenseCard();
+                otherExpensesList.Controls.Add(expense);
+            }
         }
 
         private void addExpenseButton_Click(object sender, EventArgs e)
         {
-            this.addExpense();
-            controller = new ExpenseModule(Util.CONNECTION_DETAILS.CONNECITION_STRING, "");
-            controller.addExpense(this, regularActive, expenses.Last().GetExpenseDetails());
+            if(user.getFlat().getIsManager() >= 3)
+            {
+                this.addExpense();
+                controller = new ExpenseModule(Util.CONNECTION_DETAILS.CONNECITION_STRING, "");
+                controller.addExpense(this, regularActive, expenses.Last().GetExpenseDetails());
+            }
         }
 
         private void regularExpensesButton_Click(object sender, EventArgs e)
@@ -138,7 +146,7 @@ namespace DBproject.Views.UserControls
             ExpenseCard expense;
             if (regularActive)
             {
-                expense = new ExpenseCard(ExpenseType.Regular, this.apartment, monthComboBox.SelectedItem.ToString(), Convert.ToInt32(yearComboBox.SelectedItem),this.mainView);
+                expense = new ExpenseCard(this.user, ExpenseType.Regular, this.apartment, monthComboBox.SelectedItem.ToString(), Convert.ToInt32(yearComboBox.SelectedItem),this.mainView);
                 expensesList.Controls.Add(expense);
                 
             }
@@ -146,7 +154,7 @@ namespace DBproject.Views.UserControls
 
             else
             {   
-                expense = new ExpenseCard(ExpenseType.Other, this.apartment, monthComboBox.SelectedItem.ToString(), Convert.ToInt32(yearComboBox.SelectedItem), this.mainView);
+                expense = new ExpenseCard(this.user, ExpenseType.Other, this.apartment, monthComboBox.SelectedItem.ToString(), Convert.ToInt32(yearComboBox.SelectedItem), this.mainView);
                 otherExpensesList.Controls.Add(expense);
             }
 

@@ -220,8 +220,22 @@ namespace DBproject.Views
 
         private void MakeAMemberButton_Click(object sender, EventArgs e)
         {
-            AsaMemberpanel.Visible = false;
-            loginPanel.Visible = true;
+            controller = new AuthorizationModule(Util.CONNECTION_DETAILS.CONNECITION_STRING, "");
+            controller.joinApartment(apartmentIDTextbox.Text, membersixdigitcodetextBox.Text, this);
+        }
+
+        public void joinApartmentSuccessful(List<string> flatNumbers)
+        {
+            MakeAMemberButton.Visible = false;
+            joinApartmentButton.Visible = true;
+            apartmentIDTextbox.Visible = false;
+            membersixdigitcodetextBox.Visible = false;
+            membersixdigitcodelabel.Visible = false;
+            ApartmentIDLabel.Text = "Select Flat Number";
+            chooseFlatNumber.Visible = true;
+            chooseFlatNumber.Items.AddRange(flatNumbers.ToArray());
+            chooseFlatNumber.SelectedIndex = 0;
+
         }
 
         // clicking create building

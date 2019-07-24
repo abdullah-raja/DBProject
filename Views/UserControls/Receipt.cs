@@ -19,14 +19,14 @@ namespace DBproject.Views.UserControls
         ControllerModule controller;
         MainScreen mainScreen;
         Building apartment;
-        public Receipt(Flat flat, Building apartment, string month, int year, MainScreen mainScreen) // used for collection
+        public Receipt(User user, Flat flat, Building apartment, string month, int year, MainScreen mainScreen) // used for collection
         {
             InitializeComponent();
             
             setValues(flat,month,year);
             controller = new TransactionModule(Util.CONNECTION_DETAILS.CONNECITION_STRING, Util.Tables.TABLE_INCOMING_TRANSACTIONS.TABLE_NAME);
             
-            transaction = new IncomingTransaction(receiptTrID.Text, apartment, flat, (int)receiptAmount.Value, reciptDateTime.Value, flat, month, year);
+            transaction = new IncomingTransaction(receiptTrID.Text, apartment, flat, (int)receiptAmount.Value, reciptDateTime.Value, user.getFlat(), month, year);
             this.mainScreen = mainScreen;
             this.apartment = apartment;
 

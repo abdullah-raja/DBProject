@@ -56,7 +56,7 @@ namespace DBproject.Views
             settingsButton.ForeColor = Color.White;
             analyticsButton.ForeColor = Color.White;
 
-            Income inc = new Income(apartment, this);
+            Income inc = new Income(this.user ,apartment, this);
             inc.Dock = DockStyle.Fill;
             main.Controls.Clear();
             main.Controls.Add(inc);
@@ -71,7 +71,7 @@ namespace DBproject.Views
             settingsButton.ForeColor = Color.White;
             analyticsButton.ForeColor = Color.White;
 
-            Expense exp = new Expense(3, this.apartment,this);
+            Expense exp = new Expense(this.user, this.apartment,this);
             exp.Dock = DockStyle.Fill;
             main.Controls.Clear();
             main.Controls.Add(exp);
@@ -80,11 +80,16 @@ namespace DBproject.Views
 
         private void currentBalance_MouseLeave(object sender, EventArgs e)
         {
-            System.Threading.Thread.Sleep(1000);
-            balanceDetails.Dispose();
+        //    System.Threading.Thread.Sleep(1000);
+         //   balanceDetails.Dispose();
         }
 
         private void analyticsButton_Click(object sender, EventArgs e)
+        {
+            showAnalytics();
+        }
+
+        public void showAnalytics()
         {
             Anaytics analytics = new Anaytics(this.apartment);
             analytics.Dock = DockStyle.Fill;
@@ -140,6 +145,17 @@ namespace DBproject.Views
             // this.Enabled = false;
         }
 
+        private void currentBalance_MouseHover(object sender, EventArgs e)
+        {
+            balanceDetails = new BalanceDetails(this, starting, income, expense, apartment.getBalance());
+            balanceDetails.Location = this.PointToClient(MousePosition);
+
+            // balanceDetails.
+
+            this.Controls.Add(balanceDetails);
+            balanceDetails.BringToFront();
+        }
+
         public void updateBalance(int inc, int exp)
         {
             currentBalance.Text = "Rs " + apartment.getBalance().ToString();
@@ -160,13 +176,7 @@ namespace DBproject.Views
         {
             
             
-            balanceDetails = new BalanceDetails(starting, income, expense, apartment.getBalance());
-            balanceDetails.Location = this.PointToClient(MousePosition);
-            
-            // balanceDetails.
-
-            this.Controls.Add(balanceDetails);
-            balanceDetails.BringToFront();
+           
         }
 
         

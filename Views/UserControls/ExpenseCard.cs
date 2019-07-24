@@ -17,6 +17,7 @@ namespace DBproject.Views.UserControls
         ExpenseDetails expenseDetails;
         ControllerModule controller;
         MainScreen mainView;
+        User user;
         public ExpenseCard()
         {
             InitializeComponent();
@@ -24,7 +25,7 @@ namespace DBproject.Views.UserControls
             
         }
 
-        public ExpenseCard(ExpenseType type, Building apartment, String month, int year, MainScreen mainView) : this()
+        public ExpenseCard(User user, ExpenseType type, Building apartment, String month, int year, MainScreen mainView) : this()
         {
             this.mainView = mainView;
             this.expenseDetails = new ExpenseDetails(apartment, this.getName(), this.getAmount(), type, ExpenseStatus.Unpaid, month, year);
@@ -137,22 +138,25 @@ namespace DBproject.Views.UserControls
 
         private void expenseNameTextBox_Leave(object sender, EventArgs e)
         {
+            if(user.getFlat().getIsManager() >= 2)
             this.addExpense();
         }
 
         private void expenseAmount_Leave(object sender, EventArgs e)
         {
-            this.addExpense();
+            if (user.getFlat().getIsManager() >= 2)
+                this.addExpense();
         }
 
         private void payButton_Click(object sender, EventArgs e)
         {
-            OutgoingTransaction tr = new OutgoingTransaction(Guid.NewGuid().ToString().Substring(0, 8).ToUpper(), this.expenseDetails, DateTime.Now);
-            ExpenseReceipt receipt = new ExpenseReceipt(tr, this, mainView);
-            this.Parent.Parent.Controls.Add(receipt);
-            receipt.BringToFront();
-            receipt.Left = 50;
-            receipt.Top = 50;
+                OutgoingTransaction tr = new OutgoingTransaction(Guid.NewGuid().ToString().Substring(0, 8).ToUpper(), this.expenseDetails, DateTime.Now, user.getFlat());
+                ExpenseReceipt receipt = new ExpenseReceipt(user, tr, this, mainView);
+                this.Parent.Parent.Controls.Add(receipt);
+                receipt.BringToFront();
+                receipt.Left = 50;
+                receipt.Top = 50;
+            
 
         }
 
@@ -168,9 +172,12 @@ namespace DBproject.Views.UserControls
 
         private void deleteExpense()
         {
-            controller = new ExpenseModule(Util.CONNECTION_DETAILS.CONNECITION_STRING, "");
-            controller.deleteExpense(this.GetExpenseDetails());
-            this.Dispose();
+            if (user.getFlat().getIsManager() >= 2)
+            {
+                controller = new ExpenseModule(Util.CONNECTION_DETAILS.CONNECITION_STRING, "");
+                controller.deleteExpense(this.GetExpenseDetails());
+                this.Dispose();
+            }
         }
     }
 }

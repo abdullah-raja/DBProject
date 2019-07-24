@@ -18,18 +18,20 @@ namespace DBproject.Views.UserControls
         ExpenseCard expense;
         ControllerModule controller;
         MainScreen mainView;
+        User user;
         public ExpenseReceipt(MainScreen mainView)
         {
             InitializeComponent();
             this.mainView = mainView;
         }
 
-        public ExpenseReceipt(OutgoingTransaction tr, ExpenseCard ex, MainScreen mainView) : this(mainView)
+        public ExpenseReceipt(User user, OutgoingTransaction tr, ExpenseCard ex, MainScreen mainView) : this(mainView)
         {
+            this.user = user;
             this.expenseTransaction = tr;
             this.expense = ex;
 
-            if (tr.getExpense().GetExpenseStatus() == ExpenseStatus.Unpaid)
+            if (tr.getExpense().GetExpenseStatus() == ExpenseStatus.Unpaid && user.getFlat().getIsManager() >= 2)
                 this.setConfrimFields();
 
             else
@@ -75,12 +77,14 @@ namespace DBproject.Views.UserControls
 
         private void confirmButton_Click(object sender, EventArgs e)
         {
-            controller = new ExpenseModule(Util.CONNECTION_DETAILS.CONNECITION_STRING, "");
-            controller.confirmPayment(this.expenseTransaction, this.expense);
+            
+                controller = new ExpenseModule(Util.CONNECTION_DETAILS.CONNECITION_STRING, "");
+                controller.confirmPayment(this.expenseTransaction, this.expense);
 
-            controller = new MainScreenController(Util.CONNECTION_DETAILS.CONNECITION_STRING, "");
-            controller.updateBalance(this.expense.GetExpenseDetails().getApartment(), this.mainView);
-            this.Dispose();
+                controller = new MainScreenController(Util.CONNECTION_DETAILS.CONNECITION_STRING, "");
+                controller.updateBalance(this.expense.GetExpenseDetails().getApartment(), this.mainView);
+                this.Dispose();
+            
         }
     }
 }

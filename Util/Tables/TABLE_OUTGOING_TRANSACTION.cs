@@ -10,5 +10,6 @@ namespace DBproject.Util.Tables
     {
         public static string TABLE_NAME = "tbl_OutgoingTransactions";
         public static string KEY_DATE = "datePaid";
+        public static string KEY_APARTMENT_ID = "apartmentID";
     }
 }

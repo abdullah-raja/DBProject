@@ -352,7 +352,7 @@
             this.detailsMaintanance.Size = new System.Drawing.Size(107, 20);
             this.detailsMaintanance.TabIndex = 16;
             this.detailsMaintanance.Text = "1000";
-            this.detailsMaintanance.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.feesTextBox3_MaskInputRejected);
+           // this.detailsMaintanance.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.feesTextBox3_MaskInputRejected);
             // 
             // detailsDues
             // 
@@ -364,7 +364,7 @@
             this.detailsDues.Size = new System.Drawing.Size(187, 20);
             this.detailsDues.TabIndex = 15;
             this.detailsDues.Text = "0000";
-            this.detailsDues.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.duesTextBox2_MaskInputRejected);
+           // this.detailsDues.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.duesTextBox2_MaskInputRejected);
             // 
             // detailsFlatNumber
             // 
@@ -399,7 +399,7 @@
             this.dueslabel.Size = new System.Drawing.Size(137, 19);
             this.dueslabel.TabIndex = 12;
             this.dueslabel.Text = "PREVIOUS DUES:";
-            this.dueslabel.Click += new System.EventHandler(this.dueslabel_Click);
+           // this.dueslabel.Click += new System.EventHandler(this.dueslabel_Click);
             // 
             // feeslabel
             // 
