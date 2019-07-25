@@ -114,11 +114,14 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\CONNECTION_DETAILS.cs" />
+    <Compile Include="Util\StoredProcedures\UPDATE_APARTMENT_ID_SP.cs" />
+    <Compile Include="Util\StoredProcedures\UPDATE_FLAT_SP.cs" />
     <Compile Include="Util\StoredProcedures\INSERT_EXPENSE_SP.cs" />
     <Compile Include="Util\StoredProcedures\INSERT_OUT_TR_SP.cs" />
     <Compile Include="Util\StoredProcedures\INSERT_TRANSACTION_SP.cs" />
     <Compile Include="Util\StoredProcedures\MONTH_STARTED_SP.cs" />
     <Compile Include="Util\StoredProcedures\UPDATE_EXPENSE_DETAILS_SP.cs" />
+    <Compile Include="Util\StoredProcedures\UPDATE_FLAT_USER_SP.cs" />
     <Compile Include="Util\Tables\TABLE_EXPENSES.cs" />
     <Compile Include="Util\Tables\TABLE_BUILDING.cs" />
     <Compile Include="Util\Tables\TABLE_FLATS.cs" />

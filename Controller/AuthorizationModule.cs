@@ -126,32 +126,7 @@ namespace DBproject.Controller
 
         }
 
-        private Model.Flat getAdminFlat(Model.Building apartment, Model.User user)
-        {
-            Model.Flat adminFlat = null;
-            string selectAdminFlat = "SELECT * FROM " + Util.Tables.TABLE_FLATS.TBL_FLATS + " WHERE " + Util.Tables.TABLE_FLATS.KEY_USER_ID + " = '" + user.getID() + "'";
-            using (SqlCommand getFlatCommand = new SqlCommand(selectAdminFlat, connection))
-            {
-                using (SqlDataReader reader = getFlatCommand.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        //  int  l = (Int32)apartmentReader["flatsPerFloor"];
-                        try
-                        {
-                            adminFlat = new Model.Flat(Convert.ToInt32(reader[TABLE_FLATS.KEY_FLAT_NUMBER]), reader[TABLE_FLATS.KEY_RESIDENT_NAME].ToString(), reader[TABLE_FLATS.KEY_EMAIL].ToString(), reader[TABLE_FLATS.KEY_MOBILE_NUMBER].ToString(), Convert.ToInt32(reader[TABLE_FLATS.KEY_DUES]), Convert.ToInt32(reader[TABLE_FLATS.KEY_MONTHLYFEE]), Convert.ToInt32(reader[TABLE_FLATS.KEY_IS_MANAGER]), apartment);
-                        }
-
-                        catch (InvalidCastException cs)
-                        {
-                            adminFlat = new Model.Flat(Convert.ToInt32(reader[TABLE_FLATS.KEY_FLAT_NUMBER]), reader[TABLE_FLATS.KEY_RESIDENT_NAME].ToString(), reader[TABLE_FLATS.KEY_EMAIL].ToString(), reader[TABLE_FLATS.KEY_MOBILE_NUMBER].ToString(), 0, 0, Convert.ToInt32(reader[TABLE_FLATS.KEY_IS_MANAGER]), apartment);
-                        }
-                    }
-                }
-            }
-
-            return adminFlat;
-        }
+        
         override public bool signUp(Model.User user, Views.SignUp view) // Sending instance of View to make changes, will return true if successful
         {
             bool insertSuccessul = false;
@@ -212,28 +187,32 @@ namespace DBproject.Controller
 
         }
 
-        public override void joinApartment(string id, string code, Views.SignUp view)
+
+        protected Model.Flat getAdminFlat(Model.Building apartment, Model.User user)
         {
-            List<string> flatsNumbers = new List<string>();
-            string flatQuer = "SELECT " + TABLE_FLATS.KEY_FLAT_NUMBER + " FROM " + Util.VIEWS.FLATS_VIEW +
-                " WHERE " + TABLE_FLATS.KEY_APPARTMENT_ID + " = '" + id + "' AND " + TABLE_BUILDING.KEY_CODE + " = '" + code + "'";
-            connection.Open();
-            using (SqlCommand flatsCommand = new SqlCommand(flatQuer, connection))
+            Model.Flat adminFlat = null;
+            string selectAdminFlat = "SELECT * FROM " + Util.Tables.TABLE_FLATS.TBL_FLATS + " WHERE " + Util.Tables.TABLE_FLATS.KEY_USER_ID + " = '" + user.getID() + "'";
+            using (SqlCommand getFlatCommand = new SqlCommand(selectAdminFlat, connection))
             {
-                using (SqlDataReader reader = flatsCommand.ExecuteReader())
+                using (SqlDataReader reader = getFlatCommand.ExecuteReader())
                 {
-                    while(reader.Read())
+                    while (reader.Read())
                     {
-                        flatsNumbers.Add((reader[0].ToString()));
+                        //  int  l = (Int32)apartmentReader["flatsPerFloor"];
+                        try
+                        {
+                            adminFlat = new Model.Flat(Convert.ToInt32(reader[TABLE_FLATS.KEY_FLAT_NUMBER]), reader[TABLE_FLATS.KEY_RESIDENT_NAME].ToString(), reader[TABLE_FLATS.KEY_EMAIL].ToString(), reader[TABLE_FLATS.KEY_MOBILE_NUMBER].ToString(), Convert.ToInt32(reader[TABLE_FLATS.KEY_DUES]), Convert.ToInt32(reader[TABLE_FLATS.KEY_MONTHLYFEE]), Convert.ToInt32(reader[TABLE_FLATS.KEY_IS_MANAGER]), apartment);
+                        }
+
+                        catch (InvalidCastException cs)
+                        {
+                            adminFlat = new Model.Flat(Convert.ToInt32(reader[TABLE_FLATS.KEY_FLAT_NUMBER]), reader[TABLE_FLATS.KEY_RESIDENT_NAME].ToString(), reader[TABLE_FLATS.KEY_EMAIL].ToString(), reader[TABLE_FLATS.KEY_MOBILE_NUMBER].ToString(), 0, 0, Convert.ToInt32(reader[TABLE_FLATS.KEY_IS_MANAGER]), apartment);
+                        }
                     }
                 }
             }
 
-            view.joinApartmentSuccessful(flatsNumbers);
-
-
-
-
+            return adminFlat;
         }
     }
 }

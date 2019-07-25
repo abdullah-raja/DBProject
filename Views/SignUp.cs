@@ -220,7 +220,7 @@ namespace DBproject.Views
 
         private void MakeAMemberButton_Click(object sender, EventArgs e)
         {
-            controller = new AuthorizationModule(Util.CONNECTION_DETAILS.CONNECITION_STRING, "");
+            controller = new CreateAndJoinBuilding(Util.CONNECTION_DETAILS.CONNECITION_STRING, "");
             controller.joinApartment(apartmentIDTextbox.Text, membersixdigitcodetextBox.Text, this);
         }
 
@@ -407,6 +407,14 @@ namespace DBproject.Views
 
         }
 
+        public void flatUserSuccessful()
+        {
+            this.Hide();
+            MainScreen ms = new MainScreen(user, apartment);
+            ms.ShowDialog();
+            this.Dispose();
+        }
+
         private void confirmPasswordError_Click(object sender, EventArgs e)
         {
 
@@ -424,6 +432,13 @@ namespace DBproject.Views
 
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void joinApartmentButton_Click(object sender, EventArgs e)
+        {
+            controller = new CreateAndJoinBuilding(Util.CONNECTION_DETAILS.CONNECITION_STRING, "");
+            controller.joinFlat(this.user, this, apartmentIDTextbox.Text, this.apartment, Convert.ToInt32(chooseFlatNumber.SelectedItem));
 
         }
     }

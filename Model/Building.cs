@@ -178,6 +178,18 @@ namespace DBproject.Model
             
         }
 
+        public Flat getFlatAt(int flatNumber)
+        {
+            return flats[(flatNumber/100) - 1, (flatNumber%100) - 1 ];
+
+        }
+
+        public void setFlatAt(int floor, int flat, Flat newFlat)
+        {
+            flats[floor, flat] = newFlat;
+
+        }
+
         public void makeAdmin(int floor, int flat)
         {
             this.flats[floor, flat].makeManager(3);

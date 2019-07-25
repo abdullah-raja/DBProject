@@ -8,12 +8,13 @@ using DBproject.Views;
 using System.Data.SqlClient;
 using DBproject.Util.Tables;
 using DBproject.Views.UserControls;
+using DBproject.Util.StoredProcedures;
 
 namespace DBproject.Controller
 {
     class MainScreenController : ControllerModule
     {
-        string updateFlatSP = "usp_updateFlat";
+        
         public MainScreenController(string connectionString, string TableName) : base(connectionString, TableName)
         {
 
@@ -51,18 +52,18 @@ namespace DBproject.Controller
         override public void updateDetailsPanel(Flat flat)
         {
             connection.Open();
-            SqlCommand updateCommand = new SqlCommand(updateFlatSP, connection);
+            SqlCommand updateCommand = new SqlCommand(UPDATE_FLAT_SP.SP_NAME, connection);
             updateCommand.CommandType = System.Data.CommandType.StoredProcedure;
 
-            updateCommand.Parameters.Add(new SqlParameter("@flatNumber", flat.getFlatNumber()));
-            updateCommand.Parameters.Add(new SqlParameter("@email", flat.getEmail()));
-            updateCommand.Parameters.Add(new SqlParameter("@mobileNumber", flat.getContactNumber()));
-            updateCommand.Parameters.Add(new SqlParameter("@dues", flat.getDues()));
+            updateCommand.Parameters.Add(new SqlParameter(UPDATE_FLAT_SP.FLAT_NUM_PARAm, flat.getFlatNumber()));
+            updateCommand.Parameters.Add(new SqlParameter(UPDATE_FLAT_SP.EMAIL_PARAM, flat.getEmail()));
+            updateCommand.Parameters.Add(new SqlParameter(UPDATE_FLAT_SP.MOBILE_NUM_PARAM, flat.getContactNumber()));
+            updateCommand.Parameters.Add(new SqlParameter(UPDATE_FLAT_SP.DUES_PARAM, flat.getDues()));
             
-            updateCommand.Parameters.Add(new SqlParameter("@monthlyFee", flat.getMonthlyFees()));
-            updateCommand.Parameters.Add(new SqlParameter("@apartmentID", Guid.Parse(flat.getApartment().getID())));
-            updateCommand.Parameters.Add(new SqlParameter("@name", flat.getNameOfResident()));
-            updateCommand.Parameters.Add(new SqlParameter("@manager", flat.getIsManager()));
+            updateCommand.Parameters.Add(new SqlParameter(UPDATE_FLAT_SP.FEE_PARAM, flat.getMonthlyFees()));
+            updateCommand.Parameters.Add(new SqlParameter(UPDATE_FLAT_SP.APARTMENT_ID_PARAM, Guid.Parse(flat.getApartment().getID())));
+            updateCommand.Parameters.Add(new SqlParameter(UPDATE_FLAT_SP.NAME_PARAM, flat.getNameOfResident()));
+            updateCommand.Parameters.Add(new SqlParameter(UPDATE_FLAT_SP.IS_MANAGER_PARAM, flat.getIsManager()));
 
             updateCommand.ExecuteNonQuery();
 

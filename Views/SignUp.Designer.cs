@@ -44,9 +44,11 @@
             this.loginPanel = new System.Windows.Forms.Panel();
             this.loginFailedError = new System.Windows.Forms.Label();
             this.AsaMemberpanel = new System.Windows.Forms.Panel();
+            this.chooseFlatNumber = new System.Windows.Forms.ComboBox();
             this.joinApartmentButton = new XanderUI.XUIButton();
             this.MakeAMemberButton = new XanderUI.XUIButton();
             this.membersixdigitcodetextBox = new System.Windows.Forms.TextBox();
+            this.apartmentIDTextbox = new System.Windows.Forms.TextBox();
             this.ApartmentIDLabel = new System.Windows.Forms.Label();
             this.membersixdigitcodelabel = new System.Windows.Forms.Label();
             this.Memberlabel = new System.Windows.Forms.Label();
@@ -102,8 +104,6 @@
             this.errorProvider5 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider6 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider7 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.chooseFlatNumber = new System.Windows.Forms.ComboBox();
-            this.apartmentIDTextbox = new System.Windows.Forms.TextBox();
             this.loginPanel.SuspendLayout();
             this.AsaMemberpanel.SuspendLayout();
             this.AdminPanel.SuspendLayout();
@@ -316,6 +316,15 @@
             this.AsaMemberpanel.TabIndex = 35;
             this.AsaMemberpanel.Visible = false;
             // 
+            // chooseFlatNumber
+            // 
+            this.chooseFlatNumber.FormattingEnabled = true;
+            this.chooseFlatNumber.Location = new System.Drawing.Point(36, 150);
+            this.chooseFlatNumber.Name = "chooseFlatNumber";
+            this.chooseFlatNumber.Size = new System.Drawing.Size(106, 27);
+            this.chooseFlatNumber.TabIndex = 36;
+            this.chooseFlatNumber.Visible = false;
+            // 
             // joinApartmentButton
             // 
             this.joinApartmentButton.BackgroundColor = System.Drawing.Color.DarkRed;
@@ -330,13 +339,14 @@
             this.joinApartmentButton.HoverBackgroundColor = System.Drawing.Color.Brown;
             this.joinApartmentButton.HoverTextColor = System.Drawing.Color.White;
             this.joinApartmentButton.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.joinApartmentButton.Location = new System.Drawing.Point(49, 225);
+            this.joinApartmentButton.Location = new System.Drawing.Point(82, 225);
             this.joinApartmentButton.Name = "joinApartmentButton";
             this.joinApartmentButton.Size = new System.Drawing.Size(131, 46);
             this.joinApartmentButton.TabIndex = 35;
             this.joinApartmentButton.TextColor = System.Drawing.Color.White;
             this.joinApartmentButton.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             this.joinApartmentButton.Visible = false;
+            this.joinApartmentButton.Click += new System.EventHandler(this.joinApartmentButton_Click);
             // 
             // MakeAMemberButton
             // 
@@ -370,6 +380,18 @@
             this.membersixdigitcodetextBox.Name = "membersixdigitcodetextBox";
             this.membersixdigitcodetextBox.Size = new System.Drawing.Size(155, 29);
             this.membersixdigitcodetextBox.TabIndex = 33;
+            this.membersixdigitcodetextBox.Text = "JNQRZE";
+            // 
+            // apartmentIDTextbox
+            // 
+            this.apartmentIDTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.apartmentIDTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.apartmentIDTextbox.ForeColor = System.Drawing.Color.Black;
+            this.apartmentIDTextbox.Location = new System.Drawing.Point(36, 149);
+            this.apartmentIDTextbox.Name = "apartmentIDTextbox";
+            this.apartmentIDTextbox.Size = new System.Drawing.Size(300, 29);
+            this.apartmentIDTextbox.TabIndex = 32;
+            this.apartmentIDTextbox.Text = "135887d6-d2e7-451a-aa3e-7e339b62d2ae";
             // 
             // ApartmentIDLabel
             // 
@@ -1030,25 +1052,6 @@
             // errorProvider7
             // 
             this.errorProvider7.ContainerControl = this;
-            // 
-            // chooseFlatNumber
-            // 
-            this.chooseFlatNumber.FormattingEnabled = true;
-            this.chooseFlatNumber.Location = new System.Drawing.Point(36, 150);
-            this.chooseFlatNumber.Name = "chooseFlatNumber";
-            this.chooseFlatNumber.Size = new System.Drawing.Size(106, 27);
-            this.chooseFlatNumber.TabIndex = 36;
-            this.chooseFlatNumber.Visible = false;
-            // 
-            // apartmentIDTextbox
-            // 
-            this.apartmentIDTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.apartmentIDTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.apartmentIDTextbox.ForeColor = System.Drawing.Color.Black;
-            this.apartmentIDTextbox.Location = new System.Drawing.Point(36, 149);
-            this.apartmentIDTextbox.Name = "apartmentIDTextbox";
-            this.apartmentIDTextbox.Size = new System.Drawing.Size(300, 29);
-            this.apartmentIDTextbox.TabIndex = 32;
             // 
             // SignUp
             // 

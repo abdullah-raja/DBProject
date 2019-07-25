@@ -9,6 +9,7 @@ using DBproject.Views;
 using DBproject.Views.UserControls;
 using System.Data.SqlClient;
 using DBproject.Util.StoredProcedures;
+using DBproject.Util.Tables;
 
 namespace DBproject.Controller
 {
@@ -162,6 +163,70 @@ namespace DBproject.Controller
         virtual public void joinApartment(string id, string code, Views.SignUp view)
         {
 
+        }
+
+        virtual public void joinFlat(User user, SignUp view, string id, Building apartment, int flatNumber)
+        {
+
+        }
+
+        
+
+        protected void updateFlat(User user)
+        {
+
+            connection.Open();
+            SqlCommand updateCommand = new SqlCommand(UPDATE_FLAT_USER_SP.SP_NAME, connection);
+            updateCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            updateCommand.Parameters.Add(new SqlParameter(UPDATE_FLAT_USER_SP.FLAT_PARAM, user.getFlat().getFlatNumber()));
+            updateCommand.Parameters.Add(new SqlParameter(UPDATE_FLAT_USER_SP.USER_ID_PARAM, Guid.Parse(user.getID())));
+            updateCommand.Parameters.Add(new SqlParameter(UPDATE_FLAT_USER_SP.EMAIL_PARAM, user.getEmail()));
+            updateCommand.Parameters.Add(new SqlParameter(UPDATE_FLAT_USER_SP.MOBILE_NUM_PARAM, user.getMobileNumber()));
+
+            updateCommand.Parameters.Add(new SqlParameter(UPDATE_FLAT_USER_SP.APARTMENT_ID_PARAM, Guid.Parse(user.getApartmentID())));
+            updateCommand.Parameters.Add(new SqlParameter(UPDATE_FLAT_USER_SP.NAME_PARAM, user.getFirstName() + " " + user.getLastname()));
+            updateCommand.Parameters.Add(new SqlParameter(UPDATE_FLAT_USER_SP.IS_MANAGER_PARAM, user.getFlat().getIsManager()));
+
+            updateCommand.ExecuteNonQuery();
+            connection.Close();
+
+        }
+
+        protected void getAllFlats(Building apartment)
+        {
+            connection.Open();
+            string selectQuery = "SELECT * FROM " + TABLE_FLATS.TBL_FLATS + " WHERE " + TABLE_BUILDING.KEY_APPARTMENT_ID + " = '" + Guid.Parse(apartment.getID()) + "'";
+            using (SqlCommand command = new SqlCommand(selectQuery, connection))
+            {
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    for(int i = 0; i < apartment.getNoOfFloors(); i++)
+                    {
+                        for(int j = 0; j < apartment.getFlatsPerFloor(); j++)
+                        {
+                            if (reader.Read())
+                            {
+                                try
+                                {
+                                    Flat newFlat = new Model.Flat(Convert.ToInt32(reader[TABLE_FLATS.KEY_FLAT_NUMBER]), reader[TABLE_FLATS.KEY_RESIDENT_NAME].ToString(), reader[TABLE_FLATS.KEY_EMAIL].ToString(), reader[TABLE_FLATS.KEY_MOBILE_NUMBER].ToString(), Convert.ToInt32(reader[TABLE_FLATS.KEY_DUES]), Convert.ToInt32(reader[TABLE_FLATS.KEY_MONTHLYFEE]), Convert.ToInt32(reader[TABLE_FLATS.KEY_IS_MANAGER]), apartment);
+                                    
+                                    apartment.setFlatAt(i + 1, j + 1, newFlat);
+                                    if (newFlat.getIsManager() == 3)
+                                        apartment.makeAdmin(newFlat.getFlatNumber());
+                                }
+
+                                catch
+                                {
+
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+
+            connection.Close();
         }
     }
 }
