@@ -18,9 +18,9 @@ namespace DBproject.Views.UserControls
             InitializeComponent();
         }
 
-        public SearchBar(Expense view)
+        public void setView(Expense view)
         {
-            InitializeComponent();
+            
             this.view = view;
         }
 

@@ -39,21 +39,23 @@
             this.monthComboBox = new System.Windows.Forms.ComboBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.AnalyticsTitle = new System.Windows.Forms.Label();
+            this.mainPanel = new System.Windows.Forms.Panel();
+            this.barPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.incomeChartPanel = new System.Windows.Forms.Panel();
-            this.incomeTitle = new System.Windows.Forms.Label();
-            this.receivedLegend = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.receivedValue = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.totalIncomeValue = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.notReceivedValue = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.remainingLegend = new System.Windows.Forms.Button();
-            this.totalIncomeValue = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.expenseChartPanel = new System.Windows.Forms.Panel();
+            this.receivedValue = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.receivedLegend = new System.Windows.Forms.Button();
+            this.incomeTitle = new System.Windows.Forms.Label();
+            this.incomeChartPanel = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.totalExpensesValue = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -64,10 +66,13 @@
             this.label10 = new System.Windows.Forms.Label();
             this.paidLegend = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
+            this.expenseChartPanel = new System.Windows.Forms.Panel();
             this.titlePanel.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.monthPanel.SuspendLayout();
             this.monthInnerPanel.SuspendLayout();
+            this.mainPanel.SuspendLayout();
+            this.barPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -85,7 +90,7 @@
             this.titlePanel.Location = new System.Drawing.Point(0, 0);
             this.titlePanel.Margin = new System.Windows.Forms.Padding(3, 0, 0, 3);
             this.titlePanel.Name = "titlePanel";
-            this.titlePanel.Size = new System.Drawing.Size(975, 50);
+            this.titlePanel.Size = new System.Drawing.Size(981, 50);
             this.titlePanel.TabIndex = 1;
             // 
             // flowLayoutPanel3
@@ -95,7 +100,7 @@
             this.flowLayoutPanel3.Controls.Add(this.yearLabel);
             this.flowLayoutPanel3.Controls.Add(this.yearComboBox);
             this.flowLayoutPanel3.Controls.Add(this.flowLayoutPanel4);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(517, 11);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(523, 11);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(148, 31);
             this.flowLayoutPanel3.TabIndex = 6;
@@ -136,7 +141,7 @@
             // 
             this.monthPanel.Controls.Add(this.monthInnerPanel);
             this.monthPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.monthPanel.Location = new System.Drawing.Point(671, 0);
+            this.monthPanel.Location = new System.Drawing.Point(677, 0);
             this.monthPanel.Name = "monthPanel";
             this.monthPanel.Size = new System.Drawing.Size(304, 50);
             this.monthPanel.TabIndex = 4;
@@ -197,6 +202,45 @@
             this.AnalyticsTitle.TabIndex = 3;
             this.AnalyticsTitle.Text = "ANALYTICS";
             // 
+            // mainPanel
+            // 
+            this.mainPanel.AutoScroll = true;
+            this.mainPanel.AutoScrollMinSize = new System.Drawing.Size(981, 807);
+            this.mainPanel.Controls.Add(this.barPanel);
+            this.mainPanel.Controls.Add(this.tableLayoutPanel1);
+            this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainPanel.Location = new System.Drawing.Point(0, 50);
+            this.mainPanel.Name = "mainPanel";
+            this.mainPanel.Size = new System.Drawing.Size(981, 757);
+            this.mainPanel.TabIndex = 2;
+            // 
+            // barPanel
+            // 
+            this.barPanel.AutoScrollMinSize = new System.Drawing.Size(981, 807);
+            this.barPanel.AutoSize = true;
+            this.barPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.barPanel.Controls.Add(this.label3);
+            this.barPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.barPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.barPanel.Location = new System.Drawing.Point(0, 379);
+            this.barPanel.Name = "barPanel";
+            this.barPanel.Size = new System.Drawing.Size(981, 428);
+            this.barPanel.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.barPanel.SetFlowBreak(this.label3, true);
+            this.label3.Font = new System.Drawing.Font("Lato Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 0);
+            this.label3.Name = "label3";
+            this.label3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.label3.Size = new System.Drawing.Size(166, 23);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Monthly Balance";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
@@ -204,13 +248,14 @@
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.splitContainer1, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 50);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(975, 379);
-            this.tableLayoutPanel1.TabIndex = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(981, 379);
+            this.tableLayoutPanel1.TabIndex = 4;
             // 
             // label1
             // 
@@ -230,7 +275,7 @@
             this.splitContainer1.Location = new System.Drawing.Point(3, 78);
             this.splitContainer1.Name = "splitContainer1";
             // 
-            // 
+            // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.panel2);
             this.splitContainer1.Panel1.Controls.Add(this.totalIncomeValue);
@@ -257,62 +302,42 @@
             this.splitContainer1.Panel2.Controls.Add(this.paidLegend);
             this.splitContainer1.Panel2.Controls.Add(this.label11);
             this.splitContainer1.Panel2.Controls.Add(this.expenseChartPanel);
-            this.splitContainer1.Size = new System.Drawing.Size(969, 298);
-            this.splitContainer1.SplitterDistance = 472;
+            this.splitContainer1.Size = new System.Drawing.Size(975, 298);
+            this.splitContainer1.SplitterDistance = 465;
             this.splitContainer1.TabIndex = 2;
             // 
-            // incomeChartPanel
+            // panel2
             // 
-            this.incomeChartPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.incomeChartPanel.Location = new System.Drawing.Point(194, 0);
-            this.incomeChartPanel.Name = "incomeChartPanel";
-            this.incomeChartPanel.Size = new System.Drawing.Size(278, 298);
-            this.incomeChartPanel.TabIndex = 0;
-            this.incomeChartPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.incomeChartPanel_Paint);
+            this.panel2.AccessibleName = "barGraphPanel";
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Location = new System.Drawing.Point(13, 257);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(121, 2);
+            this.panel2.TabIndex = 11;
             // 
-            // incomeTitle
+            // totalIncomeValue
             // 
-            this.incomeTitle.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.incomeTitle.Location = new System.Drawing.Point(1, 0);
-            this.incomeTitle.Name = "incomeTitle";
-            this.incomeTitle.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.incomeTitle.Size = new System.Drawing.Size(119, 34);
-            this.incomeTitle.TabIndex = 2;
-            this.incomeTitle.Text = "Incomes:";
-            this.incomeTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.totalIncomeValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.totalIncomeValue.AutoSize = true;
+            this.totalIncomeValue.Font = new System.Drawing.Font("Lato Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalIncomeValue.ForeColor = System.Drawing.Color.Black;
+            this.totalIncomeValue.Location = new System.Drawing.Point(64, 274);
+            this.totalIncomeValue.Name = "totalIncomeValue";
+            this.totalIncomeValue.Size = new System.Drawing.Size(83, 19);
+            this.totalIncomeValue.TabIndex = 10;
+            this.totalIncomeValue.Text = "25 ( 16,00)";
             // 
-            // receivedLegend
+            // label5
             // 
-            this.receivedLegend.BackColor = System.Drawing.Color.Brown;
-            this.receivedLegend.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.receivedLegend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.receivedLegend.Location = new System.Drawing.Point(17, 56);
-            this.receivedLegend.Name = "receivedLegend";
-            this.receivedLegend.Size = new System.Drawing.Size(19, 10);
-            this.receivedLegend.TabIndex = 3;
-            this.receivedLegend.UseVisualStyleBackColor = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Lato", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(49, 54);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 15);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "RECEIVED";
-            // 
-            // receivedValue
-            // 
-            this.receivedValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.receivedValue.AutoSize = true;
-            this.receivedValue.Font = new System.Drawing.Font("Lato Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.receivedValue.ForeColor = System.Drawing.Color.Brown;
-            this.receivedValue.Location = new System.Drawing.Point(126, 54);
-            this.receivedValue.Name = "receivedValue";
-            this.receivedValue.Size = new System.Drawing.Size(64, 15);
-            this.receivedValue.TabIndex = 5;
-            this.receivedValue.Text = "25 ( 16,00)";
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(11, 274);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 19);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "TOTAL";
             // 
             // notReceivedValue
             // 
@@ -320,7 +345,7 @@
             this.notReceivedValue.AutoSize = true;
             this.notReceivedValue.Font = new System.Drawing.Font("Lato Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.notReceivedValue.ForeColor = System.Drawing.Color.Gray;
-            this.notReceivedValue.Location = new System.Drawing.Point(126, 88);
+            this.notReceivedValue.Location = new System.Drawing.Point(81, 88);
             this.notReceivedValue.Name = "notReceivedValue";
             this.notReceivedValue.Size = new System.Drawing.Size(64, 15);
             this.notReceivedValue.TabIndex = 8;
@@ -347,55 +372,66 @@
             this.remainingLegend.TabIndex = 6;
             this.remainingLegend.UseVisualStyleBackColor = false;
             // 
-            // totalIncomeValue
+            // receivedValue
             // 
-            this.totalIncomeValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.totalIncomeValue.AutoSize = true;
-            this.totalIncomeValue.Font = new System.Drawing.Font("Lato Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalIncomeValue.ForeColor = System.Drawing.Color.Black;
-            this.totalIncomeValue.Location = new System.Drawing.Point(109, 268);
-            this.totalIncomeValue.Name = "totalIncomeValue";
-            this.totalIncomeValue.Size = new System.Drawing.Size(83, 19);
-            this.totalIncomeValue.TabIndex = 10;
-            this.totalIncomeValue.Text = "25 ( 16,00)";
+            this.receivedValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.receivedValue.AutoSize = true;
+            this.receivedValue.Font = new System.Drawing.Font("Lato Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.receivedValue.ForeColor = System.Drawing.Color.Brown;
+            this.receivedValue.Location = new System.Drawing.Point(81, 54);
+            this.receivedValue.Name = "receivedValue";
+            this.receivedValue.Size = new System.Drawing.Size(64, 15);
+            this.receivedValue.TabIndex = 5;
+            this.receivedValue.Text = "25 ( 16,00)";
             // 
-            // label5
+            // label2
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(11, 268);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 19);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "TOTAL";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Lato", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(49, 54);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(66, 15);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "RECEIVED";
             // 
-            // panel2
+            // receivedLegend
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.Color.DimGray;
-            this.panel2.Location = new System.Drawing.Point(13, 251);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(166, 2);
-            this.panel2.TabIndex = 11;
+            this.receivedLegend.BackColor = System.Drawing.Color.Brown;
+            this.receivedLegend.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.receivedLegend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.receivedLegend.Location = new System.Drawing.Point(17, 56);
+            this.receivedLegend.Name = "receivedLegend";
+            this.receivedLegend.Size = new System.Drawing.Size(19, 10);
+            this.receivedLegend.TabIndex = 3;
+            this.receivedLegend.UseVisualStyleBackColor = false;
             // 
-            // expenseChartPanel
+            // incomeTitle
             // 
-            this.expenseChartPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.expenseChartPanel.Location = new System.Drawing.Point(215, 0);
-            this.expenseChartPanel.Name = "expenseChartPanel";
-            this.expenseChartPanel.Size = new System.Drawing.Size(278, 298);
-            this.expenseChartPanel.TabIndex = 1;
+            this.incomeTitle.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.incomeTitle.Location = new System.Drawing.Point(1, 0);
+            this.incomeTitle.Name = "incomeTitle";
+            this.incomeTitle.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.incomeTitle.Size = new System.Drawing.Size(119, 34);
+            this.incomeTitle.TabIndex = 2;
+            this.incomeTitle.Text = "Incomes:";
+            this.incomeTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // incomeChartPanel
+            // 
+            this.incomeChartPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.incomeChartPanel.Location = new System.Drawing.Point(187, 0);
+            this.incomeChartPanel.Name = "incomeChartPanel";
+            this.incomeChartPanel.Size = new System.Drawing.Size(278, 298);
+            this.incomeChartPanel.TabIndex = 0;
             // 
             // panel3
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.DimGray;
-            this.panel3.Location = new System.Drawing.Point(18, 251);
+            this.panel3.Location = new System.Drawing.Point(18, 257);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(166, 2);
+            this.panel3.Size = new System.Drawing.Size(137, 2);
             this.panel3.TabIndex = 21;
             // 
             // totalExpensesValue
@@ -404,7 +440,7 @@
             this.totalExpensesValue.AutoSize = true;
             this.totalExpensesValue.Font = new System.Drawing.Font("Lato Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalExpensesValue.ForeColor = System.Drawing.Color.Black;
-            this.totalExpensesValue.Location = new System.Drawing.Point(114, 268);
+            this.totalExpensesValue.Location = new System.Drawing.Point(85, 274);
             this.totalExpensesValue.Name = "totalExpensesValue";
             this.totalExpensesValue.Size = new System.Drawing.Size(83, 19);
             this.totalExpensesValue.TabIndex = 20;
@@ -415,7 +451,7 @@
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(16, 268);
+            this.label6.Location = new System.Drawing.Point(16, 274);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 19);
             this.label6.TabIndex = 19;
@@ -427,7 +463,7 @@
             this.unpaidValue.AutoSize = true;
             this.unpaidValue.Font = new System.Drawing.Font("Lato Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.unpaidValue.ForeColor = System.Drawing.Color.Gray;
-            this.unpaidValue.Location = new System.Drawing.Point(131, 88);
+            this.unpaidValue.Location = new System.Drawing.Point(102, 88);
             this.unpaidValue.Name = "unpaidValue";
             this.unpaidValue.Size = new System.Drawing.Size(64, 15);
             this.unpaidValue.TabIndex = 18;
@@ -460,7 +496,7 @@
             this.paidValue.AutoSize = true;
             this.paidValue.Font = new System.Drawing.Font("Lato Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.paidValue.ForeColor = System.Drawing.Color.Brown;
-            this.paidValue.Location = new System.Drawing.Point(131, 54);
+            this.paidValue.Location = new System.Drawing.Point(102, 54);
             this.paidValue.Name = "paidValue";
             this.paidValue.Size = new System.Drawing.Size(64, 15);
             this.paidValue.TabIndex = 15;
@@ -498,13 +534,22 @@
             this.label11.Text = "Incomes:";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // expenseChartPanel
+            // 
+            this.expenseChartPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.expenseChartPanel.Location = new System.Drawing.Point(228, 0);
+            this.expenseChartPanel.Name = "expenseChartPanel";
+            this.expenseChartPanel.Size = new System.Drawing.Size(278, 298);
+            this.expenseChartPanel.TabIndex = 1;
+            // 
             // Anaytics
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.AutoScroll = true;
+            this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.titlePanel);
             this.Name = "Anaytics";
-            this.Size = new System.Drawing.Size(975, 638);
+            this.Size = new System.Drawing.Size(981, 807);
             this.titlePanel.ResumeLayout(false);
             this.titlePanel.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
@@ -512,6 +557,10 @@
             this.monthPanel.ResumeLayout(false);
             this.monthInnerPanel.ResumeLayout(false);
             this.monthInnerPanel.PerformLayout();
+            this.mainPanel.ResumeLayout(false);
+            this.mainPanel.PerformLayout();
+            this.barPanel.ResumeLayout(false);
+            this.barPanel.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
@@ -536,9 +585,13 @@
         private System.Windows.Forms.ComboBox monthComboBox;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Label AnalyticsTitle;
+        private System.Windows.Forms.Panel mainPanel;
+        private System.Windows.Forms.FlowLayoutPanel barPanel;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label totalIncomeValue;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label notReceivedValue;
@@ -549,7 +602,6 @@
         private System.Windows.Forms.Button receivedLegend;
         private System.Windows.Forms.Label incomeTitle;
         private System.Windows.Forms.Panel incomeChartPanel;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label totalExpensesValue;
         private System.Windows.Forms.Label label6;

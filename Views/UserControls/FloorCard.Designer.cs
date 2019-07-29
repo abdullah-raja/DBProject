@@ -33,7 +33,7 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.DarkRed;
+            this.button1.BackColor = System.Drawing.Color.DimGray;
             this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;

@@ -27,6 +27,7 @@ namespace DBproject.Views.UserControls
 
         public ExpenseCard(User user, ExpenseType type, Building apartment, String month, int year, MainScreen mainView) : this()
         {
+            this.user = user;
             this.mainView = mainView;
             this.expenseDetails = new ExpenseDetails(apartment, this.getName(), this.getAmount(), type, ExpenseStatus.Unpaid, month, year);
         }

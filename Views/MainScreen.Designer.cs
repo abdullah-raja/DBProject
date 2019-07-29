@@ -39,21 +39,21 @@
             this.analyticsButton = new System.Windows.Forms.Button();
             this.expensesButton = new System.Windows.Forms.Button();
             this.incomeButton = new System.Windows.Forms.Button();
-            this.topPanel = new System.Windows.Forms.Panel();
-            this.generateMonthlyReport = new System.Windows.Forms.Button();
-            this.logoutButton = new System.Windows.Forms.Button();
-            this.currentBalLabel = new System.Windows.Forms.Label();
-            this.currentBalance = new System.Windows.Forms.Label();
-            this.main = new System.Windows.Forms.Panel();
             this.project_DatabaseDataSet = new DBproject.Project_DatabaseDataSet();
             this.tblFlatsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbl_FlatsTableAdapter = new DBproject.Project_DatabaseDataSetTableAdapters.tbl_FlatsTableAdapter();
+            this.main = new System.Windows.Forms.Panel();
+            this.currentBalance = new System.Windows.Forms.Label();
+            this.currentBalLabel = new System.Windows.Forms.Label();
+            this.logoutButton = new System.Windows.Forms.Button();
+            this.generateMonthlyReport = new System.Windows.Forms.Button();
+            this.topPanel = new System.Windows.Forms.Panel();
             this.PicNamePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profiePicture)).BeginInit();
             this.sidePanel.SuspendLayout();
-            this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.project_DatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblFlatsBindingSource)).BeginInit();
+            this.topPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // PicNamePanel
@@ -94,7 +94,7 @@
             // profiePicture
             // 
             this.profiePicture.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.profiePicture.Image = ((System.Drawing.Image)(resources.GetObject("profiePicture.Image")));
+            this.profiePicture.Image = global::DBproject.Properties.Resources.person;
             this.profiePicture.InitialImage = ((System.Drawing.Image)(resources.GetObject("profiePicture.InitialImage")));
             this.profiePicture.Location = new System.Drawing.Point(41, 12);
             this.profiePicture.Margin = new System.Windows.Forms.Padding(10);
@@ -189,18 +189,74 @@
             this.incomeButton.UseVisualStyleBackColor = true;
             this.incomeButton.Click += new System.EventHandler(this.incomeButton_Click);
             // 
-            // topPanel
+            // project_DatabaseDataSet
             // 
-            this.topPanel.BackColor = System.Drawing.Color.Black;
-            this.topPanel.Controls.Add(this.generateMonthlyReport);
-            this.topPanel.Controls.Add(this.logoutButton);
-            this.topPanel.Controls.Add(this.currentBalLabel);
-            this.topPanel.Controls.Add(this.currentBalance);
-            this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.topPanel.Location = new System.Drawing.Point(225, 0);
-            this.topPanel.Name = "topPanel";
-            this.topPanel.Size = new System.Drawing.Size(975, 82);
-            this.topPanel.TabIndex = 1;
+            this.project_DatabaseDataSet.DataSetName = "Project_DatabaseDataSet";
+            this.project_DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tblFlatsBindingSource
+            // 
+            this.tblFlatsBindingSource.DataMember = "tbl_Flats";
+            this.tblFlatsBindingSource.DataSource = this.project_DatabaseDataSet;
+            // 
+            // tbl_FlatsTableAdapter
+            // 
+            this.tbl_FlatsTableAdapter.ClearBeforeFill = true;
+            // 
+            // main
+            // 
+            this.main.AutoSize = true;
+            this.main.BackColor = System.Drawing.SystemColors.Control;
+            this.main.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.main.Location = new System.Drawing.Point(225, 82);
+            this.main.Name = "main";
+            this.main.Size = new System.Drawing.Size(975, 638);
+            this.main.TabIndex = 2;
+            this.main.Paint += new System.Windows.Forms.PaintEventHandler(this.main_Paint);
+            // 
+            // currentBalance
+            // 
+            this.currentBalance.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.currentBalance.AutoSize = true;
+            this.currentBalance.BackColor = System.Drawing.Color.Transparent;
+            this.currentBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currentBalance.ForeColor = System.Drawing.Color.ForestGreen;
+            this.currentBalance.Location = new System.Drawing.Point(633, 33);
+            this.currentBalance.Name = "currentBalance";
+            this.currentBalance.Size = new System.Drawing.Size(119, 29);
+            this.currentBalance.TabIndex = 0;
+            this.currentBalance.Text = "Rs 20,000";
+            this.currentBalance.MouseEnter += new System.EventHandler(this.currentBalance_MouseEnter);
+            this.currentBalance.MouseLeave += new System.EventHandler(this.currentBalance_MouseLeave);
+            this.currentBalance.MouseHover += new System.EventHandler(this.currentBalance_MouseHover);
+            // 
+            // currentBalLabel
+            // 
+            this.currentBalLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.currentBalLabel.AutoSize = true;
+            this.currentBalLabel.BackColor = System.Drawing.Color.Transparent;
+            this.currentBalLabel.ForeColor = System.Drawing.Color.White;
+            this.currentBalLabel.Location = new System.Drawing.Point(558, 40);
+            this.currentBalLabel.Name = "currentBalLabel";
+            this.currentBalLabel.Size = new System.Drawing.Size(69, 19);
+            this.currentBalLabel.TabIndex = 1;
+            this.currentBalLabel.Text = "Balance:";
+            // 
+            // logoutButton
+            // 
+            this.logoutButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.logoutButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.logoutButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.logoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logoutButton.ForeColor = System.Drawing.Color.White;
+            this.logoutButton.Location = new System.Drawing.Point(832, 23);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Size = new System.Drawing.Size(122, 40);
+            this.logoutButton.TabIndex = 2;
+            this.logoutButton.Text = "Logout";
+            this.logoutButton.UseVisualStyleBackColor = true;
             // 
             // generateMonthlyReport
             // 
@@ -222,79 +278,26 @@
             this.generateMonthlyReport.UseVisualStyleBackColor = false;
             this.generateMonthlyReport.Click += new System.EventHandler(this.generateMonthlyReport_Click);
             // 
-            // logoutButton
+            // topPanel
             // 
-            this.logoutButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.logoutButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.logoutButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.logoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.logoutButton.ForeColor = System.Drawing.Color.White;
-            this.logoutButton.Location = new System.Drawing.Point(832, 23);
-            this.logoutButton.Name = "logoutButton";
-            this.logoutButton.Size = new System.Drawing.Size(122, 40);
-            this.logoutButton.TabIndex = 2;
-            this.logoutButton.Text = "Logout";
-            this.logoutButton.UseVisualStyleBackColor = true;
-            // 
-            // currentBalLabel
-            // 
-            this.currentBalLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.currentBalLabel.AutoSize = true;
-            this.currentBalLabel.BackColor = System.Drawing.Color.Transparent;
-            this.currentBalLabel.ForeColor = System.Drawing.Color.White;
-            this.currentBalLabel.Location = new System.Drawing.Point(558, 40);
-            this.currentBalLabel.Name = "currentBalLabel";
-            this.currentBalLabel.Size = new System.Drawing.Size(69, 19);
-            this.currentBalLabel.TabIndex = 1;
-            this.currentBalLabel.Text = "Balance:";
-            // 
-            // currentBalance
-            // 
-            this.currentBalance.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.currentBalance.AutoSize = true;
-            this.currentBalance.BackColor = System.Drawing.Color.Transparent;
-            this.currentBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.currentBalance.ForeColor = System.Drawing.Color.ForestGreen;
-            this.currentBalance.Location = new System.Drawing.Point(633, 33);
-            this.currentBalance.Name = "currentBalance";
-            this.currentBalance.Size = new System.Drawing.Size(119, 29);
-            this.currentBalance.TabIndex = 0;
-            this.currentBalance.Text = "Rs 20,000";
-            this.currentBalance.MouseEnter += new System.EventHandler(this.currentBalance_MouseEnter);
-            this.currentBalance.MouseLeave += new System.EventHandler(this.currentBalance_MouseLeave);
-            this.currentBalance.MouseHover += new System.EventHandler(this.currentBalance_MouseHover);
-            // 
-            // main
-            // 
-            this.main.BackColor = System.Drawing.SystemColors.Control;
-            this.main.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.main.Location = new System.Drawing.Point(225, 82);
-            this.main.Name = "main";
-            this.main.Size = new System.Drawing.Size(975, 638);
-            this.main.TabIndex = 2;
-            // 
-            // project_DatabaseDataSet
-            // 
-            this.project_DatabaseDataSet.DataSetName = "Project_DatabaseDataSet";
-            this.project_DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tblFlatsBindingSource
-            // 
-            this.tblFlatsBindingSource.DataMember = "tbl_Flats";
-            this.tblFlatsBindingSource.DataSource = this.project_DatabaseDataSet;
-            // 
-            // tbl_FlatsTableAdapter
-            // 
-            this.tbl_FlatsTableAdapter.ClearBeforeFill = true;
+            this.topPanel.BackColor = System.Drawing.Color.Black;
+            this.topPanel.Controls.Add(this.generateMonthlyReport);
+            this.topPanel.Controls.Add(this.logoutButton);
+            this.topPanel.Controls.Add(this.currentBalLabel);
+            this.topPanel.Controls.Add(this.currentBalance);
+            this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.topPanel.Location = new System.Drawing.Point(225, 0);
+            this.topPanel.Name = "topPanel";
+            this.topPanel.Size = new System.Drawing.Size(975, 82);
+            this.topPanel.TabIndex = 1;
             // 
             // MainScreen
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1200, 720);
-            this.Controls.Add(this.topPanel);
             this.Controls.Add(this.main);
+            this.Controls.Add(this.topPanel);
             this.Controls.Add(this.sidePanel);
             this.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -305,11 +308,12 @@
             this.PicNamePanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.profiePicture)).EndInit();
             this.sidePanel.ResumeLayout(false);
-            this.topPanel.ResumeLayout(false);
-            this.topPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.project_DatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblFlatsBindingSource)).EndInit();
+            this.topPanel.ResumeLayout(false);
+            this.topPanel.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -324,14 +328,14 @@
         private System.Windows.Forms.Button analyticsButton;
         private System.Windows.Forms.Button expensesButton;
         private System.Windows.Forms.Button incomeButton;
-        private System.Windows.Forms.Panel topPanel;
-        private System.Windows.Forms.Button logoutButton;
-        private System.Windows.Forms.Label currentBalLabel;
-        private System.Windows.Forms.Label currentBalance;
-        private System.Windows.Forms.Button generateMonthlyReport;
-        private System.Windows.Forms.Panel main;
         private Project_DatabaseDataSet project_DatabaseDataSet;
         private System.Windows.Forms.BindingSource tblFlatsBindingSource;
         private Project_DatabaseDataSetTableAdapters.tbl_FlatsTableAdapter tbl_FlatsTableAdapter;
+        private System.Windows.Forms.Panel main;
+        private System.Windows.Forms.Label currentBalance;
+        private System.Windows.Forms.Label currentBalLabel;
+        private System.Windows.Forms.Button logoutButton;
+        private System.Windows.Forms.Button generateMonthlyReport;
+        private System.Windows.Forms.Panel topPanel;
     }
 }

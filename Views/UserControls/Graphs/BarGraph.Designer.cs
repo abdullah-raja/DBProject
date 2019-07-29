@@ -83,8 +83,10 @@
             this.thirdVal = new System.Windows.Forms.Label();
             this.fourthVal = new System.Windows.Forms.Label();
             this.maxLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.barBubble = new System.Windows.Forms.Panel();
+            this.valueLabel = new System.Windows.Forms.Label();
+            this.BarLabel = new System.Windows.Forms.Label();
             this.january.SuspendLayout();
             this.february.SuspendLayout();
             this.april.SuspendLayout();
@@ -97,12 +99,12 @@
             this.october.SuspendLayout();
             this.november.SuspendLayout();
             this.september.SuspendLayout();
+            this.barBubble.SuspendLayout();
             this.SuspendLayout();
             // 
             // january
             // 
-            this.january.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.january.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.january.AutoSize = true;
             this.january.BackColor = System.Drawing.Color.Transparent;
             this.january.Controls.Add(this.januaryBar);
@@ -661,17 +663,6 @@
             this.maxLabel.Text = "100,000";
             this.maxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(189, 318);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(1, 1);
-            this.button1.TabIndex = 30;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // toolTip1
             // 
             this.toolTip1.BackColor = System.Drawing.SystemColors.Desktop;
@@ -681,11 +672,47 @@
             this.toolTip1.Draw += new System.Windows.Forms.DrawToolTipEventHandler(this.toolTip1_Draw);
             this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
             // 
+            // barBubble
+            // 
+            this.barBubble.AutoSize = true;
+            this.barBubble.BackColor = System.Drawing.Color.Black;
+            this.barBubble.Controls.Add(this.valueLabel);
+            this.barBubble.Controls.Add(this.BarLabel);
+            this.barBubble.Location = new System.Drawing.Point(82, 15);
+            this.barBubble.Name = "barBubble";
+            this.barBubble.Size = new System.Drawing.Size(138, 39);
+            this.barBubble.TabIndex = 30;
+            this.barBubble.Visible = false;
+            // 
+            // valueLabel
+            // 
+            this.valueLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.valueLabel.AutoSize = true;
+            this.valueLabel.Font = new System.Drawing.Font("Lato Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.valueLabel.ForeColor = System.Drawing.Color.IndianRed;
+            this.valueLabel.Location = new System.Drawing.Point(72, 10);
+            this.valueLabel.Name = "valueLabel";
+            this.valueLabel.Size = new System.Drawing.Size(58, 19);
+            this.valueLabel.TabIndex = 1;
+            this.valueLabel.Text = "20,000";
+            // 
+            // BarLabel
+            // 
+            this.BarLabel.AutoSize = true;
+            this.BarLabel.BackColor = System.Drawing.Color.Transparent;
+            this.BarLabel.ForeColor = System.Drawing.Color.White;
+            this.BarLabel.Location = new System.Drawing.Point(7, 12);
+            this.BarLabel.Name = "BarLabel";
+            this.BarLabel.Size = new System.Drawing.Size(65, 16);
+            this.BarLabel.TabIndex = 0;
+            this.BarLabel.Text = "Expenses:";
+            // 
             // BarGraph
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Transparent;
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.barBubble);
             this.Controls.Add(this.maxLabel);
             this.Controls.Add(this.fourthVal);
             this.Controls.Add(this.thirdVal);
@@ -732,6 +759,8 @@
             this.october.ResumeLayout(false);
             this.november.ResumeLayout(false);
             this.september.ResumeLayout(false);
+            this.barBubble.ResumeLayout(false);
+            this.barBubble.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -793,7 +822,9 @@
         private System.Windows.Forms.Label thirdVal;
         private System.Windows.Forms.Label fourthVal;
         private System.Windows.Forms.Label maxLabel;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Panel barBubble;
+        private System.Windows.Forms.Label BarLabel;
+        private System.Windows.Forms.Label valueLabel;
     }
 }

@@ -10,6 +10,8 @@ using DBproject.Views.UserControls;
 using System.Data.SqlClient;
 using DBproject.Util.StoredProcedures;
 using DBproject.Util.Tables;
+using System.Data.Sql;
+
 
 namespace DBproject.Controller
 {
@@ -70,7 +72,7 @@ namespace DBproject.Controller
 
         }
 
-        virtual public void confirmTransaction(IncomingTransaction transaction)
+        virtual public void confirmTransaction(IncomingTransaction transaction, Building apartment, Income view)
         {
             
         }
@@ -95,11 +97,54 @@ namespace DBproject.Controller
 
         }
 
+        virtual public void setMonths(MainScreen view, int year, Building apartment)
+        {
+
+            List<String> months = new List<String>();
+            string selectQuery = "SELECT DISTINCT " + TABLE_EXPENSES.KEY_MONTH + " FROM " + TABLE_EXPENSES.TABLE_NAME + " WHERE " + TABLE_EXPENSES.KEY_YEAR + " = " + year + " AND " + TABLE_EXPENSES.KEY_APARTMENT_ID + " = '" + apartment.getID() + "'";
+            connection.Open();
+
+            using (SqlCommand command = new SqlCommand(selectQuery, connection))
+            {
+                using (SqlDataReader monthReader = command.ExecuteReader())
+                {
+                    while (monthReader.Read())
+                    {
+                        months.Add(monthReader[TABLE_INCOMING_TRANSACTIONS.KEY_MONTH].ToString().ToUpper());
+                    }
+                }
+            }
+
+            connection.Close();
+            view.setMonths(months);
+        }
+
         virtual public void setYears(Income view)
         {
 
         }
 
+        virtual public void setYears(MainScreen view, Building apartment)
+        {
+            List<String> years = new List<String>();
+            string selectQuery = "SELECT DISTINCT " + TABLE_EXPENSES.KEY_YEAR + " FROM " + TABLE_EXPENSES.TABLE_NAME + " WHERE " + TABLE_EXPENSES.KEY_APARTMENT_ID + " = '" + apartment.getID() + "'";
+
+            connection.Open();
+
+            using (SqlCommand command = new SqlCommand(selectQuery, connection))
+            {
+                using (SqlDataReader yearReader = command.ExecuteReader())
+                {
+                    while (yearReader.Read())
+                    {
+                        years.Add(yearReader[TABLE_INCOMING_TRANSACTIONS.KEY_YEAR].ToString());
+                    }
+                }
+            }
+
+            connection.Close();
+            view.setYears(years);
+        }
         virtual public void setYears(Expense view)
         {
 
@@ -110,9 +155,18 @@ namespace DBproject.Controller
 
         }
 
-        virtual public void newMonthStarted(Income view)
+        virtual public void newMonthStarted(Building apartment)
         {
-
+            SqlCommand command = new SqlCommand(Util.StoredProcedures.MONTH_STARTED_SP.SP_NAME, connection);
+            connection.Open();
+            command.ExecuteNonQuery();
+            for(int i = 0; i < apartment.getNoOfFloors(); i++)
+            {
+                for(int j = 0; j < apartment.getFlatsPerFloor(); j++)
+                {
+                    apartment.getFlatAt(i, j).updateDues();
+                }
+            }
         }
 
         virtual public void addExpense(Expense view, bool regularActive, ExpenseDetails expDetails)
@@ -210,13 +264,37 @@ namespace DBproject.Controller
                                 {
                                     Flat newFlat = new Model.Flat(Convert.ToInt32(reader[TABLE_FLATS.KEY_FLAT_NUMBER]), reader[TABLE_FLATS.KEY_RESIDENT_NAME].ToString(), reader[TABLE_FLATS.KEY_EMAIL].ToString(), reader[TABLE_FLATS.KEY_MOBILE_NUMBER].ToString(), Convert.ToInt32(reader[TABLE_FLATS.KEY_DUES]), Convert.ToInt32(reader[TABLE_FLATS.KEY_MONTHLYFEE]), Convert.ToInt32(reader[TABLE_FLATS.KEY_IS_MANAGER]), apartment);
                                     
-                                    apartment.setFlatAt(i + 1, j + 1, newFlat);
+                                    apartment.setFlatAt(newFlat.getFlatNumber(), newFlat);
                                     if (newFlat.getIsManager() == 3)
                                         apartment.makeAdmin(newFlat.getFlatNumber());
                                 }
 
                                 catch
                                 {
+                                    string name;
+                                    var r = reader[TABLE_FLATS.KEY_RESIDENT_NAME].Equals(DBNull.Value) ? name = "" : name = reader[TABLE_FLATS.KEY_RESIDENT_NAME].ToString();
+
+                                    string email;
+                                    r = reader[TABLE_FLATS.KEY_EMAIL].Equals(DBNull.Value) ? email = "" : email = reader[TABLE_FLATS.KEY_EMAIL].ToString();
+
+                                    string mobile;
+                                    r = reader[TABLE_FLATS.KEY_MOBILE_NUMBER].Equals(DBNull.Value) ? mobile = "" : mobile = reader[TABLE_FLATS.KEY_MOBILE_NUMBER].ToString();
+
+                                    int dues;
+                                    var a = reader[TABLE_FLATS.KEY_DUES].Equals(DBNull.Value) ? dues = 0 : dues = (int)reader[TABLE_FLATS.KEY_DUES];
+
+                                    int fee;
+                                    a = reader[TABLE_FLATS.KEY_MONTHLYFEE].Equals(DBNull.Value) ? fee = 0 : fee = (int)reader[TABLE_FLATS.KEY_MONTHLYFEE];
+
+                                    Flat newFlat = new Model.Flat(Convert.ToInt32(reader[TABLE_FLATS.KEY_FLAT_NUMBER]), name, email, mobile, dues, fee, Convert.ToInt32(reader[TABLE_FLATS.KEY_IS_MANAGER]), apartment);
+
+                                    apartment.setFlatAt(newFlat.getFlatNumber(), newFlat);
+                                    if (newFlat.getIsManager() == 3)
+                                        apartment.makeAdmin(newFlat.getFlatNumber());
+
+
+                                    
+
 
                                 }
                             }
@@ -227,6 +305,11 @@ namespace DBproject.Controller
             }
 
             connection.Close();
+        }
+
+        virtual public void updateBarGraphData(Views.UserControls.Graphs.BarGraph bar, int year, Building apartment)
+        {
+
         }
     }
 }

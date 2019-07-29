@@ -190,6 +190,19 @@ namespace DBproject.Model
 
         }
 
+        public void setFlatAt(int flatNumber, Flat newFlat)
+        {
+            flats[(flatNumber / 100) - 1, (flatNumber % 100) - 1] = newFlat;
+
+        }
+
+        public void updateFlatAt(Flat newFlat)
+        {
+            int flatNumber = newFlat.getFlatNumber();
+            flats[(flatNumber / 100) - 1, (flatNumber % 100) - 1] = newFlat;
+
+        }
+
         public void makeAdmin(int floor, int flat)
         {
             this.flats[floor, flat].makeManager(3);

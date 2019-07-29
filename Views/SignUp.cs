@@ -18,9 +18,9 @@ namespace DBproject.Views
 {
     public partial class SignUp : Form
     {
-        string sarim = @"Data Source=(localdb)\mssqllocaldb;Initial Catalog=Project_Database;Integrated Security=True";
-        string raja = @"Data Source=HAIER-PC\SQLEXPRESS;Initial Catalog=Project_Database;Integrated Security=True";
-        string connectionString = @"Data Source=HAIER-PC\SQLEXPRESS;Initial Catalog=Project_Database;Integrated Security=True";
+       // string sarim = @"Data Source=(localdb)\mssqllocaldb;Initial Catalog=Project_Database;Integrated Security=True";
+       // string raja = @"Data Source=HAIER-PC\SQLEXPRESS;Initial Catalog=Project_Database;Integrated Security=True";
+       // string connectionString = @"Data Source=HAIER-PC\SQLEXPRESS;Initial Catalog=Project_Database;Integrated Security=True";
 
         string usersTableName = "tbl_User";
         string buildingsTableName = "tbl_Buildings";
@@ -186,8 +186,7 @@ namespace DBproject.Views
 
             else
             {
-                controller = new Controller.AuthorizationModule(this.connectionString
-                , usersTableName);
+                controller = new Controller.AuthorizationModule(Util.CONNECTION_DETAILS.CONNECITION_STRING, usersTableName);
                 user = new User(firstNameTextBox.Text, lastNameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, adminRadio.Checked, mobileTextBox.Text);
                 controller.signUp(user, this);
 
@@ -203,8 +202,7 @@ namespace DBproject.Views
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            controller = new Controller.AuthorizationModule(this.connectionString
-                , usersTableName);
+            controller = new Controller.AuthorizationModule(Util.CONNECTION_DETAILS.CONNECITION_STRING, usersTableName);
            
             controller.signIn(this.user , this, loginEmailTextbox.Text, loginPasswordTextbox.Text, apartment);
         }
@@ -242,7 +240,7 @@ namespace DBproject.Views
 
         private void SignupAsAdminButton_Click(object sender, EventArgs e)
         {
-            controller = new CreateAndJoinBuilding(connectionString, buildingsTableName);
+            controller = new CreateAndJoinBuilding(Util.CONNECTION_DETAILS.CONNECITION_STRING, buildingsTableName);
             this.apartment = new Building(buildingNameTextbox.Text, Convert.ToInt32(noOfFloorsInput.Value), Convert.ToInt32(flatsPerFloorInput.Value), codeTextBox.Text, user, Convert.ToInt32(flatNoFormatInput.Value), (int)balanceInput.Value);
             
             controller.createBuilding(apartment, this,user,Convert.ToInt32(adminFlatInput.Value));

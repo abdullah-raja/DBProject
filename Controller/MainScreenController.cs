@@ -66,6 +66,7 @@ namespace DBproject.Controller
             updateCommand.Parameters.Add(new SqlParameter(UPDATE_FLAT_SP.IS_MANAGER_PARAM, flat.getIsManager()));
 
             updateCommand.ExecuteNonQuery();
+            
 
         }
 
@@ -97,8 +98,16 @@ namespace DBproject.Controller
                 using (SqlDataReader incomeReader = incomeCommand.ExecuteReader())
                 {
                     if (incomeReader.Read())
-                        income = (int)incomeReader[0];
+                    {
+                        try
+                        {
+                            income = (int)incomeReader[0];
+                        }
+                        catch
+                        {
 
+                        }
+                    }
                 }
             }
 
@@ -109,18 +118,25 @@ namespace DBproject.Controller
                 using (SqlDataReader expenseReader = expenseCommand.ExecuteReader())
                 {
                     if (expenseReader.Read())
-                        expense = (int)expenseReader[0];
+                    {
+                        try
+                        {
+                            expense = (int)expenseReader[0];
+                        }
+                        catch
+                        {
+
+                        }
+                    }
                 }
             }
 
             view.updateBalance(income, expense);
         }
 
-        public override void newMonthStarted(Income view)
+        public  void newMonthStarted(Income view)
         {
-            SqlCommand command = new SqlCommand(Util.StoredProcedures.MONTH_STARTED_SP.SP_NAME, connection);
-            connection.Open();
-            command.ExecuteNonQuery();
+           
         }
     }
 }

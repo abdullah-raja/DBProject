@@ -19,7 +19,7 @@ namespace DBproject.Views.UserControls
         public Anaytics()
         {
             InitializeComponent();
-
+            
             
             //pie.DrawArcRectangle();
            // pie.DrawArcRectangle(new PaintEventArgs(this.CreateGraphics(), new Rectangle(5, 5, 200, 200)));
@@ -33,6 +33,17 @@ namespace DBproject.Views.UserControls
             controller = new AnalyticsModule(Util.CONNECTION_DETAILS.CONNECITION_STRING);
             controller.showExpensePieChart(this, apartment);
             controller.showIncomePieChart(this, apartment);
+
+            UserControls.Graphs.BarGraph barGraph = new UserControls.Graphs.BarGraph();
+
+            controller = new AnalyticsModule(Util.CONNECTION_DETAILS.CONNECITION_STRING);
+            controller.updateBarGraphData(barGraph, 2019, this.apartment);
+            barPanel.SetFlowBreak(this, true);
+            barGraph.Dock = DockStyle.Left;
+            
+            barPanel.WrapContents = false;
+            barPanel.Controls.Add(barGraph);
+            
 
         }
 
@@ -73,5 +84,7 @@ namespace DBproject.Views.UserControls
         {
 
         }
+
+       
     }
 }

@@ -27,10 +27,8 @@ namespace DBproject.Views.UserControls
         {
             InitializeComponent();
             statusFilter.SelectedIndex = 0;
-            controller = new TransactionModule(CONNECTION_DETAILS.CONNECITION_STRING, "");
-            controller.setYears(this);
+            
             expenses = new List<ExpenseCard>();
-
             
             
 
@@ -45,7 +43,8 @@ namespace DBproject.Views.UserControls
 
             otherExpensesList.Location = expensesList.Location;
             this.apartment = apartment;
-
+            this.setYears(mainView.getYears());
+            this.setMonths(mainView.getMonths());
             controller = new ExpenseModule(CONNECTION_DETAILS.CONNECITION_STRING, "");
             controller.getAllExpense(this.expenses, this.apartment, monthComboBox.SelectedItem.ToString(), Convert.ToInt32(yearComboBox.SelectedItem));
             foreach (ExpenseCard exp in expenses)
@@ -70,6 +69,8 @@ namespace DBproject.Views.UserControls
                 }
                     
             }
+
+            
         }
 
        
@@ -118,9 +119,7 @@ namespace DBproject.Views.UserControls
             monthComboBox.Items.AddRange(months.ToArray());
 
             string currentMonth = miscFunctions.ToMonthName(DateTime.Now).ToUpper();
-            if (!monthComboBox.Items.Contains(currentMonth))
-                monthComboBox.Items.Add(currentMonth);
-
+            
             monthComboBox.SelectedItem = currentMonth;
         }
 
@@ -129,16 +128,9 @@ namespace DBproject.Views.UserControls
             yearComboBox.Items.AddRange(years.ToArray());
 
             string currentYear = DateTime.Now.Year.ToString();
-            if (!yearComboBox.Items.Contains(currentYear))
-            {
-                yearComboBox.Items.Add(currentYear);
-                controller = new MainScreenController(Util.CONNECTION_DETAILS.CONNECITION_STRING, "");
-                // controller.newMonthStarted(this);
-            } // increment dues
-
-
+           
             yearComboBox.SelectedItem = currentYear;
-            controller.setMonths(this, Convert.ToInt32(yearComboBox.SelectedItem));
+            
         }
 
         public void addExpense() // will be called by view
@@ -224,12 +216,51 @@ namespace DBproject.Views.UserControls
         {
             foreach(ExpenseCard exp in expenses)
             {
-                if (exp.GetExpenseDetails().getExpenseName().Contains(str))
+                if (exp.GetExpenseDetails().getExpenseName().ToUpper().Contains(str.ToUpper()))
                     exp.Show();
 
                 else
                     exp.Hide();
             }
         }
+
+        private void monthComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+          /*  foreach (ExpenseCard exp in expenses)
+            {
+                if (exp.GetExpenseDetails().getMonth().ToUpper() == monthComboBox.SelectedItem.ToString().ToUpper())
+                    exp.Show();
+
+                else
+                    exp.Hide();
+            }*/
+
+            controller = new ExpenseModule(CONNECTION_DETAILS.CONNECITION_STRING, "");
+            controller.getAllExpense(this.expenses, this.apartment, monthComboBox.SelectedItem.ToString(), Convert.ToInt32(yearComboBox.SelectedItem));
+            foreach (ExpenseCard exp in expenses)
+            {
+                exp.setView(this.mainView);
+                if (exp.GetExpenseDetails().GetExpenseType() == ExpenseType.Regular)
+                {
+                    expensesList.Controls.Add(exp);
+                    if (exp.GetExpenseDetails().GetExpenseStatus() == ExpenseStatus.Paid)
+                        exp.SendToBack();
+                    else
+                        exp.BringToFront();
+                }
+
+                else
+                {
+                    otherExpensesList.Controls.Add(exp);
+                    if (exp.GetExpenseDetails().GetExpenseStatus() == ExpenseStatus.Paid)
+                        exp.SendToBack();
+                    else
+                        exp.BringToFront();
+                }
+
+            }
+        }
+
+       
     }
 }

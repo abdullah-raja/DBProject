@@ -29,6 +29,8 @@ namespace DBproject.Views.UserControls.Graphs
            
         }
 
+        
+
         Point[] curvePoints;
         public class MonthData
         {
@@ -91,10 +93,47 @@ namespace DBproject.Views.UserControls.Graphs
                 // MessageBox.Show(this.incomeBar.Name + " = " + this.incomeBar.Height + this.bar.Name + " = " + this.bar.Height);
             }
 
-            public void setBar(Panel bar, Panel incomeBar)
+            public void setBar(Panel bar, Panel incomeBar, BarGraph parent)
             {
+
                 this.bar = bar;
                 this.incomeBar = incomeBar;
+                this.bar.MouseEnter += (s, e) =>
+                {
+                    this.bar.BorderStyle = BorderStyle.Fixed3D;
+                };
+
+                this.bar.MouseHover += (s, e2) =>
+                {
+                    parent.showBubble("EXPENSES", expense, this.bar.BackColor);
+                    
+                };
+
+                this.bar.MouseLeave += (s, e3) =>
+                {
+                    this.bar.BorderStyle = BorderStyle.None;
+                    parent.hideBubble();
+                };
+
+                this.incomeBar.MouseEnter += (s, e) =>
+                {
+                    this.incomeBar.BorderStyle = BorderStyle.Fixed3D;
+                };
+
+                this.incomeBar.MouseHover += (s, e2) =>
+                {
+                    parent.showBubble("CLOSING BALANCE", income-expense, this.incomeBar.BackColor);
+
+                };
+
+                this.incomeBar.MouseLeave += (s, e3) =>
+                {
+                    this.incomeBar.BorderStyle = BorderStyle.None;
+                    parent.hideBubble();
+                };
+
+
+
             }
 
             public Panel getParentBar()
@@ -116,18 +155,18 @@ namespace DBproject.Views.UserControls.Graphs
                 data[i] = new MonthData(0, 0, 0);
             }
 
-            data[0].setBar(januaryBar, januaryBar);
-            data[1].setBar(februaryBar, februaryIncome);
-            data[2].setBar(marchBar, marchIncome);
-            data[3].setBar(aprilbar, aprilIncome);
-            data[4].setBar(mayBar, mayIncome);
-            data[5].setBar(juneBar, juneIncome);
-            data[6].setBar(julyBar, julyIncome);
-            data[7].setBar(augustbar, augustIncome);
-            data[8].setBar(septemberBar, septemberIncome);
-            data[9].setBar(octoberBar, octoberIncome);
-            data[10].setBar(novemberBar, novemberIncome);
-            data[11].setBar(decemberBar, decemberIncome);
+            data[0].setBar(januaryBar, januaryIncome, this);
+            data[1].setBar(februaryBar, februaryIncome, this);
+            data[2].setBar(marchBar, marchIncome, this);
+            data[3].setBar(aprilbar, aprilIncome, this);
+            data[4].setBar(mayBar, mayIncome, this);
+            data[5].setBar(juneBar, juneIncome, this);
+            data[6].setBar(julyBar, julyIncome, this);
+            data[7].setBar(augustbar, augustIncome, this);
+            data[8].setBar(septemberBar, septemberIncome, this);
+            data[9].setBar(octoberBar, octoberIncome, this);
+            data[10].setBar(novemberBar, novemberIncome, this);
+            data[11].setBar(decemberBar, decemberIncome, this);
 
 
             
@@ -184,9 +223,9 @@ namespace DBproject.Views.UserControls.Graphs
 
         public void setData(int index, int income, int expense)
         {
-            data[index].setIncome(income);
-            data[index].setExpense(expense);
-            data[index].setTotal(income + expense);
+            data[index-1].setIncome(income);
+            data[index-1].setExpense(expense);
+            data[index-1].setTotal(income + expense);
             //data[index].updateBar();
 
         }
@@ -224,5 +263,19 @@ namespace DBproject.Views.UserControls.Graphs
 
         }
         
+        public void showBubble(string title, int value, Color color)
+        {
+            barBubble.Show();
+            barBubble.Location = this.PointToClient(MousePosition);
+            BarLabel.Text = title;
+            valueLabel.Text = value.ToString();
+            valueLabel.ForeColor = color;
+
+        }
+
+        public void hideBubble()
+        {
+            barBubble.Hide();
+        }
     }
 }

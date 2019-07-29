@@ -106,9 +106,11 @@ namespace DBproject.Controller
                         }
                     }
 
+                    connection.Close();
+                    this.getAllFlats(apartment);
                     Model.Flat adminFlat = getAdminFlat(apartment, user);
-                    apartment.makeAdmin(adminFlat.getFlatNumber());
-                    user.setFlat(apartment.getAdminFlat());
+                    //apartment.makeAdmin(adminFlat.getFlatNumber());
+                    user.setFlat(adminFlat);
 
                 }
 
@@ -190,6 +192,7 @@ namespace DBproject.Controller
 
         protected Model.Flat getAdminFlat(Model.Building apartment, Model.User user)
         {
+            connection.Open();
             Model.Flat adminFlat = null;
             string selectAdminFlat = "SELECT * FROM " + Util.Tables.TABLE_FLATS.TBL_FLATS + " WHERE " + Util.Tables.TABLE_FLATS.KEY_USER_ID + " = '" + user.getID() + "'";
             using (SqlCommand getFlatCommand = new SqlCommand(selectAdminFlat, connection))
@@ -211,7 +214,7 @@ namespace DBproject.Controller
                     }
                 }
             }
-
+            connection.Close();
             return adminFlat;
         }
     }

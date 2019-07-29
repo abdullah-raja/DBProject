@@ -19,10 +19,17 @@ namespace DBproject.Views.UserControls
         DBproject.Model.Flat flat;
         DBproject.Views.UserControls.Income view;
 
+
         public FlatCardSquare(Flat flat, Income view)
         {
             InitializeComponent();
             this.flat = flat;
+            if (flat.getDues() <= 0)
+                changeToPaid();
+
+            else
+                changeToUnpaid();
+
             this.view = view;
         }
 
@@ -34,8 +41,33 @@ namespace DBproject.Views.UserControls
 
         private void button1_Click(object sender, EventArgs e)
         {
-            controller = new Controller.MainScreenController(connectionString, Util.Tables.TABLE_FLATS.TBL_FLATS);
-            controller.showDetailsPanel(flat, view);
+            // controller = new Controller.MainScreenController(connectionString, Util.Tables.TABLE_FLATS.TBL_FLATS);
+            // controller.showDetailsPanel(flat, view);
+            view.showDetails(flat.getFlatNumber());
+        }
+
+        public void changeToPaid()
+        {
+            button1.BackColor = Color.DarkRed;
+            button1.BackgroundImage = Properties.Resources.f2;
+        }
+
+        public void changeToUnpaid()
+        {
+            button1.BackColor = Color.DimGray;
+            button1.BackgroundImage = Properties.Resources.dgra;
+        }
+
+        public void updatePaidStatus()
+        {
+            if (this.flat.getDues() > 0)
+                changeToUnpaid();
+            else
+                changeToPaid();
+        }
+        public Flat getFlat()
+        {
+            return this.flat;
         }
     }
 }

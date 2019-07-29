@@ -11,7 +11,7 @@ namespace DBproject.Util.StoredProcedures
         public static string SP_NAME = "usp_updateFlat";
         public static string FLAT_NUM_PARAm = "@flatNumber", EMAIL_PARAM = "@email",
             MOBILE_NUM_PARAM = "@mobileNumber", DUES_PARAM = "@dues", FEE_PARAM = "@monthlyFee", APARTMENT_ID_PARAM = "@apartmentID",
-            NAME_PARAM = "@name", IS_MANAGER_PARAM = "@isManager";
+            NAME_PARAM = "@name", IS_MANAGER_PARAM = "@manager";
 
 
     }

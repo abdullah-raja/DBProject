@@ -148,7 +148,15 @@ namespace DBproject.Model
             return this.apartment;
         }
 
+        public void incrementDues(int dues)
+        {
+            this.dues += dues;
+        }
 
+        public void updateDues()
+        {
+            this.dues += monthlyFees;
+        }
         
     }
 }

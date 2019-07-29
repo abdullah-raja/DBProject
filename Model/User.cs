@@ -60,6 +60,8 @@ namespace DBproject.Model
         public void setFlat(Flat flat)
         {
             this.userFlat = flat;
+            if (this.isAdmin)
+                userFlat.makeManager(3);
             userFlat.setContactNumber(this.mobileNumber);
             userFlat.setEmail(this.email);
             userFlat.setNameOfResident(this.firstName + " " + this.lastName);

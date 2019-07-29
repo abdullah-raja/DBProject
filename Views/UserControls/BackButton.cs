@@ -26,7 +26,7 @@ namespace DBproject.Views.UserControls
             FlowLayoutPanel FloorsPanel = (FlowLayoutPanel)this.Parent;
             
             FloorsPanel.Controls.Clear();
-            for (int i = 0; i < apartment.getNoOfFloors(); i++)
+            /*for (int i = 0; i < apartment.getNoOfFloors(); i++)
             {
                 FloorCard floor = new FloorCard(apartment, this.view);
                 floor.setText("Floor # " + (i + 1).ToString());
@@ -35,7 +35,9 @@ namespace DBproject.Views.UserControls
 
                 // floor.Anchor = AnchorStyles.Top;
                 FloorsPanel.Controls.Add(floor);
-            }
+            }*/
+
+            FloorsPanel.Controls.AddRange(view.getFloorCard().ToArray());
         }
     }
 }

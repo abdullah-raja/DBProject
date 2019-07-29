@@ -8,6 +8,8 @@ using DBproject.Model;
 using DBproject.Util;
 using DBproject.Views.UserControls;
 using System.Data.SqlClient;
+using DBproject.Views.UserControls.Graphs;
+using DBproject.Util.Tables;
 
 namespace DBproject.Controller
 {
@@ -131,6 +133,33 @@ namespace DBproject.Controller
             connection.Close();
             view.showExpenseGraph(paidCount, paidSum, unpaidCount, unpaidSum);
 
+
+        }
+
+        public override void updateBarGraphData(BarGraph bar, int year, Building apartment)
+        {
+            string incomeQuery = "SELECT incomeMonth, totalIncome, total FROM MONTHLY_EXPENSES_VIEW e INNER JOIN MONTHLY_INCOME_VIEW i ON e.month = i.incomeMonth AND e.apartmentID = i.apartmentID WHERE " + "i.apartmentID = '" + apartment.getID() + "'";
+            // first column of everymonth = month index, second inc, third exp
+            connection.Open();
+            using (SqlCommand command = new SqlCommand(incomeQuery, connection))
+            {
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    int i = 1;
+                    while(reader.Read() && i < 12)
+                    {
+                        while(Convert.ToInt32(reader[0]) != i)
+                        {
+                            i++;
+                        }
+
+                        bar.setData(i, Convert.ToInt32(reader[1]), Convert.ToInt32(reader[2]));
+                    }
+                }
+            }
+
+            bar.updateGraph();
+            
 
         }
 

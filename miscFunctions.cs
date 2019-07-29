@@ -19,5 +19,10 @@ namespace DBproject
             return CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(month);
         }
 
+        public static string toNullString(object val)
+        {
+            return val == null ? "" : val.ToString();
+        }
+
     }
 }

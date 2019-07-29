@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BackButton));
             this.xuiSuperButton1 = new XanderUI.XUISuperButton();
             this.SuspendLayout();
             // 
             // xuiSuperButton1
             // 
             this.xuiSuperButton1.BackgroundColor = System.Drawing.Color.DarkRed;
-            this.xuiSuperButton1.ButtonImage = ((System.Drawing.Image)(resources.GetObject("xuiSuperButton1.ButtonImage")));
+            this.xuiSuperButton1.ButtonImage = null;
             this.xuiSuperButton1.ButtonSmoothing = System.Drawing.Drawing2D.SmoothingMode.HighSpeed;
             this.xuiSuperButton1.ButtonStyle = XanderUI.XUISuperButton.Style.RoundedEdges;
-            this.xuiSuperButton1.ButtonText = "";
+            this.xuiSuperButton1.ButtonText = "<";
             this.xuiSuperButton1.CornerRadius = 5;
+            this.xuiSuperButton1.Font = new System.Drawing.Font("Lato Black", 50F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xuiSuperButton1.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
             this.xuiSuperButton1.HoverBackgroundColor = System.Drawing.Color.Maroon;
             this.xuiSuperButton1.HoverTextColor = System.Drawing.Color.White;

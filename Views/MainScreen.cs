@@ -21,17 +21,26 @@ namespace DBproject.Views
         User user;
         Building apartment;
         BalanceDetails balanceDetails;
-        int starting, income, expense, current = 0; 
+        int starting, income, expense, current = 0;
+        List<String> months;
+        List<String> years;
         public MainScreen(User user, Building apartment)
         {
 
             InitializeComponent();
+            this.main.AutoScroll = false;
+            this.main.AutoScroll = true;
             this.user = user;
             this.apartment = apartment;
+            months = new List<string>();
+            years = new List<String>();
             updateMainScreen();
             controller = new MainScreenController(Util.CONNECTION_DETAILS.CONNECITION_STRING, "");
             controller.updateBalance(apartment, this);
             // calling controller function and creating user
+
+            controller = new TransactionModule(Util.CONNECTION_DETAILS.CONNECITION_STRING, "");
+            controller.setYears(this, this.apartment);
         }
 
         private void logoutButton_Click(object sender, EventArgs e)
@@ -80,8 +89,8 @@ namespace DBproject.Views
 
         private void currentBalance_MouseLeave(object sender, EventArgs e)
         {
-        //    System.Threading.Thread.Sleep(1000);
-         //   balanceDetails.Dispose();
+            System.Threading.Thread.Sleep(1000);
+         balanceDetails.Dispose();
         }
 
         private void analyticsButton_Click(object sender, EventArgs e)
@@ -99,25 +108,7 @@ namespace DBproject.Views
 
         private void settingsButton_Click(object sender, EventArgs e)
         {
-            UserControls.Graphs.BarGraph barGraph = new UserControls.Graphs.BarGraph();
-            for(int i = 0; i < 12; i++)
-            {
-                int inc = 20000, exp = 6000, total = inc + exp;
-
-                if (i < 3)
-                barGraph.setData(i, inc * (i + 1), exp * (i + 1));
-
-                else
-                {
-                    if(i % 3 == 0)
-                    barGraph.setData(i, inc / (i + 1), exp / (i + 1));
-
-                    else
-                    barGraph.setData(i, inc , exp);
-                }
-            }
-            barGraph.updateGraph();
-            main.Controls.Add(barGraph);
+            
           //  barGraph.drawG();
         }
 
@@ -156,6 +147,11 @@ namespace DBproject.Views
             balanceDetails.BringToFront();
         }
 
+        private void main_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         public void updateBalance(int inc, int exp)
         {
             currentBalance.Text = "Rs " + apartment.getBalance().ToString();
@@ -179,6 +175,41 @@ namespace DBproject.Views
            
         }
 
-        
+        public void setYears(List<string> years)
+        {
+            this.years.AddRange(years);
+            string currentYear = DateTime.Now.Year.ToString();
+            if (!this.years.Contains(currentYear))
+            {
+                this.years.Add(currentYear);
+                controller = new MainScreenController(Util.CONNECTION_DETAILS.CONNECITION_STRING, "");
+                controller.newMonthStarted(this.apartment);
+            } // increment dues
+
+            controller.setMonths(this, 2019, this.apartment);
+        }
+
+        public void setMonths(List<string> months)
+        {
+            this.months.AddRange(months.ToArray());
+
+            string currentMonth = miscFunctions.ToMonthName(DateTime.Now).ToUpper();
+            if (!this.months.Contains(currentMonth))
+            {
+                this.months.Add(currentMonth);
+                controller = new MainScreenController(Util.CONNECTION_DETAILS.CONNECITION_STRING, "");
+                controller.newMonthStarted(this.apartment);
+            }
+        }
+
+        public List<string> getMonths()
+        {
+            return this.months;
+        }
+
+        public List<string> getYears()
+        {
+            return this.years;
+        }
     }
 }

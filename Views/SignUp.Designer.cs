@@ -578,7 +578,7 @@
             // refreshCodeButton
             // 
             this.refreshCodeButton.BackColor = System.Drawing.Color.Transparent;
-            this.refreshCodeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("refreshCodeButton.BackgroundImage")));
+            this.refreshCodeButton.BackgroundImage = global::DBproject.Properties.Resources.ic_refresh_48px_512;
             this.refreshCodeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.refreshCodeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.refreshCodeButton.ForeColor = System.Drawing.Color.Transparent;
@@ -1058,12 +1058,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1200, 720);
+            this.Controls.Add(this.AdminPanel);
             this.Controls.Add(this.AsaMemberpanel);
             this.Controls.Add(this.signUpPanel);
             this.Controls.Add(this.loginPanel);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.xuiGradientPanel1);
-            this.Controls.Add(this.AdminPanel);
             this.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

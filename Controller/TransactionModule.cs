@@ -9,6 +9,9 @@ using DBproject.Util.StoredProcedures;
 using DBproject.Views.UserControls;
 using DBproject.Util.Tables;
 using System.Windows.Forms;
+using System.Drawing;
+using System.Net.Mail;
+using System.IO;
 
 namespace DBproject.Controller
 {
@@ -39,7 +42,7 @@ namespace DBproject.Controller
             }
         }
 
-        override public void confirmTransaction(IncomingTransaction transaction)
+        override public void confirmTransaction(IncomingTransaction transaction, Building apartment, Income view)
         {
             SqlCommand insertCommand = new SqlCommand(INSERT_TRANSACTION_SP.SP_NAME, connection);
             insertCommand.CommandType = System.Data.CommandType.StoredProcedure;
@@ -65,12 +68,73 @@ namespace DBproject.Controller
             }
             
             connection.Close();
-
+            int prevDues = transaction.getPaidBy().getDues();
+            transaction.getPaidBy().setDues(prevDues - transaction.getAmount());
+            apartment.updateFlatAt(transaction.getPaidBy());
+            transaction.getPaidBy().setDues(prevDues - transaction.getAmount());
+            view.updateFlat(transaction.getPaidBy().getFlatNumber());
+            sendEmail("abdullah-rafiq2011@live.co.uk", view);
         }
 
-        override public void sendEmail(string email, Receipt receipt)
+        private Stream GetBitmapImageStream(Income receipt)
         {
+            string fileName = "receipt.bmp";
             // send email functionality here
+            Bitmap bitmap = converttobitmap(receipt);
+            bitmap.Save(fileName);
+            
+
+            MemoryStream myMemoryStream = new MemoryStream();
+
+            bitmap.Save(myMemoryStream, System.Drawing.Imaging.ImageFormat.Bmp);
+
+            return myMemoryStream;
+        }
+
+        public void sendEmail(string email, Income receipt)
+        {
+            
+            try
+            {
+
+
+                SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
+                client.EnableSsl = true;
+                client.Timeout = 10000;
+                client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                client.UseDefaultCredentials = false;
+                client.Credentials = new System.Net.NetworkCredential("manageapart001@gmail.com", "sakharam420");
+                MailMessage msg = new MailMessage();
+                msg.To.Add(email);
+                msg.From = new MailAddress("manageapart001@gmail.com");
+                // msg.Subject = textBox3.Text;
+                //   AlternateView imgview=AlternateView.CreateAlternateViewFromString()
+                //  LinkedResource lr = new LinkedResource("button.bmp");
+                //  lr.ContentId=""
+
+                msg.Subject = "Test Mail";
+                msg.Body= "Test";
+               // msg.Attachments.Add(new Attachment(GetBitmapImageStream(receipt), fileName);
+                client.Send(msg);
+                MessageBox.Show("Succesfully Sent Message.");
+               // bitmap.Dispose();
+                // Console.ReadLine();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private static Bitmap converttobitmap(Income control)
+        {
+            Bitmap bitmap = new Bitmap(control.Width, control.Height);
+            Graphics graphics = Graphics.FromImage(bitmap);
+            Rectangle rect = control.RectangleToScreen(control.ClientRectangle);
+            graphics.CopyFromScreen(rect.Location, Point.Empty, control.Size);
+
+            return bitmap;
         }
 
         public override void setMonths(Income view, int year) // for income

@@ -19,7 +19,8 @@ namespace DBproject.Views.UserControls
         ControllerModule controller;
         MainScreen mainScreen;
         Building apartment;
-        public Receipt(User user, Flat flat, Building apartment, string month, int year, MainScreen mainScreen) // used for collection
+        Income incomeView;
+        public Receipt(User user, Flat flat, Building apartment, string month, int year, MainScreen mainScreen, Income incomeView) // used for collection
         {
             InitializeComponent();
             
@@ -29,6 +30,7 @@ namespace DBproject.Views.UserControls
             transaction = new IncomingTransaction(receiptTrID.Text, apartment, flat, (int)receiptAmount.Value, reciptDateTime.Value, user.getFlat(), month, year);
             this.mainScreen = mainScreen;
             this.apartment = apartment;
+            this.incomeView = incomeView;
 
         }
 
@@ -63,7 +65,7 @@ namespace DBproject.Views.UserControls
         private void confirmButton1_Click_1(object sender, EventArgs e)
         {
             controller = new TransactionModule(Util.CONNECTION_DETAILS.CONNECITION_STRING, Util.Tables.TABLE_INCOMING_TRANSACTIONS.TABLE_NAME);
-            controller.confirmTransaction(this.transaction);
+            controller.confirmTransaction(this.transaction, this.apartment, this.incomeView);
 
             controller = new MainScreenController(Util.CONNECTION_DETAILS.CONNECITION_STRING, Util.Tables.TABLE_FLATS.TBL_FLATS);
             controller.showDetailsPanel(this.transaction.getPaidBy(), (Income)this.Parent);
